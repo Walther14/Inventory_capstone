@@ -64,21 +64,55 @@
                 <input type="text" class="form-control" name="Date_Acquired" placeholder="First name" required>
             </div>
 
-            <div class="col-sm-6">
-                <input type="text" class="form-control" name="Asset_Category" placeholder="First name" required>
-            </div>
+
+
             <div class="col-sm-6">
                 <label for="first-name" class="form-label">Asset Category</label>
-                <select class="form-select" aria-label="Select example">
-                        <option value="test">test</option>
+                <select class="form-select" name="Asset_Category" aria-label="Select example">
+                    <?php
+                    $fund = "SELECT * FROM asset_db";
+
+                    $result = $data->query($fund);
+
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                    ?>
+
+                            <option value="<?php echo $row['Asset_Code'] ?>"><?php echo $row['Asset_Title'] ?></option>
+                    <?php
+                        }
+                    }
+                    ?>
                 </select>
             </div>
 
 
+
             <div class="col-sm-6">
-                <label for="last-name" class="form-label">Asset Number</label>
-                <input type="text" class="form-control" name="Asset_Number" placeholder="Enter Account Number" required>
+                <label for="first-name" class="form-label">Asset Number</label>
+                <select class="form-select" name="Asset_Number" aria-label="Select example">
+                    <?php
+                    $fund = "SELECT * FROM itemcategory_db";
+
+                    $result = $data->query($fund);
+
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                    ?>
+
+                            <option value="<?php echo $row['Account_ID'] ?>"><?php echo $row['Account_Number'] ?></option>
+                    <?php
+                        }
+                    }
+                    ?>
+                </select>
             </div>
+
+
+
+         
 
             <div class="col-sm-6">
                 <label for="last-name" class="form-label">Asset Title</label>
@@ -126,11 +160,28 @@
                 <input type="text" class="form-control" name="Fund_Cluster" placeholder="Enter Fund Cluster" required>
             </div>
 
-
             <div class="col-sm-6">
-                <label for="last-name" class="form-label">Fund Admin Title</label>
-                <input type="text" class="form-control" name="Fund_Admin_Code" placeholder="Enter Fund Admin Title" required>
+                <label for="first-name" class="form-label">Fund Admin Title</label>
+                <select class="form-select" name="Fund_Admin_Code" aria-label="Select example">
+                    <?php
+                    $fund = "SELECT * FROM fundcode_db";
+
+                    $result = $data->query($fund);
+
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                    ?>
+
+                            <option value="<?php echo $row['fund_ID'] ?>"><?php echo $row['Fund_Admin_Code'] ?></option>
+                    <?php
+                        }
+                    }
+                    ?>
+                </select>
             </div>
+
+
 
             <div class="col-sm-6">
                 <label for="first-name" class="form-label">Fund Admin Title</label>
