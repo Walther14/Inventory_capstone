@@ -98,10 +98,17 @@
             <li><a type="button" href="" class="dropdown-item">Semi-Expendable Property</a></li>
             <li><a type="button" href="" class="dropdown-item">Properety Plan Equipmemt</a></li>
     
-    
             <li>
               <hr class="dropdown-divider">
             </li>
+            <li><span class="dropdown-item-text">Forms</span></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li><span class="dropdown-item-text">Dropdown text</span></li>
+            <li><span class="dropdown-item-text">Dropdown text</span></li>
+            <li><span class="dropdown-item-text">Dropdown text</span></li>
             <li><span class="dropdown-item-text">Dropdown text</span></li>
           </ul>
         </div>
