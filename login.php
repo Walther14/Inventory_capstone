@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if (password_verify($password, $db_password)) {
         $_SESSION['user_id'] = $id;
         $_SESSION['user_username'] = $db_username;
+        $_SESSION['logged_in'];
         header("Location: index.php");
       } else {
         $error_message = "Incorrect password.";
