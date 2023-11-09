@@ -1,34 +1,61 @@
 <?php
-@include('./Controller/db.php');
-@include('partials/header.php');
+session_start();
 
+// Include necessary files
+include_once('./Controller/db.php');
+include('partials/header.php');
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
 
+    $username_error = $password_error = $error_message = "";
 
-echo ($_POST['username']);
-if (isset($_POST['username'])) {
-  $username    = mysqli_real_escape_string($conn, $_POST['username']);
-  $password = mysqli_real_escape_string($conn, $_POST['password']);
+    // Validate username
+    if (empty($username)) {
+        $username_error = "Please enter a username.";
+    }
 
-  if (!filter_var($username, FILTER_VALIDATE_username)) {
-    $username_error = "Please Enter Valid Username";
-  }
-  if (strlen($password) < 6) {
-    $password_error = "Password must be minimum of 6 characters";
-  }
+    // Validate password
+    if (empty($password)) {
+        $password_error = "Please enter a password.";
+    } elseif (strlen($password) < 6) {
+        $password_error = "Password must be at least 6 characters long.";
+    }
 
-  $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '" . $username . "' and password = '" . ($password) . "'");
-  if ($row = mysqli_fetch_array($result)) {
-    $_SESSION['user_username']  = $row['username'];
-    header("Location: index.php");
-  } else {
-    $error_message = "Incorrect username or Password!!!";
-  }
+    if (empty($username_error) && empty($password_error)) {
+        // Hash the password for secure storage and retrieval
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Check the database for the username and hashed password
+        $query = "SELECT id, username, password FROM users WHERE username = ?";
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, 's', $username);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+
+        if (mysqli_stmt_num_rows($stmt) == 1) {
+            mysqli_stmt_bind_result($stmt, $id, $db_username, $db_password);
+            mysqli_stmt_fetch($stmt);
+
+            // Verify the password
+            if (password_verify($password, $db_password)) {
+                $_SESSION['user_id'] = $id;
+                $_SESSION['user_username'] = $db_username;
+                header("Location: index.php");
+            } else {
+                $error_message = "Incorrect password.";
+            }
+        } else {
+            $error_message = "Username not found.";
+        }
+
+        mysqli_stmt_close($stmt);
+    }
 }
-
 ?>
 
-<div class="d-flex justify-content-center  align-items-center" style="height: 100vh; background: url('./img/back.jpg'); background-size: cover;">
+<div class="d-flex justify-content-center  align-items-center" style="height: 100vh; background: url('./img/w1860.jpg'); background-size: cover;">
   <div class="card" style="width: 18.75rem; background-color: rgba(255, 255, 255, 0.5);">
     <img src="./img/prime.png" class="card-img-top" alt="...">
     <div class="card-body">
