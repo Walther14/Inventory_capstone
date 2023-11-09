@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="card" style="width: 18.75rem; background-color: rgba(255, 255, 255, 0.5);">
     <img src="./img/prime.png" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">LOGIN </h5>
+      <h5 class="card-title">LOGIN</h5>
       <p class="card-text">
       <form>
         <div class="mb-3">
