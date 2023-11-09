@@ -38,24 +38,30 @@
                         <input type="" class="form-control" id="" placeholder="Last Name">
                     </div>
 
+
                     <div class="mb-3">
+                    <label for="Role" class="form-label">Role</label>
+                    <select type="" class="form-control" id="" placeholder="Role" required>
+                        <option name="role" value="">--Please Select--</option>
+                        <option name="role" value="Admin">Admin</option>
+                        <option name="role" value="Supply Office Worker">Supply Office Staff</option>
+                        <option name="role" value="Custodian">Property Custodian</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
                         <label for="UName" class="form-label">User Name</label>
                         <input type="" class="form-control" id="" placeholder="User Name">
                     </div>
 
-
-                    <div class="mb-3">
-                        <label for="UName" class="form-label">Role</label>
-                        <input type="" class="form-control" id="" placeholder="Role">
-                    </div>
-
-
-
-
-
-
-
-
+                <div class="mb-3">
+                  <label for="password">Password</label>
+                  <input id="password"class="form-control" placeholder="Password" type="password" required />
+                  </div>
+                <div class="mb-3">
+                  <label for="confirm_password">Confirm Password</label>
+                   <input id="confirm_password" class="form-control" placeholder="Confirm Password" type="password" required />
+                </div>
 
 
 
