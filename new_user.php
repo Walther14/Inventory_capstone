@@ -12,7 +12,7 @@ $hashedPassword = password_hash($defaultPassword, PASSWORD_DEFAULT);
 $sql = "INSERT INTO users (username, password) VALUES ('$username', '$hashedPassword')";
 
 // Execute the query
-if ($conn->query($sql) === TRUE) {
+if ($data->query($sql) === TRUE) {
     echo "New user created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
