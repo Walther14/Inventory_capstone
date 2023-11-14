@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" style="background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);">
+<nav class="navbar navbar-expand-lg" style="background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color); width: 100%;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
     <img src="./img/prime.png" alt="Logo"height="24" class="d-inline-block align-text-top">

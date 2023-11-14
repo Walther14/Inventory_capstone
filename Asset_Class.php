@@ -51,46 +51,48 @@
 <br>
 
 
-<!-- TABLE FOR ASSET -->
-<div class="card table-responsive mw-100 mx-auto rounded-0">
+<div class="m-5">
+    <!-- TABLE FOR ASSET -->
+    <div class="card table-responsive mw-100 mx-auto rounded-0">
 
-    <?php
-    $inventory = "SELECT * FROM Asset_db";
+        <?php
+        $inventory = "SELECT * FROM Asset_db";
 
-    $result = $data->query($inventory);
-    ?>
-    <table class="table table-bordered align-middle">
-        <thead>
-            <th>Asset Code</th>
-            <th>Asset Name</th>
+        $result = $data->query($inventory);
+        ?>
+        <table class="table table-bordered align-middle">
+            <thead>
+                <th>Asset Code</th>
+                <th>Asset Name</th>
 
-        </thead>
-        <tbody>
-            <?php
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while ($row = $result->fetch_assoc()) {
+            </thead>
+            <tbody>
+                <?php
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
 
 
-            ?>
-                    <tr>
-                        <td>
-                            <?php echo ($row['Asset_Code']) ?>
-                        </td>
+                ?>
+                        <tr>
+                            <td>
+                                <?php echo ($row['Asset_Code']) ?>
+                            </td>
 
-                        <td>
-                            <?php echo ($row['Asset_Title']) ?>
-                        </td>
-                    </tr>
+                            <td>
+                                <?php echo ($row['Asset_Title']) ?>
+                            </td>
+                        </tr>
 
-            <?php
+                <?php
+                    }
+                } else {
+                    echo "0 results";
                 }
-            } else {
-                echo "0 results";
-            }
-            ?>
-        </tbody>
-    </table>
+                ?>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 

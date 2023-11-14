@@ -56,46 +56,47 @@
 
 <!-- TABLE -->
 
+<div class="m-5">
+    <div class="card table-responsive mw-100 mx-auto rounded-0">
 
-<div class="card table-responsive mw-100 mx-auto rounded-0">
+        <?php
+        $inventory = "SELECT * FROM fundcode_db";
 
-    <?php
-    $inventory = "SELECT * FROM fundcode_db";
+        $result = $data->query($inventory);
+        ?>
+        <table class="table table-bordered align-middle">
+            <thead>
+                <th>Fund Admin Code</th>
+                <th>Fund Admin Title</th>
 
-    $result = $data->query($inventory);
-    ?>
-    <table class="table table-bordered align-middle">
-        <thead>
-            <th>Fund Admin Code</th>
-            <th>Fund Admin Title</th>
-
-        </thead>
-        <tbody>
-            <?php
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while ($row = $result->fetch_assoc()) {
+            </thead>
+            <tbody>
+                <?php
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
 
 
-            ?>
-                    <tr>
-                        <td>
-                            <?php echo ($row['Fund_Admin_Code']) ?>
-                        </td>
+                ?>
+                        <tr>
+                            <td>
+                                <?php echo ($row['Fund_Admin_Code']) ?>
+                            </td>
 
-                        <td>
-                            <?php echo ($row['Fund_Admin_Title']) ?>
-                        </td>
-                    </tr>
+                            <td>
+                                <?php echo ($row['Fund_Admin_Title']) ?>
+                            </td>
+                        </tr>
 
-            <?php
+                <?php
+                    }
+                } else {
+                    echo "0 results";
                 }
-            } else {
-                echo "0 results";
-            }
-            ?>
-        </tbody>
-    </table>
+                ?>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 

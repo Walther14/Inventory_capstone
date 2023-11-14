@@ -57,43 +57,45 @@
 
 <!-- TABLE -->
 <br>
-<div class="card table-responsive mw-100 mx-auto rounded-0">
+<div class="m-5">
+    <div class="card table-responsive mw-100 mx-auto rounded-0">
 
-    <?php
-    $inventory = "SELECT * FROM itemcategory_db";
+        <?php
+        $inventory = "SELECT * FROM itemcategory_db";
 
-    $result = $data->query($inventory);
-    ?>
-    <table class="table table-bordered align-middle">
-        <thead>
-            <th>Item Account Number</th>
-            <th>Item Account Title</th>
+        $result = $data->query($inventory);
+        ?>
+        <table class="table table-bordered align-middle">
+            <thead>
+                <th>Item Account Number</th>
+                <th>Item Account Title</th>
 
-        </thead>
-        <tbody>
-            <?php
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while ($row = $result->fetch_assoc()) {
-            ?>
-                    <tr>
-                        <td>
-                            <?php echo ($row['Account_Number']) ?>
-                        </td>
+            </thead>
+            <tbody>
+                <?php
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                ?>
+                        <tr>
+                            <td>
+                                <?php echo ($row['Account_Number']) ?>
+                            </td>
 
-                        <td>
-                            <?php echo ($row['Account_Title']) ?>
-                        </td>
-                    </tr>
+                            <td>
+                                <?php echo ($row['Account_Title']) ?>
+                            </td>
+                        </tr>
 
-            <?php
+                <?php
+                    }
+                } else {
+                    echo "0 results";
                 }
-            } else {
-                echo "0 results";
-            }
-            ?>
-        </tbody>
-    </table>
+                ?>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 

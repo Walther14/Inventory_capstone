@@ -7,62 +7,76 @@
 
 <!-- Bordered table -->
 
-<div class="d-flex justify-content-end" style="margin-right: 5em;">
-    <a href="./components/addInventory.php" class="btn btn-primary">Add Inventory</a>
-</div>
+    <div class="d-flex justify-content-end mt-5" style="margin-right: 5em;">
+        <a href="./components/addInventory.php" class="btn btn-primary">Add Inventory</a>
+    </div>
 
-<?php
-$inventory = "SELECT * FROM inventory_db";
+    <?php
+    $inventory = "SELECT * FROM inventory_db";
 
-$result = $data->query($inventory);
-?>
+    $result = $data->query($inventory);
+    ?>
 
-<table class="table table-bordered">
+    <div class="d-flex ">
 
+        <div class="m-5" style="margin-right: 5rem">
 
-    <thead>
-        <th>Property Description</th>
-        <th>Locator</th>
-        <th>Currently Property Number</th>
-        <th>Action</th>
-    </thead>
-    <tbody>
-        <?php
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while ($row = $result->fetch_assoc()) {
+            <table class="table table-bordered">
 
 
-        ?>
-                <tr>
-
-                    <td>
-                        <?php echo ($row['Property_Description']) ?>
-                    </td>
-                    <td>
-                            <?php echo ($row['Locator']) ?>
-                        </td>
-
-                        <td>
-                            <?php echo ($row['Current_Property_Number']) ?>
-                        </td>
-                    <td>
-                        <a type="button" class="btn btn-primary" href="inventory.php?id=<?php echo $row['id']
-                                                                                        ?>">View</a>
-                        <a type="button" class="btn btn-secondary" href="./components/editinventory.php?id=<?php echo $row['id']?>">Edit</a>
-                    </td>
-                </tr>
+                <thead>
+                    <th>Property Description</th>
+                    <th>Locator</th>
+                    <th>Currently Property Number</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
 
 
+                    ?>
+                            <tr>
 
-        <?php
-            }
-        } else {
-            echo "0 results";
-        }
-        ?>
-    </tbody>
-</table>
+                                <td>
+                                    <?php echo ($row['Property_Description']) ?>
+                                </td>
+                                <td>
+                                    <?php echo ($row['Locator']) ?>
+                                </td>
+
+                                <td>
+                                    <?php echo ($row['Current_Property_Number']) ?>
+                                </td>
+                                <td>
+                                    <a type="button" class="btn btn-primary" href="inventory.php?id=<?php echo $row['id']
+                                                                                                    ?>">View</a>
+                                    <a type="button" class="btn btn-secondary" href="./components/editinventory.php?id=<?php echo $row['id'] ?>">Edit</a>
+                                </td>
+                            </tr>
+
+
+
+                    <?php
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="m-5" style="margin-right: 5rem; height: 100%">
+
+            <div class="card">
+                jer
+            </div>
+
+        </div>
+    </div>
 
 
 

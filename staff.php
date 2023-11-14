@@ -17,7 +17,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="modal-title-7">
-                    Add New 
+                    Add New
                     <br />
                     <small class="text-body-secondary fw-normal"></small>
                 </h1>
@@ -55,50 +55,52 @@
 
 
 <br>
-<div class="card table-responsive mw-100 mx-auto rounded-0">
+<div class="m-5">
+    <div class="card table-responsive mw-100 mx-auto rounded-0">
 
-    <?php
-    $inventory = "SELECT * FROM staff_db";
+        <?php
+        $inventory = "SELECT * FROM staff_db";
 
-    $result = $data->query($inventory);
-    ?>
-    <table class="table table-bordered align-middle">
-        <thead>
-            <th>Name</th>
-            <th>Department</th>
-            <th>Position</th>
+        $result = $data->query($inventory);
+        ?>
+        <table class="table table-bordered align-middle">
+            <thead>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Position</th>
 
-        </thead>
-        <tbody>
-            <?php
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while ($row = $result->fetch_assoc()) {
+            </thead>
+            <tbody>
+                <?php
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
 
 
-            ?>
-                    <tr>
-                        <td>
-                            <?php echo ($row['name']) ?>
-                        </td>
+                ?>
+                        <tr>
+                            <td>
+                                <?php echo ($row['name']) ?>
+                            </td>
 
-                        <td>
-                            <?php echo ($row['department']) ?>
-                        </td>
+                            <td>
+                                <?php echo ($row['department']) ?>
+                            </td>
 
-                        <td>
-                            <?php echo ($row['position_designation']) ?>
-                        </td>
-                    </tr>
+                            <td>
+                                <?php echo ($row['position_designation']) ?>
+                            </td>
+                        </tr>
 
-            <?php
+                <?php
+                    }
+                } else {
+                    echo "0 results";
                 }
-            } else {
-                echo "0 results";
-            }
-            ?>
-        </tbody>
-    </table>
+                ?>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
