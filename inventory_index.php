@@ -19,8 +19,11 @@
 
                 <div class="d-flex justify-content-end">
                     <a href="./components/addInventory.php" class="btn btn-dark p-2">
-                        <i data-feather="circle"></i>
-                        <i data-feather="circle"></i>
+                        
+                        <span>
+                        <ion-icon name="add-outline"></ion-icon>
+                        </span>
+                        
                         Add Inventory</a>
                 </div>
 
@@ -82,7 +85,7 @@
                                     <?php echo ($row['Current_Property_Number']) ?>
                                 </td>
                                 <td>
-                                    <a type="button" class="btn btn-primary" id="view">View</a>
+                                    <a type="button" class="btn btn-primary" data-id="<?php echo $row['id'] ?>">View</a>
                                     <a type="button" class="btn btn-secondary" href="./components/editinventory.php?id=<?php echo $row['id'] ?>">Edit</a>
                                 </td>
                             </tr>
@@ -101,165 +104,57 @@
 
 
         <div class="m-3 w-25 card" style="margin-right: 5rem; height: 100%">
-
+<?php ?>
             <div class="card p-3">
                 <div class="row">
                     <div class="d-flex">
 
                         <h5>Property Description</h5>
-                        <p>: 5</p>
+                        <p id="propertyDescription">: 5</p>
                     </div>
+                    
                 </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Property Description</h5>
-                        <p>: 5</p>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <h5>Property Description</h5>
-                </div>
+          
             </div>
 
         </div>
     </div>
 </div>
+<div id="ajaxResult">
+    <h5>wid</h5>
+</div>
 
 
 <script>
-    let button = document.querySelector("#view")
+// Event listener for buttons with data-id attribute
+let buttons = document.querySelectorAll("[data-id]");
 
-    button.addEventListener("click",  function(){
-        alert('dont press me please')
-    })
+buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        // Get the data-id attribute value
+        let id = button.getAttribute("data-id");
+
+        // Call the fetchData function with the id
+        fetchData(id);
+    });
+});
+
+// Function to make the AJAX call
+function fetchData(id) {
+    fetch('./Controller/view.php?id=' + id)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Display the result in the specified container
+            document.getElementById('propertyDescription').innerHTML = JSON.stringify(data.Property_Description);
+        })
+        .catch(error => console.error('Error:', error));
+}
+
 </script>
 
 <?php
