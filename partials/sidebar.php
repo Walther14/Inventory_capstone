@@ -1,6 +1,6 @@
 <body class="ps-md-sbwidth">
   <!-- Sidebar -->
-  <nav class="sidebar offcanvas-start offcanvas-md" tabindex="-1" id="sidebar-example">
+  <nav class="sidebar offcanvas-start offcanvas-md" tabindex="-1" id="sidebar-example" style="background-color: rgb(255, 255, 255); border-radius: 25px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 0, 0.19); border-right: none  ;">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <a class="sidebar-brand" href="#">
         <img src="./img/prime.png" alt="Logo" height="24" class="d-inline-block align-text-top">
@@ -147,6 +147,14 @@
    
         <li class="nav-item">
           <a class="nav-link" href="#">Backup and Restore</a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <form class="d-flex" method="post" action="logout.php" role="search">
+            <!-- <input class="form-control me-2" type="search" placeholder="Search docs" aria-label="Search"> -->
+            <button class="btn btn-primary" type="submit">Log out</button>
+          </form>
         </li>
 
       </ul>

@@ -9,10 +9,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
      
-      <form class="d-flex" method="post" action="logout.php" role="search">
-        <!-- <input class="form-control me-2" type="search" placeholder="Search docs" aria-label="Search"> -->
-        <button class="btn btn-primary" type="submit">Log out</button>
-      </form>
+  
       
 
     </div>
