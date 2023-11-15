@@ -1,6 +1,6 @@
 <body class="ps-md-sbwidth">
   <!-- Sidebar -->
-  <nav class="sidebar offcanvas-start offcanvas-md" tabindex="-1" id="sidebar-example" style="background-color: rgb(255, 255, 255); border-radius: 25px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 0, 0.19); border-right: none  ;">
+  <nav class="sidebar offcanvas-start offcanvas-md" tabindex="-1" id="sidebar-example" style="background-color: rgb(255, 255, 255); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 0, 0.19); border-right: none  ;">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <a class="sidebar-brand" href="#">
         <img src="./img/prime.png" alt="Logo" height="24" class="d-inline-block align-text-top">

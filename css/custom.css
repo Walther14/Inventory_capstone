@@ -7,7 +7,7 @@ background-color: #f8eeec;
 
      */
 
-body::-webkit-scrollbar{
+*::-webkit-scrollbar{
     width: 10px;
     border-radius: 8px;
     background-color: #e7e7e7;

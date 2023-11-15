@@ -9,7 +9,7 @@
     <div style="position: sticky; top: 0; z-index: 10;">
 
         <!-- Top Bar -->
-        <nav class="navbar navbar-expand-lg w-100" style="background-color: rgb(255, 255, 255); border-radius: 0 0 25px 25px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 0, 0.19);">
+        <nav class="navbar navbar-expand-lg w-100" style="background-color: rgb(255, 255, 255); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 0, 0.19);">
             <div class="container-fluid d-flex justify-content-between p-3">
                 <a class="navbar-brand" href="#">
                     <img src="./img/prime.png" alt="Logo" height="24" class="d-inline-block align-text-top">
@@ -91,7 +91,7 @@
                                         <a type="button" class="btn btn-secondary" href="./components/editinventory.php?id=<?php echo $row['id'] ?>">Edit</a>
                                     </td>
                                 </tr>
-                           
+
 
 
 
@@ -109,7 +109,8 @@
 
 
         <div class="m-3" style="margin-right: 5rem; height: calc(100vh - 118px); background-color: #fbfcf8; width: 60rem; position: relative; overflow: auto">
-            <div style="position: absolute;">
+
+            <div id="rightSidebar" style="display: none; position: absolute;">
 
                 <div class="p-3">
                     <div class="row">
@@ -359,6 +360,11 @@
 
 
             </div>
+            <div id="empty" style="display: flex; align-items: center; justify-content: center; height: 100%;  position: absolute; width: 100%">
+
+                    <img src="./img/wow-such-empty-v0-punuehdz6hz91-removebg-preview.png" alt="">
+            </div>
+
 
         </div>
     </div>
@@ -372,6 +378,13 @@
 
     buttons.forEach(function(button) {
         button.addEventListener("click", function() {
+
+            let rightSideBar = document.querySelector("#rightSidebar");
+            let empty = document.querySelector("#empty");
+            
+            rightSideBar.style.display = "block"
+            empty.style.display = "none"
+
             // Get the data-id attribute value
             let id = button.getAttribute("data-id");
 
