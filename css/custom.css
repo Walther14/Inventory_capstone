@@ -1,3 +1,16 @@
-body::-webkit-scrollbar{
-    display: none;
+body{
+    /* display: none; */
+background-color: #f8eeec;
+
   }
+
+
+     */
+
+body::-webkit-scrollbar{
+    width: 10px;
+    border-radius: 8px;
+    background-color: #e7e7e7;
+    border: 1px solid #cacaca;
+}
+
