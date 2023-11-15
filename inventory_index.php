@@ -115,6 +115,241 @@
                     
                 </div>
           
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Current Property Number</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Unit of Measure</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Quantity</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Date Acquired</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Asset Number</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Issued To</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>ARE/PAR/ICS Number</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>PRS Number</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Fund Cluster</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Fund Admin Title</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Supplier</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Years Lapse</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Locator</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Old Property Number</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Unit Value</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Year Acquired</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Asset Category</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Asset Title</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Issued From</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Cancelled ARE/PAR/ICS Number</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Estimated Useful Life</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Fund Admin Title</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Purchase Order/Contract Numbere</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Acquired through</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+
+                <div class="row">
+                    <div class="d-flex">
+
+                        <h5>Remarks</h5>
+                        <p id="propertyDescription">: 5</p>
+                    </div>
+                    
+                </div>
+
+
             </div>
 
         </div>
