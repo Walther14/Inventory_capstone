@@ -57,7 +57,7 @@
 
             <div class="m-1 w-100" style="width: 100%; position: absolute;  overflow: auto; height: calc(100vh - 85.6px)">
 
-                <table class="table table-bordered">
+                <table class="table table-bordered table table-hover">
 
 
                     <thead>
@@ -108,265 +108,9 @@
         </div>
 
 
-        <div class="m-3" style="margin-right: 5rem; height: calc(100vh - 118px); background-color: #fbfcf8; width: 60rem; position: relative; overflow: auto">
-
-            <div id="rightSidebar" style="display: none; position: absolute;">
-
-                <div class="p-3">
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Property Description</h5>
-                            <p id="propertyDescription">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Current Property Number</h5>
-                            <p id="propertyNumber">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Unit of Measure</h5>
-                            <p id="unitMeasure">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Quantity</h5>
-                            <p id="quantity">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Date Acquired</h5>
-                            <p id="dateAcquired">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Asset Number</h5>
-                            <p id="assetNumber">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Issued To</h5>
-                            <p id="issuedTo">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>ARE/PAR/ICS Number</h5>
-                            <p id="apiNumber">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>PRS Number</h5>
-                            <p id="prsNumber">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Fund Cluster</h5>
-                            <p id="fundCluster">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Fund Admin Title</h5>
-                            <p id="fundAdmin">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Supplier</h5>
-                            <p id="supplier">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Years Lapse</h5>
-                            <p id="yearLapse">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Locator</h5>
-                            <p id="locator">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Old Property Number</h5>
-                            <p id="oldPropertyNumber">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Unit Value</h5>
-                            <p id="unitValue">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Year Acquired</h5>
-                            <p id="yearAcquired">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Asset Category</h5>
-                            <p id="assetCategory">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Asset Title</h5>
-                            <p id="assetTitle">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Issued From</h5>
-                            <p id="issuedFrom">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Cancelled ARE/PAR/ICS Number</h5>
-                            <p id="cancelledAPI">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Estimated Useful Life</h5>
-                            <p id="estimatedLife">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <!-- <div class="row">
-                    <div class="d-flex">
-
-                        <h5>Fund Admin Title</h5>
-                        <p id="propertyDescription">: 5</p>
-                    </div>
-                    
-                </div> -->
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Purchase Order/Contract Numbere</h5>
-                            <p id="purchaseOrder">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Acquired through</h5>
-                            <p id="acquiredThrough">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="d-flex">
-
-                            <h5>Remarks</h5>
-                            <p id="remarks">: 5</p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-            </div>
-            <div id="empty" style="display: flex; align-items: center; justify-content: center; height: 100%;  position: absolute; width: 100%">
-
-                    <img src="./img/wow-such-empty-v0-punuehdz6hz91-removebg-preview.png" alt="">
-            </div>
-
-
-        </div>
+      <?php
+      include('./partials/right-sidebar.php')
+      ?>
     </div>
 </div>
 
@@ -381,8 +125,10 @@
 
             let rightSideBar = document.querySelector("#rightSidebar");
             let empty = document.querySelector("#empty");
-            
+            let tabs = document.querySelector("#js-tabs-1")
+
             rightSideBar.style.display = "block"
+            tabs.style.display = "flex"
             empty.style.display = "none"
 
             // Get the data-id attribute value

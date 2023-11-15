@@ -7,60 +7,83 @@
       </a>
       <button type="button" class="btn-close d-md-none" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#sidebar-example"></button>
     </div>
-    <div class="offcanvas-body">
-      <div class="mt-2 mb-3">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
+    <div class="">
 
-      <ul class="sidebar-nav">
-        <li>
-          <h6 class="sidebar-header">Dashboard</h6>
-        </li>
 
-        <li>
+
+
+
+      <div class="d-flex">
+
+        <div class="col-4" style="height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; padding-left: -1rem; display: flex; justify-content: center">
+          <ul>
+            <li style="margin-left: -2rem" class="btn" type="button">
+
+              <ion-icon name="analytics-outline" style="width: 50px; height: 50px"></ion-icon>
+            </li>
+            <li style="margin-left: -2rem" class="btn" type="button">
+
+              <ion-icon name="storefront-outline" style="width: 50px; height: 50px"></ion-icon>
+            </li>
+            <li style="margin-left: -2rem">
+
+              <ion-icon name="git-network-outline" style="width: 50px; height: 50px"></ion-icon>
+            </li>
+
+
+
+          </ul>
+        </div>
+
+        <div class="col-6" style="margin-top: 10rem;">
+          <ul>
+            <li>
+              <ul class="sidebar-nav">
+                <li class="d-flex">
+                  <span>
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </span>
+                  <h1 class="sidebar-header">Dashboard</h1>
+                </li>
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="./inventory_index.php" aria-current="page">Inventory</a>
+                </li>
+                
+                                <li>
+                                  <hr class="sidebar-divider">
+                                </li>
+
+
+                <li class="nav-item">
+                  <a class="nav-link " href="./User_Management.php" aria-current="page">User Management</a>
+                </li>
+
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+
+
+
+
+
+
+
+                <!--<li>
           <hr class="sidebar-divider">
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="./User_Management.php" aria-current="page">User Management</a>
-        </li>
-
-        <li>
-          <hr class="sidebar-divider">
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="./inventory_index.php" aria-current="page">Inventory</a>
-        </li>
-
-        
-        <li>
-          <hr class="sidebar-divider">
-        </li>
-
-     
-        
-
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">CLI commands</a>
         </li> -->
-        <!-- <li class="mt-3">
-          <h6 class="sidebar-header">Components</h6>
-        </li> -->
 
 
-
-
-
-
-
-        <li>
-          <hr class="sidebar-divider">
-        </li>
-
-
-        <!-- dropdown -->
-        <div class="dropdown">
+                <!-- dropdown -->
+                <!-- <div class="dropdown">
           <a href="#" class="btn btn-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Tables
           </a>
@@ -82,10 +105,10 @@
 
         <li>
           <hr class="sidebar-divider">
-        </li>
+        </li> -->
 
-      <!-- dropdown -->
-      <div class="dropdown">
+                <!-- dropdown -->
+                <!-- <div class="dropdown">
           <a href="#" class="btn btn-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Data Reports 
           </a>
@@ -116,10 +139,10 @@
 
         <li>
           <hr class="sidebar-divider">
-        </li>
+        </li> -->
 
-         <!-- dropdown -->
-         <div class="dropdown">
+                <!-- dropdown -->
+                <!-- <div class="dropdown">
           <a href="#" class="btn btn-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Requests & Notifications
           </a>
@@ -151,13 +174,28 @@
         
         
         <li class="nav-item">
-          <form class="d-flex" method="post" action="logout.php" role="search">
-            <!-- <input class="form-control me-2" type="search" placeholder="Search docs" aria-label="Search"> -->
-            <button class="btn btn-primary" type="submit">Log out</button>
+          <form class="d-flex" method="post" action="logout.php" role="search"> -->
+                <!-- <input class="form-control me-2" type="search" placeholder="Search docs" aria-label="Search"> -->
+                <!-- <button class="btn btn-primary" type="submit">Log out</button>
           </form>
         </li>
 
-      </ul>
+      </ul> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
     </div>
   </nav>
 
