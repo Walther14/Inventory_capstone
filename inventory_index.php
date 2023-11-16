@@ -150,62 +150,62 @@
             })
             .then(data => {
                 // Display the result in the specified container
-                document.getElementById('propertyDescription').innerHTML = JSON.stringify(data.Property_Description);
+                document.getElementById('propertyDescription').innerHTML = data.Property_Description;
 
-                document.getElementById('propertyNumber').innerHTML = JSON.stringify(data.Current_Property_Number);
+                document.getElementById('propertyNumber').innerHTML = data.Current_Property_Number;
 
-                document.getElementById('unitMeasure').innerHTML = JSON.stringify(data.Unit_Measure);
+                document.getElementById('unitMeasure').innerHTML = data.Unit_Measure;
 
-                document.getElementById('quantity').innerHTML = JSON.stringify(data.Quantity);
+                document.getElementById('quantity').innerHTML = data.Quantity;
 
-                document.getElementById('dateAcquired').innerHTML = JSON.stringify(data.Date_Acquired);
+                document.getElementById('dateAcquired').innerHTML = data.Date_Acquired;
 
-                document.getElementById('assetNumber').innerHTML = JSON.stringify(data.Asset_Number);
-
-
-                document.getElementById('issuedTo').innerHTML = JSON.stringify(data.Issued_To);
-
-                document.getElementById('apiNumber').innerHTML = JSON.stringify(data.ARE_PAR_ICS_Number);
+                document.getElementById('assetNumber').innerHTML = data.Asset_Number;
 
 
-                document.getElementById('prsNumber').innerHTML = JSON.stringify(data.PRS_Number);
+                document.getElementById('issuedTo').innerHTML = data.Issued_To;
 
-                document.getElementById('fundCluster').innerHTML = JSON.stringify(data.Fund_Cluster);
-
-                document.getElementById('fundAdmin').innerHTML = JSON.stringify(data.Fund_Admin_Code);
-
-                document.getElementById('supplier').innerHTML = JSON.stringify(data.Supplier);
-
-                document.getElementById('yearLapse').innerHTML = JSON.stringify(data.Year_Lapsed);
-
-                document.getElementById('locator').innerHTML = JSON.stringify(data.Locator);
+                document.getElementById('apiNumber').innerHTML = data.ARE_PAR_ICS_Number;
 
 
-                document.getElementById('oldPropertyNumber').innerHTML = JSON.stringify(data.Old_Property_Number);
+                document.getElementById('prsNumber').innerHTML = data.PRS_Number;
 
-                document.getElementById('unitValue').innerHTML = JSON.stringify(data.Unit_Value);
+                document.getElementById('fundCluster').innerHTML = data.Fund_Cluster;
 
-                document.getElementById('yearAcquired').innerHTML = JSON.stringify(data.Year_Acquired);
+                document.getElementById('fundAdmin').innerHTML = data.Fund_Admin_Code;
 
+                document.getElementById('supplier').innerHTML = data.Supplier;
 
-                document.getElementById('assetCategory').innerHTML = JSON.stringify(data.Asset_Category);
+                document.getElementById('yearLapse').innerHTML = data.Year_Lapsed;
 
-                document.getElementById('assetTitle').innerHTML = JSON.stringify(data.Asset_Title);
-
-                document.getElementById('issuedFrom').innerHTML = JSON.stringify(data.Issued_From);
-
-
-                document.getElementById('cancelledAPI').innerHTML = JSON.stringify(data.ARE_PAR_ICS_Number);
+                document.getElementById('locator').innerHTML = data.Locator;
 
 
-                document.getElementById('estimatedLife').innerHTML = JSON.stringify(data.Estimated_Useful_Life);
+                document.getElementById('oldPropertyNumber').innerHTML = data.Old_Property_Number;
 
-                document.getElementById('purchaseOrder').innerHTML = JSON.stringify(data.Purchase_Order_Contract_Number);
+                document.getElementById('unitValue').innerHTML = data.Unit_Value;
+
+                document.getElementById('yearAcquired').innerHTML = data.Year_Acquired;
 
 
-                document.getElementById('acquiredThrough').innerHTML = JSON.stringify(data.Acquired_Through);
+                document.getElementById('assetCategory').innerHTML = data.Asset_Category;
 
-                document.getElementById('remarks').innerHTML = JSON.stringify(data.Remarks);
+                document.getElementById('assetTitle').innerHTML = data.Asset_Title;
+
+                document.getElementById('issuedFrom').innerHTML = data.Issued_From;
+
+
+                document.getElementById('cancelledAPI').innerHTML = data.ARE_PAR_ICS_Number;
+
+
+                document.getElementById('estimatedLife').innerHTML = data.Estimated_Useful_Life;
+
+                document.getElementById('purchaseOrder').innerHTML = data.Purchase_Order_Contract_Number;
+
+
+                document.getElementById('acquiredThrough').innerHTML = data.Acquired_Through;
+
+                document.getElementById('remarks').innerHTML = data.Remarks;
 
             })
             .catch(error => console.error('Error:', error));
