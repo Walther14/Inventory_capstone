@@ -11,14 +11,14 @@
                 let sidenav2 = document.querySelector("#sidenav2")
 
                 sidenav1.style.display = "block"
-                sidenav2.style.display = "hidden"
+                sidenav2.style.display = "none"
             })
 
             dropdown.addEventListener("click", function(){
                 let sidenav1 = document.querySelector("#sidenav1")
                 let sidenav2 = document.querySelector("#sidenav2")
 
-                sidenav1.style.display = "hidden"
+                sidenav1.style.display = "none"
                 sidenav2.style.display = "block"  
 
             })

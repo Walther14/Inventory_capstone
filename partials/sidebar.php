@@ -17,25 +17,26 @@
 
         <div class="col-4" style="height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; padding-left: -1rem; display: flex; justify-content: center">
           <ul id="gyatt">
-            <button style="margin-left: -2rem; border: solid" type="button" id="general">
+            <li style="margin-left: -1.5rem;" type="button" id="general">
 
               <ion-icon name="analytics-outline" style="width: 50px; height: 50px"></ion-icon>
-            </button>
-            <button style="margin-left: -2rem" type="button" id="dropdown">
+            </li>
+            <li style="margin-left: -1.5rem;" type="button" id="dropdown">
 
               <ion-icon name="storefront-outline" style="width: 50px; height: 50px"></ion-icon>
-            </button>
-            <button style="margin-left: -2rem" id="something" type="button">
+            </li>
+            <li style="margin-left: -1.5rem;" type="button" id="something" type="button">
 
               <ion-icon name="git-network-outline" style="width: 50px; height: 50px"></ion-icon>
-            </button>
+            </li>
 
 
 
           </ul>
         </div>
 
-        <div class="col-6" style="margin-top: 10rem;" id="sidenav2">
+        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inventory_index.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/User_Management.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav1">
+  
           <ul>
             <li>
               <ul class="sidebar-nav">
@@ -85,8 +86,59 @@
 
 
 
-        <div class="col-6" style="margin-top: 10rem;" id="sidenav1">
-         yea yea
+        <div class="col-6"<?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/Asset_Class.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/item_Category.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/fund.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/staff.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav2">
+        <ul>
+            <li>
+              <ul class="sidebar-nav">
+                <li class="d-flex">
+                  <span>
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </span>
+                  <a type="button" href="./Asset_Class.php" class="nav-link" >Assets</a>
+                </li>
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+                <li class="nav-item">
+                  <a class="nav-link" href="./item_Category.php" aria-current="page">Item Category</a>
+                </li>
+            <li><a type="button"  class="dropdown-item" ></a></li>
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+                <li class="nav-item">
+                  <a class="nav-link" href="./fund.php" aria-current="page">Fund Code</a>
+                </li>
+
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./staff.php" aria-current="page">College Personnel</a>
+                </li>
+
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+
+
+
+
+
+
+
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -141,10 +193,8 @@
             <li>
               <h6 class="dropdown-header"></h6>
             </li>
-            <li><a type="button" href="./Asset_Class.php" class="dropdown-item" >Assets</a></li>
-            <li><a type="button" href="./item_Category.php" class="dropdown-item active" aria-current="true">Item Category</a></li>
-            <li><a type="button" href="./fund.php" class="dropdown-item">Fund Code</a></li>
-            <li><a type="button" href="./staff.php" class="dropdown-item" >College Personnel</a></li>
+            <li></li>
+        
      
             <li>
               <hr class="dropdown-divider">
