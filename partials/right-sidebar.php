@@ -19,236 +19,236 @@
 
             <div class="p-3">
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Property Description</h5>
-                        <p id="propertyDescription">: 5</p>
+                        <p style="color: gray" id="propertyDescription">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Current Property Number</h5>
-                        <p id="propertyNumber">: 5</p>
+                        <p style="color: gray" id="propertyNumber">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Unit of Measure</h5>
-                        <p id="unitMeasure">: 5</p>
+                        <p style="color: gray" id="unitMeasure">: 5</p>
                     </div>
 
                 </div>
 
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Quantity</h5>
-                        <p id="quantity">: 5</p>
+                        <p style="color: gray" id="quantity">: 5</p>
                     </div>
 
                 </div>
 
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Date Acquired</h5>
-                        <p id="dateAcquired">: 5</p>
+                        <p style="color: gray" id="dateAcquired">: 5</p>
                     </div>
 
                 </div>
 
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Asset Number</h5>
-                        <p id="assetNumber">: 5</p>
+                        <p style="color: gray" id="assetNumber">: 5</p>
                     </div>
 
                 </div>
 
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Issued To</h5>
-                        <p id="issuedTo">: 5</p>
+                        <p style="color: gray" id="issuedTo">: 5</p>
                     </div>
 
                 </div>
 
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>ARE/PAR/ICS Number</h5>
-                        <p id="apiNumber">: 5</p>
+                        <p style="color: gray" id="apiNumber">: 5</p>
                     </div>
 
                 </div>
 
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>PRS Number</h5>
-                        <p id="prsNumber">: 5</p>
+                        <p style="color: gray" id="prsNumber">: 5</p>
                     </div>
 
                 </div>
 
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Fund Cluster</h5>
-                        <p id="fundCluster">: 5</p>
+                        <p style="color: gray" id="fundCluster">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Fund Admin Title</h5>
-                        <p id="fundAdmin">: 5</p>
+                        <p style="color: gray" id="fundAdmin">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Supplier</h5>
-                        <p id="supplier">: 5</p>
+                        <p style="color: gray" id="supplier">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Years Lapse</h5>
-                        <p id="yearLapse">: 5</p>
+                        <p style="color: gray" id="yearLapse">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Locator</h5>
-                        <p id="locator">: 5</p>
+                        <p style="color: gray" id="locator">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Old Property Number</h5>
-                        <p id="oldPropertyNumber">: 5</p>
+                        <p style="color: gray" id="oldPropertyNumber">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Unit Value</h5>
-                        <p id="unitValue">: 5</p>
+                        <p style="color: gray" id="unitValue">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Year Acquired</h5>
-                        <p id="yearAcquired">: 5</p>
+                        <p style="color: gray" id="yearAcquired">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Asset Category</h5>
-                        <p id="assetCategory">: 5</p>
+                        <p style="color: gray" id="assetCategory">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Asset Title</h5>
-                        <p id="assetTitle">: 5</p>
+                        <p style="color: gray" id="assetTitle">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Issued From</h5>
-                        <p id="issuedFrom">: 5</p>
+                        <p style="color: gray" id="issuedFrom">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Cancelled ARE/PAR/ICS Number</h5>
-                        <p id="cancelledAPI">: 5</p>
+                        <p style="color: gray" id="cancelledAPI">: 5</p>
                     </div>
 
                 </div>
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Estimated Useful Life</h5>
-                        <p id="estimatedLife">: 5</p>
+                        <p style="color: gray" id="estimatedLife">: 5</p>
                     </div>
 
                 </div>
 
        
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Purchase Order/Contract Numbere</h5>
-                        <p id="purchaseOrder">: 5</p>
+                        <p style="color: gray" id="purchaseOrder">: 5</p>
                     </div>
 
                 </div>
 
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Acquired through</h5>
-                        <p id="acquiredThrough">: 5</p>
+                        <p style="color: gray" id="acquiredThrough">: 5</p>
                     </div>
 
                 </div>
 
 
                 <div class="row">
-                    <div class="d-flex">
+                    <div >
 
                         <h5>Remarks</h5>
-                        <p id="remarks">: 5</p>
+                        <p style="color: gray" id="remarks">: 5</p>
                     </div>
 
                 </div>
