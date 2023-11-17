@@ -16,26 +16,26 @@
       <div class="d-flex">
 
         <div class="col-4" style="height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; padding-left: -1rem; display: flex; justify-content: center">
-          <ul>
-            <li style="margin-left: -2rem" class="btn" type="button">
+          <ul id="gyatt">
+            <button style="margin-left: -2rem; border: solid" type="button" id="general">
 
               <ion-icon name="analytics-outline" style="width: 50px; height: 50px"></ion-icon>
-            </li>
-            <li style="margin-left: -2rem" class="btn" type="button">
+            </button>
+            <button style="margin-left: -2rem" type="button" id="dropdown">
 
               <ion-icon name="storefront-outline" style="width: 50px; height: 50px"></ion-icon>
-            </li>
-            <li style="margin-left: -2rem">
+            </button>
+            <button style="margin-left: -2rem" id="something" type="button">
 
               <ion-icon name="git-network-outline" style="width: 50px; height: 50px"></ion-icon>
-            </li>
+            </button>
 
 
 
           </ul>
         </div>
 
-        <div class="col-6" style="margin-top: 10rem;">
+        <div class="col-6" style="margin-top: 10rem;" id="sidenav2">
           <ul>
             <li>
               <ul class="sidebar-nav">
@@ -50,14 +50,14 @@
                   <hr class="sidebar-divider">
                 </li>
 
-                
+
                 <li class="nav-item">
                   <a class="nav-link" href="./inventory_index.php" aria-current="page">Inventory</a>
                 </li>
-                
-                                <li>
-                                  <hr class="sidebar-divider">
-                                </li>
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
 
 
                 <li class="nav-item">
@@ -77,13 +77,63 @@
 
 
 
-                <!--<li>
+            </li>
+          </ul>
+        </div>
+
+
+
+
+
+        <div class="col-6" style="margin-top: 10rem;" id="sidenav1">
+         yea yea
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </nav>
+
+
+  <!-- Sidebar toggle -->
+  <button type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar-example" class="btn btn-secondary d-md-none">
+    <i class="fa-light fa-sidebar me-1"></i> Sidebar
+  </button>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<li>
           <hr class="sidebar-divider">
         </li> -->
 
 
-                <!-- dropdown -->
-                <!-- <div class="dropdown">
+<!-- dropdown -->
+<!-- <div class="dropdown">
           <a href="#" class="btn btn-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Tables
           </a>
@@ -107,8 +157,8 @@
           <hr class="sidebar-divider">
         </li> -->
 
-                <!-- dropdown -->
-                <!-- <div class="dropdown">
+<!-- dropdown -->
+<!-- <div class="dropdown">
           <a href="#" class="btn btn-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Data Reports 
           </a>
@@ -141,8 +191,8 @@
           <hr class="sidebar-divider">
         </li> -->
 
-                <!-- dropdown -->
-                <!-- <div class="dropdown">
+<!-- dropdown -->
+<!-- <div class="dropdown">
           <a href="#" class="btn btn-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Requests & Notifications
           </a>
@@ -175,34 +225,9 @@
         
         <li class="nav-item">
           <form class="d-flex" method="post" action="logout.php" role="search"> -->
-                <!-- <input class="form-control me-2" type="search" placeholder="Search docs" aria-label="Search"> -->
-                <!-- <button class="btn btn-primary" type="submit">Log out</button>
+<!-- <input class="form-control me-2" type="search" placeholder="Search docs" aria-label="Search"> -->
+<!-- <button class="btn btn-primary" type="submit">Log out</button>
           </form>
         </li>
 
       </ul> -->
-            </li>
-          </ul>
-        </div>
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </nav>
-
-
-  <!-- Sidebar toggle -->
-  <button type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar-example" class="btn btn-secondary d-md-none">
-    <i class="fa-light fa-sidebar me-1"></i> Sidebar
-  </button>
-
-</body>
