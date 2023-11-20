@@ -269,7 +269,7 @@
 
 <div id="empty" style="display: flex; align-items: center; justify-content: center; height: 100%; position: absolute; width: 100%">
     <img src="./img/BSC_LOGO.png" alt="wow such empty" height="300px" width="300px" style="position: relative;">
-    <p style="position: absolute; bottom: 30px; text-align: center; width: 100%; margin: 0; color: #555; font-size: 18px;">Click select button to view details</p>
+    <p style="position: absolute; bottom: 30px; text-align: center; width: 100%; margin: 0; color: #555; font-size: 18px;">Click view button to view details</p>
 </div>
 
 
