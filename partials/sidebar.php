@@ -23,11 +23,11 @@
             </li>
             <li style="margin-left: -1.5rem;" type="button" id="dropdown">
 
-              <ion-icon name="storefront-outline" style="width: 50px; height: 50px"></ion-icon>
+              <ion-icon name="file-tray-full-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
             </li>
             <li style="margin-left: -1.5rem;" type="button" id="something" type="button">
 
-              <ion-icon name="git-network-outline" style="width: 50px; height: 50px"></ion-icon>
+              <ion-icon name="newspaper-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
             </li>
 
 
