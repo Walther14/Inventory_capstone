@@ -11,30 +11,30 @@ session_start();
 if (isset($_SESSION['response'])) {
     $response_message = $_SESSION['response']['message'];
     $is_success = $_SESSION['response']['success'];
-    ?>
+?>
     <div id="responseMessage" class="responseMessage">
-        <?php if ($is_success): ?>
+        <?php if ($is_success) : ?>
             <p class="responseMessage responseMessage_success" style="text-align: center; background-color: darkgreen; color: white; font-size: 2.5vh;">
                 <?= $response_message ?>
             </p>
-        <?php else: ?>
+        <?php else : ?>
             <p class="responseMessage responseMessage_error" style="text-align: center; background-color: darkred; color: white; font-size: 2.5vh;">
                 <?= $response_message ?>
             </p>
         <?php endif; ?>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             var responseMessage = document.getElementById('responseMessage');
             if (responseMessage) {
-                setTimeout(function () {
+                setTimeout(function() {
                     responseMessage.style.opacity = '0';
                     responseMessage.style.transition = 'opacity 1.5s ease-in-out';
                 }, 3000); // 1500 milliseconds = 1.5 seconds
             }
         });
     </script>
-    <?php
+<?php
     unset($_SESSION['response']);
 }
 ?>
@@ -49,7 +49,7 @@ if (isset($_SESSION['response'])) {
 
 <form method="post" action="new_staff.php">
     <div class="d-flex justify-content-end" style="margin-right: 5em;">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#example-modal-7" style="background-color: maroon; color: white;" onmouseover="this.style.backgroundColor='#ffa800'; this.style.color='maroon'" onmouseout="this.style.backgroundColor='maroon'; this.style.color='white'">Add new staff</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#example-modal-7" style="background-color: maroon; color: white;" onmouseover="this.style.backgroundColor='#ffa800'; this.style.color='maroon'" onmouseout="this.style.backgroundColor='maroon'; this.style.color='white'">Add new staff</button>
     </div>
 
     <!-- Modal with form -->
@@ -85,7 +85,7 @@ if (isset($_SESSION['response'])) {
                         <div class="mb-3 pb-3 border-bottom">
                             <button type="submit" class="btn btn-primary w-100" style="background-color: maroon; color: white;" onmouseover="this.style.backgroundColor= '#ffa800' ; this.style.color='maroon'" onmouseout="this.style.backgroundColor='maroon'; this.style.color='white'">Save</button>
                         </div>
-                
+
                     </form>
 
                 </div>
@@ -102,7 +102,7 @@ if (isset($_SESSION['response'])) {
             return true;
         }
     </script>
-    
+
 </form>
 
 
@@ -116,10 +116,10 @@ if (isset($_SESSION['response'])) {
         $result = $data->query($inventory);
         ?>
 
-<div style="background-color: maroon; color: white; font-weight: bold; font-size: 2vh; text-align: right; padding: 5px 10px; margin-bottom: 10px;" role="alert">
+        <div style="background-color: maroon; color: white; font-weight: bold; font-size: 2vh; text-align: right; padding: 5px 10px; margin-bottom: 10px;" role="alert">
             Total Number of Staff: <?php echo $totalUsers; ?>
         </div>
-        
+
         <table class="table table-bordered align-middle">
             <thead style="background-color: #ffa800;">
                 <th>Name</th>
@@ -149,7 +149,8 @@ if (isset($_SESSION['response'])) {
                                 <?php echo ($row['position_designation']) ?>
                             </td>
                             <td>
-                                <a type="button" class="btn btn-secondary">Update</a>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" href="#id?=<?php echo $row['staff_ID'] ?>">Update</button>
+                                <?php include("./components/staffUpdate.php") ?>
                             </td>
                         </tr>
 

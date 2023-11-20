@@ -29,9 +29,13 @@
 
               <ion-icon name="newspaper-outline" style="width: 50px; height: 50px; margin-top: 4rem;"></ion-icon>
             </li>
-            <li style="margin-left: -1.5rem;" type="button" id="backup" type="button">
 
+            <li style="margin-left: -1.5rem;" type="button" id="backup" type="button">
             <ion-icon name="cloud-download-outline" style="width: 50px; height: 50px; margin-top: 4rem;"></ion-icon>
+          </li>
+
+          <li style="margin-left: -1.5rem;" type="button" id="backup" type="button">
+            <ion-icon name="log-out-outline" style="width: 50px; height: 50px; margin-top: 4rem;"></ion-icon>
           </li>
 
 
@@ -138,13 +142,70 @@
                   <span>
                     <ion-icon name="analytics-outline"></ion-icon>
                   </span>
-                  <a type="button" href="./reports.php" class="nav-link" >Report</a>
+                  <a type="button" href="./reports.php" class="nav-link" >Inventory Report</a>
+                </li>
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./reports.php" aria-current="page">Semi-Expendable Property</a>
+                </li>  
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./reports.php" aria-current="page">Properety Plant Equipmemt</a>
                 </li>
 
                 <li>
                   <hr class="sidebar-divider">
                 </li>
+              <br>
+              <br>
+              <li>
+                  <hr class="sidebar-divider">
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./reports.php" aria-current="page">Inventory Count Form</a>
+                </li>
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./reports.php" aria-current="page">Inventory Custodian Slip</a>
+                </li>
 
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./reports.php" aria-current="page">Inspection and Acceptance Report</a>
+                </li>
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./reports.php" aria-current="page">Pre and Post-Repair Inspection</a>
+                </li>
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./reports.php" aria-current="page">Waste Materials Report</a>
+                </li>
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./reports.php" aria-current="page">Report on the Physical Count of Inventories</a>
+                </li>
+                
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
 
             </li>
           </ul>
