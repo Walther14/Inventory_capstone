@@ -33,8 +33,10 @@
             <ion-icon class="icon" name="cloud-download-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
           </li>
 
-          <li style="margin-left: -1.5rem;" type="button" id="backup" type="button">
-            <ion-icon class="icon" name="log-out-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
+          <li style="margin-left: -1.5rem;" type="button" id="backup" type="button" >
+          <a href="./logout.php">
+            <ion-icon class="icon" name="log-out-outline" style="width: 50px; height: 50px; margin-top: 2rem;"  data-bs-toggle="tooltip" data-bs-title="Logout"></ion-icon>
+          </a>
           </li>
 
 
