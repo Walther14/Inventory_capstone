@@ -19,23 +19,22 @@
           <ul id="gyatt">
             <li style="margin-left: -1.5rem;" type="button" id="general">
 
-              <ion-icon name="analytics-outline" style="width: 50px; height: 50px"></ion-icon>
+              <ion-icon class="icon" class="icon" name="analytics-outline" style="width: 50px; height: 50px"></ion-icon>
             </li>
             <li style="margin-left: -1.5rem;" type="button" id="dropdown">
-
-              <ion-icon name="file-tray-full-outline" style="width: 50px; height: 50px; margin-top: 4rem;"></ion-icon>
+              <ion-icon class="icon" name="file-tray-full-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
             </li>
             <li style="margin-left: -1.5rem;" type="button" id="something" type="button">
 
-              <ion-icon name="newspaper-outline" style="width: 50px; height: 50px; margin-top: 4rem;"></ion-icon>
+              <ion-icon class="icon" name="newspaper-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
             </li>
 
             <li style="margin-left: -1.5rem;" type="button" id="backup" type="button">
-            <ion-icon name="cloud-download-outline" style="width: 50px; height: 50px; margin-top: 4rem;"></ion-icon>
+            <ion-icon class="icon" name="cloud-download-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
           </li>
 
           <li style="margin-left: -1.5rem;" type="button" id="backup" type="button">
-            <ion-icon name="log-out-outline" style="width: 50px; height: 50px; margin-top: 4rem;"></ion-icon>
+            <ion-icon class="icon" name="log-out-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
           </li>
 
 
