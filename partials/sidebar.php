@@ -23,12 +23,17 @@
             </li>
             <li style="margin-left: -1.5rem;" type="button" id="dropdown">
 
-              <ion-icon name="file-tray-full-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
+              <ion-icon name="file-tray-full-outline" style="width: 50px; height: 50px; margin-top: 4rem;"></ion-icon>
             </li>
             <li style="margin-left: -1.5rem;" type="button" id="something" type="button">
 
-              <ion-icon name="newspaper-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
+              <ion-icon name="newspaper-outline" style="width: 50px; height: 50px; margin-top: 4rem;"></ion-icon>
             </li>
+            <li style="margin-left: -1.5rem;" type="button" id="backup" type="button">
+
+            <ion-icon name="cloud-download-outline" style="width: 50px; height: 50px; margin-top: 4rem;"></ion-icon>
+          </li>
+
 
 
 
@@ -70,19 +75,9 @@
                   <hr class="sidebar-divider">
                 </li>
 
-
-
-
-
-
-
-
-
             </li>
           </ul>
         </div>
-
-
 
 
 
@@ -130,16 +125,31 @@
                 </li>
 
 
+            </li>
+          </ul>
+        </div>
+  
 
+        <div class="col-6"<?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/reports.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav3">
+        <ul>
+            <li>
+              <ul class="sidebar-nav">
+                <li class="d-flex">
+                  <span>
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </span>
+                  <a type="button" href="./reports.php" class="nav-link" >Report</a>
+                </li>
 
-
-
-
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
 
 
             </li>
           </ul>
         </div>
+
       </div>
 
 
