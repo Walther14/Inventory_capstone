@@ -156,7 +156,20 @@ if (isset($_SESSION['response'])) {
 
 
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        hideResponseMessage();
 
+        function hideResponseMessage() {
+            var responseMessage = document.getElementById('responseMessage');
+            if (responseMessage) {
+                setTimeout(function() {
+                    responseMessage.style.display = 'none';
+                }, 3000);
+            }
+        }
+    });
+</script>
 
 <?php
 include('partials/footer.php')

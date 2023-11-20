@@ -151,7 +151,20 @@ if (isset($_SESSION['response'])) {
     </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        hideResponseMessage();
 
+        function hideResponseMessage() {
+            var responseMessage = document.getElementById('responseMessage');
+            if (responseMessage) {
+                setTimeout(function() {
+                    responseMessage.style.display = 'none';
+                }, 3000);
+            }
+        }
+    });
+</script>
 
 
 

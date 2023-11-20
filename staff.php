@@ -11,30 +11,30 @@ session_start();
 if (isset($_SESSION['response'])) {
     $response_message = $_SESSION['response']['message'];
     $is_success = $_SESSION['response']['success'];
-?>
+    ?>
     <div id="responseMessage" class="responseMessage">
-        <?php if ($is_success) : ?>
+        <?php if ($is_success): ?>
             <p class="responseMessage responseMessage_success" style="text-align: center; background-color: darkgreen; color: white; font-size: 2.5vh;">
                 <?= $response_message ?>
             </p>
-        <?php else : ?>
+        <?php else: ?>
             <p class="responseMessage responseMessage_error" style="text-align: center; background-color: darkred; color: white; font-size: 2.5vh;">
                 <?= $response_message ?>
             </p>
         <?php endif; ?>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var responseMessage = document.getElementById('responseMessage');
             if (responseMessage) {
-                setTimeout(function() {
+                setTimeout(function () {
                     responseMessage.style.opacity = '0';
                     responseMessage.style.transition = 'opacity 1.5s ease-in-out';
                 }, 3000); // 1500 milliseconds = 1.5 seconds
             }
         });
     </script>
-<?php
+    <?php
     unset($_SESSION['response']);
 }
 ?>
@@ -167,7 +167,20 @@ if (isset($_SESSION['response'])) {
 
 
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        hideResponseMessage();
 
+        function hideResponseMessage() {
+            var responseMessage = document.getElementById('responseMessage');
+            if (responseMessage) {
+                setTimeout(function() {
+                    responseMessage.style.display = 'none';
+                }, 3000);
+            }
+        }
+    });
+</script>
 
 <?php
 include('partials/footer.php')
