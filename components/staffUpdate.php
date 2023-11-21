@@ -3,7 +3,7 @@
     <div class="modal-dialog" >
         <div class="modal-content">
             <div class="modal-header"style="background-color: #ffa800;">
-                <h1 class="modal-title fs-5" id="modal-title-1">Modal title</h1>
+                <h1 class="modal-title fs-5" id="modal-title-1">Update Information</h1>
             </div>
             <div class="modal-body">
                 <form action="Controller/staffUpdate.php" method="post">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="position_designation" class="form-label">Position</label>
-                    <input type="text" class="form-control" id="position_designation" name="position_designation" placeholder="position" value=" <?php echo ($row['position_designation']) ?>">
+                    <input type="text" class="form-control" id="position_designation" name="position_designation" placeholder="position" value="<?php echo ($row['position_designation']) ?>">
                 </div>
               
             </div>

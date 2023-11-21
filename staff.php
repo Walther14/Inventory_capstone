@@ -49,7 +49,7 @@ if (isset($_SESSION['response'])) {
 
 <form method="post" action="new_staff.php">
     <div class="d-flex justify-content-end" style="margin-right: 5em;">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#example-modal-7" style="background-color: maroon; color: white;" onmouseover="this.style.backgroundColor='#ffa800'; this.style.color='maroon'" onmouseout="this.style.backgroundColor='maroon'; this.style.color='white'">Add new staff</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#example-modal-7" style="background-color: maroon; color: white;" onmouseover="this.style.backgroundColor='#ffa800'; this.style.color='maroon'" onmouseout="this.style.backgroundColor='maroon'; this.style.color='white'">Add new personnel</button>
     </div>
 
     <!-- Modal with form -->
@@ -58,7 +58,7 @@ if (isset($_SESSION['response'])) {
             <div class="modal-content">
                 <div class="modal-header" style="background-color: #ffa800;">
                     <h1 class="modal-title fs-5" id="modal-title-7">
-                        Add New Staff
+                        Add New Personnel
                         <br />
                         <small class="text-body-secondary fw-normal"></small>
                     </h1>
@@ -117,7 +117,7 @@ if (isset($_SESSION['response'])) {
         ?>
 
         <div style="background-color: maroon; color: white; font-weight: bold; font-size: 2vh; text-align: right; padding: 5px 10px; margin-bottom: 10px;" role="alert">
-            Total Number of Staff: <?php echo $totalUsers; ?>
+            Total Number of College Personnel registered: <?php echo $totalUsers; ?>
         </div>
 
         <table class="table table-bordered align-middle">

@@ -117,7 +117,7 @@ if (isset($_SESSION['response'])) {
         ?>
 
 <div style="background-color: maroon; color: white; font-weight: bold; font-size: 2vh; text-align: right; padding: 5px 10px; margin-bottom: 10px;" role="alert">
-            Total Number of Categories: <?php echo $totalCategory; ?>
+            Total Number of Fund Code: <?php echo $totalCategory; ?>
         </div>
         <table class="table table-bordered align-middle">
         <thead style="background-color: #ffa800;">
