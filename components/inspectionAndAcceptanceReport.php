@@ -1,26 +1,27 @@
 <?php
-$_POST['agency'];
-$_POST['supplier'];
-$_POST['IAR_No'];
-$_POST['PO_No'];
-$_POST['date'];
-$_POST['invoice'];
-$_POST['date2'];
-$_POST['requisitioning_office'];
-$_POST['stock_No'];
-$_POST['unit'];
-$_POST['description'];
-$_POST['quantity'];
-$_POST['date3'];
-$_POST['date4'];
-$_POST['inspection_office'];
-$_POST['property_officer'];
-
-
 include('Controller/db.php');
 include('partials/header.php');
 include('partials/sidebar.php');
 include('partials/topbar.php');
+
+// Retrieve values from the $_POST array
+$agency = $_POST['agency'] ?? '';
+$supplier = $_POST['supplier'] ?? '';
+$iarNo = $_POST['IAR_No'] ?? '';
+$poNo = $_POST['PO_No'] ?? '';
+$date = $_POST['date'] ?? '';
+$invoice = $_POST['invoice'] ?? '';
+$date2 = $_POST['date2'] ?? '';
+$requisitioningOffice = $_POST['requisitioning_office'] ?? '';
+$stockNumbers = isset($_POST['stock_No']) ? $_POST['stock_No'] : [];
+$units = isset($_POST['unit']) ? $_POST['unit'] : [];
+$descriptions = isset($_POST['description']) ? $_POST['description'] : [];
+$quantities = isset($_POST['quantity']) ? $_POST['quantity'] : [];
+
+$date3 = $_POST['date3'] ?? '';
+$date4 = $_POST['date4'] ?? '';
+$inspectionOffice = $_POST['inspection_office'] ?? '';
+$propertyOfficer = $_POST['property_officer'] ?? '';
 
 ?>
 
@@ -28,61 +29,106 @@ include('partials/topbar.php');
 <div class="p-5 d-flex justify-content-center align-items-center">
 
     <table class="table table-bordered">
-        <th colspan="6" class="d-flex justify-content-center">
-            dymmt
-        </th>
-        <tr>
-            <td colspan="6" class="d-flex justify-content-center">
-                <div style="margin: 1   rem;">
-                    <div class="row g-3">
+        <thead>
+            <tr>
+                <th colspan="6" style="text-align: right;">
+                    Apendix 9-2
+                </th>
+            </tr>
+            <th colspan="6" class="text-center">
+                INSPECTION AND ACCEPTANCE REPORT
 
-                        <div class="col-sm-6">
-                            <label for="supplier" class="form-label">Supplier</label>
-                            <input type="text" class="form-control" id="supplier" name="supplier" placeholder="Supplier" required>
-                        </div>
-                        <div class="col-6">
-                            <label for="IAR_No" class="form-label">IAR No.</label>
-                            <input type="text" class="form-control" id="IAR_No" name="IAR_No" placeholder="IAR Number" required>
-                        </div>
-                        <div class="col-3">
-                            <label for="PO_No" class="form-label">PO No.</label>
-                            <input type="text" class="form-control" id="PO_No" name="PO_No" placeholder="PO Number">
-                        </div>
-                        <div class="col-sm-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date" name="date" placeholder="date">
-                        </div>
-                        <div class="col-sm-3">
-                            <label for="invoice" class="form-label">Invoice No.</label>
-                            <input type="text" class="form-control" id="invoice" name="invoice" placeholder="invoice">
-                        </div>
-                        <div class="col-sm-3">
-                            <label for="date2" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date2" name="date2" placeholder="date">
-                        </div>
-                        <div class="col-sm-12">
-                            <label for="requisitioning_office" class="form-label">Requisitioning Office/Departmenrt</label>
-                            <input type="text" class="form-control" id="requisitioning_office" name="requisitioning_office" placeholder="Requisitioning Office/Departmenrt" required>
+                <div class="col-sm-6" style="margin: 20px auto; text-align: center;">
+                    <input style="text-align: center;" type="text" class="form-control" id="supplier" name="supplier" placeholder="Supplier" required value="<?php echo $agency ?>" readonly>
+                    <label for="supplier" class="form-label">Agency</label>
+                </div>
+
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="6">
+                    <div style="margin: 0.5rem;">
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="supplier" class="form-label">Supplier</label>
+                                <input type="text" class="form-control" id="supplier" name="supplier" placeholder="Supplier" required value="<?php echo $supplier; ?>" readonly>
+                            </div>
+                            <div class="col-6">
+                                <label for="IAR_No" class="form-label">IAR No.</label>
+                                <input type="text" class="form-control" id="IAR_No" name="IAR_No" placeholder="IAR Number" required value="<?php echo $iarNo; ?>" readonly>
+                            </div>
+                            <div class="col-3">
+                                <label for="PO_No" class="form-label">PO No.</label>
+                                <input type="text" class="form-control" id="PO_No" name="PO_No" placeholder="PO Number" value="<?php echo $poNo; ?>" readonly>
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="date" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="date" name="date" placeholder="date" value="<?php echo $date; ?>" readonly>
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="invoice" class="form-label">Invoice No.</label>
+                                <input type="text" class="form-control" id="invoice" name="invoice" placeholder="invoice" value="<?php echo $invoice; ?>" readonly>
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="date2" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="date2" name="date2" placeholder="date" value="<?php echo $date2; ?>" readonly>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="requisitioning_office" class="form-label">Requisitioning Office/Department</label>
+                                <input type="text" class="form-control" id="requisitioning_office" name="requisitioning_office" placeholder="Requisitioning Office/Department" required value="<?php echo $requisitioningOffice; ?>" readonly>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </td>
+                </td>
+            </tr>
+
+        <tr style="text-align: center;">
+            <td>Stock No.</td>
+            <td>Unit</td>
+            <td>Description</td>
+            <td colspan="2">QTY</td>
         </tr>
-        <tr>
-            <td colspan="0">Stock No.</td>
 
-            <td colspan="1">Unit</td>
-            <td colspan="2">Description</td>
-            <td colspan="1">QTY</td>
+        <?php
+        // Loop through the entered data and display each row
+        for ($i = 0; $i < count($stockNumbers); $i++) {
+            echo "<tr>";
+            echo "<td>{$stockNumbers[$i]}</td>";
+            echo "<td>{$units[$i]}</td>";
+            echo "<td>{$descriptions[$i]}</td>";
+            echo "<td colspan='2'>{$quantities[$i]}</td>";
+            echo "</tr>";
+        }
+        ?>
+        <tr style="text-align: center;">
+            <td colspan="2">INSPECTION</td>
+         
+            <td colspan="2">ACCEPTANCE</td>
         </tr>
+        
+        <tr style="text-align: left;">
+    <td colspan="2">Date Inspected: <?php echo htmlspecialchars($date3); ?></td>
+    <td colspan="2">Date Received: <?php echo htmlspecialchars($date4); ?></td>
+</tr>
+<tr style="text-align: left;">
+    <td colspan="2">Additional Text Here</td>
+    <td colspan="2">Additional Text Here</td>
+</tr>
 
 
+            <!-- Add your table rows here -->
+        </tbody>
+    </table>
 </div>
 
-</table>
-
-
-
+<style>
+    /* Add this style to make the borders of the input fields invisible */
+    .form-control {
+        border: none;
+        border-bottom: 1px solid #ced4da; /* Adding a bottom border for separation */
+    }
+</style>
 
 <?php
 include('./partials/footer.php')
