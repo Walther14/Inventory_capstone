@@ -26,6 +26,7 @@ $propertyOfficer = $_POST['property_officer'] ?? '';
 ?>
 
 <!-- Bordered table -->
+
 <div class="p-5 d-flex justify-content-center align-items-center">
 
     <table class="table table-bordered">
@@ -63,17 +64,25 @@ $propertyOfficer = $_POST['property_officer'] ?? '';
                                 <input type="text" class="form-control" id="PO_No" name="PO_No" placeholder="PO Number" value="<?php echo $poNo; ?>" readonly>
                             </div>
                             <div class="col-sm-3">
-                                <label for="date" class="form-label">Date</label>
-                                <input type="date" class="form-control" id="date" name="date" placeholder="date" value="<?php echo $date; ?>" readonly>
-                            </div>
+    <label for="date" class="form-label">Date</label>
+    <?php
+        $formattedDate = date_create($date)->format('F j, Y');
+    ?>
+    <input type="text" class="form-control" id="date" name="date" placeholder="date" value="<?php echo htmlspecialchars($formattedDate); ?>" readonly>
+</div>
+
                             <div class="col-sm-3">
                                 <label for="invoice" class="form-label">Invoice No.</label>
                                 <input type="text" class="form-control" id="invoice" name="invoice" placeholder="invoice" value="<?php echo $invoice; ?>" readonly>
                             </div>
-                            <div class="col-sm-3">
-                                <label for="date2" class="form-label">Date</label>
-                                <input type="date" class="form-control" id="date2" name="date2" placeholder="date" value="<?php echo $date2; ?>" readonly>
-                            </div>
+                        
+    <div class="col-sm-3">
+    <label for="date2" class="form-label">Date</label>
+    <?php
+        $formattedDate = date_create($date2)->format('F j, Y');
+    ?>
+    <input type="text" class="form-control" id="date2" name="date2" placeholder="date" value="<?php echo htmlspecialchars($formattedDate); ?>" readonly>
+</div>
                             <div class="col-sm-12">
                                 <label for="requisitioning_office" class="form-label">Requisitioning Office/Department</label>
                                 <input type="text" class="form-control" id="requisitioning_office" name="requisitioning_office" placeholder="Requisitioning Office/Department" required value="<?php echo $requisitioningOffice; ?>" readonly>
@@ -108,9 +117,10 @@ $propertyOfficer = $_POST['property_officer'] ?? '';
         </tr>
         
         <tr style="text-align: left;">
-    <td colspan="2">Date Inspected: <?php echo htmlspecialchars($date3); ?></td>
-    <td colspan="2">Date Received: <?php echo htmlspecialchars($date4); ?></td>
+    <td colspan="2">Date Inspected: <?php echo htmlspecialchars(date('F j, Y', strtotime($date3))); ?></td>
+    <td colspan="2">Date Received: <?php echo htmlspecialchars(date('F j, Y', strtotime($date4))); ?></td>
 </tr>
+
 <tr style="text-align: left;">
     <td colspan="2">Additional Text Here</td>
     <td colspan="2">Additional Text Here</td>
