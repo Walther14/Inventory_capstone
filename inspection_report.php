@@ -145,22 +145,20 @@ session_start();
         <!-- Add your table rows here -->
     </tbody>
 </table>
-</div>
-        <div class="col-sm-12">
-    <div class="d-flex justify-content-end mb-3">
-        <button type="button" class="btn btn-success" style="background-color: #ffa800;" onclick="addRow()">Add Row for stocks</button>
-
-        <div style="margin-left: 10px;"> <!-- Add some margin between the buttons -->
-            <button type="submit" class="btn btn-primary" style="background-color: maroon;">Submit for Printing</button>
-        </div>
-    </div>
-</div>
 
 
     </form>
 </div>
 
+<div class="col-sm-12">
+    <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
+        <button type="button" class="btn btn-success" style="background-color: #ffa800;" onclick="addRow()">Add Row for stocks</button>
 
+        <div style="margin-left: 10px;">
+            <button type="submit" class="btn btn-primary" style="background-color: maroon;">Submit for Printing</button>
+        </div>
+    </div>
+</div>
 
 
 <script>
