@@ -113,10 +113,33 @@ session_start();
     </td>
 </tr>
 
+<!-- Indeterminate checkbox -->
 <tr style="text-align: left;">
-<td colspan="2">Additional Text Here</td>
-<td colspan="2">Additional Text Here</td>
+<td colspan="2">
+  <input type="checkbox" id="checkbox1" name="checkbox1">
+  <label for="checkbox1">Inspected, verified and found<br>in order as to quantity and specifications</label>
+</td>
+
+  <td colspan="2">
+  <input type="checkbox" id="checkbox2" name="checkboxGroup" onclick="handleCheckboxClick(this)">
+  <label for="checkbox2">Complete</label>
+  <br>
+  <input type="checkbox" id="checkbox3" name="checkboxGroup" onclick="handleCheckboxClick(this)">
+  <label for="checkbox3">Partial</label>
+</td>
 </tr>
+
+<td colspan="2">
+        <div>
+            <label for="inspectionOffice" class="form-label">Inspection Office/Inspection Committee</label>
+            <input type="text" class="form-control" id="inspectionOffice" name="inspectionOffice" placeholder="Inspection Office/Inspection Committee" required>
+        </div>
+    </td><td colspan="2">
+        <div>
+            <label for="propertyOfficer" class="form-label">Property Officer</label>
+            <input type="text" class="form-control" id="propertyOfficer" name="propertyOfficer" placeholder="Property Officer" required>
+        </div>
+    </td>
 
 
         <!-- Add your table rows here -->
@@ -125,7 +148,7 @@ session_start();
 </div>
         <div class="col-sm-12">
     <div class="d-flex justify-content-end mb-3">
-        <button type="button" class="btn btn-success" style="background-color: #ffa800;" onclick="addRow()">Add Row</button>
+        <button type="button" class="btn btn-success" style="background-color: #ffa800;" onclick="addRow()">Add Row for stocks</button>
 
         <div style="margin-left: 10px;"> <!-- Add some margin between the buttons -->
             <button type="submit" class="btn btn-primary" style="background-color: maroon;">Submit for Printing</button>
@@ -184,7 +207,17 @@ session_start();
 </script>
 
 
+<script>
+  function handleCheckboxClick(clickedCheckbox) {
+    var checkboxes = document.getElementsByName("checkboxGroup");
 
+    checkboxes.forEach(function(checkbox) {
+      if (checkbox !== clickedCheckbox) {
+        checkbox.checked = false;
+      }
+    });
+  }
+</script>
 
 
 

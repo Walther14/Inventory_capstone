@@ -20,8 +20,15 @@ $quantities = isset($_POST['quantity']) ? $_POST['quantity'] : [];
 
 $date3 = $_POST['date3'] ?? '';
 $date4 = $_POST['date4'] ?? '';
-$inspectionOffice = $_POST['inspection_office'] ?? '';
-$propertyOfficer = $_POST['property_officer'] ?? '';
+
+$checkbox1 = isset($_POST['checkbox1']) ? $_POST['checkbox1'] : '';
+$checkboxGroup = isset($_POST['checkboxGroup']) ? $_POST['checkboxGroup'] : [];
+
+// Now $checkbox1 and $checkboxGroup contain the selected values
+// You can use them as needed in your further processing
+
+$inspectionOffice = $_POST['inspectionOffice'] ?? '';
+$propertyOfficer = $_POST['propertyOfficer'] ?? '';
 
 ?>
 
@@ -122,9 +129,41 @@ $propertyOfficer = $_POST['property_officer'] ?? '';
 </tr>
 
 <tr style="text-align: left;">
-    <td colspan="2">Additional Text Here</td>
-    <td colspan="2">Additional Text Here</td>
+    <td colspan="2">
+        <input type="checkbox" id="checkbox1" name="checkbox1" value="Inspected, verified and found">
+        <label for="checkbox1">Inspected, verified and found<br>in order as to quantity and specifications</label>
+    </td>
+    <td colspan="2">
+        <input type="checkbox" id="checkbox2" name="checkboxGroup[]" value="Complete">
+        <label for="checkbox2">Complete</label>
+        <br>
+        <input type="checkbox" id="checkbox3" name="checkboxGroup[]" value="Partial">
+        <label for="checkbox3">Partial</label>
+    </td>
 </tr>
+
+<tr style="text-align: center;">
+    <td colspan="2">
+    <br>
+        <?php echo $inspectionOffice = $_POST['inspectionOffice'] ?? ''; ?>
+        <br>
+        <label for="inspectionOffice">-------------------------------------------------</label>
+        <br>
+        <label for="inspectionOffice">Inspection Office/Inspection Committee:</label>
+    </td>
+    <td colspan="2">
+    <br>
+        <?php echo $inspectionOffice = $_POST['propertyOfficer'] ?? ''; ?>
+        <br>
+        <label for="inspectionOffice">-------------------------------------------------</label>
+        <br>
+        <label for="inspectionOffice">Property Officer</label>
+    </td>
+</tr>
+
+
+
+
 
 
             <!-- Add your table rows here -->
