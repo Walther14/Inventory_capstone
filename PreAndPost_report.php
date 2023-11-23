@@ -9,7 +9,7 @@ session_start();
 
 
 <div style="margin: 5rem;">
-    <form class="row g-3" action="./components/inspectionAndAcceptanceReport.php" method="post">
+    <form class="row g-3" action="./components/PreandPost_reportPrint.php" method="post">
         
     <div class="p-5 d-flex justify-content-center align-items-center">
 
@@ -106,7 +106,7 @@ session_start();
                 </div>
                 <div>
                     <label for="date1" class="form-label">Date</label>
-                    <input type="date1" class="form-control" id="date1" name="date1" placeholder="Position/Designation" required>
+                    <input type="date" class="form-control" id="date1" name="date1" placeholder="Date" required>
                 </div>
             </td>
         </tr>
@@ -142,7 +142,7 @@ session_start();
                 </div>
                 <div>
                     <label for="date1" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="date1" name="date1" placeholder="Position/Designation" required>
+                    <input type="date" class="form-control" id="date1" name="date1" placeholder="Date" required>
                 </div>
             </td>
 
@@ -159,7 +159,7 @@ session_start();
                 </div>
                 <div>
                     <label for="date1" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="date1" name="date1" placeholder="Position/Designation" required>
+                    <input type="date" class="form-control" id="date1" name="date1" placeholder="Date" required>
                 </div>
             </td>
         </tr>
@@ -212,7 +212,7 @@ session_start();
                         </div>
                         <div class="col-6">
                             <label for="payable_amount" class="form-label">Payable Amount</label>
-                            <input type="text" class="form-control" id="payable_amount" name="payable_amount" placeholder="Date">
+                            <input type="text" class="form-control" id="payable_amount" name="payable_amount" placeholder="Payble Amount">
                         </div>
 
                         <div class="col-sm-12"> 
@@ -239,7 +239,7 @@ session_start();
 
                 <div>
                     <label for="date1" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="date1" name="date1" placeholder="Position/Designation" required>
+                    <input type="date" class="form-control" id="date1" name="date1" placeholder="Date" required>
                 </div>
             </td>
 
@@ -253,7 +253,7 @@ session_start();
              
                 <div>
                     <label for="date1" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="date1" name="date1" placeholder="Position/Designation" required>
+                    <input type="date" class="form-control" id="date1" name="date1" placeholder="Date" required>
                 </div>
             </td>
         </tr>
@@ -262,7 +262,6 @@ session_start();
         </tbody>
 </table>
 </div>
-
         <div class="col-sm-12">
             <div class="d-flex justify-content-end mb-3">
        
@@ -271,8 +270,7 @@ session_start();
         </div>
 </div>
 
-
-    </form>
+</form>
 </div>
 
 

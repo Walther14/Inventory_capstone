@@ -147,7 +147,6 @@ session_start();
 </table>
 
 
-    </form>
 </div>
 
 <div class="col-sm-12">
@@ -159,6 +158,9 @@ session_start();
         </div>
     </div>
 </div>
+
+
+</form>
 
 
 <script>
