@@ -147,7 +147,7 @@ session_start();
 </table>
 
 
-    </form>
+  
 </div>
 
 <div class="col-sm-12">
@@ -158,7 +158,7 @@ session_start();
             <button type="submit" class="btn btn-primary" style="background-color: maroon;">Submit for Printing</button>
         </div>
     </div>
-</div>
+</div>  </form>
 
 
 <script>

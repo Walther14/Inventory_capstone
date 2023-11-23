@@ -13,7 +13,7 @@
 
     <?php
     $inventory_id = $_GET['id'];
-    $inventory = "SELECT * FROM inventory_db WHERE  id = '$inventory_id'";
+    $inventory = "SELECT id FROM inventory_db WHERE  id = '$inventory_id'";
 
     $result = $data->query($inventory);
     ?>
