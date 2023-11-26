@@ -1,14 +1,4 @@
-<?php
-session_start();
-@include('Controller/db.php');
-@include('partials/header.php');
-@include('partials/sidebar.php');
-@include('partials/topbar.php');
-?>
 
-
-
-<div style="margin: 5rem;">
     <form class="row g-3" action="./components/wasteReport.php" method="post">
         
     <div class="p-5 d-flex justify-content-center align-items-center">
@@ -264,6 +254,3 @@ function validateAmount(input) {
 </script>
 
 
-<?php
-include('partials/footer.php')
-?>

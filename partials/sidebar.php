@@ -135,7 +135,7 @@
         </div>
 
 
-        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inspection_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waste_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_inventoriesReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/components/inspectionAndAcceptanceReport.php'  ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav3">
+        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inspection_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waste_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_inventoriesReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/components/inspectionAndAcceptanceReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/formsContainer.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waster_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/PreAndPost_report.php'  ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav3">
           <ul>
             <li>
               <ul class="sidebar-nav">
@@ -167,46 +167,17 @@
 
 
                 <li class="nav-item">
-                  <a class="nav-link">FORMS</a>
+                  <a class="nav-link" href="./formsContainer.php" aria-current="page">FORMS</a>
                 </li>
                 <li>
                   <hr class="sidebar-divider">
                 </li>
                 <li class="nav-item">
 
-</li>
 
-                  <select class="nav-link" id="inventoryDropdown" onchange="location = this.value" style="max-width: 200px;">
-                    <option>select form</option>
-                    <option value="./inspection_report.php">Inspection and Acceptance Report</option>
-                    <option value="./PreAndPost_report.php">Pre and Post-Repair Inspection</option>
-                    <option value="./waste_report.php">Waste Materials Report</option>
-                    <option value="#">Report on the Physical Count of Inventories</option>
-                    <option value="#">Report of Supplies and Material Issued </option>
-                    <option value="#">Report on the Physical Count of Semi-Expendable Properties </option>
-                    <option value="#">Report of Semi-Expendable Property Issued</option>
-                    <option value="#">Inventory and Inspection Report of Unserviceable Semi-Expendable Property </option>
-                    <option value="#">Report on the Physical Count of Property, Plant and Equipment </option>
-                    <option value="#">Inventory and Inspection Report of Unserviceable Property</option>
-                    <option value="#">Stock Card</option>
-                    <option value="#">Inventory Custodian Slip</option>
-                    <option value="#">Report on the Physical Count of Property, Plant and Equipment </option>
-                    <option value="#">Inventory and Inspection Report of Unserviceable Property</option>
-                    <option value="#">Receipt of Returned Semi-Expendable Property </option>
-                    <option value="#">Semi-Expendable Property Card </option>
-                    <option value="#">Property Acknowledgement Receipt </option>
-                    <option value="#">Acknowledgement Receipt for Equipment</option>
-                    <option value="#">Property Return Slip</option>
-                    <option value="#">Property Card</option>
-                  </select>
+
                 </li>
-
-                <li>
-                  <hr class="sidebar-divider">
-                </li>
-
-            </li>
-          </ul>
+              </ul>
         </div>
 
       </div>
