@@ -87,7 +87,7 @@
                                         <?php echo ($row['Current_Property_Number']) ?>
                                     </td>
                                     <td>
-                                        <a type="button" class="btn btn-primary" data-id="<?php echo $row['id'] ?>">View</a>
+                                        <a type="button" class="btn btn-primary" style="background-color: maroon;" data-id="<?php echo $row['id'] ?>">View</a>
                                         <a type="button" class="btn btn-secondary" href="./components/editinventory.php?id=<?php echo $row['id'] ?>">Edit</a>
                                     </td>
                                 </tr>

@@ -3,7 +3,7 @@
   <nav class="sidebar offcanvas-start offcanvas-md" tabindex="-1" id="sidebar-example" style="background-color: rgb(255, 255, 255); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 0, 0.19); border-right: none  ;">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <a class="sidebar-brand" href="#">
-        <img src="./img/prime.png" alt="Logo" height="24" class="d-inline-block align-text-top">
+        <img src="../img/prime.png" alt="Logo" height="24" class="d-inline-block align-text-top">
       </a>
       <button type="button" class="btn-close d-md-none" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#sidebar-example"></button>
     </div>
@@ -135,25 +135,25 @@
         </div>
   
 
-        <div class="col-6"<?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inspection_report.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav3">
+        <div class="col-6"<?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inspection_report.php' || $_SERVER['REQUEST_URI'] == "/inventory_capstone/components/inspectionAndAcceptanceReport.php" || $_SERVER['REQUEST_URI'] == "/inventory_capstone/components/wasteReport.php" ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav3">
         <ul>
             <li>
               <ul class="sidebar-nav">
                 <li class="d-flex">
                 
-                  <a type="button" href="./reports.php" class="nav-link" >Inventory Report</a>
+                  <a type="button" href="../reports.php" class="nav-link" >Inventory Report</a>
                 </li>
                 <li>
                   <hr class="sidebar-divider">
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./reports.php" aria-current="page">Semi-Expendable Property</a>
+                  <a class="nav-link" href="../reports.php" aria-current="page">Semi-Expendable Property</a>
                 </li>  
                 <li>
                   <hr class="sidebar-divider">
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./reports.php" aria-current="page">Property Plant Equipmemt</a>
+                  <a class="nav-link" href="../reports.php" aria-current="page">Property Plant Equipmemt</a>
                 </li>
 
                 <li>
