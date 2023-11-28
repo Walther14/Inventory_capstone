@@ -88,7 +88,7 @@
                                     </td>
                                     <td>
                                         <a type="button" class="btn btn-primary" style="background-color: maroon;" data-id="<?php echo $row['id'] ?>">View</a>
-                                        <a type="button" class="btn btn-secondary" href="./components/editinventory.php?id=<?php echo $row['id'] ?>">Edit</a>
+                                        <!-- <a type="button" class="btn btn-secondary" data-id="data_edit?id=<?php echo $row['id'] ?>">Edit</a> -->
                                     </td>
                                 </tr>
 
@@ -124,10 +124,12 @@
         button.addEventListener("click", function() {
 
             let rightSideBar = document.querySelector("#rightSidebar");
+            let rightSideBar2 = document.querySelector("#rightSidebar2");
             let empty = document.querySelector("#empty");
             let tabs = document.querySelector("#js-tabs-1")
 
             rightSideBar.style.display = "block"
+            rightSideBar2.style.display = "block"
             tabs.style.display = "flex"
             empty.style.display = "none"
 
@@ -151,6 +153,7 @@
             .then(data => {
                 // Display the result in the specified container
                 document.getElementById('propertyDescription').innerHTML = data.Property_Description;
+                document.getElementById('editPropertyDescription').value = data.Property_Description;
 
                 document.getElementById('propertyNumber').innerHTML = data.Current_Property_Number;
 

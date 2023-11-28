@@ -9,8 +9,8 @@
         </a>
 
 
-        <div class="d-flex justify-content-end">
-            <select class="nav-link" id="inventoryDropdown" onchange="logSelectedOption(this)" style="max-width: 200px;">
+        <div class="d-flex justify-content-end" >
+            <select class="nav-link" id="inventoryDropdown" onchange="logSelectedOption(this)" style="max-width: 200px; border-radius: 5px; border: solid .5px; height: 3rem">
                 <option value="./forms/inspection_report.php">Inspection and Acceptance Report</option>
                 <option value="./forms/PreAndPost_report.php">Pre and Post-Repair Inspection</option>
                 <option value="./forms/waste_report.php">Waste Materials Report</option>
