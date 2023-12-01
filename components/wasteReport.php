@@ -31,45 +31,51 @@ $position_witness = $_POST['position_witness'] ?? '';
 
 $checkbox1 = isset($_POST['checkbox1']) ? $_POST['checkbox1'] : '';
 $checkboxGroup = isset($_POST['checkboxGroup']) ? $_POST['checkboxGroup'] : [];
-
+$total = array_sum($amount);
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Waste Report</title>
     <style>
-        /* Your existing styles for the document go here */
+    /* Your existing styles for the document go here */
 
-        /* Styles for the print media */
-        @media print {
-            body {
-                margin: 0; /* Remove default margins */
-            }
-
-            .print-only {
-                display: block; /* Show elements with class "print-only" */
-            }
-
-            /* Hide other elements not meant for printing */
-            body > *:not(.print-only) {
-                display: none;
-            }
+    /* Styles for the print media */
+    @media print {
+        body {
+            margin: 0; /* Remove default margins */
         }
-      
-        .form-control {
+
+        .print-only {
+            display: block; /* Show elements with class "print-only" */
+        }
+
+        /* Hide other elements not meant for printing */
+        body > *:not(.print-only) {
+            display: none;
+        }
+
+        /* Remove padding for the specific div when printing */
+        div.p-5 {
+            padding: 0 !important;
+        }
+    }
+
+    .form-control {
         margin: 0; /* Reset margin */
         padding: 0; /* Reset padding */
         line-height: 1; /* Reset line-height */
         height: auto; /* Reset height */
         border: none;
     }
+</style>
 
 
-    </style>
 </head>
 <body>
 
@@ -77,7 +83,7 @@ $checkboxGroup = isset($_POST['checkboxGroup']) ? $_POST['checkboxGroup'] : [];
 <div class="print-only">
     
 
-<div class="p-5 d-flex justify-content-center align-items-center">
+<div class="p-5 d-flex justify-content-center align-items-center remove-print-padding">
 
     <table class="table table-bordered">
         <thead>
@@ -146,14 +152,15 @@ for ($i = 0; $i < count($item); $i++) {
     echo "<td>" . wordwrap($unit[$i], 20, "<br/>", true) . "</td>";
     echo "<td colspan='4'>" . wordwrap($description[$i], 50, "<br/>", true) . "</td>";
     echo "<td colspan='1'>" . wordwrap($OR[$i], 20, "<br/>", true) . "</td>";
-    echo "<td>" . wordwrap($amount[$i], 15, "<br/>", true) . "</td>";
+    echo "<td>" . wordwrap(number_format($amount[$i], 2, '.', ','), 15, "<br/>", true) . "</td>";
+
     echo "</tr>";
 }
 ?>
 
 <tr style="text-align: left;">
     <td colspan="11">TOTAL</td>
-    <td colspan="1"></td>
+    <td colspan="1"><?php echo number_format($total, 2, '.', ','); ?></td>
 </tr>
 
 
@@ -221,6 +228,18 @@ for ($i = 0; $i < count($item); $i++) {
     </td>
 </tr>
 
+<td colspan="12" style="padding: 5px;">
+    <label for="witness_to" class="form-label">Distribution</label>
+    <!-- Add disabled checkboxes before each label -->
+    <input type="checkbox" id="supplyPropertyUnitCopy" style="margin-left: 50px;" disabled>
+    <label for="supplyPropertyUnitCopy" class="form-label" style="margin-left: 5px;">Supply and Property Unit Copy</label>
+    <input type="checkbox" id="accountingCopy"style="margin-left: 15px;"disabled>
+    <label for="accountingCopy" class="form-label" style="margin-left: 5px;">Accounting Copy</label>
+    <input type="checkbox" id="coaCopy" style="margin-left: 15px;"disabled>
+    <label for="coaCopy" class="form-label" style="margin-left: 5px;">COA Copy</label>
+</td>
+
+
             <!-- Add your table rows here -->
         </tbody>
     </table>
@@ -232,7 +251,6 @@ for ($i = 0; $i < count($item); $i++) {
 
 
 </div>
-
 </body>
 
 <div class="col-sm-12">
@@ -241,6 +259,8 @@ for ($i = 0; $i < count($item); $i++) {
             <button onclick="printReport()" class="btn btn-primary" style="background-color: maroon;">Print</button>
         </div>
     </div>
+
+
 </div> 
 </html>
 <style>

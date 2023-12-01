@@ -28,3 +28,12 @@
     border: 1px solid #cacaca;
 }
 
+
+li{
+  font-weight:500;
+  font-size:large;
+}
+
+.li-active{
+  color: maroon;
+}

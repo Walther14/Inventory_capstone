@@ -42,7 +42,7 @@ if (isset($_SESSION['response'])) {
 <!--<style>
     body {
         background-image: url('../Inventory_capstone/img/background2.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your background image */
-        background-size: cover;
+        background-size:inherit;
         background-repeat: no-repeat;
     }
 </style>

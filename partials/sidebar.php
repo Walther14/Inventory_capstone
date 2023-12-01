@@ -135,13 +135,13 @@
         </div>
 
 
-        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inspection_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waster_report.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav3">
+        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inspection_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waste_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_inventoriesReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/components/inspectionAndAcceptanceReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/formsContainer.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waster_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/PreAndPost_report.php'  ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav3">
           <ul>
             <li>
               <ul class="sidebar-nav">
                 <li class="d-flex">
 
-                  <a type="button" href="./reports.php" class="nav-link">Inventory Report</a>
+                  <a type="button" href="./physicalcount_inventoriesReport.php" class="nav-link">Inventory Report</a>
                 </li>
                 <li>
                   <hr class="sidebar-divider">
@@ -167,11 +167,12 @@
 
 
                 <li class="nav-item">
-                  <a class="nav-link">FORMS</a>
+                  <a class="nav-link" href="./formsContainer.php" aria-current="page">FORMS</a>
                 </li>
                 <li>
                   <hr class="sidebar-divider">
                 </li>
+<<<<<<< HEAD
         
 
 
@@ -207,6 +208,14 @@
 
             </li>
           </ul>
+=======
+                <li class="nav-item">
+
+
+
+                </li>
+              </ul>
+>>>>>>> aa6307df6ac1d57a71139347711bae273fcd3487
         </div>
 
       </div>

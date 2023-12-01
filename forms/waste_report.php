@@ -1,14 +1,4 @@
-<?php
-session_start();
-@include('Controller/db.php');
-@include('partials/header.php');
-@include('partials/sidebar.php');
-@include('partials/topbar.php');
-?>
 
-
-
-<div style="margin: 5rem;">
     <form class="row g-3" action="./components/wasteReport.php" method="post">
         
     <div class="p-5 d-flex justify-content-center align-items-center">
@@ -71,7 +61,7 @@ session_start();
 </div>
 <div class="col-sm-2">
     <label for="amount" class="form-label">Amount</label>
-    <input type="text" class="form-control" name="amount[]" placeholder="Amount">
+    <input type="text" class="form-control" name="amount[]" id="amount" placeholder="Amount" oninput="validateAmount(this)">
 </div>
 
 
@@ -223,8 +213,27 @@ function addRow() {
     insertContainer.insertAdjacentHTML('afterend', newRowHTML);
   }
 }
+
+
 </script>
 
+
+<!--<script>
+function validateAmount(input) {
+    // Remove non-numeric characters and leading zeros
+    let sanitizedValue = input.value.replace(/[^0-9.]/g, '').replace(/^0+/, '');
+
+    // Update the input value with the sanitized value
+    input.value = sanitizedValue;
+
+    // Check if the value is a valid non-negative number
+    if (isNaN(parseFloat(sanitizedValue)) || parseFloat(sanitizedValue) < 0) {
+        // If not a valid number or negative, set the value to an empty string
+        input.value = '';
+        alert('Please enter a valid non-negative number.');
+    }
+}
+</script>-->
 
 <script>
   function handleCheckboxClick(clickedCheckbox) {
@@ -245,6 +254,3 @@ function addRow() {
 </script>
 
 
-<?php
-include('partials/footer.php')
-?>
