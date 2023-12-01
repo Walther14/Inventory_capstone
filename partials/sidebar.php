@@ -172,37 +172,13 @@
                 <li>
                   <hr class="sidebar-divider">
                 </li>
-                <li class="nav-item">
-<<<<<<< Updated upstream
-    <select class="nav-link" id="inventoryDropdown" onchange="location = this.value" style="max-width: 200px;">
-        <option>select form</option>
-        <option value="./inspection_report.php">Inspection and Acceptance Report</option>
-        <option value="./PreAndPost_report.php">Pre and Post-Repair Inspection</option>
-        <option value="#">Waste Materials Report</option>
-        <option value="#">Report on the Physical Count of Inventories</option>
-        <option value="#">Report of Supplies and Material Issued </option>
-        <option value="#">Report on the Physical Count of Semi-Expendable Properties </option>
-        <option value="#">Report of Semi-Expendable Property Issued</option>
-        <option value="#">Inventory and Inspection Report of Unserviceable Semi-Expendable Property </option>
-        <option value="#">Report on the Physical Count of Property, Plant and Equipment </option>
-        <option value="#">Inventory and Inspection Report of Unserviceable Property</option>
-        <option value="#">Stock Card</option>
-        <option value="#">Inventory Custodian Slip</option>
-        <option value="#">Report on the Physical Count of Property, Plant and Equipment </option>
-        <option value="#">Inventory and Inspection Report of Unserviceable Property</option>
-        <option value="#">Receipt of Returned Semi-Expendable Property </option>
-        <option value="#">Semi-Expendable Property Card </option>
-        <option value="#">Property Acknowledgement Receipt </option>
-        <option value="#">Acknowledgement Receipt for Equipment</option>
-        <option value="#">Property Return Slip</option>
-        <option value="#">Property Card</option>
-    </select>
-</li>
-=======
+        
+
+
                   <select class="nav-link" id="inventoryDropdown" onchange="location = this.value" style="max-width: 200px;">
                     <option>select form</option>
                     <option value="./inspection_report.php">Inspection and Acceptance Report</option>
-                    <option value="#">Pre and Post-Repair Inspection</option>
+                    <option value="./PreAndPost_report.php">Pre and Post-Repair Inspection</option>
                     <option value="./waste_report.php">Waste Materials Report</option>
                     <option value="#">Report on the Physical Count of Inventories</option>
                     <option value="#">Report of Supplies and Material Issued </option>
@@ -224,7 +200,6 @@
                   </select>
                 </li>
 
->>>>>>> Stashed changes
 
                 <li>
                   <hr class="sidebar-divider">

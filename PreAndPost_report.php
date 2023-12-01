@@ -52,7 +52,7 @@ session_start();
 
                         <div class="col-sm-6">
                             <label for="acquisition_date" class="form-label">Acquisition Date</label>
-                            <input type="text" class="form-control" id="acquisition_date" name="acquisition_date" placeholder="Acquisition Date">
+                            <input type="date" class="form-control" id="acquisition_date" name="acquisition_date" placeholder="Acquisition Date">
                         </div>
                         <div class="col-6">
                             <label for="acquisition_cost" class="form-label">Acquisition Cost</label>
@@ -92,7 +92,7 @@ session_start();
                     <label for="defects_complains" class="form-label">Defects/Complains</label>
                     <input type="" class="form-control" id="defects_complains" name="defects_complains" placeholder="Defects/Complains">
                 </div>
-               
+
             </td>
 
             <td colspan="2">
@@ -151,7 +151,7 @@ session_start();
             <td colspan="2">
                 <div>
                     <label for="requested_by" class="form-label">Noted By</label>
-                    <input type="text" class="form-control" id="requested_by" name="requested_by" placeholder="Noted by" >
+                    <input type="text" class="form-control" id="requested" name="requested_by" placeholder="Noted by" >
                 </div>
                 <div>
                     <label for="position_designation" class="form-label">Position/Designation</label>
