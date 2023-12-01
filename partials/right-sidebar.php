@@ -573,7 +573,11 @@
                     <div class="p-3">
                         <div class="row">
                             <div>
+<<<<<<< HEAD
                                 <input type="hidden" id="idInventory" name="id" style="width: 100%"></input>
+=======
+                            <input  type="hidden"  id="idInventory" name="id" style="width: 100%"></input>
+>>>>>>> 2751a517654efc77584047c9f226b34d113c56a2
 
                                 <h5>Property Description</h5>
                                 <input id="editPropertyDescription" name="Property_Description" style="width: 100%"></input>
@@ -682,7 +686,11 @@
                             <div>
 
                                 <h5>Supplier</h5>
+<<<<<<< HEAD
                                 <input style="color: gray" style="width: 100%" name="Supplier" id="editsupplier"></input>
+=======
+                                <input style="color: gray" style="width: 100%"  name="Supplier" id="editsupplier"></input>
+>>>>>>> 2751a517654efc77584047c9f226b34d113c56a2
                             </div>
 
                         </div>
@@ -745,7 +753,11 @@
                             <div>
 
                                 <h5>Asset Title</h5>
+<<<<<<< HEAD
                                 <input style="color: gray" style="width: 100%" name="Asset_Title" id="editassetTitle"></input>
+=======
+                                <input style="color: gray"style="width: 100%" name="Asset_Title" id="editassetTitle"></input>
+>>>>>>> 2751a517654efc77584047c9f226b34d113c56a2
                             </div>
 
                         </div>
@@ -772,7 +784,11 @@
                             <div>
 
                                 <h5>Estimated Useful Life</h5>
+<<<<<<< HEAD
                                 <input style="color: gray" style="width: 100%" name="Estimated_Useful_Life" id="editestimatedLife"></input>
+=======
+                                <input style="color: gray" style="width: 100%" name="Estimated_Useful_Life"  id="editestimatedLife"></input>
+>>>>>>> 2751a517654efc77584047c9f226b34d113c56a2
                             </div>
 
                         </div>
@@ -792,7 +808,11 @@
                             <div>
 
                                 <h5>Acquired through</h5>
+<<<<<<< HEAD
                                 <input style="color: gray" style="width: 100%" name="Acquired_through" id="editacquiredThrough"></input>
+=======
+                                <input style="color: gray" style="width: 100%" name="Acquired_through"  id="editacquiredThrough"></input>
+>>>>>>> 2751a517654efc77584047c9f226b34d113c56a2
                             </div>
 
                         </div>
@@ -802,7 +822,11 @@
                             <div>
 
                                 <h5>Remarks</h5>
+<<<<<<< HEAD
                                 <inputp style="color: gray" style="width: 100%" name="Remarks" id="editremarks"></inputp>
+=======
+                                <inputp style="color: gray" style="width: 100%" name="Remarks"  id="editremarks"></inputp>
+>>>>>>> 2751a517654efc77584047c9f226b34d113c56a2
                             </div>
 
                         </div>
