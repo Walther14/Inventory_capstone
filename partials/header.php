@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./node_modules//halfmoon/css/halfmoon.min.css">
     <link rel="stylesheet" href="./css/custom.css">
     <script src="./node_modules//jquery/dist/jquery.min.js" defer></script>
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <!-- <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> -->
     <title>Document</title>
 </head>
 <body>

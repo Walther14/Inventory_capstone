@@ -1,7 +1,7 @@
 <?php
 include('../Controller/db.php');
 
-$id= $_GET['id'];
+$id= $_POST['id'];
 
 
 
@@ -19,7 +19,7 @@ $asset_number = $_POST['Asset_Number'];
 $asset_title = $_POST['Asset_Title'];
 $issued_to = $_POST['Issued_To'];
 $issued_from = $_POST['Issued_From'];
-$aRE_PAR_ICS_number = $_POST['ARE_PAR_ICS_Number'];
+// $aRE_PAR_ICS_number = $_POST['ARE_PAR_ICS_Number'];
 $cancelled_number = $_POST['Cancelled_Number'];
 $pRS_number = $_POST['PRS_Number'];
 $estimated_useful_life = $_POST['Estimated_Useful_Life'];
@@ -28,7 +28,7 @@ $fund_admin_title = $_POST['Fund_Admin_Title'];
 $purchase_order_contract_number = $_POST['Purchase_Order_Contract_Number'];
 $supplier = $_POST['Supplier'];
 $acquired_through = $_POST['Acquired_through'];
-$remarks = $_POST['Remarks'];
+// $remarks = $_POST['Remarks'];
 
 
 $sql = "UPDATE inventory_db SET Property_Description='$property_description', Locator='$locator',  Current_Property_Number='$current_property_Number', Old_Property_Number='$old_property_number',
@@ -40,6 +40,7 @@ $sql = "UPDATE inventory_db SET Property_Description='$property_description', Lo
 
 if ($data->query($sql) === TRUE) {
   header("Location: ../inventory_index.php");
+
   
 } else {
   echo "Error updating record: " . $data->error;
