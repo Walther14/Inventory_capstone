@@ -8,7 +8,6 @@ session_start();
 
 
 <div style="margin: 5rem;">
-<h1>Lagay mo na Christopher lahat ng forms sa loob ng forms folder</h1>
 <div class="container" id="formContainer">
         <?php
         include('./forms/inspection_report.php');

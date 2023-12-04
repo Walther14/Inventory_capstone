@@ -1,8 +1,7 @@
 <?php
-include('Controller/db.php');
-include('partials/header.php');
-include('partials/sidebar.php');
-include('partials/topbar.php');
+include('../Controller/db.php');
+
+
 
 // Retrieve values from the $_POST array
 $place = $_POST['place'] ?? '';
@@ -274,5 +273,5 @@ for ($i = 0; $i < count($item); $i++) {
     }
 </script>
 <?php
-include('./partials/footer.php')
+include('../partials/footer.php')
 ?>
