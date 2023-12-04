@@ -1,8 +1,9 @@
 <?php
-include('Controller/db.php');
-include('partials/header.php');
-include('partials/sidebar.php');
-include('partials/topbar.php');
+include('../Controller/db.php');
+include('../partials/header.php');
+include('../partials/sidebar.php');
+include('../partials/topbar.php');
+
 
 // Retrieve values from the $_POST array
 $place = $_POST['place'] ?? '';

@@ -1,8 +1,7 @@
 <?php
 include('../Controller/db.php');
 
-$id= $_GET['id'];
-
+$id= $_POST['id'];
 
 
 $property_description = $_POST['Property_Description'];
