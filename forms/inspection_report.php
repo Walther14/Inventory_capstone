@@ -151,6 +151,11 @@
 </form>
 
 
+
+
+
+
+
 <!-- For Inspection report -->
 <script>
     document.getElementById('date').max = new Date().toISOString().split('T')[0];
