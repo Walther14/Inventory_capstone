@@ -18,8 +18,9 @@
         <div class="col-4" style="height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; padding-left: -1rem; display: flex; justify-content: center">
           <ul id="gyatt">
             <li style="margin-left: -1.5rem;" type="button" id="general">
-
-              <ion-icon class="icon" class="icon" name="analytics-outline" style="width: 50px; height: 50px"></ion-icon>
+              <span>
+                <i class="fa-solid fa-gauge" style="width: 50px; height: 50px"></i>
+              </span>
             </li>
             <li style="margin-left: -1.5rem;" type="button" id="dropdown">
               <ion-icon class="icon" name="file-tray-full-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
