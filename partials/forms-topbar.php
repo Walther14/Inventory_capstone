@@ -24,7 +24,7 @@
                 <option value="#">Inventory and Inspection Report of Unserviceable Property</option>
                 <option value="#">Receipt of Returned Semi-Expendable Property </option>
                 <option value="./forms/property_card.php">Semi-Expendable Property Card </option>
-                <option value="#">Property Acknowledgement Receipt </option>
+                <option value="./forms/acknwoledgement_receipt.php">Property Acknowledgement Receipt </option>
                 <option value="#">Acknowledgement Receipt for Equipment</option>
                 <option value="#">Property Return Slip</option>
                 <option value="#">Property Card</option>

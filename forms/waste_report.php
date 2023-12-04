@@ -1,5 +1,8 @@
-
-    <form class="row g-3" action="./components/wasteReport.php" method="post">
+<?php
+session_start();
+@include('../Controller/db.php');
+?>
+<form class="row g-3" action="./components/wasteReport.php" method="post">
         
     <div class="p-5 d-flex justify-content-center align-items-center">
 
@@ -46,7 +49,7 @@
 </div>
 <div class="col-sm-2">
 <label for="quantity" class="form-label">Quantity</label>
-<input type="number" class="form-control" name="quantity[]" placeholder="quantity">
+<input type="number" class="form-control" name="quantity[]" placeholder="quantity" required>
 </div><div class="col-sm-1">
 <label for="unit" class="form-label">Unit</label>
 <input type="text" class="form-control" name="unit[]" placeholder="unit">
@@ -61,7 +64,7 @@
 </div>
 <div class="col-sm-2">
     <label for="amount" class="form-label">Amount</label>
-    <input type="text" class="form-control" name="amount[]" id="amount" placeholder="Amount" oninput="validateAmount(this)">
+    <input type="text" class="form-control" name="amount[]" id="amount" placeholder="Amount" oninput="validateAmount(this)" required>
 </div>
 
 
