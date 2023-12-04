@@ -17,25 +17,42 @@
 
         <div class="col-4" style="height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; padding-left: -1rem; display: flex; justify-content: center">
           <ul id="gyatt">
+
+
             <li style="margin-left: -1.5rem;" type="button" id="general">
-
-              <ion-icon class="icon" class="icon" name="analytics-outline" style="width: 50px; height: 50px"></ion-icon>
+              <span>
+                <i class="fa-solid fa-gauge" style="width: 50px; height: 50px"></i>
+              </span>
             </li>
+
+
+
             <li style="margin-left: -1.5rem;" type="button" id="dropdown">
-              <ion-icon class="icon" name="file-tray-full-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
+              <span>
+              <i class="fa-solid fa-layer-group" style="width: 50px; height: 50px; margin-top: 2rem;"></i>
+              </span>
             </li>
+     
+        
             <li style="margin-left: -1.5rem;" type="button" id="something" type="button">
-
-              <ion-icon class="icon" name="newspaper-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
+              <span>
+              <i class="fa-solid fa-file-export" style="width: 50px; height: 50px; margin-top: 2rem;"></i>
+              </span>
             </li>
+            
 
             <li style="margin-left: -1.5rem;" type="button" id="backup" type="button">
-              <ion-icon class="icon" name="cloud-download-outline" style="width: 50px; height: 50px; margin-top: 2rem;"></ion-icon>
+              <span>
+                <i class="fa-solid fa-gauge" style="width: 50px; height: 50px; margin-top: 2rem;"></i>
+              </span>
             </li>
+
 
             <li style="margin-left: -1.5rem;" type="button" id="backup" type="button">
               <a href="./logout.php">
-                <ion-icon class="icon" name="log-out-outline" style="width: 50px; height: 50px; margin-top: 2rem;" data-bs-toggle="tooltip" data-bs-title="Logout"></ion-icon>
+              <span>
+              <i class="fa-solid fa-right-from-bracket"   style="width: 50px; height: 50px; margin-top: 2rem;"  data-bs-title="Logout"></i>
+              </span>
               </a>
             </li>
 
