@@ -46,7 +46,6 @@ if (isset($_SESSION['response'])) {
 
 <!-- Modal toggle -->
 
-
 <form method="post" action="new_category.php">
     <div class="d-flex justify-content-end" style="margin-right: 5em;">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#example-modal-7" style="background-color: maroon; color: white;" onmouseover="this.style.backgroundColor='#ffa800'; this.style.color='maroon'" onmouseout="this.style.backgroundColor='maroon'; this.style.color='white'">Add new category</button>

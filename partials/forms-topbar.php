@@ -1,16 +1,14 @@
 <div style="position: sticky; top: 0; z-index: 10;">
 
 <!-- Top Bar -->
-<nav class="navbar navbar-expand-lg w-100" style="background-color: rgb(255, 255, 255); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 0, 0.19);">
+<nav class="navbar navbar-expand-lg w-100" style="background-image: url('./img/try.png'); background-size: cover; height: .63in; border-bottom: var(--bs-border-width) solid var(--bs-content-border-color); width: 100%;">
     <div class="container-fluid d-flex justify-content-between p-3">
         <a class="navbar-brand" href="#">
-            <img src="./img/prime.png" alt="Logo" height="24" class="d-inline-block align-text-top">
-
         </a>
 
 
         <div class="d-flex justify-content-end" >
-            <select class="nav-link" id="inventoryDropdown" onchange="logSelectedOption(this)" style="max-width: 200px; border-radius: 5px; border: solid .5px; height: 3rem">
+            <select class="nav-link" id="inventoryDropdown" onchange="logSelectedOption(this)" style="max-width: 210px; background-color: white;border-radius: 5px; border: solid .5px; height: 2rem;">
                 <option value="./forms/inspection_report.php">Inspection and Acceptance Report</option>
                 <option value="./forms/PreAndPost_report.php">Pre and Post-Repair Inspection</option>
                 <option value="./forms/waste_report.php">Waste Materials Report</option>
