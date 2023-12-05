@@ -19,13 +19,6 @@ session_start();
 
 
 
-
-
-
-
-
-
-
 <script>
     function logSelectedOption(selectElement) {
         var selectedOption = selectElement.value;

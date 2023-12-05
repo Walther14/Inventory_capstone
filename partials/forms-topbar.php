@@ -24,7 +24,7 @@
                 <option value="./forms/property_card.php">Semi-Expendable Property Card </option>
                 <option value="./forms/acknwoledgement_receipt.php">Property Acknowledgement Receipt </option>
                 <option value="#">Acknowledgement Receipt for Equipment</option>
-                <option value="#">Property Return Slip</option>
+                <option value="./forms/PropertyReturn_Slip.php">Property Return Slip</option>
                 <option value="#">Property Card</option>
             </select>
         </div>
