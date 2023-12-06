@@ -5,43 +5,52 @@
     
     <table class="table table-bordered">
         <thead>
+            <tr>
+                <th colspan="6" style="text-align: right;">
+                    Annex A.6
+                </th>
+            </tr>
+
             <th colspan="6" class="text-center">
-                PROPERTY RETURN SLIP
+                RECEIPT OF RETURNED SEMI-EXPENDABLE PROPERTY
     
             </th>
         </thead>
-        <tbody>
-        <tr>
-        <td colspan="6">
-            <div style="margin: 0.5rem;">
-                <div class="row g-3">
 
-                    <div class="col-sm-6">
-                        <label for="place" class="form-label">Name of Agency</label>
-                        <input type="text" class="form-control" id="place" name="place" placeholder="Name of Agency">
-                    </div>
+         
+    <td colspan="2">
+            <div>
+                <label for="certified_correct" class="form-label">Entity Name: </label>
+                <input type="text" class="form-control" id="entity" name="entity" placeholder="Entity Name" required>
 
-                    <div class="col-sm-6">
-                        <label for="purpose" class="form-label">Purpose</label>
-                        <select class="form-select" id="purpose">
-                            <option selected>Select an purpose</option>
-                            <option value="frontend">Disposal</option>
-                            <option value="backend">Repair</option>
-                            <option value="fullstack">Returned to Stock</option>
-                            <option value="fullstack"></option>
-                        </select>
-                    </div>
+         
+            </div>
+        </td>
+        <td colspan="2">
+            <div>
+            <label for="certified_correct" class="form-label">Date: </label>
+                <input type="date" class="form-control" id="name" name="name" placeholder="Date" required>
 
-                    <div class="col-sm-6">
-                        <label for="other" class="form-label">Other</label>
-                        <input type="text" class="form-control" id="other" name="place" placeholder="Name of Agency">
+                <label for="returned to" class="form-label">RRSP No::</label>
+                <input type="text" class="form-control" id="rrsp" name="rrsp" placeholder="RRSP No." required>
+          
+            </div>
+      </td>
+
+
+      <tbody>
+            <tr>
+                <td colspan="6">
+                    <div style="margin: 0.5rem;">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="stock_No" class="text-center">This is to acknowledge receipt of the returned Semi-expedable Property</label>
+                            </div>
+                        </div>
                     </div>
-      
-    
-  
-                </div>
-            </td>
-        </tr>
+                </td>
+            </tr>
+        </tbody>
 
 
         <tbody>
@@ -80,56 +89,28 @@
         </tbody>
 
 
-        <td colspan="6">
-            <div style="margin: 0.5rem;">
-                <div class="row g-3">
-
-                    <div class="col-sm-6">
-                        <label for="authority_reason" class="form-label">Authority/Reason:</label>
-                        <input type="text" class="form-control" id="authority_reason" name="authority_reason" placeholder="Authority/Reason">
-                    </div>
-
-                    <div class="col-sm-6">
-                        <label for="status" class="form-label">Status</label>
-                        <input type="text" class="form-control" id="status" name="status" placeholder="Status">
-                    </div>
-      
-                </div>
-            </td>
-        </tr>
-
-
 
 
     
     <td colspan="2">
             <div>
-                <label for="certified_correct" class="form-label">I HEREBY CERTIFY that i have RETURNED this: </label>
-                <input type="date" class="form-control" id="name" name="name" placeholder="Date" required>
-
-                <label for="returned to" class="form-label">Returned to:</label>
-                <input type="text" class="form-control" id="returned_to" name="returned_to" placeholder="Returned to" required>
+                <label for="certified_correct" class="form-label">Returned by: </label>
                 <br>
                 <br>
-
-                <input type="text" class="form-control" id="position" name="position" placeholder="Returned by" required>
-                <input type="text" class="form-control" id="office" name="office" placeholder="Position" required>
+                <input type="text" class="form-control" id="end_user" name="end_user" placeholder="End User" required>
+                <input type="date" class="form-control" id="date" name="date" placeholder="Date" required>
     
     
             </div>
         </td>
         <td colspan="2">
             <div>
-            <label for="certified_correct" class="form-label">I HEREBY CERTIFY that i have RECEIVED this: </label>
-                <input type="date" class="form-control" id="name" name="name" placeholder="Date" required>
-
-                <label for="returned to" class="form-label">Received From:</label>
-                <input type="text" class="form-control" id="received_from" name="received_from" placeholder="Received From" required>
+                <label for="certified_correct" class="form-label">Received by: </label>
                 <br>
                 <br>
-
-                <input type="text" class="form-control" id="position" name="position" placeholder="Received By" required>
-                <input type="text" class="form-control" id="position" name="position" placeholder="Position" required>
+                <input type="text" class="form-control" id="supply_division" name="supply_division" placeholder="Head, Property, and/or Supply Division Unit" required>
+                <input type="date" class="form-control" id="date" name="date" placeholder="Date" required>
+    
 
            
             </div>
