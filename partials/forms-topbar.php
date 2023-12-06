@@ -20,7 +20,7 @@
                 <option value="#">Inventory Custodian Slip</option>
                 <option value="#">Report on the Physical Count of Property, Plant and Equipment </option>
                 <option value="#">Inventory and Inspection Report of Unserviceable Property</option>
-                <option value="#">Receipt of Returned Semi-Expendable Property </option>
+                <option value="./forms/returned_semi-expendable_property_receipt.php">Receipt of Returned Semi-Expendable Property </option>
                 <option value="./forms/property_card.php">Semi-Expendable Property Card </option>
                 <option value="./forms/acknwoledgement_receipt.php">Property Acknowledgement Receipt </option>
                 <option value="./forms/acknowledgement_receipt_equipment.php">Acknowledgement Receipt for Equipment</option>

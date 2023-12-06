@@ -5,48 +5,52 @@
     
     <table class="table table-bordered">
         <thead>
+            <tr>
+                <th colspan="6" style="text-align: right;">
+                    Annex A.6
+                </th>
+            </tr>
+
             <th colspan="6" class="text-center">
-                ACKNOWLDEGEMENT RECEIPT FOR EQUIPMENT
+                RECEIPT OF RETURNED SEMI-EXPENDABLE PROPERTY
     
             </th>
         </thead>
-        <tbody>
-        <tr>
-        <td colspan="6">
-            <div style="margin: 0.5rem;">
-                <div class="row g-3">
 
-                    <div class="col-sm-6">
-                        <label for="entity" class="form-label">Entity Name:</label>
-                        <input type="text" class="form-control" id="entity" name="entity" placeholder="Name of Agency">
-                    </div>
+         
+    <td colspan="2">
+            <div>
+                <label for="certified_correct" class="form-label">Entity Name: </label>
+                <input type="text" class="form-control" id="entity" name="entity" placeholder="Entity Name" required>
 
-                    <div class="col-sm-6">
-                        <label for="purpose" class="form-label">Fund Cluster: Sir Roy Dito Is direct na naka link don sa Fund code natin</label>
-                        <select class="form-select" id="purpose"> <!-- Direct Select from Fund code in the System -->
-                            <option value="fullstack"></option>
-                        </select>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <label for="refference_no" class="form-label">Refference No:</label>
-                        <input type="text" class="form-control" id="refference_no" name="refference_no" placeholder="Refference No.">
-                    </div>
-      
-    
-  
-                </div>
-            </td>
-        </tr>
-
-
-        
-        <th colspan="12" class="text-left">
-            <div class="col-sm-6" style="text-align: left;">
-                <label for="findings" class="form-label">Cancles</label>
-                <input type="text" class="form-control" id="findings" name="findings" placeholder="">
+         
             </div>
-        </th>
+        </td>
+        <td colspan="2">
+            <div>
+            <label for="certified_correct" class="form-label">Date: </label>
+                <input type="date" class="form-control" id="name" name="name" placeholder="Date" required>
+
+                <label for="returned to" class="form-label">RRSP No::</label>
+                <input type="text" class="form-control" id="rrsp" name="rrsp" placeholder="RRSP No." required>
+          
+            </div>
+      </td>
+
+
+      <tbody>
+            <tr>
+                <td colspan="6">
+                    <div style="margin: 0.5rem;">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="stock_No" class="text-center">This is to acknowledge receipt of the returned Semi-expedable Property</label>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
 
 
         <tbody>
@@ -54,41 +58,60 @@
                     <td colspan="6">
                         <div style="margin: 0.5rem;">
                             <div class="row g-3">
-                            
-                                <div class="col-12">
-                                    <label for="stock_No" class="form-label">Note: Physical transfering of PPEs among collge personnel or office themeselves
-                                      by virtue of designation, transfer, termination or by promotion does not relieve the orginal end-user of the accountability 
-                                      that goes with the Property, Plant and Equipment (PPE) being transferred. The Supply and Property unit shall always rely on the 
-                                      issued acknowledgement Receipt (PAR) under the personnel or officers' name. Source: page 21 BOT Approved Supply and Property 
-                                      Management System Manual (RPCPPE2022)
-                                    </label>
+                              
+
+                                <div class="col-3">
+                                    <label for="stock_No" class="form-label">Stock Number</label>
+                                    <input type="text" class="form-control" name="stock_No[]" placeholder="Stock Number">
                                 </div>
 
+                                <div class="col-sm-3">
+                                    <label for="unit" class="form-label">Unit</label>
+                                    <input type="text" class="form-control" name="unit[]" placeholder="unit">
+                                </div>
+                                
+                                <div class="col-sm-3">
+                                    <label for="description" class="form-label">Description</label>
+                                    <input type="text" class="form-control" name="description[]" placeholder="description">
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label for="quantity" class="form-label">Quantity</label>
+                                    <input type="number" class="form-control" name="quantity[]" placeholder="quantity">
+                                </div>
+                                
+                           
+                               
                             </div>
                         </div>
                     </td>
                 </tr>
         </tbody>
+
+
+
+
     
     <td colspan="2">
             <div>
-                <label for="certified_correct" class="form-label">Received By </label>
+                <label for="certified_correct" class="form-label">Returned by: </label>
                 <br>
                 <br>
-                <input type="text" class="form-control" id="position" name="position" placeholder="Received by" required>
-                <input type="text" class="form-control" id="received_by" name="received_by" placeholder="Position" required>
+                <input type="text" class="form-control" id="end_user" name="end_user" placeholder="End User" required>
+                <input type="date" class="form-control" id="date" name="date" placeholder="Date" required>
     
     
             </div>
         </td>
         <td colspan="2">
             <div>
-            <label for="certified_correct" class="form-label">Issued by </label>
+                <label for="certified_correct" class="form-label">Received by: </label>
                 <br>
                 <br>
-                <input type="text" class="form-control" id="position" name="position" placeholder="Issued by" required>
-                <input type="text" class="form-control" id="issued_by" name="issued_by" placeholder="Position" required>
-  
+                <input type="text" class="form-control" id="supply_division" name="supply_division" placeholder="Head, Property, and/or Supply Division Unit" required>
+                <input type="date" class="form-control" id="date" name="date" placeholder="Date" required>
+    
+
            
             </div>
       </td>
