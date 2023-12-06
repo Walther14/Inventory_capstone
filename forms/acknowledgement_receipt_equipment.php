@@ -6,7 +6,7 @@
     <table class="table table-bordered">
         <thead>
             <th colspan="6" class="text-center">
-                PROPERTY RETURN SLIP
+                ACKNOWLDEGEMENT RECEIPT FOR EQUIPMENT
     
             </th>
         </thead>
@@ -17,24 +17,20 @@
                 <div class="row g-3">
 
                     <div class="col-sm-6">
-                        <label for="place" class="form-label">Name of Agency</label>
-                        <input type="text" class="form-control" id="place" name="place" placeholder="Name of Agency">
+                        <label for="entity" class="form-label">Entity Name:</label>
+                        <input type="text" class="form-control" id="entity" name="entity" placeholder="Name of Agency">
                     </div>
 
                     <div class="col-sm-6">
-                        <label for="purpose" class="form-label">Purpose</label>
-                        <select class="form-select" id="purpose">
-                            <option selected>Select an purpose</option>
-                            <option value="frontend">Disposal</option>
-                            <option value="backend">Repair</option>
-                            <option value="fullstack">Returned to Stock</option>
+                        <label for="purpose" class="form-label">Fund Cluster: Sir Roy Dito Is direct na naka link don sa Fund code natin</label>
+                        <select class="form-select" id="purpose"> <!-- Direct Select from Fund code in the System -->
                             <option value="fullstack"></option>
                         </select>
                     </div>
 
                     <div class="col-sm-6">
-                        <label for="other" class="form-label">Other</label>
-                        <input type="text" class="form-control" id="other" name="place" placeholder="Name of Agency">
+                        <label for="refference_no" class="form-label">Refference No:</label>
+                        <input type="text" class="form-control" id="refference_no" name="refference_no" placeholder="Refference No.">
                     </div>
       
     
@@ -44,32 +40,30 @@
         </tr>
 
 
+        
+        <th colspan="12" class="text-left">
+            <div class="col-sm-6" style="text-align: left;">
+                <label for="findings" class="form-label">Cancles</label>
+                <input type="text" class="form-control" id="findings" name="findings" placeholder="">
+            </div>
+        </th>
+
+
         <tbody>
                 <tr>
                     <td colspan="6">
                         <div style="margin: 0.5rem;">
                             <div class="row g-3">
-                              
-
-                                <div class="col-3">
-                                    <label for="stock_No" class="form-label">Stock Number</label>
-                                    <input type="text" class="form-control" name="stock_No[]" placeholder="Stock Number">
+                            
+                                <div class="col-12">
+                                    <label for="stock_No" class="form-label">Note: Physical transfering of PPEs among collge personnel or office themeselves
+                                      by virtue of designation, transfer, termination or by promotion does not relieve the orginal end-user of the accountability 
+                                      that goes with the Property, Plant and Equipment (PPE) being transferred. The Supply and Property unit shall always rely on the 
+                                      issued acknowledgement Receipt (PAR) under the personnel or officers' name. Source: page 21 BOT Approved Supply and Property 
+                                      Management System Manual (RPCPPE2022)
+                                    </label>
                                 </div>
 
-                                <div class="col-sm-3">
-                                    <label for="unit" class="form-label">Unit</label>
-                                    <input type="text" class="form-control" name="unit[]" placeholder="unit">
-                                </div>
-                                
-                                <div class="col-sm-3">
-                                    <label for="description" class="form-label">Description</label>
-                                    <input type="text" class="form-control" name="description[]" placeholder="description">
-                                </div>
-
-                                <div class="col-sm-3">
-                                    <label for="quantity" class="form-label">Quantity</label>
-                                    <input type="number" class="form-control" name="quantity[]" placeholder="quantity">
-                                </div>
                                 
                            
                                
@@ -78,59 +72,26 @@
                     </td>
                 </tr>
         </tbody>
-
-
-        <td colspan="6">
-            <div style="margin: 0.5rem;">
-                <div class="row g-3">
-
-                    <div class="col-sm-6">
-                        <label for="authority_reason" class="form-label">Authority/Reason:</label>
-                        <input type="text" class="form-control" id="authority_reason" name="authority_reason" placeholder="Authority/Reason">
-                    </div>
-
-                    <div class="col-sm-6">
-                        <label for="status" class="form-label">Status</label>
-                        <input type="text" class="form-control" id="status" name="status" placeholder="Status">
-                    </div>
-      
-                </div>
-            </td>
-        </tr>
-
-
-
-
     
     <td colspan="2">
             <div>
-                <label for="certified_correct" class="form-label">I HEREBY CERTIFY that i have RETURNED this: </label>
-                <input type="date" class="form-control" id="name" name="name" placeholder="Date" required>
-
-                <label for="returned to" class="form-label">Returned to:</label>
-                <input type="text" class="form-control" id="returned_to" name="returned_to" placeholder="Returned to" required>
+                <label for="certified_correct" class="form-label">Received By </label>
                 <br>
                 <br>
-
-                <input type="text" class="form-control" id="position" name="position" placeholder="Returned by" required>
-                <input type="text" class="form-control" id="office" name="office" placeholder="Position" required>
+                <input type="text" class="form-control" id="position" name="position" placeholder="Received by" required>
+                <input type="text" class="form-control" id="received_by" name="received_by" placeholder="Position" required>
     
     
             </div>
         </td>
         <td colspan="2">
             <div>
-            <label for="certified_correct" class="form-label">I HEREBY CERTIFY that i have RECEIVED this: </label>
-                <input type="date" class="form-control" id="name" name="name" placeholder="Date" required>
-
-                <label for="returned to" class="form-label">Received From:</label>
-                <input type="text" class="form-control" id="received_from" name="received_from" placeholder="Received From" required>
+            <label for="certified_correct" class="form-label">Issued by </label>
                 <br>
                 <br>
-
-                <input type="text" class="form-control" id="position" name="position" placeholder="Received By" required>
-                <input type="text" class="form-control" id="position" name="position" placeholder="Position" required>
-
+                <input type="text" class="form-control" id="position" name="position" placeholder="Issued by" required>
+                <input type="text" class="form-control" id="issued_by" name="issued_by" placeholder="Position" required>
+  
            
             </div>
       </td>
