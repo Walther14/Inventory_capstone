@@ -163,8 +163,8 @@
                 <li>
                   <hr class="sidebar-divider">
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./reports.php" aria-current="page">Semi-Expendable Property</a>
+                <li class="d-flex">
+                  <a type="button" href="./physicalcount_semiReport.php" class="nav-link">Semi-Expendable Property</a>
                 </li>
                 <li>
                   <hr class="sidebar-divider">

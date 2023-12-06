@@ -44,17 +44,71 @@ $total = array_sum($amount);
     <style>
     /* Your existing styles for the document go here */
 
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        position: relative; /* Added to position the footer relative to the body */
+    }
+
+    .main-content {
+        flex: 1;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 200px; /* Adjust the margin to accommodate the footer's height */
+    }
+
+    th, td {
+        border: 1px solid #ced4da;
+        padding: 8px;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-top: auto; /* Set margin-top to auto for it to push to the bottom */
+    }
+
+    .footer img {
+        width: 50rem;
+    }
+
+    .form-group {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}.form-group {
+   text-align: center;
+}
+
+.form-control {
+   border: none !important;
+   border-bottom: 1px solid #ced4da !important;
+   text-align: center !important;
+   width: 100%;
+}
+
+.form-group label {
+   text-align: center;
+}
+
+
     /* Styles for the print media */
     @media print {
         body {
-            margin: 0; /* Remove default margins */
+            display: block; /* Reset display value for printing */
         }
 
         .print-only {
-            display: block; /* Show elements with class "print-only" */
+            display: block;
         }
 
-        /* Hide other elements not meant for printing */
         body > *:not(.print-only) {
             display: none;
         }
@@ -66,10 +120,10 @@ $total = array_sum($amount);
     }
 
     .form-control {
-        margin: 0; /* Reset margin */
-        padding: 0; /* Reset padding */
-        line-height: 1; /* Reset line-height */
-        height: auto; /* Reset height */
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        height: auto;
         border: none;
     }
 </style>
@@ -80,16 +134,19 @@ $total = array_sum($amount);
 
 <!-- Bordered table -->
 <div class="print-only">
-    
+
+    <!-- Your header content goes here -->
+    <img src="../img/document-header.png" alt="Logo" style="width: 50rem; align-items: center;">
 
 <div class="p-5 d-flex justify-content-center align-items-center remove-print-padding">
 
     <table class="table table-bordered">
         <thead>
-           
-        <th colspan="12" class="text-center">
+        <tr>
+
+        <th colspan="15" class="text-center">
     <div style="display: flex; align-items: center; justify-content: center;">
-        <img src="../img/BSC_LOGO.png" alt="Logo" style="height: 80px; width: 80px; margin-right: 20px;">
+       
         <div style="text-align: center;">
             <label style="font-size: 1.5rem;">WASTE REPORT</label>
             <br>
@@ -101,40 +158,43 @@ $total = array_sum($amount);
 </th>
 
 
-
+</tr>
 
         </thead>
         <tbody>
-        <tr>
-    <td colspan="9">
+                <tr>
+                    <td colspan="10">
         <div style="margin: 0.5rem;">
             <div class="row g-3">
-                <div class="col-sm-6">
+                <div colspan="4">
                     <label for="place" class="form-label">Place of Storage</label>
                     <input type="text" class="form-control" id="place" name="place" placeholder="Place of Storage" value="<?php echo $place; ?>" readonly>
                 </div>
-                <div class="col-6">
+                <div colspan="4">
             
-                <td colspan="4">Date:&nbsp; <?php echo htmlspecialchars(date('F j, Y', strtotime($date))); ?>
+                <td colspan="6">Date:&nbsp; <?php echo htmlspecialchars(date('F j, Y', strtotime($date))); ?>
                 <br>
                 <br>
                 WMR Ref. No.  &nbsp; <?php echo $WMR; ?></td>
 
                 </div>
             </div>
-
-            <tr style="text-align: center;">
-    <td colspan="12">ITEMS FOR DISPOSAL</td>
-</tr>
+            </td>
+        
+                </tr>
+                <tr style="text-align: center;">
+                    <td colspan="13">ITEMS FOR DISPOSAL</td>
+                    <td colspan="2">RECORD OF SALES</td>
+                </tr>
         </div>
-    </td>
-</tr>
+    
+
 
 <tr style="width: 100%; text-align: center;">
     <td colspan="4">Item</td>
-    <td colspan="1">Qty</td>
+    <td>Qty</td>
     <td>Unit</td>
-    <td colspan="4">Description</td>
+    <td colspan="7">Description</td>
     <td colspan="1">OR No.</td>
     <td >Amount</td>
 </tr>
@@ -144,65 +204,81 @@ $total = array_sum($amount);
 for ($i = 0; $i < count($item); $i++) {
     echo "<tr>";
     echo "<td colspan='4'>" . wordwrap($item[$i], 30, "<br/>", true) . "</td>";
-    echo "<td colspan='1'>" . wordwrap($quantity[$i], 10, "<br/>", true) . "</td>";
+    echo "<td>" . wordwrap($quantity[$i], 10, "<br/>", true) . "</td>";
     echo "<td>" . wordwrap($unit[$i], 20, "<br/>", true) . "</td>";
-    echo "<td colspan='4'>" . wordwrap($description[$i], 50, "<br/>", true) . "</td>";
-    echo "<td colspan='1'>" . wordwrap($OR[$i], 20, "<br/>", true) . "</td>";
-    echo "<td>" . wordwrap(number_format($amount[$i], 2, '.', ','), 15, "<br/>", true) . "</td>";
-
+    echo "<td colspan='7'>" . wordwrap($description[$i], 80, "<br/>", true) . "</td>";
+    echo "<td>" . wordwrap($OR[$i], 20, "<br/>", true) . "</td>";
+    $amount[$i] = str_replace(',', '', $amount[$i]);
+    echo "<td>" . number_format((float) $amount[$i], 2, '.', ',') . "</td>";
     echo "</tr>";
 }
+
+// Recalculate total after formatting each amount
+$total = array_sum($amount);
+
 ?>
 
 <tr style="text-align: left;">
-    <td colspan="11">TOTAL</td>
+    <td colspan="14">TOTAL</td>
     <td colspan="1"><?php echo number_format($total, 2, '.', ','); ?></td>
 </tr>
 
-
-<td colspan="6">
+<tr>
+                    <td colspan="9">
     <div>
         <label for="certified_correct" class="form-label">Certified Correct:</label>
-        <input type="text" class="form-control text-center" id="name" name="name" placeholder="Name" value="<?php echo $name; ?>" readonly>
-        <input type="text" class="form-control text-center" id="position" name="position" placeholder="Position" value="<?php echo $position; ?>" readonly>
-        <input type="text" class="form-control text-center" id="office" name="office" placeholder="Office/Department" value="<?php echo $office; ?>" readonly>
-    </div>
-</td>
-<td colspan="9">
-    <div>
-        <label for="disposal_approved" class="form-label">Disposal Approved</label>
-        <input type="text" class="form-control text-center" id="name_disposal" name="name_disposal" placeholder="Name" value="<?php echo $name_disposal; ?>" readonly>
-        <input type="text" class="form-control text-center" id="by_authority" name="by_authority" placeholder="By the Authority of the Board of Trustees" value="<?php echo $by_authority; ?>" readonly>
-    </div>
-</td>
+<br>
 
-    <tr style="text-align: center;">
-    <td colspan="12">CERTIFICATE OF INSPECTION</td>
-</tr>
+<div class="form-group">
+           <input type="text" class="form-control text-center" id="name" name="name" placeholder="Name" value="<?php echo $name; ?>" readonly><br>
+       </div>
+       <div class="form-group">
+           <input type="text" class="form-control text-center" id="position" name="position" placeholder="Position" value="<?php echo $position; ?>" readonly><br>
+       </div>
+    <div class="form-group">
+           <input type="text" class="form-control text-center" id="office" name="office" placeholder="Office/Department" value="<?php echo $office; ?>" readonly>
+       </div></div>
+
+       </td>
+                    <td colspan="6">
+    <div>
+    <label for="disposal_approved" class="form-label">Disposal Approved</label> <br>
+<br>
+
+<div class="form-group">
+           <input type="text" class="form-control text-center" id="name" name="name" placeholder="Name" value="<?php echo $name; ?>" readonly><br>
+       </div>
+       <div class="form-group">
+           <input class="form-control text-center" id="position" name="position" placeholder="Position"  value="<?php echo $by_authority; ?>" readonly><br>
+   </div>
+
+   </td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td colspan="15">CERTIFICATE OF INSPECTION</td>
+                </tr>
 
 
 <tr style="text-align: center;">
-    <td colspan="12">
+    <td colspan="15">
     <label style="text-align:center;">I hereby certify that the property enumerated above was disposed as follows</label>
     </td>
 </tr>
 <!-- Indeterminate checkbox -->
 <tr>
-  <td colspan="12" style="padding-left: 240px;">
-    <br>
+  <td colspan="15" style="padding-left: 20px;">
+   
     <label for="checkbox2">Item</label>
     <input type="checkbox" id="checkbox2" name="checkboxGroup" onclick="handleCheckboxClick(this)">
     <label for="checkbox2">Destroyed</label>
-    <br>
-    <label for="checkbox3">Item</label>
+
     <input type="checkbox" id="checkbox3" name="checkboxGroup" onclick="handleCheckboxClick(this)">
     <label for="checkbox3">Sold at private sale</label>
-    <br>
-    <label for="checkbox4">Item</label>
+
+
     <input type="checkbox" id="checkbox4" name="checkboxGroup" onclick="handleCheckboxClick(this)">
     <label for="checkbox4">Sold at public auction</label>
-    <br>
-    <label for="checkbox1">Item</label>
+
     <input type="checkbox" id="checkbox1" name="checkboxGroup" onclick="handleCheckboxClick(this)">
     <label for="checkbox1">Transferred without cost</label>
   </td>
@@ -212,52 +288,70 @@ for ($i = 0; $i < count($item); $i++) {
 
 
 <tr>
-    <td colspan="6">
-        <label for="inspected_by" class="form-label">Inspected by</label>
-        <input type="text" class="form-control text-center" id="name_inspected" name="name_inspected" placeholder="Name" value="<?php echo $name_inspected; ?>" readonly>
-        <input type="text" class="form-control text-center" id="position_inspected" name="position_inspected" placeholder="Position" value="<?php echo $position_inspected; ?>" readonly>
-    </td>
-    <td colspan="9">
-        <label for="witness_to" class="form-label">Witness to</label>
-        <input type="text" class="form-control text-center" id="name_witness" name="name_witness" placeholder="Name" value="<?php echo $name_witness; ?>" readonly>
-        <input type="text" class="form-control text-center" id="position_witness" name="position_witness" placeholder="Position" value="<?php echo $position_witness; ?>" readonly>
-    </td>
+<td colspan="8">
+    <div>
+    <label for="inspected_by" class="form-label">Inspected by</label>
+<br>
+
+<div class="form-group">
+<input type="text" class="form-control text-center" id="name_inspected" name="name_inspected" placeholder="Name" value="<?php echo $name_inspected; ?>" readonly> <br>
+       </div>
+       <div class="form-group">
+       <input type="text" class="form-control text-center" id="position_inspected" name="position_inspected" placeholder="Position" value="<?php echo $position_inspected; ?>" readonly>
+   </div>
+
+</td>
+<td colspan=8">
+    <div>
+    <label for="witness_to" class="form-label">Witness to</label>
+<br>
+
+<div class="form-group">
+<input type="text" class="form-control text-center" id="name_witness" name="name_witness" placeholder="Name" value="<?php echo $name_witness; ?>" readonly>
+       </div>
+       <div class="form-group">
+       <input type="text" class="form-control text-center" id="position_witness" name="position_witness" placeholder="Position" value="<?php echo $position_witness; ?>" readonly>
+   </div>
+
+</td>
+    
 </tr>
 
-<td colspan="12" style="padding: 5px;">
+<td colspan="15" style="padding: 5px;">
     <label for="witness_to" class="form-label">Distribution</label>
     <!-- Add disabled checkboxes before each label -->
-    <input type="checkbox" id="supplyPropertyUnitCopy" style="margin-left: 50px;" disabled>
+    <input type="checkbox" id="supplyPropertyUnitCopy" style="margin-left: 50px;">
     <label for="supplyPropertyUnitCopy" class="form-label" style="margin-left: 5px;">Supply and Property Unit Copy</label>
-    <input type="checkbox" id="accountingCopy"style="margin-left: 15px;"disabled>
+    <input type="checkbox" id="accountingCopy"style="margin-left: 15px;">
     <label for="accountingCopy" class="form-label" style="margin-left: 5px;">Accounting Copy</label>
-    <input type="checkbox" id="coaCopy" style="margin-left: 15px;"disabled>
+    <input type="checkbox" id="coaCopy" style="margin-left: 15px;">
     <label for="coaCopy" class="form-label" style="margin-left: 5px;">COA Copy</label>
 </td>
 
 
             <!-- Add your table rows here -->
-        </tbody>
-    </table>
+        
+            </tbody>
+        </table>
 
-  
+    </div>
 
+    <div class="footer">
+        <img src="../img/document-footer.png" alt="Logo">
+    </div>
 
 </div>
 
 
-</div>
-</body>
-
-<div class="col-sm-12">
-    <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
+    <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px; position: fixed; right: 10px; bottom: 10px;">
         <div style="margin-left: 10px;">
             <button onclick="printReport()" class="btn btn-primary" style="background-color: maroon;">Print</button>
         </div>
     </div>
 
 
-</div> 
+
+</body>
 </html>
 <style>
     /* Add this style to make the borders of the input fields invisible */
