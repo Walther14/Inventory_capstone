@@ -1,5 +1,4 @@
 <?php
-session_start();
 @include('Controller/db.php');
 @include('partials/header.php');
 @include('partials/sidebar.php');
@@ -8,11 +7,11 @@ session_start();
 
 
 <div style="margin: 5rem;">
-<div class="container" id="formContainer">
-        <?php
-        include('./forms/inspection_report.php');
-        ?>
-    </div>
+<div class="container" id="formContainer" style="display: flex; justify-content: center; align-items: center;">
+    <img src="./img/FORMS.png" style="height: 500px; margin-top: 90px;" alt="Description of the image">
+</div>
+
+
 
 
 </div>

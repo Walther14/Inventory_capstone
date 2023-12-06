@@ -9,7 +9,8 @@
 
         <div class="d-flex justify-content-end" >
             <select class="nav-link" id="inventoryDropdown" onchange="logSelectedOption(this)" style="max-width: 210px; background-color: white;border-radius: 5px; border: solid .5px; height: 2rem;">
-                <option value="./forms/inspection_report.php">Inspection and Acceptance Report</option>
+            <option value="#" selected disabled>Select a Form</option>
+            <option value="./forms/inspection_report.php">Inspection and Acceptance Report</option>
                 <option value="./forms/PreAndPost_report.php">Pre and Post-Repair Inspection</option>
                 <option value="./forms/waste_report.php">Waste Materials Report</option>
                 <option value="./forms/materials_issued.php">Report of Supplies and Material Issued </option>

@@ -15,7 +15,7 @@
 
       <div class="d-flex">
 
-        <div class="col-4" style="height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; padding-left: -1rem; display: flex; justify-content: center">
+      <div class="col-4" style="height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; padding-left: -1rem; display: flex; justify-content: center;  background-size: cover;">
           <ul id="gyatt">
 
 

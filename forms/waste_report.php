@@ -1,7 +1,9 @@
 <?php
-session_start();
+
 @include('../Controller/db.php');
 ?>
+
+
 <form class="row g-3" action="./components/wasteReport.php" method="post">
         
     <div class="p-5 d-flex justify-content-center align-items-center">
@@ -9,7 +11,10 @@ session_start();
     <table id="wasteTable" class="table table-bordered">    <thead>
         <th colspan="6" class="text-center">
             WASTE MATERIAL REPORT
-
+            <div class="col-sm-12">
+                    <label for="agency" class="form-label">Agency</label>
+                    <input type="text" class="form-control mx-auto" id="agency" name="agency" placeholder="agency" style="width: 80%;" required>
+                </div>
         </th>
     </thead>
     <tbody>
@@ -19,16 +24,16 @@ session_start();
             <div class="row g-3">
                 <div class="col-sm-6">
                     <label for="place" class="form-label">Place of Storage</label>
-                    <input type="text" class="form-control" id="place" name="place" placeholder="Place of Storage">
+                    <input type="text" class="form-control" id="place" name="place" placeholder="Place of Storage" required>
                 </div>
                 <div class="col-6">
                     <label for="date" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="date" name="date" placeholder="IAR Number">
+                    <input type="date" class="form-control" id="date" name="date" placeholder="IAR Number" required>
 
                     <br>
 
                     <label for="WMR" class="form-label">WMR Ref. No.</label>
-                    <input type="text" class="form-control" id="WMR" name="WMR" placeholder="WMR Ref. No.">
+                    <input type="text" class="form-control" id="WMR" name="WMR" placeholder="WMR Ref. No." required>
                 </div>
             </div>
 
@@ -44,25 +49,41 @@ session_start();
                             <div class="row g-3">
 <div class="col-2">
 <label for="item" class="form-label">Item</label>
-<input type="text" class="form-control" name="item[]" placeholder="item">
+<input type="text" class="form-control" name="item[]" placeholder="item" required>
 </div>
 <div class="col-sm-2">
 <label for="quantity" class="form-label">Quantity</label>
 <input type="number" class="form-control" name="quantity[]" placeholder="quantity" required>
 </div><div class="col-sm-1">
 <label for="unit" class="form-label">Unit</label>
-<input type="text" class="form-control" name="unit[]" placeholder="unit">
+<input type="text" class="form-control" name="unit[]" placeholder="unit" required>
 </div>
 <div class="col-sm-3">
-<label for="description" class="form-label">Description</label>
-<input type="text" class="form-control" name="description[]" placeholder="description">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" required>
+    <datalist id="descriptions">
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+
+<div class="col-sm-2">
+    <label for="OR" class="form-label">O.R. No. (Record of sales)</label>
+    <input type="text" class="form-control" name="OR[]" placeholder="OR No." required>
 </div>
 <div class="col-sm-2">
-    <label for="OR" class="form-label">O.R. No.</label>
-    <input type="text" class="form-control" name="OR[]" placeholder="OR No.">
-</div>
-<div class="col-sm-2">
-    <label for="amount" class="form-label">Amount</label>
+    <label for="amount" class="form-label">Amount (Record of sales)</label>
     <input type="text" class="form-control" name="amount[]" id="amount" placeholder="Amount" oninput="validateAmount(this)" required>
 </div>
 
@@ -89,15 +110,31 @@ session_start();
 <input type="text" class="form-control" name="unit[]" placeholder="unit">
 </div>
 <div class="col-sm-3">
-<label for="description" class="form-label">Description</label>
-<input type="text" class="form-control" name="description[]" placeholder="description" value="---nothing follows---">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" value="---Nothing follows---">
+    <datalist id="descriptions">
+        <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
 </div>
 <div class="col-sm-2">
-    <label for="OR" class="form-label">O.R. No.</label>
+    <label for="OR" class="form-label">O.R. No. (Record of sales)</label>
     <input type="text" class="form-control" name="OR[]" placeholder="OR No.">
 </div>
 <div class="col-sm-2">
-    <label for="amount" class="form-label">Amount</label>
+    <label for="amount" class="form-label">Amount (Record of sales)</label>
     <input type="text" class="form-control" name="amount[]" id="amount" placeholder="Amount" oninput="validateAmount(this)">
 </div>
 
@@ -124,15 +161,32 @@ session_start();
 <input type="text" class="form-control" name="unit[]" placeholder="unit">
 </div>
 <div class="col-sm-3">
-<label for="description" class="form-label">Description</label>
-<input type="text" class="form-control" name="description[]" placeholder="description" value="---nothing follows---">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" value="---Nothing follows---">
+    <datalist id="descriptions">
+        <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
 </div>
+
 <div class="col-sm-2">
-    <label for="OR" class="form-label">O.R. No.</label>
+    <label for="OR" class="form-label">O.R. No. (Record of sales)</label>
     <input type="text" class="form-control" name="OR[]" placeholder="OR No.">
 </div>
 <div class="col-sm-2">
-    <label for="amount" class="form-label">Amount</label>
+    <label for="amount" class="form-label">Amount (Record of sales)</label>
     <input type="text" class="form-control" name="amount[]" id="amount" placeholder="Amount" oninput="validateAmount(this)">
 </div>
 
@@ -151,7 +205,7 @@ session_start();
             <label for="certified_correct" class="form-label">Certified Correct:</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
             <input type="text" class="form-control" id="position" name="position" placeholder="Position" required>
-            <input type="text" class="form-control" id="office" name="office" placeholder="Office/Department" required>
+            <input type="text" class="form-control" id="office" name="office" placeholder="Office/Department" required value="Supply and Property Unit">
 
 
         </div>
@@ -160,7 +214,7 @@ session_start();
         <div>
             <label for="disposal_approved" class="form-label">Disposal Approved</label>
             <input type="text" class="form-control" id="name_disposal" name="name_disposal" placeholder="Name" required>
-            <input type="text" class="form-control" id="by_authority" name="by_authority" placeholder="By the Authority of the Board of Trustees" required>
+            <input type="text" class="form-control" id="by_authority" name="by_authority" placeholder="By the Authority of the Board of Trustees" required value="By the Authority of the Board of Trustees">
 
         </div>
     </td>
@@ -181,31 +235,33 @@ session_start();
   <td colspan="12" style="padding-left: 300px;">
 
   <br>
+  
   <label for="checkbox2" style="margin-right: 10px;">Item</label>
-<input type="checkbox" id="checkbox2" name="checkboxGroup" onclick="handleCheckboxClick(this)">
-<label for="checkbox2" style="margin-left: 15vh;">Destroyed</label>
+  <input type="checkbox" id="destroyedCheckbox" name="destroyedCheckbox" onclick="handleCheckboxClick(this)">
+  <label for="destroyedCheckbox">Destroyed</label>
 
     <br>
     <label for="checkbox3" style="margin-right: 10px;">Item</label>
-    <input type="checkbox" id="checkbox3" name="checkboxGroup" onclick="handleCheckboxClick(this)">
-    <label for="checkbox3" style="margin-left: 15vh;">Sold at private sale</label>
+    <input type="checkbox" id="privateSaleCheckbox" name="privateSaleCheckbox" onclick="handleCheckboxClick(this)">
+    <label for="privateSaleCheckbox">Sold at private sale</label>
     <br>
 
     <label for="checkbox4" style="margin-right: 10px;">Item</label>
-    <input type="checkbox" id="checkbox4" name="checkboxGroup" onclick="handleCheckboxClick(this)">
-    <label for="checkbox4" style="margin-left: 15vh;">Sold at public auction</label>
+    <input type="checkbox" id="publicAuctionCheckbox" name="publicAuctionCheckbox" onclick="handleCheckboxClick(this)">
+    <label for="publicAuctionCheckbox">Sold at public auction</label>
     <br>
     <label for="checkbox1" style="margin-right: 10px;">Item</label>
-    <input type="checkbox" id="checkbox1" name="checkboxGroup" onclick="handleCheckboxClick(this)">
-    <label for="checkbox1" style="margin-left: 15vh;">Transferred without cost</label>
+    <input type="checkbox" id="transferredCheckbox" name="transferredCheckbox" onclick="handleCheckboxClick(this)">
+    <label for="transferredCheckbox">Transferred without cost</label>
   </td>
 </tr>
+
 
 <td colspan="2">
         <div>
             <label for="inspected_by" class="form-label">Inspected by</label>
             <input type="text" class="form-control" id="name_inspected" name="name_inspected" placeholder="Name" required>
-            <input type="text" class="form-control" id="position_inspected" name="position_inspected" placeholder="Position" required>
+            <input type="text" class="form-control" id="position_inspected" name="position_inspected" placeholder="Position" required value="Inspector Officer">
 
         </div>
     </td>
@@ -213,7 +269,7 @@ session_start();
         <div>
             <label for="witness_to" class="form-label">Witness to</label>
             <input type="text" class="form-control" id="name_witness" name="name_witness" placeholder="Name" required>
-            <input type="text" class="form-control" id="position_witness" name="position_witness" placeholder="Position" required>
+            <input type="text" class="form-control" id="position_witness" name="position_witness" placeholder="Position" required value="Leader">
 
         </div>
     </td>
@@ -233,7 +289,6 @@ session_start();
 <div class="col-sm-12">
         <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
 <!-- Add this button after the table -->
-<button type="button" class="btn btn-success" onclick="addRow()">Add Row</button>
 
             <div style="margin-left: 10px;">
                 <button type="submit" class="btn btn-primary" style="background-color: maroon;">Submit for Printing</button>
@@ -260,6 +315,8 @@ session_start();
       }
     });
   }
+
+  
 </script>
 
 
