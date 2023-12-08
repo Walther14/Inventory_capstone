@@ -177,7 +177,7 @@ th, td {
     }
 
     th, td {
-        padding: 8px; /* Reset padding for printing if needed */
+        padding: 4px; /* Reset padding for printing if needed */
     }
 
     /* Add more print-specific styles if necessary */

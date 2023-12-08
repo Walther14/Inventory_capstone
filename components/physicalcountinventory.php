@@ -1,8 +1,6 @@
 <?php
-include('Controller/db.php');
-include('partials/header.php');
-include('partials/sidebar.php');
-include('partials/topbar.php');
+include('../Controller/db.php');
+
 
 // Retrieve values from the $_POST array
 $assetTitle = $_POST['Asset_Title'] ?? '';
@@ -22,9 +20,20 @@ $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : [];
 $value = isset($_POST['value']) ? $_POST['value'] : [];
 $remarks = isset($_POST['remarks']) ? $_POST['remarks'] : [];
 
-
-$name = $_POST['name'] ?? '';
-$position = $_POST['position'] ?? '';
+$nameChair = $_POST['nameChair'] ?? '';
+$positionChair= $_POST['positionChair'] ?? '';
+$name1 = $_POST['name1'] ?? '';
+$position1 = $_POST['position1'] ?? '';
+$name2 = $_POST['name2'] ?? '';
+$position2 = $_POST['position2'] ?? '';
+$name3= $_POST['name3'] ?? '';
+$position3 = $_POST['position3'] ?? '';
+$name4 = $_POST['name4'] ?? '';
+$position4 = $_POST['position4'] ?? '';
+$name5 = $_POST['name5'] ?? '';
+$position5 = $_POST['position5'] ?? '';
+$name6 = $_POST['name6'] ?? '';
+$position6 = $_POST['position6'] ?? '';
 $office= $_POST['office'] ?? '';
 
 $name_disposal = $_POST['name_disposal'] ?? '';
@@ -45,31 +54,97 @@ $total = array_sum($value);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Waste Report</title>
+    <title>INSP</title>
     <style>
     /* Your existing styles for the document go here */
+
+    body {
+        font-family: 'Century Gothic', sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        position: relative; /* Added to position the footer relative to the body */
+    }
+
+    .main-content {
+        flex: 1;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 200px; /* Adjust the margin to accommodate the footer's height */
+    }
+
+    th, td {
+        border: 1px solid #ced4da;
+        padding: 8px;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-top: auto; /* Set margin-top to auto for it to push to the bottom */
+    }
+
+    .footer img {
+        width: 60rem;
+    }
+
+    .header {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-top: auto; /* Set margin-top to auto for it to push to the bottom */
+    height: 15vh; /* Set the height to 100% of the viewport height, adjust if necessary */
+}
+
+.header img {
+    width: 60rem;}
+
+ 
+    .form-group {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}.form-group {
+   text-align: center;
+}
+
+.form-control {
+    font-family: 'Century Gothic', sans-serif;
+   border: none !important;
+   border-bottom: 1px solid #ced4da !important;
+   text-align: center !important;
+   width: 100%;
+}
+
+.form-group label {
+   text-align: center;
+}
+
 
     /* Styles for the print media */
     @media print {
         body {
-            margin: 0; /* Remove default margins */
+            display: block; /* Reset display value for printing */
         }
 
         .print-only {
-            display: block; /* Show elements with class "print-only" */
+            display: block;
         }
 
-        /* Hide other elements not meant for printing */
         body > *:not(.print-only) {
             display: none;
         }
-    /* Set the page to landscape orientation */
-    @page {
-                size: landscape;
-            }
+
         /* Remove padding for the specific div when printing */
         div.p-5 {
             padding: 0 !important;
@@ -77,21 +152,60 @@ $total = array_sum($value);
     }
 
     .form-control {
-        margin: 0; /* Reset margin */
-        padding: 0; /* Reset padding */
-        line-height: 1; /* Reset line-height */
-        height: auto; /* Reset height */
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        height: auto;
         border: none;
     }
+/* Adjust the margin and width of the table for normal view */
+table {
+    border-collapse: collapse;
+    width: 45%;
+    margin: 50px auto 200px; /* Center the table with top and bottom margins */
+}
+
+/* Adjust padding for table cells */
+th, td {
+    border: 1px solid #ced4da;
+    padding: 5px;
+}
+
+/* Styles for the print media */
+@media print {
+    /* Reset styles for body and other elements */
+    body {
+        display: block;
+    }
+
+    .main-content {
+        flex: 1;
+    }
+    table {
+        width: 100%; /* Use full width for printing */
+
+        margin: 1px auto; /* Add top and bottom margins, 0 for left and right */
+    }
+
+    th, td {
+        padding: 4px; /* Reset padding for printing if needed */
+    }
+
+    /* Add more print-specific styles if necessary */
+}
+
+
 </style>
 
 
 </head>
 <body>
 
-<!-- Bordered table -->
 <div class="print-only">
-    
+<div class="header">
+    <!-- Your header content goes here -->
+    <img src="../img/document-header.png" alt="Logo" style="width: 60rem; align-items: center;">
+</div>
 
 <div class="p-5 d-flex justify-content-center align-items-center remove-print-padding">
 
@@ -110,18 +224,18 @@ $total = array_sum($value);
 </tr>
 
 <tr style="width: 100%; text-align: center;">
-    <td colspan="2">Article</td>
-    <td colspan="2">Description</td>
+    <td> Article</td>
+    <td colspan="3">Description</td>
     <td>Stock No.</td>
-    <td colspan="">Unit of Measure</td>
-    <td colspan="">Unit of Value</td>
+    <td>Unit of Measure</td>
+    <td >Unit of Value</td>
     <td >Balance per <br> card (Quantity)</td>
-    <td colspan="">On Hand per <br> Count</td>
+    <td >On Hand per <br> (Count)</td>
 
     <td>Qty</td>
     <td >Value</td>
 
-    <td colspan="">Remarks</td>
+    <td>Remarks</td>
     
 </tr>
 
@@ -129,14 +243,14 @@ $total = array_sum($value);
 // Loop through the entered data and display each row
 for ($i = 0; $i < count($article); $i++) {
     echo "<tr>";
-    echo "<td colspan='2'>" . wordwrap($article[$i], 30, "<br/>", true) . "</td>";
-    echo "<td colspan='2'>" . wordwrap($description[$i], 10, "<br/>", true) . "</td>";
+    echo "<td>" . wordwrap($article[$i], 30, "<br/>", true) . "</td>";
+    echo "<td colspan='3'>" . wordwrap($description[$i], 200, "<br/>", true) . "</td>";
     echo "<td>" . wordwrap($stock_no [$i], 20, "<br/>", true) . "</td>";
-    echo "<td colspan=''>" . wordwrap($unit[$i], 50, "<br/>", true) . "</td>";
-    echo "<td colspan=''>" . wordwrap($val[$i], 50, "<br/>", true) . "</td>";
-    echo "<td colspan=''>" . wordwrap($balance[$i], 20, "<br/>", true) . "</td>";
+    echo "<td >" . wordwrap($unit[$i], 50, "<br/>", true) . "</td>";
+    echo "<td>" . wordwrap($val[$i], 50, "<br/>", true) . "</td>";
+    echo "<td>" . wordwrap($balance[$i], 20, "<br/>", true) . "</td>";
     echo "<td>" . wordwrap($onhand[$i], 10,  "<br/>", true) . "</td>";
-    echo "<td colspan=''>" . wordwrap($quantity[$i], 20, "<br/>", true) . "</td>";
+    echo "<td>" . wordwrap($quantity[$i], 20, "<br/>", true) . "</td>";
     echo "<td>" . wordwrap($value[$i], 10,  "<br/>", true) . "</td>";
     echo "<td>" . wordwrap($remarks[$i], 10,  "<br/>", true) . "</td>";
 
@@ -148,41 +262,29 @@ for ($i = 0; $i < count($article); $i++) {
 <tr style="text-align: left;">
     <td colspan="10">TOTAL</td>
     <td colspan="1"><?php echo number_format($total, 2, '.', ','); ?></td>
-    <td colspan="1">TOTAL</td>
+    <td colspan="1"></td>
 </tr>
-<tr>
+
     <td colspan="12">
-        <label for="inspected_by" class="form-label">Inspected by</label>
+        <label for="inspected_by" class="form-label">Inventory Committee:</label>
         <br>
 
-        <!-- First set of input fields -->
-        <div style="display: inline-block; margin-right: 10px;">
-            <input type="text" class="form-control text-center" id="name_inspected" name="name_inspected" placeholder="Name" value="<?php echo $name_inspected; ?>" readonly>
-        </div>
-
-        <div style="display: inline-block;">
-            <input type="text" class="form-control text-center" id="position_inspected" name="position_inspected" placeholder="Position" value="<?php echo $position_inspected; ?>" readonly>
-        </div>
-
-        <!-- Second set of input fields -->
-        <div style="display: inline-block; margin-right: 10px;">
-            <input type="text" class="form-control text-center" id="name_inspected" name="name_inspected" placeholder="Name" value="<?php echo $name_inspected; ?>" readonly>
-        </div>
-
-        <div style="display: inline-block;">
-            <input type="text" class="form-control text-center" id="position_inspected" name="position_inspected" placeholder="Position" value="<?php echo $position_inspected; ?>" readonly>
-        </div>
-
-            <!-- Second set of input fields -->
-            <div style="display: inline-block; margin-right: 10px;">
-            <input type="text" class="form-control text-center" id="name_inspected" name="name_inspected" placeholder="Name" value="<?php echo $name_inspected; ?>" readonly>
-        </div>
-
-        <div style="display: inline-block;">
-            <input type="text" class="form-control text-center" id="position_inspected" name="position_inspected" placeholder="Position" value="<?php echo $position_inspected; ?>" readonly>
-        </div>
-    </td>
+        <tr style="width: 100%; text-align: center;">
+    <td colspan="4"><br><?php echo $nameChair; ?> <br> <?php echo $positionChair; ?></td>
+    <td colspan="4"><br><?php echo $name1; ?> <br> <?php echo $position1; ?></td>
+    <td colspan="4"><br><?php echo $name2; ?> <br> <?php echo $position2; ?></td>
 </tr>
+<tr style="width: 100%; text-align: center;">
+    <td colspan="4"><br><?php echo $name3; ?> <br> <?php echo $position3; ?></td>
+    <td colspan="4"><br><?php echo $name4; ?> <br> <?php echo $position4; ?></td>
+    <td colspan="4"><br><?php echo $name5; ?> <br> <?php echo $position5; ?></td>
+</tr>
+<tr style="width: 100%; text-align: center;">
+<td colspan="12"><br><?php echo $name6; ?> <br> <?php echo $position6; ?></td>
+    
+</tr>
+    </td>
+
 
 
 
@@ -205,21 +307,31 @@ for ($i = 0; $i < count($article); $i++) {
   
 
 
-</div>
-
-
-</div>
-</body>
-
-<div class="col-sm-12">
-    <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
-        <div style="margin-left: 10px;">
-            <button onclick="printReport()" class="btn btn-primary" style="background-color: maroon;">Print</button>
-        </div>
     </div>
 
+    <div class="footer">
+        <img src="../img/document-footer.png" alt="Logo">
+    </div>
 
-</div> 
+</div>
+<!-- Cancel button -->
+<div class="d-flex justify-content-end mt-3 fixed-top fixed-right" style="margin-top: 10px; margin-right: 10px; position: fixed; right: 10px; top: 10px;">
+    <div style="margin-left: 10px;">
+
+        <img src="../img/back.png" style="height: 60px;"  onclick="goBack()" >
+
+    </div>
+</div>
+
+<div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px; position: fixed; right: 10px; bottom: 10px;">
+        <div style="margin-left: 10px;">
+     
+        <img src="../img/save.png" style="height: 70px;" onclick="saveImage()" >
+
+        <img src="../img/print.png" style="height: 70px;" onclick="printReport()">
+        </div>
+    </div>
+</body>
 </html>
 <style>
     /* Add this style to make the borders of the input fields invisible */
@@ -229,11 +341,70 @@ for ($i = 0; $i < count($article); $i++) {
     }
 </style>
 <script>
+    function saveImage() {
+        // Specify the element to capture (in this case, the element with class "print-only")
+        var elementToCapture = document.querySelector('.print-only');
+
+        // Use html2canvas to capture the specified content
+        html2canvas(elementToCapture).then(function (canvas) {
+            // Convert the canvas to a data URL
+            var dataUrl = canvas.toDataURL("image/jpeg");
+
+            // Create a temporary link element
+            var link = document.createElement("a");
+
+            // Set the href attribute with the data URL
+            link.href = dataUrl;
+
+            // Set the download attribute with a filename (you can change "waste_report.jpg" to your desired filename)
+            link.download = "Physical Count of Inventories.jpg";
+
+            // Append the link to the document
+            document.body.appendChild(link);
+
+            // Trigger a click event on the link to start the download
+            link.click();
+
+            // Remove the link from the document
+            document.body.removeChild(link);
+        });
+    }
+</script>
+<script>
+     // Function to handle checkbox click for the "Distribution" section
+     function handleDistributionCheckboxClick(checkbox) {
+        // Get all checkboxes in the "Distribution" section
+        var checkboxes = document.querySelectorAll('#supplyPropertyUnitCopy, #accountingCopy, #coaCopy');
+
+        // Uncheck all checkboxes except the clicked one
+        checkboxes.forEach(function (currentCheckbox) {
+            if (currentCheckbox !== checkbox) {
+                currentCheckbox.checked = false;
+            }
+        });
+    }
+    // Function to navigate back to the previous page
+    function goBack() {
+        console.log('Going back...');
+        window.history.back();
+    }
+
+    // Function to print the report
     function printReport() {
         // Use window.print() to open the browser's print dialog
         window.print();
     }
 </script>
+
+
+<script>
+    function printReport() {
+        // Use window.print() to open the browser's print dialog
+        window.print();
+    }
+</script>
+
+
 <?php
-include('./partials/footer.php')
+include('../partials/footer.php')
 ?>

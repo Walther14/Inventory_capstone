@@ -1,3 +1,10 @@
+
+<?php
+
+@include('../Controller/db.php');
+?>
+
+
 <form class="row g-3" action="./components/inspectionAndAcceptanceReport.php" method="post">
 
     <div class="p-5 d-flex justify-content-center align-items-center">
@@ -38,8 +45,8 @@
                                     <input type="text" class="form-control" id="PO_No" name="PO_No" placeholder="PO Number">
                                 </div>
                                 <div class="col-sm-3">
-                                    <label for="date" class="form-label">Date</label>
-                                    <input type="date" class="form-control" id="date" name="date" placeholder="date" required>
+                                    <label  for="date" class="form-label">Date</label>
+                                    <input type="date" class="form-control" id="date" name="date">
                                 </div>
                                 <div class="col-sm-3">
                                     <label for="invoice" class="form-label">Invoice No.</label>
@@ -65,14 +72,167 @@
                                     <input type="text" class="form-control" name="unit[]" placeholder="unit">
                                 </div>
                                 <div class="col-sm-3">
-                                    <label for="description" class="form-label">Description</label>
-                                    <input type="text" class="form-control" name="description[]" placeholder="description">
-                                </div>
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" required>
+    <datalist id="descriptions">
+    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+
+
                                 <div class="col-sm-3">
                                     <label for="quantity" class="form-label">Quantity</label>
                                     <input type="number" class="form-control" name="quantity[]" placeholder="quantity">
                                 </div>
 
+                                <div class="col-3">
+                                    <label for="stock_No" class="form-label">Stock Number</label>
+                                    <input type="text" class="form-control" name="stock_No[]" placeholder="Stock Number">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="unit" class="form-label">Unit</label>
+                                    <input type="text" class="form-control" name="unit[]" placeholder="unit">
+                                </div>
+                                <div class="col-sm-3">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%"  value="---Nothing follows---" required>
+    <datalist id="descriptions">
+
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+
+
+                                <div class="col-sm-3">
+                                    <label for="quantity" class="form-label">Quantity</label>
+                                    <input type="number" class="form-control" name="quantity[]" placeholder="quantity">
+                                </div>
+
+                                <div class="col-3">
+                                    <label for="stock_No" class="form-label">Stock Number</label>
+                                    <input type="text" class="form-control" name="stock_No[]" placeholder="Stock Number">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="unit" class="form-label">Unit</label>
+                                    <input type="text" class="form-control" name="unit[]" placeholder="unit">
+                                </div>
+                                <div class="col-sm-3">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%"  value="---Nothing follows---" required>
+    <datalist id="descriptions">
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+
+
+                                <div class="col-sm-3">
+                                    <label for="quantity" class="form-label">Quantity</label>
+                                    <input type="number" class="form-control" name="quantity[]" placeholder="quantity">
+                                </div>
+
+
+                                <div class="col-3">
+                                    <label for="stock_No" class="form-label">Stock Number</label>
+                                    <input type="text" class="form-control" name="stock_No[]" placeholder="Stock Number">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="unit" class="form-label">Unit</label>
+                                    <input type="text" class="form-control" name="unit[]" placeholder="unit">
+                                </div>
+                                <div class="col-sm-3">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" value="---Nothing follows---" required>
+    <datalist id="descriptions">
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+                                <div class="col-sm-3">
+                                    <label for="quantity" class="form-label">Quantity</label>
+                                    <input type="number" class="form-control" name="quantity[]" placeholder="quantity">
+                                </div> <div class="col-3">
+                                    <label for="stock_No" class="form-label">Stock Number</label>
+                                    <input type="text" class="form-control" name="stock_No[]" placeholder="Stock Number">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="unit" class="form-label">Unit</label>
+                                    <input type="text" class="form-control" name="unit[]" placeholder="unit">
+                                </div>
+                                <div class="col-sm-3">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%"  value="---Nothing follows---" required>
+    <datalist id="descriptions">
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+                                <div class="col-sm-3">
+                                    <label for="quantity" class="form-label">Quantity</label>
+                                    <input type="number" class="form-control" name="quantity[]" placeholder="quantity">
+                                </div>
+
+
+                                
                             </div>
                         </div>
                     </td>
@@ -96,9 +256,8 @@
                     </td>
                     <td colspan="2">
                         <div>
-                            <label for="date4" class="form-label">Date Received</label>
-                            <input type="date" class="form-control" id="date4" name="date4" placeholder="date" required>
-                        </div>
+                            <label for="date3"class="form-label">Date Received</label>
+                             <input type="date" class="form-control" id="date4" name="date4" placeholder="date" required>                        </div>
                     </td>
                 </tr>
 
@@ -141,62 +300,30 @@
 
     <div class="col-sm-12">
         <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
-            <button type="button" class="btn btn-success" style="background-color: #ffa800;" onclick="addRow()">Add Row for stocks</button>
 
             <div style="margin-left: 10px;">
                 <button type="submit" class="btn btn-primary" style="background-color: maroon;">Submit for Printing</button>
             </div>
         </div>
     </div>
+
+
+
 </form>
 
 
-
+<script>
+   document.getElementById('date').max = new Date().toISOString().split('T')[0];
+   document.getElementById('date2').max = new Date().toISOString().split('T')[0];
+   document.getElementById('date3').max = new Date().toISOString().split('T')[0];
+   document.getElementById('date4').max = new Date().toISOString().split('T')[0];
+</script>
 
 
 
 
 <!-- For Inspection report -->
-<script>
-    document.getElementById('date').max = new Date().toISOString().split('T')[0];
-    document.getElementById('date2').max = new Date().toISOString().split('T')[0];
-    document.getElementById('date3').max = new Date().toISOString().split('T')[0];
-    document.getElementById('date4').max = new Date().toISOString().split('T')[0];
 
-    function addRow() {
-        // Get the container of the entire row where you want to insert the new rows
-        var insertContainer = document.querySelector('.col-sm-3 label[for="quantity"]').parentNode;
-
-        for (var rowCounter = 0; rowCounter < 1; rowCounter++) {
-            // Create a new row div
-            var newRow = document.createElement("div");
-            newRow.className = "row";
-
-            // Append the set of Stock Number, Unit, Description, and Quantity inputs to the new row
-            newRow.innerHTML = `
-                <div class="col-3">
-                    <label for="stock_No" class="form-label">Stock Number</label>
-                    <input type="text" class="form-control" name="stock_No[]" placeholder="Stock Number">
-                </div>
-                <div class="col-sm-3">
-                    <label for="unit" class="form-label">Unit</label>
-                    <input type="text" class="form-control" name="unit[]" placeholder="unit">
-                </div>
-                <div class="col-sm-3">
-                    <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control" name="description[]" placeholder="description">
-                </div>
-                <div class="col-sm-3">
-                    <label for="quantity" class="form-label">Quantity</label>
-                    <input type="number" class="form-control" name="quantity[]" placeholder="quantity">
-                </div>
-            `;
-
-            // Insert the new row after the current container
-            insertContainer.parentNode.insertBefore(newRow, insertContainer.nextSibling);
-        }
-    }
-</script>
 
 
 <script>

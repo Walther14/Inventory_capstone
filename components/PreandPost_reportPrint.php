@@ -1,8 +1,6 @@
 <?php
-include('Controller/db.php');
-include('partials/header.php');
-include('partials/sidebar.php');
-include('partials/topbar.php');
+include('../Controller/db.php');
+
 ?>
 
 <!-- Bordered table -->
@@ -109,5 +107,5 @@ include('partials/topbar.php');
 </style>
 
 <?php
-include('./partials/footer.php')
+include('../partials/footer.php')
 ?>

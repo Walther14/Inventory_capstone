@@ -47,11 +47,11 @@
                     <td colspan="6">
                         <div style="margin: 0.5rem;">
                             <div class="row g-3">
-<div class="col-2">
+<div class="col-1">
 <label for="item" class="form-label">Item</label>
 <input type="text" class="form-control" name="item[]" placeholder="item" required>
 </div>
-<div class="col-sm-2">
+<div class="col-1">
 <label for="quantity" class="form-label">Quantity</label>
 <input type="number" class="form-control" name="quantity[]" placeholder="quantity" required>
 </div><div class="col-sm-1">
@@ -78,11 +78,11 @@
     </datalist>
 </div>
 
-<div class="col-sm-2">
+<div class="col-3">
     <label for="OR" class="form-label">O.R. No. (Record of sales)</label>
     <input type="text" class="form-control" name="OR[]" placeholder="OR No." required>
 </div>
-<div class="col-sm-2">
+<div class="col-3">
     <label for="amount" class="form-label">Amount (Record of sales)</label>
     <input type="text" class="form-control" name="amount[]" id="amount" placeholder="Amount" oninput="validateAmount(this)" required>
 </div>
@@ -98,11 +98,11 @@
                     <td colspan="6">
                         <div style="margin: 0.5rem;">
                             <div class="row g-3">
-<div class="col-2">
+<div class="col-1">
 <label for="item" class="form-label">Item</label>
 <input type="text" class="form-control" name="item[]" placeholder="item">
 </div>
-<div class="col-sm-2">
+<div class="col-1">
 <label for="quantity" class="form-label">Quantity</label>
 <input type="number" class="form-control" name="quantity[]" placeholder="quantity">
 </div><div class="col-sm-1">
@@ -129,11 +129,11 @@
         ?>
     </datalist>
 </div>
-<div class="col-sm-2">
+<div class="col-3">
     <label for="OR" class="form-label">O.R. No. (Record of sales)</label>
     <input type="text" class="form-control" name="OR[]" placeholder="OR No.">
 </div>
-<div class="col-sm-2">
+<div class="col-3">
     <label for="amount" class="form-label">Amount (Record of sales)</label>
     <input type="text" class="form-control" name="amount[]" id="amount" placeholder="Amount" oninput="validateAmount(this)">
 </div>
@@ -149,11 +149,11 @@
                     <td colspan="6">
                         <div style="margin: 0.5rem;">
                             <div class="row g-3">
-<div class="col-2">
+<div class="col-1">
 <label for="item" class="form-label">Item</label>
 <input type="text" class="form-control" name="item[]" placeholder="item">
 </div>
-<div class="col-sm-2">
+<div class="col-1">
 <label for="quantity" class="form-label">Quantity</label>
 <input type="number" class="form-control" name="quantity[]" placeholder="quantity">
 </div><div class="col-sm-1">
@@ -181,11 +181,11 @@
     </datalist>
 </div>
 
-<div class="col-sm-2">
+<div class="col-3">
     <label for="OR" class="form-label">O.R. No. (Record of sales)</label>
     <input type="text" class="form-control" name="OR[]" placeholder="OR No.">
 </div>
-<div class="col-sm-2">
+<div class="col-3">
     <label for="amount" class="form-label">Amount (Record of sales)</label>
     <input type="text" class="form-control" name="amount[]" id="amount" placeholder="Amount" oninput="validateAmount(this)">
 </div>
@@ -196,9 +196,160 @@
                         </div>
                     </td>
                 </tr>
-   
+                <tr>
+                    <td colspan="6">
+                        <div style="margin: 0.5rem;">
+                            <div class="row g-3">
+<div class="col-1">
+<label for="item" class="form-label">Item</label>
+<input type="text" class="form-control" name="item[]" placeholder="item">
+</div>
+<div class="col-1">
+<label for="quantity" class="form-label">Quantity</label>
+<input type="number" class="form-control" name="quantity[]" placeholder="quantity">
+</div><div class="col-sm-1">
+<label for="unit" class="form-label">Unit</label>
+<input type="text" class="form-control" name="unit[]" placeholder="unit">
+</div>
+<div class="col-sm-3">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" value="---Nothing follows---">
+    <datalist id="descriptions">
+        <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+
+<div class="col-3">
+    <label for="OR" class="form-label">O.R. No. (Record of sales)</label>
+    <input type="text" class="form-control" name="OR[]" placeholder="OR No.">
+</div>
+<div class="col-3">
+    <label for="amount" class="form-label">Amount (Record of sales)</label>
+    <input type="text" class="form-control" name="amount[]" id="amount" placeholder="Amount" oninput="validateAmount(this)">
+</div>
 
 
+                               
+</div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="6">
+                        <div style="margin: 0.5rem;">
+                            <div class="row g-3">
+<div class="col-1">
+<label for="item" class="form-label">Item</label>
+<input type="text" class="form-control" name="item[]" placeholder="item">
+</div>
+<div class="col-1">
+<label for="quantity" class="form-label">Quantity</label>
+<input type="number" class="form-control" name="quantity[]" placeholder="quantity">
+</div><div class="col-sm-1">
+<label for="unit" class="form-label">Unit</label>
+<input type="text" class="form-control" name="unit[]" placeholder="unit">
+</div>
+<div class="col-sm-3">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" value="---Nothing follows---">
+    <datalist id="descriptions">
+        <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+
+<div class="col-3">
+    <label for="OR" class="form-label">O.R. No. (Record of sales)</label>
+    <input type="text" class="form-control" name="OR[]" placeholder="OR No.">
+</div>
+<div class="col-3">
+    <label for="amount" class="form-label">Amount (Record of sales)</label>
+    <input type="text" class="form-control" name="amount[]" id="amount" placeholder="Amount" oninput="validateAmount(this)">
+</div>
+
+
+                               
+</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <div style="margin: 0.5rem;">
+                            <div class="row g-3">
+<div class="col-1">
+<label for="item" class="form-label">Item</label>
+<input type="text" class="form-control" name="item[]" placeholder="item">
+</div>
+<div class="col-1">
+<label for="quantity" class="form-label">Quantity</label>
+<input type="number" class="form-control" name="quantity[]" placeholder="quantity">
+</div><div class="col-sm-1">
+<label for="unit" class="form-label">Unit</label>
+<input type="text" class="form-control" name="unit[]" placeholder="unit">
+</div>
+<div class="col-sm-3">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" value="---Nothing follows---">
+    <datalist id="descriptions">
+        <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+
+<div class="col-3">
+    <label for="OR" class="form-label">O.R. No. (Record of sales)</label>
+    <input type="text" class="form-control" name="OR[]" placeholder="OR No.">
+</div>
+<div class="col-3">
+    <label for="amount" class="form-label">Amount (Record of sales)</label>
+    <input type="text" class="form-control" name="amount[]" id="amount" placeholder="Amount" oninput="validateAmount(this)">
+</div>
+
+
+                               
+</div>
+                        </div>
+                    </td>
+                </tr>
 
 <td colspan="2">
         <div>

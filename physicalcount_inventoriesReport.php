@@ -24,7 +24,7 @@ session_start();
     REPORT ON THE PHYSICAL COUNT OF INVENTORIES
     <div class="text-center">
     
-    <select class="form-select mx-auto asset-dropdown" name="Asset_Title" aria-label="Select example" style="width: 60%;">
+    <select class="form-select mx-auto asset-dropdown" name="Asset_Title" aria-label="Select example" style="width: 60%;" required>
     <?php
     $fund = "SELECT * FROM itemcategory_db";
     $result = $data->query($fund);
@@ -42,7 +42,7 @@ session_start();
                 <label>As of</label>
                 <input type="date" class="form-control mx-auto" id="date" name="date" placeholder="Place of Storage" style="width: 60%;">
                <label>For which</label>
-               <select class="form-select mx-auto" name="staff" aria-label="Select example" style="width: 60%;">
+               <select class="form-select mx-auto" name="staff" aria-label="Select example" style="width: 60%;" required>
     <?php
     $fund = "SELECT * FROM staff_db";
 
@@ -60,7 +60,7 @@ session_start();
 </select>
 
                 <label>having assumed such accountability on</label>
-                <input type="text" class="form-control mx-auto" id="assumed" name="assumed" placeholder="On what" style="width: 30%;">
+                <input type="text" class="form-control mx-auto" id="assumed" name="assumed" placeholder="On what" style="width: 30%;" required>
 
    
             </div>
@@ -70,7 +70,76 @@ session_start();
     </thead>
     <tbody>
 
-    <tr id="insertRowTarget">
+    <tr id="insertRowTarget" style="background-color:dimgray ;">
+    <td colspan="12">
+
+        <div style="margin: 0.5rem;">
+            <div class="row g-3">
+
+            <div class="col-4">
+    <label for="article" class="form-label">Article</label>
+    <input type="text" class="form-control" name="article[]" placeholder="Article" required> </div>
+
+    <div class="col-sm-4">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" >
+    <datalist id="descriptions">
+        <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+
+<div class="col-sm-2">
+<label for="stock_no" class="form-label">Stock No.</label>
+<input type="number" class="form-control" name="stock_no[]" placeholder="Stock No." required>
+</div>
+<div class="col-sm-2">
+<label for="unit" class="form-label">Unit of measure</label>
+<input type="text" class="form-control" name="unit[]" placeholder="Unit of measure" required>
+</div>
+<div class="col-sm-2">
+    <label for="val" class="form-label">Unit of Value</label>
+    <input type="text" class="form-control" name="val[]" id="unitValue" placeholder="Unit of measure" required readonly>
+</div>
+<div class="col-sm-3">
+<label for="balance" class="form-label">Balance per card (Quantity)</label>
+<input type="number" class="form-control" name="balance[]" placeholder="Balance per card (Quantity)" required>
+</div>
+<div class="col-sm-2">
+    <label for="onhand" class="form-label">On hand per count</label>
+    <input type="text" class="form-control" name="onhand[]" placeholder="On hand per count" required>
+</div>
+<div class="col-sm-1">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="number" class="form-control" name="quantity[]" id="quantity" placeholder="Quantity" required>
+</div>
+<div class="col-sm-1">
+    <label for="value" class="form-label">Value</label>
+    <input type="text" class="form-control" name="value[]" id="value" placeholder="Value" required>
+</div>
+<div class="col-sm-3">
+    <label for="remarks" class="form-label">Remarks</label>
+    <input type="text" class="form-control" name="remarks[]" id="remarks" placeholder="Remarks" required>
+</div>
+
+
+        </div>
+    </td>
+</tr>
+
+<tr id="insertRowTarget" style="background-color: darkgrey;">
     <td colspan="12">
 
         <div style="margin: 0.5rem;">
@@ -80,9 +149,25 @@ session_start();
     <label for="article" class="form-label">Article</label>
     <input type="text" class="form-control" name="article[]" placeholder="Article"> </div>
 
-<div class="col-sm-4">
-<label for="description" class="form-label">Description</label>
-<input type="text" class="form-control" name="description[]" placeholder="Description">
+    <div class="col-sm-4">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" value="---Nothing follows---">
+    <datalist id="descriptions">
+        <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
 </div>
 <div class="col-sm-2">
 <label for="stock_no" class="form-label">Stock No.</label>
@@ -98,6 +183,74 @@ session_start();
 </div>
 <div class="col-sm-3">
 <label for="balance" class="form-label">Balance per card (Quantity)</label>
+<input type="number" class="form-control" name="balance[]" placeholder="Balance per card (Quantity)">
+</div>
+<div class="col-sm-2">
+    <label for="onhand" class="form-label">On hand per count</label>
+    <input type="text" class="form-control" name="onhand[]" placeholder="On hand per count">
+</div>
+<div class="col-sm-1">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="number" class="form-control" name="quantity[]" id="quantity" placeholder="Quantity">
+</div>
+<div class="col-sm-1">
+    <label for="value" class="form-label">Value</label>
+    <input type="text" class="form-control" name="value[]" id="value" placeholder="Value">
+</div>
+<div class="col-sm-3">
+    <label for="remarks" class="form-label">Remarks</label>
+    <input type="text" class="form-control" name="remarks[]" id="remarks" placeholder="Remarks">
+</div>
+
+
+        </div>
+    </td>
+</tr>
+
+<tr id="insertRowTarget" style="background-color:dimgray ;">
+    <td colspan="12">
+
+        <div style="margin: 0.5rem;">
+            <div class="row g-3">
+
+            <div class="col-4">
+    <label for="article" class="form-label">Article</label>
+    <input type="text" class="form-control" name="article[]" placeholder="Article"> </div>
+
+    <div class="col-sm-4">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" value="---Nothing follows---">
+    <datalist id="descriptions">
+        <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+<div class="col-sm-2">
+<label for="stock_no" class="form-label">Stock No.</label>
+<input type="number" class="form-control" name="stock_no[]" placeholder="Stock No.">
+</div>
+<div class="col-sm-2">
+<label for="unit" class="form-label">Unit of measure</label>
+<input type="text" class="form-control" name="unit[]" placeholder="Unit of measure">
+</div>
+<div class="col-sm-2">
+<label for="val" class="form-label">Unit of Value</label>
+<input type="text" class="form-control" name="val[]" placeholder="Unit of measure">
+</div>
+<div class="col-sm-3">
+<label for="number" class="form-label">Balance per card (Quantity)</label>
 <input type="text" class="form-control" name="balance[]" placeholder="Balance per card (Quantity)">
 </div>
 <div class="col-sm-2">
@@ -106,7 +259,141 @@ session_start();
 </div>
 <div class="col-sm-1">
     <label for="quantity" class="form-label">Quantity</label>
-    <input type="text" class="form-control" name="quantity[]" id="quantity" placeholder="Quantity">
+    <input type="number" class="form-control" name="quantity[]" id="quantity" placeholder="Quantity">
+</div>
+<div class="col-sm-1">
+    <label for="value" class="form-label">Value</label>
+    <input type="text" class="form-control" name="value[]" id="value" placeholder="Value">
+</div>
+<div class="col-sm-3">
+    <label for="remarks" class="form-label">Remarks</label>
+    <input type="text" class="form-control" name="remarks[]" id="remarks" placeholder="Remarks">
+</div>
+
+
+        </div>
+    </td>
+</tr>
+<tr id="insertRowTarget" style="background-color: darkgrey;">
+    <td colspan="12">
+
+        <div style="margin: 0.5rem;">
+            <div class="row g-3">
+
+            <div class="col-4">
+    <label for="article" class="form-label">Article</label>
+    <input type="text" class="form-control" name="article[]" placeholder="Article"> </div>
+
+    <div class="col-sm-4">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" value="---Nothing follows---">
+    <datalist id="descriptions">
+        <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+<div class="col-sm-2">
+<label for="stock_no" class="form-label">Stock No.</label>
+<input type="number" class="form-control" name="stock_no[]" placeholder="Stock No.">
+</div>
+<div class="col-sm-2">
+<label for="unit" class="form-label">Unit of measure</label>
+<input type="text" class="form-control" name="unit[]" placeholder="Unit of measure">
+</div>
+<div class="col-sm-2">
+<label for="val" class="form-label">Unit of Value</label>
+<input type="text" class="form-control" name="val[]" placeholder="Unit of measure">
+</div>
+<div class="col-sm-3">
+<label for="balance" class="form-label">Balance per card (Quantity)</label>
+<input type="number" class="form-control" name="balance[]" placeholder="Balance per card (Quantity)">
+</div>
+<div class="col-sm-2">
+    <label for="onhand" class="form-label">On hand per count</label>
+    <input type="text" class="form-control" name="onhand[]" placeholder="On hand per count">
+</div>
+<div class="col-sm-1">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="number" class="form-control" name="quantity[]" id="quantity" placeholder="Quantity" >
+</div>
+<div class="col-sm-1">
+    <label for="value" class="form-label">Value</label>
+    <input type="text" class="form-control" name="value[]" id="value" placeholder="Value">
+</div>
+<div class="col-sm-3">
+    <label for="remarks" class="form-label">Remarks</label>
+    <input type="text" class="form-control" name="remarks[]" id="remarks" placeholder="Remarks">
+</div>
+
+
+        </div>
+    </td>
+</tr>
+<tr id="insertRowTarget" style="background-color:dimgray ;">
+    <td colspan="12">
+
+        <div style="margin: 0.5rem;">
+            <div class="row g-3">
+
+            <div class="col-4">
+    <label for="article" class="form-label">Article</label>
+    <input type="text" class="form-control" name="article[]" placeholder="Article"> </div>
+
+    <div class="col-sm-4">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" value="---Nothing follows---">
+    <datalist id="descriptions">
+        <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+<div class="col-sm-2">
+<label for="stock_no" class="form-label">Stock No.</label>
+<input type="number" class="form-control" name="stock_no[]" placeholder="Stock No.">
+</div>
+<div class="col-sm-2">
+<label for="unit" class="form-label">Unit of measure</label>
+<input type="text" class="form-control" name="unit[]" placeholder="Unit of measure">
+</div>
+<div class="col-sm-2">
+<label for="val" class="form-label">Unit of Value</label>
+<input type="text" class="form-control" name="val[]" placeholder="Unit of measure">
+</div>
+<div class="col-sm-3">
+<label for="balance" class="form-label">Balance per card (Quantity)</label>
+<input type="number" class="form-control" name="balance[]" placeholder="Balance per card (Quantity)">
+</div>
+<div class="col-sm-2">
+    <label for="onhand" class="form-label">On hand per count</label>
+    <input type="text" class="form-control" name="onhand[]" placeholder="On hand per count">
+</div>
+<div class="col-sm-1">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="number" class="form-control" name="quantity[]" id="quantity" placeholder="Quantity">
 </div>
 <div class="col-sm-1">
     <label for="value" class="form-label">Value</label>
@@ -133,25 +420,16 @@ session_start();
     <td colspan="1">
         <div>
           
-            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-            <input type="text" class="form-control" id="position" name="position" placeholder="Chairperson" required>
+            <input type="text" class="form-control" id="nameChair" name="nameChair" placeholder="Name" required>
+            <input type="text" class="form-control" id="positionChair" name="positionChair" placeholder="Chairperson" value="Chairperson" required>
 
         </div>
     </td>
     <td colspan="1">
         <div>
           
-            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-            <input type="text" class="form-control" id="position" name="position" placeholder="Member" required>
-
-
-        </div>
-    </td>
-    <td colspan="1">
-        <div>
-          
-            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-            <input type="text" class="form-control" id="position" name="position" placeholder="Member" required>
+            <input type="text" class="form-control" id="name1" name="name1" placeholder="Name" required>
+            <input type="text" class="form-control" id="position1" name="position1" placeholder="Member" value="Member" required>
 
 
         </div>
@@ -159,8 +437,17 @@ session_start();
     <td colspan="1">
         <div>
           
-            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-            <input type="text" class="form-control" id="position" name="position" placeholder="Position" required>
+            <input type="text" class="form-control" id="name2" name="name2" placeholder="Name" required>
+            <input type="text" class="form-control" id="position2" name="position2" placeholder="Member" value="Member" required>
+
+
+        </div>
+    </td>
+    <td colspan="1">
+        <div>
+          
+            <input type="text" class="form-control" id="name3" name="name3" placeholder="Name" required>
+            <input type="text" class="form-control" id="position3" name="position3" placeholder="Position" value="Member" required>
 
 
         </div>
@@ -169,35 +456,27 @@ session_start();
     <td colspan="1">
         <div>
           
-            <input type="text" class="form-control" id="name_disposal" name="name_disposal" placeholder="Name" required>
-            <input type="text" class="form-control" id="by_authority" name="by_authority" placeholder="Secretariat" required>
+            <input type="text" class="form-control" id="name4" name="name4" placeholder="Name" required>
+            <input type="text" class="form-control" id="position4" name="position4" placeholder="Position" value="Member" required>
 
         </div>
     </td>
     <td colspan="1">
         <div>
           
-            <input type="text" class="form-control" id="name_disposal" name="name_disposal" placeholder="Name" required>
-            <input type="text" class="form-control" id="by_authority" name="by_authority" placeholder="Secretariat" required>
+            <input type="text" class="form-control" id="name5" name="name5"  placeholder="Name" required>
+            <input type="text" class="form-control" id="position5" name="position5" placeholder="Position" value="Member" required>
 
         </div>
     </td>
        <tr colspan="12">
          
-            <td colspan="2">
+            <td colspan="12">
         <div>
           
-            <input type="text" class="form-control" id="name_disposal" name="name_disposal" placeholder="Name" required>
-            <input type="text" class="form-control" id="by_authority" name="by_authority" placeholder="Observer" required>
+            <input type="text" class="form-control" id="name6" name="name6" placeholder="Name" required>
+            <input type="text" class="form-control" id="position6" name="position6"" placeholder="Position" value="College President" required>
 
-        </div>
-    </td>
-    <td colspan="6">
-        <div>
-           
-            <input type="text" class="form-control" id="name_disposal" name="name_disposal" placeholder="Name" required>
-            <input type="text" class="form-control" id="by_authority" name="by_authority" placeholder="College President" required>
-           
         </div>
     </td>
       
@@ -225,67 +504,48 @@ document.getElementById('date2').max = new Date().toISOString().split('T')[0];
 document.getElementById('date3').max = new Date().toISOString().split('T')[0];
 document.getElementById('date4').max = new Date().toISOString().split('T')[0];
 
-function addRow() {
-    // Get the container of the row where you want to insert the new rows
-    var insertContainer = document.getElementById('insertRowTarget');
-
-    // Create a new row HTML string
-    var newRowHTML = `
-    <tr>
-        <td colspan="12">
-            <div style="margin: 0.5rem;">
-                <div class="row g-3">
-<div class="col-4">
-<label for="item" class="form-label">Article</label>
-<input type="text" class="form-control" name="item[]" placeholder="item">
-</div>
-<div class="col-sm-4">
-<label for="description" class="form-label">Description</label>
-<input type="text" class="form-control" name="description[]" placeholder="description">
-</div>
-<div class="col-sm-2">
-<label for="quantity" class="form-label">Stock No.</label>
-<input type="number" class="form-control" name="quantity[]" placeholder="quantity">
-</div><div class="col-sm-2">
-<label for="unit" class="form-label">Unit of measure</label>
-<input type="text" class="form-control" name="unit[]" placeholder="unit">
-</div>
-<div class="col-sm-2">
-<label for="val" class="form-label">Unit of measure</label>
-<input type="text" class="form-control" name="val[]" placeholder="Unit of measure">
-</div>
-<div class="col-sm-3">
-<label for="balance" class="form-label">Balance per card (Quantity)</label>
-<input type="text" class="form-control" name="balance[]" placeholder="Balance per card (Quantity)">
-</div>
-<div class="col-sm-2">
-    <label for="onhand" class="form-label">On hand per count</label>
-    <input type="text" class="form-control" name="onhand[]" placeholder="On hand per count">
-</div>
-<div class="col-sm-1">
-    <label for="quantity" class="form-label">Quantity</label>
-    <input type="text" class="form-control" name="quantity[]" id="quantity" placeholder="Quantity">
-</div>
-<div class="col-sm-1">
-    <label for="value" class="form-label">Value</label>
-    <input type="text" class="form-control" name="value[]" id="value" placeholder="Value">
-</div>
-<div class="col-sm-3">
-    <label for="remarks" class="form-label">Remarks</label>
-    <input type="text" class="form-control" name="remarks[]" id="remarks" placeholder="Remarks">
-</div>
 
 
-</div>
-            </div>
-        </td>
-    </tr>
-    `;
+</script>
+<script>
+// Add an event listener to the description input fields
+document.querySelectorAll('input[name^="description"]').forEach(function (input) {
+    input.addEventListener('change', function () {
+        // Fetch the corresponding unit value and unit measure from the database using AJAX
+        var description = this.value;
+        var row = this.parentElement.parentElement;
 
-    // Insert the new row HTML after the current container
-    insertContainer.insertAdjacentHTML('afterend', newRowHTML);
-}
+        fetch('getUnitValue.php?description=' + encodeURIComponent(description))
+            .then(response => response.json())
+            .then(data => {
+                // Update the Unit of Value input field with the fetched data
+                   row.querySelector('input[name^="article"]').value = data.asset_category;
+                row.querySelector('input[name^="val"]').value = data.unit_value;
+                row.querySelector('input[name^="unit"]').value = data.unit_measure;
+             
 
+            })
+            .catch(error => console.error('Error:', error));
+    });
+});
+</script>
+<!-- Add this script after your existing scripts -->
+<script>
+  // Add an event listener to the quantity input fields
+  document.querySelectorAll('input[name^="balance"]').forEach(function (input) {
+    input.addEventListener('input', function () {
+      // Get the corresponding row
+      var row = this.parentElement.parentElement;
+
+      // Fetch values from "Unit of Value" and "Quantity"
+      var unitValue = parseFloat(row.querySelector('input[name^="val"]').value) || 0;
+      var balance = parseFloat(this.value) || 0;
+
+      // Calculate the value and update the "Value" input field
+      var calculatedValue = unitValue * balance;
+      row.querySelector('input[name^="value"]').value = calculatedValue.toFixed(2);
+    });
+  });
 </script>
 
 
@@ -305,6 +565,8 @@ function validateAmount(input) {
     }
 }
 </script>
+
+
 
 <script>
   function handleCheckboxClick(clickedCheckbox) {
