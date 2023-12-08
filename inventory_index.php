@@ -18,7 +18,7 @@
 
 
                 <div class="d-flex justify-content-end">
-                <button  id="addInventoryID" class="btn btn-dark p-2">
+                    <button id="addInventoryID" class="btn btn-dark p-2">
 
 
                         <span>
@@ -109,9 +109,9 @@
         </div>
 
 
-      <?php
-      include('./partials/right-sidebar.php')
-      ?>
+        <?php
+        include('./partials/right-sidebar.php')
+        ?>
     </div>
 </div>
 
@@ -122,15 +122,24 @@
     let buttons = document.querySelectorAll("[data-id]");
     let button1 = document.querySelector('#addInventoryID');
 
-button1.addEventListener("click", function(){
-    let rightSidebar0 = document.querySelector("#rightSidebar0");
-    let empty = document.querySelector("#empty");
+
+    button1.addEventListener("click", function() {
+        let rightSideBar = document.querySelector("#rightSidebar");
+        let rightSideBar2 = document.querySelector("#rightSidebar2");
+        let empty = document.querySelector("#empty");
+        let tabs = document.querySelector("#js-tabs-1")
+        let buttonAdd = document.querySelector('#addInventoryIDBLOCK');
+
+        console.log(buttonAdd.style.display)
+        
+        buttonAdd.style.display = "block"
+        rightSideBar.style.display = "none"
+        rightSideBar2.style.display = "none"
+        tabs.style.display = "none"
+        empty.style.display = "none"
+    })
 
 
-    rightSidebar0.style.display = "block"
-    empty.style.display = "none"
-
-})
 
     buttons.forEach(function(button) {
         button.addEventListener("click", function() {
@@ -140,6 +149,7 @@ button1.addEventListener("click", function(){
             let empty = document.querySelector("#empty");
             let tabs = document.querySelector("#js-tabs-1")
 
+            button1.style.display = "none"
             rightSideBar.style.display = "block"
             rightSideBar2.style.display = "block"
             tabs.style.display = "flex"
@@ -163,8 +173,8 @@ button1.addEventListener("click", function(){
                 return response.json();
             })
             .then(data => {
-                  // console.log(data.id)
-                  document.getElementById('idInventory').value = data.id;
+                // console.log(data.id)
+                document.getElementById('idInventory').value = data.id;
                 // Display the result in the specified container
                 document.getElementById('propertyDescription').innerHTML = data.Property_Description;
                 document.getElementById('editPropertyDescription').value = data.Property_Description;
