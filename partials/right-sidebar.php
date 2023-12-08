@@ -1,6 +1,241 @@
 <div class="m-3" style="margin-right: 5rem; height: calc(100vh - 118px); background-color: #fbfcf8; width: 60rem; position: relative; overflow: auto">
 
+<div id="addInventoryIDBLOCK" style="display: none; position: absolute;">
 
+
+
+                <form action="./Controller/addinventory.php" method="post">
+                    <div class="p-3">
+                        
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Current Property Number</h5>
+                                <input style="color: gray" style="width: 100%" name="Current_Property_Number"></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Unit of Measure</h5>
+                                <input style="color: gray" style="width: 100%" name="Unit_Measure" ></input>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Quantity</h5>
+                                <input style="color: gray" style="width: 100%" name="Quantity"></input>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Date Acquired</h5>
+                                <input style="color: gray" style="width: 100%" name="Date_Acquired" ></input>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Asset Number</h5>
+                                <input style="color: gray" style="width: 100%" name="Asset_Number" ></input>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Issued To</h5>
+                                <input style="color: gray" style="width: 100%" name="Issued_To" ></input>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div>
+
+                                <h5>ARE/PAR/ICS Number</h5>
+                                <input style="color: gray" style="width: 100%" name="ARE_PAR_ICS_Number" ></input>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div>
+
+                                <h5>PRS Number</h5>
+                                <input style="color: gray" style="width: 100%" name="PRS_Number"></input>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Fund Cluster</h5>
+                                <input style="color: gray" style="width: 100%" name="Fund_Cluster" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Fund Admin Title</h5>
+                                <input style="color: gray" style="width: 100%" name="Fund_Admin_Title" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Supplier</h5>
+                                <input style="color: gray" style="width: 100%" name="Supplier" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Years Lapse</h5>
+                                <input style="color: gray" style="width: 100%" name="" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Locator</h5>
+                                <input style="color: gray" style="width: 100%" name="Locator" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Old Property Number</h5>
+                                <input style="color: gray" style="width: 100%" name="Old_Property_Number" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Unit Value</h5>
+                                <input style="color: gray" style="width: 100%" name="Unit_Value" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Year Acquired</h5>
+                                <input style="color: gray" style="width: 100%" name="Year_Acquired" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Asset Category</h5>
+                                <input style="color: gray" style="width: 100%" name="Asset_Category" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Asset Title</h5>
+                                <input style="color: gray" style="width: 100%" name="Asset_Title"></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Issued From</h5>
+                                <input style="color: gray" style="width: 100%" name="Issued_From" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Cancelled ARE/PAR/ICS Number</h5>
+                                <input style="color: gray" style="width: 100%" name="Cancelled_Number" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Estimated Useful Life</h5>
+                                <input style="color: gray" style="width: 100%" name="Estimated_Useful_Life" ></input>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+
+                                <h5>Purchase Order/Contract Numbere</h5>
+                                <input style="color: gray" style="width: 100%" name="Purchase_Order_Contract_Number" ></input>
+
+                        </div>
+
+
+                        <div class="row">
+
+                                <h5>Acquired through</h5>
+                                <input style="color: gray" style="width: 100%" name="Acquired_through" ></input>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Remarks</h5>
+                                <input style="color: gray" style="width: 100%" name="Remarks" ></input>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Add Item</button>
+                </form>
+
+
+
+            </div>
 
 
     <!-- JavaScript tab plugin -->
@@ -266,14 +501,15 @@
 
 
 
-            <form action="./Controller/editinventory_Controller.php" method="post">
+                <form action="./Controller/editinventory_Controller.php" method="post">
                     <div class="p-3">
                         <div class="row">
                             <div>
-                            <input type="hidden" id="idInventory" name="id" style="width: 100%"></input>
+                                <input type="hidden" id="idInventory" name="id" style="width: 100%"></input>
 
                                 <h5>Property Description</h5>
-                                <input id="editPropertyDescription" name="Property_Description" style="width: 100%"></input>                            </div>
+                                <input id="editPropertyDescription" name="Property_Description" style="width: 100%"></input>
+                            </div>
 
                         </div>
 
