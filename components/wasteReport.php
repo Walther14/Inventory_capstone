@@ -54,6 +54,7 @@ $transferredCheckbox = isset($_POST['transferredCheckbox']) ? $_POST['transferre
     /* Your existing styles for the document go here */
 
     body {
+        font-family: 'Century Gothic', sans-serif;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
@@ -72,6 +73,8 @@ $transferredCheckbox = isset($_POST['transferredCheckbox']) ? $_POST['transferre
     }
 
     th, td {
+        text-align: center;
+
         border: 1px solid #ced4da;
         padding: 8px;
     }
@@ -109,6 +112,8 @@ $transferredCheckbox = isset($_POST['transferredCheckbox']) ? $_POST['transferre
 }
 
 .form-control {
+    text-align: center;
+    font-family: 'Century Gothic', sans-serif;
    border: none !important;
    border-bottom: 1px solid #ced4da !important;
    text-align: center !important;

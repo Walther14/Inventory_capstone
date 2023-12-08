@@ -2,7 +2,9 @@
 
 @include('../Controller/db.php');
 ?>
-
+<?php
+date_default_timezone_set('Asia/Manila');
+?>
 
 <form class="row g-3" action="./components/wasteReport.php" method="post">
         
@@ -12,8 +14,7 @@
         <th colspan="6" class="text-center">
             WASTE MATERIAL REPORT
             <div class="col-sm-12">
-                    <label for="agency" class="form-label">Agency</label>
-                    <input type="text" class="form-control mx-auto" id="agency" name="agency" placeholder="agency" style="width: 80%;" required>
+                    <label for="agency" class="form-label">Batanes State College</label>
                 </div>
         </th>
     </thead>
@@ -31,10 +32,9 @@
                     <input type="date" class="form-control" id="date" name="date" placeholder="IAR Number" required>
 
                     <br>
-
                     <label for="WMR" class="form-label">WMR Ref. No.</label>
-                    <input type="text" class="form-control" id="WMR" name="WMR" placeholder="WMR Ref. No." required>
-                </div>
+<input type="text" class="form-control" id="WMR" name="WMR" placeholder="WMR Ref. No." value="<?php echo date('Y-m-d-HisA'); ?>" required>
+
             </div>
 
             <tr id="for_disposal" style="text-align: center;">
@@ -448,7 +448,14 @@
             </div>
     </form>
 
+    <script>
+    // Get the current date and time in the format "YYYY-MM-DD-HHMMSS"
+    var currentDate = new Date();
+    var formattedDate = currentDate.toISOString().slice(0, 19).replace(/[-T:]/g, '');
 
+    // Set the value of the WMR input field
+    document.getElementById('WMR').value = formattedDate;
+</script>
 
 <script>
   function handleCheckboxClick(clickedCheckbox) {

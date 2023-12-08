@@ -21,8 +21,7 @@
 
                     <div class="col-sm-6" style="margin: 20px auto; text-align: center;">
 
-                        <label for="agency" class="form-label">Agency</label>
-                        <input type="text" class="form-control" id="agency" name="agency" placeholder="Agency">
+                        <label for="agency" class="form-label">Batanes State College</label>
                     </div>
 
                 </th>

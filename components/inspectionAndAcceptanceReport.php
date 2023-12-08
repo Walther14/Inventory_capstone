@@ -60,6 +60,7 @@ $propertyOfficer = $_POST['propertyOfficer'] ?? '';
     }
 
     th, td {
+        
         border: 1px solid #ced4da;
         padding: 8px;
     }
@@ -165,6 +166,7 @@ th, td {
     }
 
     th, td {
+        
         padding: 8px; /* Reset padding for printing if needed */
     }
 
@@ -195,8 +197,7 @@ th, td {
                 INSPECTION AND ACCEPTANCE REPORT
 
                 <div class="col-sm-12" style="margin: 20px auto; text-align: center; margin-bottom: 0px;">
-                    <input style="text-align: center;" type="text" class="form-control" id="supplier" name="supplier" placeholder="Supplier" required value="<?php echo $agency ?>" readonly>
-                    <label for="supplier" class="form-label">Agency</label>
+                    <label for="supplier" class="form-label">Batanes State College</label>
                 </div>
 
             </th>
@@ -252,16 +253,26 @@ th, td {
         </tr>
 
         <?php
-        // Loop through the entered data and display each row
-        for ($i = 0; $i < count($stockNumbers); $i++) {
-            echo "<tr>";
-            echo "<td colspan='2'>{$stockNumbers[$i]}</td>";
-            echo "<td>{$units[$i]}</td>";
-            echo "<td colspan='3'>{$descriptions[$i]}</td>";
-            echo "<td >{$quantities[$i]}</td>";
-            echo "</tr>";
-        }
-        ?>
+// Loop through the entered data and display each row
+for ($i = 0; $i < count($stockNumbers); $i++) {
+    echo "<tr>";
+
+    // Centering the content in the first two cells (colspan='2')
+    echo "<td colspan='2' style='text-align: center;'>{$stockNumbers[$i]}</td>";
+
+    // Centering the content in the 'Units' cell
+    echo "<td style='text-align: center;'>{$units[$i]}</td>";
+
+    // Centering the content in the next three cells (colspan='3')
+    echo "<td colspan='3' style='text-align: center;'>{$descriptions[$i]}</td>";
+
+    // Centering the content in the 'Quantities' cell
+    echo "<td style='text-align: center;'>{$quantities[$i]}</td>";
+
+    echo "</tr>";
+}
+?>
+
         <tr style="text-align: center;">
             <td colspan="4">INSPECTION</td>
          
