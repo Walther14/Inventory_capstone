@@ -4,7 +4,7 @@
 
 
 
-                <form action="./Controller/addinventory.php" method="post">
+                <form action="./Controller/addInventory_Controller.php" method="post">
                     <div class="p-3">
                         
 
