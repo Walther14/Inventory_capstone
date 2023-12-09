@@ -148,8 +148,11 @@
             let rightSideBar2 = document.querySelector("#rightSidebar2");
             let empty = document.querySelector("#empty");
             let tabs = document.querySelector("#js-tabs-1")
+        let buttonAdd = document.querySelector('#addInventoryIDBLOCK');
 
-            button1.style.display = "none"
+
+        buttonAdd.style.display = "none"
+            
             rightSideBar.style.display = "block"
             rightSideBar2.style.display = "block"
             tabs.style.display = "flex"
