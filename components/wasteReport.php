@@ -77,7 +77,6 @@ $transferredCheckbox = isset($_POST['transferredCheckbox']) ? $_POST['transferre
 
     th, td {
         text-align: center;
-
         border: 1px solid #ced4da;
         padding: 8px;
     }

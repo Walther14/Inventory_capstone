@@ -58,7 +58,8 @@ $total = array_sum($value);
   
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSP</title>
+    <title>REPORT ON THE PHYSICAL COUNT OF SEMI-EXPENDABLE PROPERTY
+</title>
     <style>
     /* Your existing styles for the document go here */
 
@@ -221,7 +222,7 @@ th, td {
         <tbody>
         <tr style="text-align: center;">
     <td colspan="12">
-    <label style="text-align:center;">REPORT ON THE PHYSICAL COUNT OF INVENTORIES
+    <label style="text-align:center;">REPORT ON THE PHYSICAL COUNT OF SEMI-EXPENDABLE PROPERTIES
  <br> <?php echo $assetTitle; ?></label>
  <br>
  <label style="text-align:center;">As of <?php echo htmlspecialchars(date('F j, Y', strtotime($date))); ?></label>
@@ -248,7 +249,7 @@ th, td {
 <tr style="width: 100%; text-align: center;">
     <td> Article</td>
     <td colspan="3">Description</td>
-    <td>Stock No.</td>
+    <td>Property No.</td>
     <td>Unit of Measure</td>
     <td >Unit of Value</td>
     <td >Balance per <br> card (Qty)</td>
@@ -289,7 +290,7 @@ for ($i = 0; $i < count($article); $i++) {
     echo "<td>" . wordwrap($onhand[$i], 10, "<br/>", true) . "</td>";
     echo "<td>" . wordwrap($quantity[$i], 10, "<br/>", true) . "</td>";
     echo "<td>" . wordwrap($value[$i], 10, "<br/>", true) . "</td>";
-    echo "<td>" . wordwrap($remarks[$i], 20, "<br/>", true) . "</td>";
+    echo "<td>" . wordwrap($remarks[$i], 50, "<br/>", true) . "</td>";
 
     echo "</tr>";
 }
@@ -304,8 +305,8 @@ for ($i = 0; $i < count($article); $i++) {
 </tr>
 
     
-        <td colspan="12" for="inspected_by" style="text-align: left;">Inventory Committee:</td>    
-            
+        <td colspan="12" for="inspected_by" style="text-align: left;">Certified Correct by:</td>    
+
 <td style="padding: 0px;">
         <br>
         <tr style="width: 100%; text-align: center; margin-bottom: 10px;">
@@ -322,20 +323,23 @@ for ($i = 0; $i < count($article); $i++) {
 
 
 <tr style="width: 100%; text-align: center; margin-bottom: 10px;">
-    <td colspan="4" style="margin-bottom: 10px;">
+    <td colspan="6" style="margin-bottom: 10px;">
         <div style="margin-top: 7px;"><?php echo $name3; ?> <br> <?php echo $position3; ?></div>
     </td>
-    <td colspan="4" style="margin-bottom: 10px;">
+    <td colspan="6" style="margin-bottom: 10px;">
         <div style="margin-top: 7px;"><?php echo $name4; ?> <br> <?php echo $position4; ?></div>
     </td>
-    <td colspan="4" style="margin-bottom: 10px;">
-        <div style="margin-top: 7px;"><?php echo $name5; ?> <br> <?php echo $position5; ?></div>
-    </td>
+    
 
 </tr>
+<td colspan="6" for="inspected_by" style="text-align: left;">Approved by:</td>    
+<td colspan="6" for="inspected_by" style="text-align: left;">Witnessed by:</td>    
 
 <tr style="width: 100%; text-align: center; margin-bottom: 10px;">
-    <td colspan="12" style="margin-bottom: 10px;">
+<td colspan="6" style="margin-bottom: 10px;">
+        <div style="margin-top: 7px;"><?php echo $name5; ?> <br> <?php echo $position5; ?></div>
+    </td>
+    <td colspan="6" style="margin-bottom: 10px;">
         <div style="margin-top: 7px;"><?php echo $name6; ?> <br> <?php echo $position6; ?></div>
     </td>
 
