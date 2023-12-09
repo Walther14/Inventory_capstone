@@ -61,7 +61,9 @@ session_start();
 
                 <label>having assumed such accountability on</label>
                 <input type="text" class="form-control mx-auto" id="assumed" name="assumed" placeholder="On what" style="width: 30%;" required>
-
+<label>
+  <input type="checkbox" id="autoFillMonth"> Auto-fill current month
+</label>
    
             </div>
 
@@ -408,7 +410,73 @@ session_start();
         </div>
     </td>
 </tr>
+<tr id="insertRowTarget" style="background-color: darkgrey;">
+    <td colspan="12">
 
+        <div style="margin: 0.5rem;">
+            <div class="row g-3">
+
+            <div class="col-4">
+    <label for="article" class="form-label">Article</label>
+    <input type="text" class="form-control" name="article[]" placeholder="Article"> </div>
+
+    <div class="col-sm-4">
+    <label for="description" class="form-label">Description</label>
+    <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" value="---Nothing follows---">
+    <datalist id="descriptions">
+        <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+        <?php
+        $fund = "SELECT * FROM inventory_db";
+        $result = $data->query($fund);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                <?php
+            }
+        }
+        ?>
+    </datalist>
+</div>
+<div class="col-sm-2">
+<label for="stock_no" class="form-label">Stock No.</label>
+<input type="number" class="form-control" name="stock_no[]" placeholder="Stock No.">
+</div>
+<div class="col-sm-2">
+<label for="unit" class="form-label">Unit of measure</label>
+<input type="text" class="form-control" name="unit[]" placeholder="Unit of measure">
+</div>
+<div class="col-sm-2">
+<label for="val" class="form-label">Unit of Value</label>
+<input type="text" class="form-control" name="val[]" placeholder="Unit of measure">
+</div>
+<div class="col-sm-3">
+<label for="balance" class="form-label">Balance per card (Quantity)</label>
+<input type="number" class="form-control" name="balance[]" placeholder="Balance per card (Quantity)">
+</div>
+<div class="col-sm-2">
+    <label for="onhand" class="form-label">On hand per count</label>
+    <input type="text" class="form-control" name="onhand[]" placeholder="On hand per count">
+</div>
+<div class="col-sm-1">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="number" class="form-control" name="quantity[]" id="quantity" placeholder="Quantity" >
+</div>
+<div class="col-sm-1">
+    <label for="value" class="form-label">Value</label>
+    <input type="text" class="form-control" name="value[]" id="value" placeholder="Value">
+</div>
+<div class="col-sm-3">
+    <label for="remarks" class="form-label">Remarks</label>
+    <input type="text" class="form-control" name="remarks[]" id="remarks" placeholder="Remarks">
+</div>
+
+
+        </div>
+    </td>
+</tr>
 
         <!-- Add your table rows here -->
     </tbody>
@@ -532,17 +600,17 @@ document.querySelectorAll('input[name^="description"]').forEach(function (input)
 <!-- Add this script after your existing scripts -->
 <script>
   // Add an event listener to the quantity input fields
-  document.querySelectorAll('input[name^="balance"]').forEach(function (input) {
+  document.querySelectorAll('input[name^="quantity"]').forEach(function (input) {
     input.addEventListener('input', function () {
       // Get the corresponding row
       var row = this.parentElement.parentElement;
 
       // Fetch values from "Unit of Value" and "Quantity"
       var unitValue = parseFloat(row.querySelector('input[name^="val"]').value) || 0;
-      var balance = parseFloat(this.value) || 0;
+      var quantity = parseFloat(this.value) || 0;
 
       // Calculate the value and update the "Value" input field
-      var calculatedValue = unitValue * balance;
+      var calculatedValue = unitValue * quantity;
       row.querySelector('input[name^="value"]').value = calculatedValue.toFixed(2);
     });
   });
@@ -566,7 +634,36 @@ function validateAmount(input) {
 }
 </script>
 
+<script>
+  // Function to update the input field based on the checkbox state
+  function updateMonthField() {
+    var assumedField = document.getElementById('assumed');
+    var autoFillCheckbox = document.getElementById('autoFillMonth');
 
+    if (autoFillCheckbox.checked) {
+      // Auto-fill current month
+      var currentDate = new Date();
+      var monthNames = [
+        "January", "February", "March", "April", "May", "June", 
+        "July", "August", "September", "October", "November", "December"
+      ];
+      var currentMonth = monthNames[currentDate.getMonth()];
+      assumedField.value = currentMonth;
+      assumedField.setAttribute('readonly', true); // Make the field readonly
+    } else {
+      // Allow manual input
+      assumedField.value = '';
+      assumedField.removeAttribute('readonly'); // Remove readonly attribute
+    }
+  }
+
+  // Attach the function to the checkbox change event
+  var autoFillCheckbox = document.getElementById('autoFillMonth');
+  autoFillCheckbox.addEventListener('change', updateMonthField);
+
+  // Initial call to set the initial state
+  updateMonthField();
+</script>
 
 <script>
   function handleCheckboxClick(clickedCheckbox) {

@@ -167,6 +167,7 @@ table {
 
 /* Adjust padding for table cells */
 th, td {
+    text-align: center;
     border: 1px solid #ced4da;
     padding: 5px;
 }
@@ -260,13 +261,13 @@ for ($i = 0; $i < count($article); $i++) {
 
 
 <tr style="text-align: left;">
-    <td colspan="10">TOTAL</td>
+    <td colspan="10" style="text-align: left;">TOTAL</td>
     <td colspan="1"><?php echo number_format($total, 2, '.', ','); ?></td>
     <td colspan="1"></td>
 </tr>
 
-    <td colspan="12">
-        <label for="inspected_by" class="form-label">Inventory Committee:</label>
+
+    <td colspan="12" style="text-align: left;">Inventory Committee:</td>
         <br>
 
         <tr style="width: 100%; text-align: center;">
