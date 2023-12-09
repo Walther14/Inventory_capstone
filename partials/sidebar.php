@@ -15,43 +15,43 @@
 
       <div class="d-flex">
 
-      <div class="col-4" style="height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; padding-left: -1rem; display: flex; justify-content: center;  background-size: cover;">
+      <div class="col-4" style="height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; display: flex; justify-content: center;">
           <ul id="gyatt">
 
 
-            <li style="margin-left: -1.5rem;" type="button" id="general">
+            <li class="icon active" type="button" id="general">
               <span>
-                <i class="fa-solid fa-gauge" style="width: 50px; height: 50px"></i>
+                <i class="fa-solid  fa-gauge" style="font-size: 40px;" ></i>
               </span>
             </li>
 
 
 
-            <li style="margin-left: -1.5rem;" type="button" id="dropdown">
+            <li class="icon"type="button" id="dropdown">
               <span>
-              <i class="fa-solid fa-layer-group" style="width: 50px; height: 50px; margin-top: 2rem;"></i>
+              <i class="fa-solid  fa-layer-group" style="font-size: 40px;" ></i>
               </span>
             </li>
      
         
-            <li style="margin-left: -1.5rem;" type="button" id="something" type="button">
+            <li class="icon"type="button" id="something" type="button">
               <span>
-              <i class="fa-solid fa-file-export" style="width: 50px; height: 50px; margin-top: 2rem;"></i>
+              <i class="fa-solid  fa-file-export" style="font-size: 40px;" ></i>
               </span>
             </li>
             
 
-            <li style="margin-left: -1.5rem;" type="button" id="backup" type="button">
+            <li class="icon"type="button" id="backup" type="button">
               <span>
-                <i class="fa-solid fa-gauge" style="width: 50px; height: 50px; margin-top: 2rem;"></i>
+                <i class="fa-solid  fa-gauge" style="font-size: 40px;" ></i>
               </span>
             </li>
 
 
-            <li style="margin-left: -1.5rem;" type="button" id="backup" type="button">
-              <a href="./logout.php">
+            <li class="icon"type="button" id="backup" type="button">
+              <a href="./logout.php" style="color: none;">
               <span>
-              <i class="fa-solid fa-right-from-bracket"   style="width: 50px; height: 50px; margin-top: 2rem;"  data-bs-title="Logout"></i>
+              <i class="fa-solid  fa-right-from-bracket"   style="font-size: 40px;"   data-bs-title="Logout"></i>
               </span>
               </a>
             </li>
@@ -62,7 +62,7 @@
           </ul>
         </div>
 
-        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inventory_index.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/User_Management.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav1">
+        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inventory_index.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/User_Management.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/index.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; margin-left: 1.5rem; display: none;"'; ?> id="sidenav1">
 
           <ul>
             <li>
@@ -103,7 +103,7 @@
 
 
 
-        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/Asset_Class.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/item_Category.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/fund.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/staff.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav2">
+        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/Asset_Class.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/item_Category.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/fund.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/staff.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; margin-left: 1.5rem; display: none;"'; ?> id="sidenav2">
           <ul>
             <li>
               <ul class="sidebar-nav">
@@ -152,7 +152,7 @@
         </div>
 
 
-        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inspection_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waste_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_inventoriesReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/components/inspectionAndAcceptanceReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/formsContainer.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waster_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/PreAndPost_report.php'  ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav3">
+        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inspection_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waste_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_inventoriesReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/components/inspectionAndAcceptanceReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/formsContainer.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waster_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/PreAndPost_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_semiReport.php'  ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; margin-left: 1.5rem; display: none;"'; ?> id="sidenav3">
           <ul>
             <li>
               <ul class="sidebar-nav">
