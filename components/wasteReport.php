@@ -61,6 +61,9 @@ $transferredCheckbox = isset($_POST['transferredCheckbox']) ? $_POST['transferre
         margin: 0;
         position: relative; /* Added to position the footer relative to the body */
     }
+    body, th, td, input, label {
+        font-size: 12px !important;
+    }
 
     .main-content {
         flex: 1;
@@ -218,9 +221,6 @@ th, td {
         </div>
     </div>
 
-    <div class="form-group">
-           <input class="form-control text-center" id="position" name="position" placeholder="Position"  value="<?php echo $agency; ?>" readonly><br>
-   </div>
 </th>
 
 
