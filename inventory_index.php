@@ -211,8 +211,11 @@
                 document.getElementById('fundCluster').innerHTML = data.Fund_Cluster;
                 document.getElementById('editfundCluster').value = data.Fund_Cluster;
 
-                document.getElementById('fundAdmin').innerHTML = data.Fund_Admin_Code;
-                document.getElementById('editfundAdmin').value = data.Fund_Admin_Code;
+                document.getElementById('fundAdminCode').innerHTML = data.Fund_Admin_Code;
+                document.getElementById('editfundAdminCode').value = data.Fund_Admin_Code;
+
+                document.getElementById('fundAdmin').innerHTML = data.Fund_Admin_Title;
+                document.getElementById('editfundAdmin').value = data.Fund_Admin_Title;
 
                 document.getElementById('supplier').innerHTML = data.Supplier;
                 document.getElementById('editsupplier').value = data.Supplier;
@@ -260,6 +263,9 @@
 
                 document.getElementById('remarks').innerHTML = data.Remarks;
                 document.getElementById('editremarks').value = data.Remarks;
+
+                document.getElementById('photo').innerHTML = data.Photo;
+
 
             })
             .catch(error => console.error('Error:', error));

@@ -1,6 +1,9 @@
+
+
 <div class="m-3" style="margin-right: 5rem; height: calc(100vh - 118px); background-color: #fbfcf8; width: 60rem; position: relative; overflow: auto">
 
 <div id="addInventoryIDBLOCK" style="display: none; position: absolute;">
+
 
 
 
@@ -11,7 +14,7 @@
                             <div>
 
                                 <h5>Property Description</h5>
-                                <input style="color: gray" style="width: 100%" name="Property_Description"></input>
+                                <input style="color: gray; width: 100%" name="Property_Description"></input>
                             </div>
 
                         </div>
@@ -20,7 +23,7 @@
                             <div>
 
                                 <h5>Locator</h5>
-                                <input style="color: gray" style="width: 100%" name="Locator" ></input>
+                                <input style="color: gray; width: 100%" name="Locator" ></input>
                             </div>
 
                         </div>
@@ -29,7 +32,7 @@
                             <div>
 
                                 <h5>Current Property Number</h5>
-                                <input style="color: gray" style="width: 100%" name="Current_Property_Number"></input>
+                                <input style="color: gray; width: 100%" name="Current_Property_Number"></input>
                             </div>
 
                         </div>
@@ -38,7 +41,7 @@
                             <div>
 
                                 <h5>Old Property Number</h5>
-                                <input style="color: gray" style="width: 100%" name="Old_Property_Number" ></input>
+                                <input style="color: gray; width: 100%" name="Old_Property_Number" ></input>
                             </div>
 
                         </div>
@@ -47,7 +50,7 @@
                             <div>
 
                                 <h5>Unit of Measure</h5>
-                                <input style="color: gray" style="width: 100%" name="Unit_Measure" ></input>
+                                <input style="color: gray; width: 100%" name="Unit_Measure" ></input>
                             </div>
 
                         </div>
@@ -56,7 +59,7 @@
                             <div>
 
                                 <h5>Unit Value</h5>
-                                <input style="color: gray" style="width: 100%" name="Unit_Value" ></input>
+                                <input style="color: gray; width: 100%" name="Unit_Value" ></input>
                             </div>
 
                         </div>
@@ -67,7 +70,7 @@
                             <div>
 
                                 <h5>Quantity</h5>
-                                <input type="number" style="color: gray" style="width: 100%" name="Quantity"></input>
+                                <input type="number" style="color: gray; width: 100%" name="Quantity"></input>
                             </div>
 
                         </div>
@@ -75,7 +78,7 @@
                         <div class="row">
     <div>
         <h5>Year Acquired</h5>
-        <input type="number" style="color: gray" style="width: 100%" name="Year_Acquired" placeholder="Enter year" min="1965" max="<?php echo date('Y'); ?>" required>
+        <input type="number" style="color: gray; width: 100%" name="Year_Acquired" placeholder="Enter year" min="1965" max="<?php echo date('Y'); ?>" required>
     </div>
 </div>
 
@@ -84,7 +87,7 @@
                             <div>
 
                                 <h5>Date Acquired</h5>
-                                <input type="date" style="color: gray" style="width: 100%" name="Date_Acquired" ></input>
+                                <input type="date" style="color: gray; width: 100%" name="Date_Acquired" ></input>
                             </div>
 
                         </div>
@@ -92,59 +95,85 @@
                         <div class="row">
                             <div>
 
-                                <h5>Date Acquired ava ta class ya asna ahes panchi</h5>
-                                <input style="color: gray" style="width: 100%" name="Date_Acquired" ></input>
+                                <h5>Asset Category</h5>
+                           
+                                <input list="AssetCateg" style="color: gray; width: 100%" name="Asset_Category" placeholder="Enter or select Account Number"  required onchange="fetchAssetTitle(this.value)">
+                <datalist id="AssetCateg">
+                    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                    <?php
+                    $fund = "SELECT * FROM asset_db";
+                    $result = $data->query($fund);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            ?>
+                            <option value="<?php echo $row['Asset_Title'] ?>"><?php echo $row['Asset_Title'] ?></option>
+                        <?php
+                        }
+                    }
+                    ?>
+                </datalist>
                             </div>
 
                         </div>
 
 
-                        <div class="row">
+
+
+                        
+
+            <div class="row">
                             <div>
 
                                 <h5>Account Number</h5>
-                                <input style="color: gray" style="width: 100%" name="Asset_Number" ></input>
+                           
+                                <input list="AssetNumbers" style="color: gray; width: 100%" id="ANum" name="Asset_Number" placeholder="Enter or select Account Number"  required onchange="fetchAssetTitle(this.value)">
+                                <datalist id="AssetNumbers">
+                    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                    <?php
+                    $fund = "SELECT * FROM itemcategory_db";
+                    $result = $data->query($fund);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            ?>
+                            <option value="<?php echo $row['Account_Number'] ?>"><?php echo $row['Account_Number'] ?></option>
+                        <?php
+                        }
+                    }
+                    ?>
+                </datalist>
                             </div>
 
-                        </div>
-
-
-                        <div class="row">                        
-                            <h5>Account Number</h5>
-                            <input list="Asset_Number"  name="Asset_Number" placeholder="Enter or select description" style="width: 100%" required>
-                            <datalist id="Asset_Number">
-                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
-
-                             <?php
-                             $fund = "SELECT * FROM itemcategory_db";
-                             $result = $data->query($fund);
-
-                             if ($result->num_rows > 0) {
-          
-                             while ($row = $result->fetch_assoc()) {
-                                ?>
-                            <option value="<?php echo $row['Account_Number'] ?>"><?php echo $row['Account_Number'] ?></option>
-                         <?php
-                         }
-                          }
-                          ?>
-                     </datalist>
                         </div>
 
                         <div class="row">
-                            <div>
-
-                                <h5>Account Title</h5>
-                                <input style="color: gray" style="width: 100%" name="Asset_Title"></input>
-                            </div>
-
-                        </div>
+                <div>
+                    <h5>Account Title</h5>
+                    <input style="color: gray; width: 100%" id="ATitle" name="Asset_Title" readonly ></input>
+                </div>
+            </div>
 
                         <div class="row">
                             <div>
 
                                 <h5>Issued To</h5>
-                                <input style="color: gray" style="width: 100%" name="Issued_To" ></input>
+                                <input list="IssuedTo" style="color: gray; width: 100%" id="ANum" name="Issued_To" placeholder="Enter or select Account Number"  required onchange="fetchAssetTitle(this.value)">
+                                <datalist id="IssuedTo">
+                    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                    <?php
+                    $fund = "SELECT * FROM staff_db";
+                    $result = $data->query($fund);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            ?>
+                            <option value="<?php echo $row['name'] ?>"><?php echo $row['name'] ?></option>
+                        <?php
+                        }
+                    }
+                    ?>
+                </datalist>
                             </div>
 
                         </div>
@@ -153,7 +182,7 @@
                             <div>
 
                                 <h5>Issued From</h5>
-                                <input style="color: gray" style="width: 100%" name="Issued_From" ></input>
+                                <input style="color: gray; width: 100%" name="Issued_From" ></input>
                             </div>
 
                         </div>
@@ -162,7 +191,7 @@
                             <div>
 
                                 <h5>ARE/PAR/ICS Number</h5>
-                                <input style="color: gray" style="width: 100%" name="ARE_PAR_ICS_Number" ></input>
+                                <input style="color: gray; width: 100%" name="ARE_PAR_ICS_Number" ></input>
                             </div>
 
                         </div>
@@ -171,7 +200,7 @@
                             <div>
 
                                 <h5>Cancelled ARE/PAR/ICS Number</h5>
-                                <input style="color: gray" style="width: 100%" name="Cancelled_Number" ></input>
+                                <input style="color: gray; width: 100%" name="Cancelled_Number" ></input>
                             </div>
 
                         </div>
@@ -182,7 +211,7 @@
                             <div>
 
                                 <h5>PRS Number</h5>
-                                <input style="color: gray" style="width: 100%" name="PRS_Number"></input>
+                                <input style="color: gray; width: 100%" name="PRS_Number"></input>
                             </div>
 
                         </div>
@@ -191,7 +220,7 @@
                             <div>
 
                                 <h5>Estimated Useful Life</h5>
-                                <input style="color: gray" style="width: 100%" name="Estimated_Useful_Life" ></input>
+                                <input style="color: gray; width: 100%" name="Estimated_Useful_Life" ></input>
                             </div>
 
                         </div>
@@ -200,16 +229,41 @@
                             <div>
 
                                 <h5>Fund Cluster</h5>
-                                <input style="color: gray" style="width: 100%" name="Fund_Cluster" ></input>
+                                <input style="color: gray; width: 100%" name="Fund_Cluster" ></input>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div>
+
+                                <h5>Fund Admin Code</h5>
+                                <input list="AdminCode" style="color: gray; width: 100%" id="ACode" name="Fund_Admin_Code" placeholder="Enter or select Account Number"  required onchange="fetchAssetTitle(this.value)">
+                                <datalist id="AdminCode">
+                    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                    <?php
+                    $fund = "SELECT * FROM fundcode_db";
+                    $result = $data->query($fund);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            ?>
+                            <option value="<?php echo $row['Fund_Admin_Code'] ?>"><?php echo $row['Fund_Admin_Code'] ?></option>
+                        <?php
+                        }
+                    }
+                    ?>
+                </datalist>
                             </div>
 
                         </div>
+
 
                         <div class="row">
                             <div>
 
                                 <h5>Fund Admin Title</h5>
-                                <input style="color: gray" style="width: 100%" name="Fund_Admin_Title" ></input>
+                                <input style="color: gray; width: 100%" id="FTitle" name="Fund_Admin_Title" readonly></input>
                             </div>
 
                         </div>
@@ -218,7 +272,7 @@
                             <div>
 
                                 <h5>Supplier</h5>
-                                <input style="color: gray" style="width: 100%" name="Supplier" ></input>
+                                <input style="color: gray; width: 100%" name="Supplier" ></input>
                             </div>
 
                         </div>
@@ -227,7 +281,7 @@
                             <div>
 
                                 <h5>Purchase Order/Contract Number</h5>
-                                <input style="color: gray" style="width: 100%" name="Purchase_Order_Contract_Number" ></input>
+                                <input style="color: gray; width: 100%" name="Purchase_Order_Contract_Number" ></input>
                             </div>
 
                         </div>
@@ -238,7 +292,7 @@
 
                                 
                             <h5>Acquired through</h5>
-                            <input   input style="color: gray" style="width: 100%" name="Acquired_through" ></input>
+                            <input   input style="color: gray; width: 100%"  name="Acquired_through" ></input>
 
                             </div>
 
@@ -246,7 +300,9 @@
 
 
                        
-                    
+                        <div class="row">
+  
+
 
                                      
 
@@ -254,18 +310,76 @@
                             <div>
 
                                 <h5>Remarks</h5>
-                                <input style="color: gray" style="width: 100%" name="Remarks" ></input>
+                                <input style="color: gray; width: 100%" name="Remarks" ></input>
                             </div>
 
                         </div>
+                        <div>
+    <h5>Photo</h5>
+    <input style="color: gray; width: 100%" type="file" name="photo" accept="image/*" onchange="previewImage(this)">
+    <img id="photoPreview" src="#" alt="Preview" style="max-width: 100%; display: none;">
+</div>
+</div>
                     </div>
                     <button type="submit" class="btn btn-success">Add Item</button>
                 </form>
 
+                <script>
+function previewImage(input) {
+    var preview = document.getElementById('photoPreview');
+    var file = input.files[0];
+    
+    if (file) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        };
+        
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = '#';
+        preview.style.display = 'none';
+    }
+}
+</script>
+                <script>
+    // Add an event listener to the Account Number input field
+    document.getElementById('ANum').addEventListener('change', function () {
+        // Fetch the corresponding account title from the database using AJAX
+        var accountNumber = this.value;
+
+        fetch('./partials/getAssetTitle.php?accountNumber=' + encodeURIComponent(accountNumber))
+            .then(response => response.json())
+            .then(data => {
+                // Update the Account Title input field with the fetched data
+                document.getElementById('ATitle').value = data.account_title;
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
+
+<script>
+    // Add an event listener to the Account Number input field
+    document.getElementById('ACode').addEventListener('change', function () {
+        // Fetch the corresponding account title from the database using AJAX
+        var adminCode = this.value;
+
+        fetch('./partials/getAdminTitle.php?adminCode=' + encodeURIComponent(adminCode))
+            .then(response => response.json())
+            .then(data => {
+                // Update the Account Title input field with the fetched data
+                document.getElementById('FTitle').value = data.Fund_Admin_Title;
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
 
 
             </div>
 
+<!-- Add t
 
     <!-- JavaScript tab plugin -->
     <ul class="nav nav-tabs" id="js-tabs-1" role="tablist" style="display: none;">
@@ -290,7 +404,14 @@
                         </div>
 
                     </div>
+                    <div class="row">
+                        <div>
 
+                            <h5>Locator</h5>
+                            <p style="color: gray" id="locator">: 5</p>
+                        </div>
+
+                    </div>
                     <div class="row">
                         <div>
 
@@ -303,123 +424,16 @@
                     <div class="row">
                         <div>
 
-                            <h5>Unit of Measure</h5>
-                            <p style="color: gray" id="unitMeasure">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div>
-
-                            <h5>Quantity</h5>
-                            <p style="color: gray" id="quantity">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div>
-
-                            <h5>Date Acquired</h5>
-                            <p style="color: gray" id="dateAcquired">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div>
-
-                            <h5>Asset Number</h5>
-                            <p style="color: gray" id="assetNumber">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div>
-
-                            <h5>Issued To</h5>
-                            <p style="color: gray" id="issuedTo">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div>
-
-                            <h5>ARE/PAR/ICS Number</h5>
-                            <p style="color: gray" id="apiNumber">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div>
-
-                            <h5>PRS Number</h5>
-                            <p style="color: gray" id="prsNumber">: 5</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div>
-
-                            <h5>Fund Cluster</h5>
-                            <p style="color: gray" id="fundCluster">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div>
-
-                            <h5>Fund Admin Title</h5>
-                            <p style="color: gray" id="fundAdmin">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div>
-
-                            <h5>Supplier</h5>
-                            <p style="color: gray" id="supplier">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div>
-
-                            <h5>Years Lapse</h5>
-                            <p style="color: gray" id="yearLapse">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div>
-
-                            <h5>Locator</h5>
-                            <p style="color: gray" id="locator">: 5</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div>
-
                             <h5>Old Property Number</h5>
                             <p style="color: gray" id="oldPropertyNumber">: 5</p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div>
+
+                            <h5>Unit of Measure</h5>
+                            <p style="color: gray" id="unitMeasure">: 5</p>
                         </div>
 
                     </div>
@@ -436,8 +450,25 @@
                     <div class="row">
                         <div>
 
+                            <h5>Quantity</h5>
+                            <p style="color: gray" id="quantity">: 5</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div>
+
                             <h5>Year Acquired</h5>
                             <p style="color: gray" id="yearAcquired">: 5</p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div>
+
+                            <h5>Date Acquired</h5>
+                            <p style="color: gray" id="dateAcquired">: 5</p>
                         </div>
 
                     </div>
@@ -454,8 +485,25 @@
                     <div class="row">
                         <div>
 
-                            <h5>Asset Title</h5>
+                            <h5>Account Number</h5>
+                            <p style="color: gray" id="assetNumber">: 5</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div>
+
+                            <h5>Account Title</h5>
                             <p style="color: gray" id="assetTitle">: 5</p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div>
+
+                            <h5>Issued To</h5>
+                            <p style="color: gray" id="issuedTo">: 5</p>
                         </div>
 
                     </div>
@@ -472,11 +520,29 @@
                     <div class="row">
                         <div>
 
+                            <h5>ARE/PAR/ICS Number</h5>
+                            <p style="color: gray" id="apiNumber">: 5</p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div>
+
                             <h5>Cancelled ARE/PAR/ICS Number</h5>
                             <p style="color: gray" id="cancelledAPI">: 5</p>
                         </div>
 
                     </div>
+
+                    <div class="row">
+                        <div>
+
+                            <h5>PRS Number</h5>
+                            <p style="color: gray" id="prsNumber">: 5</p>
+                        </div>
+
+                    </div>
+
 
                     <div class="row">
                         <div>
@@ -487,6 +553,32 @@
 
                     </div>
 
+                    <div class="row">
+                        <div>
+
+                            <h5>Fund Cluster</h5>
+                            <p style="color: gray" id="fundCluster">: 5</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div>
+
+                            <h5>Fund Admin Code</h5>
+                            <p style="color: gray" id="fundAdminCode">: 5</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div>
+
+                            <h5>Fund Admin Title</h5>
+                            <p style="color: gray" id="fundAdmin">: 5</p>
+                        </div>
+
+                    </div>
 
                     <div class="row">
                         <div>
@@ -497,7 +589,14 @@
 
                     </div>
 
+                    <div class="row">
+                        <div>
 
+                            <h5>Supplier</h5>
+                            <p style="color: gray" id="supplier">: 5</p>
+                        </div>
+
+                    </div>
                     <div class="row">
                         <div>
 
@@ -506,9 +605,11 @@
                         </div>
 
                     </div>
-
-
                     <div class="row">
+                        <div>
+
+
+                        <div class="row">
                         <div>
 
                             <h5>Remarks</h5>
@@ -516,6 +617,26 @@
                         </div>
 
                     </div>
+
+
+                    <div class="row">
+                        <div>
+
+                            <h5>Photo</h5>
+                            <p style="color: gray" id="photo">: 5</p>
+                        </div>
+
+                    </div>
+                            <h5>Years Lapse</h5>
+                            <p style="color: gray" id="yearLapse">: 5</p>
+                        </div>
+
+                    </div>
+
+
+
+
+                  
                 </div>
 
 
@@ -537,122 +658,7 @@
                                 <input type="hidden" id="idInventory" name="id" style="width: 100%"></input>
 
                                 <h5>Property Description</h5>
-                                <input id="editPropertyDescription" name="Property_Description" style="width: 100%"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Current Property Number</h5>
-                                <input style="color: gray" style="width: 100%" name="Current_Property_Number" id="editpropertyNumber"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Unit of Measure</h5>
-                                <input style="color: gray" style="width: 100%" name="Unit_Measure" id="editunitMeasure"></input>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Quantity</h5>
-                                <input style="color: gray" style="width: 100%" name="Quantity" id="editquantity"></input>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Date Acquired</h5>
-                                <input style="color: gray" style="width: 100%" name="Date_Acquired" id="editdateAcquired"></input>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Asset Number</h5>
-                                <input style="color: gray" style="width: 100%" name="Asset_Number" id="editassetNumber"></input>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Issued To</h5>
-                                <input style="color: gray" style="width: 100%" name="Issued_To" id="editissuedTo"></input>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div>
-
-                                <h5>ARE/PAR/ICS Number</h5>
-                                <input style="color: gray" style="width: 100%" name="ARE_PAR_ICS_Number" id="editapiNumber"></input>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div>
-
-                                <h5>PRS Number</h5>
-                                <input style="color: gray" style="width: 100%" name="PRS_Number" id="editprsNumber"></input>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Fund Cluster</h5>
-                                <input style="color: gray" style="width: 100%" name="Fund_Cluster" id="editfundCluster"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Fund Admin Title</h5>
-                                <input style="color: gray" style="width: 100%" name="Fund_Admin_Title" id="editfundAdmin"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Supplier</h5>
-                                <input style="color: gray" style="width: 100%" name="Supplier" id="editsupplier"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Years Lapse</h5>
-                                <input style="color: gray" style="width: 100%" name="" id="edityearLapse"></input>
+                                <input style="color: gray; width: 100%" id="editPropertyDescription" name="Property_Description"></input>
                             </div>
 
                         </div>
@@ -661,7 +667,15 @@
                             <div>
 
                                 <h5>Locator</h5>
-                                <input style="color: gray" style="width: 100%" name="Locator" id="editlocator"></input>
+                                <input style="color: gray; width: 100%" name="Locator" id="editlocator"></input>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div>
+
+                                <h5>Current Property Number</h5>
+                                <input style="color: gray; width: 100%" name="Current_Property_Number" id="editpropertyNumber"></input>
                             </div>
 
                         </div>
@@ -670,7 +684,16 @@
                             <div>
 
                                 <h5>Old Property Number</h5>
-                                <input style="color: gray" style="width: 100%" name="Old_Property_Number" id="editoldPropertyNumber"></input>
+                                <input style="color: gray; width: 100%" name="Old_Property_Number" id="editoldPropertyNumber"></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Unit of Measure</h5>
+                                <input style="color: gray; width: 100%" name="Unit_Measure" id="editunitMeasure"></input>
                             </div>
 
                         </div>
@@ -679,7 +702,7 @@
                             <div>
 
                                 <h5>Unit Value</h5>
-                                <input style="color: gray" style="width: 100%" name="Unit_Value" id="editunitValue"></input>
+                                <input style="color: gray; width: 100%" name="Unit_Value" id="editunitValue"></input>
                             </div>
 
                         </div>
@@ -687,8 +710,27 @@
                         <div class="row">
                             <div>
 
+                                <h5>Quantity</h5>
+                                <input style="color: gray; width: 100%" name="Quantity" id="editquantity"></input>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div>
+
                                 <h5>Year Acquired</h5>
-                                <input style="color: gray" style="width: 100%" name="Year_Acquired" id="edityearAcquired"></input>
+                                <input style="color: gray; width: 100%" name="Year_Acquired" id="edityearAcquired"></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Date Acquired</h5>
+                                <input style="color: gray; width: 100%" name="Date_Acquired" id="editdateAcquired"></input>
                             </div>
 
                         </div>
@@ -697,7 +739,17 @@
                             <div>
 
                                 <h5>Asset Category</h5>
-                                <input style="color: gray" style="width: 100%" name="Asset_Category" id="editassetCategory"></input>
+                                <input style="color: gray; width: 100%" name="Asset_Category" id="editassetCategory"></input>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Account Number</h5>
+                                <input style="color: gray; width: 100%" name="Asset_Number" id="editassetNumber"></input>
                             </div>
 
                         </div>
@@ -705,8 +757,17 @@
                         <div class="row">
                             <div>
 
-                                <h5>Asset Title</h5>
-                                <input style="color: gray" style="width: 100%" name="Asset_Title" id="editassetTitle"></input>
+                                <h5>Account Title</h5>
+                                <input style="color: gray; width: 100%" name="Asset_Title" id="editassetTitle"></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Issued To</h5>
+                                <input style="color: gray; width: 100%" name="Issued_To" id="editissuedTo"></input>
                             </div>
 
                         </div>
@@ -715,7 +776,16 @@
                             <div>
 
                                 <h5>Issued From</h5>
-                                <input style="color: gray" style="width: 100%" name="Issued_From" id="editissuedFrom"></input>
+                                <input style="color: gray; width: 100%" name="Issued_From" id="editissuedFrom"></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>ARE/PAR/ICS Number</h5>
+                                <input style="color: gray; width: 100%" name="ARE_PAR_ICS_Number" id="editapiNumber"></input>
                             </div>
 
                         </div>
@@ -724,7 +794,16 @@
                             <div>
 
                                 <h5>Cancelled ARE/PAR/ICS Number</h5>
-                                <input style="color: gray" style="width: 100%" name="Cancelled_Number" id="editcancelledAPI"></input>
+                                <input style="color: gray; width: 100%" name="Cancelled_Number" id="editcancelledAPI"></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>PRS Number</h5>
+                                <input style="color: gray; width: 100%" name="PRS_Number" id="editprsNumber"></input>
                             </div>
 
                         </div>
@@ -733,40 +812,85 @@
                             <div>
 
                                 <h5>Estimated Useful Life</h5>
-                                <input style="color: gray" style="width: 100%" name="Estimated_Useful_Life" id="editestimatedLife"></input>
+                                <input style="color: gray; width: 100%" name="Estimated_Useful_Life" id="editestimatedLife"></input>
                             </div>
 
                         </div>
-
 
                         <div class="row">
                             <div>
 
-                                <h5>Purchase Order/Contract Numbere</h5>
-                                <input style="color: gray" style="width: 100%" name="Purchase_Order_Contract_Number" id="editpurchaseOrder"></input>
+                                <h5>Fund Cluster</h5>
+                                <input style="color: gray; width: 100%" name="Fund_Cluster" id="editfundCluster"></input>
                             </div>
 
                         </div>
 
+                        <div class="row">
+                            <div>
+
+                                <h5>Fund Admin Code</h5>
+                                <input style="color: gray; width: 100%" name="Fund_Admin_Code" id="editfundAdminCode"></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Fund Admin Title</h5>
+                                <input style="color: gray; width: 100%" name="Fund_Admin_Title" id="editfundAdmin"></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Purchase Order/Contract Number</h5>
+                                <input style="color: gray; width: 100%" name="Purchase_Order_Contract_Number" id="editpurchaseOrder"></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Supplier</h5>
+                                <input style="color: gray; width: 100%" name="Supplier" id="editsupplier"></input>
+                            </div>
+
+                        </div>
 
                         <div class="row">
                             <div>
 
                                 <h5>Acquired through</h5>
-                                <input style="color: gray" style="width: 100%" name="Acquired_through" id="editacquiredThrough"></input>
+                                <input style="color: gray; width: 100%" name="Acquired_through" id="editacquiredThrough"></input>
                             </div>
 
                         </div>
-
 
                         <div class="row">
                             <div>
 
                                 <h5>Remarks</h5>
-                                <input style="color: gray" style="width: 100%" name="Remarks" id="editremarks"></input>
+                                <input style="color: gray; width: 100%" name="Remarks" id="editremarks"></input>
                             </div>
 
                         </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Years Lapse</h5>
+                                <input style="color: gray; width: 100%" name="" id="edityearLapse"></input>
+                            </div>
+
+                        </div>
+
+                        
+   
                     </div>
                     <button type="submit" class="btn btn-success">Update Item</button>
                 </form>
@@ -791,3 +915,5 @@
 
 
 </div>
+</body>
+</html>
