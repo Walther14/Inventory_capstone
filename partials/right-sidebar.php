@@ -14,7 +14,7 @@
                             <div>
 
                                 <h5>Property Description</h5>
-                                <input style="color: gray; width: 100%" name="Property_Description"></input>
+                                <input style="color: gray; width: 100%" name="Property_Description" required></input>
                             </div>
 
                         </div>
@@ -23,7 +23,7 @@
                             <div>
 
                                 <h5>Locator</h5>
-                                <input style="color: gray; width: 100%" name="Locator" ></input>
+                                <input style="color: gray; width: 100%" name="Locator" required></input>
                             </div>
 
                         </div>
@@ -32,7 +32,7 @@
                             <div>
 
                                 <h5>Current Property Number</h5>
-                                <input style="color: gray; width: 100%" name="Current_Property_Number"></input>
+                                <input style="color: gray; width: 100%" name="Current_Property_Number" required></input>
                             </div>
 
                         </div>
@@ -41,7 +41,7 @@
                             <div>
 
                                 <h5>Old Property Number</h5>
-                                <input style="color: gray; width: 100%" name="Old_Property_Number" ></input>
+                                <input style="color: gray; width: 100%" name="Old_Property_Number" required></input>
                             </div>
 
                         </div>
@@ -50,7 +50,7 @@
                             <div>
 
                                 <h5>Unit of Measure</h5>
-                                <input style="color: gray; width: 100%" name="Unit_Measure" ></input>
+                                <input style="color: gray; width: 100%" name="Unit_Measure" required></input>
                             </div>
 
                         </div>
@@ -59,7 +59,7 @@
                             <div>
 
                                 <h5>Unit Value</h5>
-                                <input style="color: gray; width: 100%" name="Unit_Value" ></input>
+                                <input style="color: gray; width: 100%" name="Unit_Value" required></input>
                             </div>
 
                         </div>
@@ -70,7 +70,7 @@
                             <div>
 
                                 <h5>Quantity</h5>
-                                <input type="number" style="color: gray; width: 100%" name="Quantity"></input>
+                                <input type="number" style="color: gray; width: 100%" name="Quantity" required></input>
                             </div>
 
                         </div>
@@ -87,7 +87,7 @@
                             <div>
 
                                 <h5>Date Acquired</h5>
-                                <input type="date" style="color: gray; width: 100%" name="Date_Acquired" ></input>
+                                <input type="date" style="color: gray; width: 100%" name="Date_Acquired" required></input>
                             </div>
 
                         </div>
@@ -182,7 +182,7 @@
                             <div>
 
                                 <h5>Issued From</h5>
-                                <input style="color: gray; width: 100%" name="Issued_From" ></input>
+                                <input style="color: gray; width: 100%" name="Issued_From" required></input>
                             </div>
 
                         </div>
@@ -191,7 +191,7 @@
                             <div>
 
                                 <h5>ARE/PAR/ICS Number</h5>
-                                <input style="color: gray; width: 100%" name="ARE_PAR_ICS_Number" ></input>
+                                <input style="color: gray; width: 100%" name="ARE_PAR_ICS_Number" required></input>
                             </div>
 
                         </div>
@@ -200,7 +200,7 @@
                             <div>
 
                                 <h5>Cancelled ARE/PAR/ICS Number</h5>
-                                <input style="color: gray; width: 100%" name="Cancelled_Number" ></input>
+                                <input style="color: gray; width: 100%" name="Cancelled_Number" required></input>
                             </div>
 
                         </div>
@@ -211,7 +211,7 @@
                             <div>
 
                                 <h5>PRS Number</h5>
-                                <input style="color: gray; width: 100%" name="PRS_Number"></input>
+                                <input style="color: gray; width: 100%" name="PRS_Number" required></input>
                             </div>
 
                         </div>
@@ -220,7 +220,7 @@
                             <div>
 
                                 <h5>Estimated Useful Life</h5>
-                                <input style="color: gray; width: 100%" name="Estimated_Useful_Life" ></input>
+                                <input style="color: gray; width: 100%" name="Estimated_Useful_Life" required></input>
                             </div>
 
                         </div>
@@ -229,7 +229,7 @@
                             <div>
 
                                 <h5>Fund Cluster</h5>
-                                <input style="color: gray; width: 100%" name="Fund_Cluster" ></input>
+                                <input style="color: gray; width: 100%" name="Fund_Cluster" required></input>
                             </div>
 
 
@@ -272,7 +272,7 @@
                             <div>
 
                                 <h5>Supplier</h5>
-                                <input style="color: gray; width: 100%" name="Supplier" ></input>
+                                <input style="color: gray; width: 100%" name="Supplier" required></input>
                             </div>
 
                         </div>
@@ -281,7 +281,7 @@
                             <div>
 
                                 <h5>Purchase Order/Contract Number</h5>
-                                <input style="color: gray; width: 100%" name="Purchase_Order_Contract_Number" ></input>
+                                <input style="color: gray; width: 100%" name="Purchase_Order_Contract_Number" required></input>
                             </div>
 
                         </div>
@@ -292,7 +292,7 @@
 
                                 
                             <h5>Acquired through</h5>
-                            <input   input style="color: gray; width: 100%"  name="Acquired_through" ></input>
+                            <input   input style="color: gray; width: 100%"  name="Acquired_through" required></input>
 
                             </div>
 
@@ -310,7 +310,7 @@
                             <div>
 
                                 <h5>Remarks</h5>
-                                <input style="color: gray; width: 100%" name="Remarks" ></input>
+                                <input style="color: gray; width: 100%" name="Remarks" required></input>
                             </div>
 
                         </div>

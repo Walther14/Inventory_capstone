@@ -9,24 +9,33 @@
     <div style="position: sticky; top: 0; z-index: 10;">
 
         <!-- Top Bar -->
-        <nav class="navbar navbar-expand-lg w-100" style="background-color: rgb(255, 255, 255); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 0, 0.19);">
+        <nav class="navbar navbar-expand-lg w-100" style="background-image: url('./img/try.png'); background-size: cover; height: .63in; border-bottom: var(--bs-border-width) solid var(--bs-content-border-color); width: 100%;">
             <div class="container-fluid d-flex justify-content-between p-3">
                 <a class="navbar-brand" href="#">
-                    <img src="./img/prime.png" alt="Logo" height="24" class="d-inline-block align-text-top">
 
                 </a>
 
-
                 <div class="d-flex justify-content-end">
-                    <button id="addInventoryID" class="btn btn-dark p-2">
+    <button
+        id="addInventoryID"
+        style="width: 210px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;"
+        onmouseenter="changeColor(this, '#ffa800')"
+        onmouseleave="changeColor(this, 'white')"
+        onclick="changeColor(this, 'maroon')"
+    >
+        <span>
+            <ion-icon name="add-outline"></ion-icon>
+        </span>
+        Add Inventory
+    </button>
+</div>
 
+<script>
+    function changeColor(element, color) {
+        element.style.backgroundColor = color;
+    }
+</script>
 
-                        <span>
-                            <ion-icon name="add-outline"></ion-icon>
-                        </span>
-
-                        Add Inventory</button>
-                </div>
 
             </div>
         </nav>
