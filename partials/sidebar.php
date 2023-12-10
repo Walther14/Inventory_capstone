@@ -19,7 +19,7 @@
           <ul id="gyatt">
 
 
-            <li class="icon active" type="button" id="general">
+            <li class="icon active" type="button" id="general" style="margin-bottom: 4rem;">
               <span>
                 <i class="fa-solid  fa-gauge" style="font-size: 40px;" ></i>
               </span>
@@ -27,28 +27,28 @@
 
 
 
-            <li class="icon"type="button" id="dropdown">
+            <li class="icon"type="button" id="dropdown" style="margin-bottom: 4rem;"> 
               <span>
               <i class="fa-solid  fa-layer-group" style="font-size: 40px;" ></i>
               </span>
             </li>
      
         
-            <li class="icon"type="button" id="something" type="button">
+            <li class="icon"type="button" id="something" type="button" style="margin-bottom: 4rem;">
               <span>
               <i class="fa-solid  fa-file-export" style="font-size: 40px;" ></i>
               </span>
             </li>
             
 
-            <li class="icon"type="button" id="backup" type="button">
+            <li class="icon"type="button" id="backup" type="button" style="margin-bottom: 4rem;">
               <span>
                 <i class="fa-solid  fa-gauge" style="font-size: 40px;" ></i>
               </span>
             </li>
 
 
-            <li class="icon"type="button" id="backup" type="button">
+            <li class="icon"type="button" id="backup" type="button" style="margin-bottom: 4rem;">
               <a href="./logout.php" style="color: none;">
               <span>
               <i class="fa-solid  fa-right-from-bracket"   style="font-size: 40px;"   data-bs-title="Logout"></i>
@@ -170,7 +170,7 @@
                   <hr class="sidebar-divider">
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./reports.php" aria-current="page">Property Plant Equipmemt</a>
+                  <a class="nav-link" href="./physicalcount_property.php" aria-current="page">Property Plant Equipmemt</a>
                 </li>
 
                 <li>

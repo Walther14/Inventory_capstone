@@ -16,12 +16,12 @@ session_start();
 <table class="table table-bordered">
     <thead>
     <tr>
-            <th colspan="6" style="text-align: right;">
-                Apendix 9-16
+            <th colspan="12" style="text-align: right;">
+                Apendix 9-17
             </th>
         </tr>
-        <th colspan="6" class="text-center">
-    REPORT ON THE PHYSICAL COUNT OF INVENTORIES
+        <th colspan="12" class="text-center">
+    REPORT ON THE PHYSICAL COUNT OF PROPERTY, PLANT AND EQUIPMENT
     <div class="text-center">
     
     <select class="form-select mx-auto asset-dropdown" name="Asset_Title" aria-label="Select example" style="width: 60%;" required>
@@ -84,10 +84,12 @@ session_start();
         <div style="margin: 0.5rem;">
             <div class="row g-3">
 
-            <div class="col-4">
+            <div class="col-2">
     <label for="article" class="form-label">Article</label>
     <input type="text" class="form-control" name="article[]" placeholder="Article" required> </div>
-
+    <div class="col-2">
+    <label for="aqui" class="form-label">Date of Acquisition</label>
+    <input type="text" class="form-control" name="aqui[]" placeholder="Date of Acqui" required> </div>
     <div class="col-sm-4">
     <label for="description" class="form-label">Description</label>
     <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" >
@@ -111,8 +113,8 @@ session_start();
 </div>
 
 <div class="col-sm-2">
-<label for="stock_no" class="form-label">Stock No.</label>
-<input type="number" class="form-control" name="stock_no[]" placeholder="Stock No." required>
+<label for="stock_no" class="form-label">Property No.</label>
+<input type="text" class="form-control" name="stock_no[]" placeholder="Property No." required>
 </div>
 <div class="col-sm-2">
 <label for="unit" class="form-label">Unit of measure</label>
@@ -154,9 +156,12 @@ session_start();
         <div style="margin: 0.5rem;">
             <div class="row g-3">
 
-            <div class="col-4">
+            <div class="col-2">
     <label for="article" class="form-label">Article</label>
-    <input type="text" class="form-control" name="article[]" placeholder="Article"> </div>
+    <input type="text" class="form-control" name="article[]" placeholder="Article" required> </div>
+    <div class="col-2">
+    <label for="aqui" class="form-label">Date of Acquisition</label>
+    <input type="text" class="form-control" name="aqui[]" placeholder="Date of Acqui" required> </div>
 
     <div class="col-sm-4">
     <label for="description" class="form-label">Description</label>
@@ -179,8 +184,8 @@ session_start();
 </datalist>
 </div>
 <div class="col-sm-2">
-<label for="stock_no" class="form-label">Stock No.</label>
-<input type="number" class="form-control" name="stock_no[]" placeholder="Stock No.">
+<label for="stock_no" class="form-label">Property No.</label>
+<input type="text" class="form-control" name="stock_no[]" placeholder="Property No." required>
 </div>
 <div class="col-sm-2">
 <label for="unit" class="form-label">Unit of measure</label>
@@ -222,9 +227,12 @@ session_start();
         <div style="margin: 0.5rem;">
             <div class="row g-3">
 
-            <div class="col-4">
+            <div class="col-2">
     <label for="article" class="form-label">Article</label>
-    <input type="text" class="form-control" name="article[]" placeholder="Article"> </div>
+    <input type="text" class="form-control" name="article[]" placeholder="Article" required> </div>
+    <div class="col-2">
+    <label for="aqui" class="form-label">Date of Acquisition</label>
+    <input type="text" class="form-control" name="aqui[]" placeholder="Date of Acqui" required> </div>
 
     <div class="col-sm-4">
     <label for="description" class="form-label">Description</label>
@@ -247,8 +255,8 @@ session_start();
 </datalist>
 </div>
 <div class="col-sm-2">
-<label for="stock_no" class="form-label">Stock No.</label>
-<input type="number" class="form-control" name="stock_no[]" placeholder="Stock No.">
+<label for="stock_no" class="form-label">Property No.</label>
+<input type="text" class="form-control" name="stock_no[]" placeholder="Property No." required>
 </div>
 <div class="col-sm-2">
 <label for="unit" class="form-label">Unit of measure</label>
@@ -289,9 +297,12 @@ session_start();
         <div style="margin: 0.5rem;">
             <div class="row g-3">
 
-            <div class="col-4">
+            <div class="col-2">
     <label for="article" class="form-label">Article</label>
-    <input type="text" class="form-control" name="article[]" placeholder="Article"> </div>
+    <input type="text" class="form-control" name="article[]" placeholder="Article" required> </div>
+    <div class="col-2">
+    <label for="aqui" class="form-label">Date of Acquisition</label>
+    <input type="text" class="form-control" name="aqui[]" placeholder="Date of Acqui" required> </div>
 
     <div class="col-sm-4">
     <label for="description" class="form-label">Description</label>
@@ -314,8 +325,8 @@ session_start();
 </datalist>
 </div>
 <div class="col-sm-2">
-<label for="stock_no" class="form-label">Stock No.</label>
-<input type="number" class="form-control" name="stock_no[]" placeholder="Stock No.">
+<label for="stock_no" class="form-label">Property No.</label>
+<input type="text" class="form-control" name="stock_no[]" placeholder="Property No." required>
 </div>
 <div class="col-sm-2">
 <label for="unit" class="form-label">Unit of measure</label>
@@ -356,10 +367,12 @@ session_start();
         <div style="margin: 0.5rem;">
             <div class="row g-3">
 
-            <div class="col-4">
+            <div class="col-2">
     <label for="article" class="form-label">Article</label>
-    <input type="text" class="form-control" name="article[]" placeholder="Article"> </div>
-
+    <input type="text" class="form-control" name="article[]" placeholder="Article" required> </div>
+    <div class="col-2">
+    <label for="aqui" class="form-label">Date of Acquisition</label>
+    <input type="text" class="form-control" name="aqui[]" placeholder="Date of Acqui" required> </div>
     <div class="col-sm-4">
     <label for="description" class="form-label">Description</label>
     <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" value="---Nothing follows---">
@@ -381,8 +394,8 @@ session_start();
 </datalist>
 </div>
 <div class="col-sm-2">
-<label for="stock_no" class="form-label">Stock No.</label>
-<input type="number" class="form-control" name="stock_no[]" placeholder="Stock No.">
+<label for="stock_no" class="form-label">Property No.</label>
+<input type="text" class="form-control" name="stock_no[]" placeholder="Property No." required>
 </div>
 <div class="col-sm-2">
 <label for="unit" class="form-label">Unit of measure</label>
@@ -423,73 +436,30 @@ session_start();
     </tbody>
     <tr>
             <th colspan="6" style="text-align: left;">
-               Inventory Committee:
+               Prepared by:
+            </th>
+            <th colspan="6" style="text-align: left;">
+               Approved by:
             </th>
         </tr>
-    <td colspan="1">
+    <td colspan="6">
         <div>
           
             <input type="text" class="form-control" id="nameChair" name="nameChair" placeholder="Name" required>
-            <input type="text" class="form-control" id="positionChair" name="positionChair" placeholder="Chairperson" value="Chairperson" required>
+            <input type="text" class="form-control" id="positionChair" name="positionChair" placeholder="Chairperson" value="AO I/Supply and Property Unit" required>
 
         </div>
     </td>
-    <td colspan="1">
+    <td colspan="6">
         <div>
           
             <input type="text" class="form-control" id="name1" name="name1" placeholder="Name" required>
-            <input type="text" class="form-control" id="position1" name="position1" placeholder="Member" value="Member" required>
+            <input type="text" class="form-control" id="position1" name="position1" placeholder="Member" value="College President" required>
 
 
         </div>
     </td>
-    <td colspan="1">
-        <div>
-          
-            <input type="text" class="form-control" id="name2" name="name2" placeholder="Name" required>
-            <input type="text" class="form-control" id="position2" name="position2" placeholder="Member" value="Member" required>
-
-
-        </div>
-    </td>
-    <td colspan="1">
-        <div>
-          
-            <input type="text" class="form-control" id="name3" name="name3" placeholder="Name" required>
-            <input type="text" class="form-control" id="position3" name="position3" placeholder="Position" value="Member" required>
-
-
-        </div>
-    </td>
-    
-    <td colspan="1">
-        <div>
-          
-            <input type="text" class="form-control" id="name4" name="name4" placeholder="Name" required>
-            <input type="text" class="form-control" id="position4" name="position4" placeholder="Position" value="Member" required>
-
-        </div>
-    </td>
-    <td colspan="1">
-        <div>
-          
-            <input type="text" class="form-control" id="name5" name="name5"  placeholder="Name" required>
-            <input type="text" class="form-control" id="position5" name="position5" placeholder="Position" value="Member" required>
-
-        </div>
-    </td>
-       <tr colspan="12">
-         
-            <td colspan="12">
-        <div>
-          
-            <input type="text" class="form-control" id="name6" name="name6" placeholder="Name" required>
-            <input type="text" class="form-control" id="position6" name="position6"" placeholder="Position" value="College President" required>
-
-        </div>
-    </td>
-      
-        </tr>
+   
 </table>
 
 
@@ -530,6 +500,10 @@ document.querySelectorAll('input[name^="description"]').forEach(function (input)
                    row.querySelector('input[name^="article"]').value = data.asset_number;
                 row.querySelector('input[name^="val"]').value = data.unit_value;
                 row.querySelector('input[name^="unit"]').value = data.unit_measure;
+                row.querySelector('input[name^="aqui"]').value = data.date_acquired;
+                row.querySelector('input[name^="stock_no"]').value = data.current_property_number;
+
+
              
 
             })

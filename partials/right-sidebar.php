@@ -7,6 +7,23 @@
                 <form action="./Controller/addInventory_Controller.php" method="post">
                     <div class="p-3">
                         
+                    <div class="row">
+                            <div>
+
+                                <h5>Property Description</h5>
+                                <input style="color: gray" style="width: 100%" name="Property_Description"></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Locator</h5>
+                                <input style="color: gray" style="width: 100%" name="Locator" ></input>
+                            </div>
+
+                        </div>
 
                         <div class="row">
                             <div>
@@ -20,27 +37,62 @@
                         <div class="row">
                             <div>
 
+                                <h5>Old Property Number</h5>
+                                <input style="color: gray" style="width: 100%" name="Old_Property_Number" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
                                 <h5>Unit of Measure</h5>
                                 <input style="color: gray" style="width: 100%" name="Unit_Measure" ></input>
                             </div>
 
                         </div>
 
+                        <div class="row">
+                            <div>
+
+                                <h5>Unit Value</h5>
+                                <input style="color: gray" style="width: 100%" name="Unit_Value" ></input>
+                            </div>
+
+                        </div>
+
+                     
 
                         <div class="row">
                             <div>
 
                                 <h5>Quantity</h5>
-                                <input style="color: gray" style="width: 100%" name="Quantity"></input>
+                                <input type="number" style="color: gray" style="width: 100%" name="Quantity"></input>
                             </div>
 
                         </div>
+
+                        <div class="row">
+    <div>
+        <h5>Year Acquired</h5>
+        <input type="number" style="color: gray" style="width: 100%" name="Year_Acquired" placeholder="Enter year" min="1965" max="<?php echo date('Y'); ?>" required>
+    </div>
+</div>
 
 
                         <div class="row">
                             <div>
 
                                 <h5>Date Acquired</h5>
+                                <input type="date" style="color: gray" style="width: 100%" name="Date_Acquired" ></input>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Date Acquired ava ta class ya asna ahes panchi</h5>
                                 <input style="color: gray" style="width: 100%" name="Date_Acquired" ></input>
                             </div>
 
@@ -50,12 +102,43 @@
                         <div class="row">
                             <div>
 
-                                <h5>Asset Number</h5>
+                                <h5>Account Number</h5>
                                 <input style="color: gray" style="width: 100%" name="Asset_Number" ></input>
                             </div>
 
                         </div>
 
+
+                        <div class="row">                        
+                            <h5>Account Number</h5>
+                            <input list="Asset_Number"  name="Asset_Number" placeholder="Enter or select description" style="width: 100%" required>
+                            <datalist id="Asset_Number">
+                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+
+                             <?php
+                             $fund = "SELECT * FROM itemcategory_db";
+                             $result = $data->query($fund);
+
+                             if ($result->num_rows > 0) {
+          
+                             while ($row = $result->fetch_assoc()) {
+                                ?>
+                            <option value="<?php echo $row['Account_Number'] ?>"><?php echo $row['Account_Number'] ?></option>
+                         <?php
+                         }
+                          }
+                          ?>
+                     </datalist>
+                        </div>
+
+                        <div class="row">
+                            <div>
+
+                                <h5>Account Title</h5>
+                                <input style="color: gray" style="width: 100%" name="Asset_Title"></input>
+                            </div>
+
+                        </div>
 
                         <div class="row">
                             <div>
@@ -66,6 +149,14 @@
 
                         </div>
 
+                        <div class="row">
+                            <div>
+
+                                <h5>Issued From</h5>
+                                <input style="color: gray" style="width: 100%" name="Issued_From" ></input>
+                            </div>
+
+                        </div>
 
                         <div class="row">
                             <div>
@@ -76,6 +167,16 @@
 
                         </div>
 
+                        <div class="row">
+                            <div>
+
+                                <h5>Cancelled ARE/PAR/ICS Number</h5>
+                                <input style="color: gray" style="width: 100%" name="Cancelled_Number" ></input>
+                            </div>
+
+                        </div>
+
+                       
 
                         <div class="row">
                             <div>
@@ -86,6 +187,14 @@
 
                         </div>
 
+                        <div class="row">
+                            <div>
+
+                                <h5>Estimated Useful Life</h5>
+                                <input style="color: gray" style="width: 100%" name="Estimated_Useful_Life" ></input>
+                            </div>
+
+                        </div>
 
                         <div class="row">
                             <div>
@@ -117,109 +226,29 @@
                         <div class="row">
                             <div>
 
-                                <h5>Years Lapse</h5>
-                                <input style="color: gray" style="width: 100%" name="" ></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Locator</h5>
-                                <input style="color: gray" style="width: 100%" name="Locator" ></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Old Property Number</h5>
-                                <input style="color: gray" style="width: 100%" name="Old_Property_Number" ></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Unit Value</h5>
-                                <input style="color: gray" style="width: 100%" name="Unit_Value" ></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Year Acquired</h5>
-                                <input style="color: gray" style="width: 100%" name="Year_Acquired" ></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Asset Category</h5>
-                                <input style="color: gray" style="width: 100%" name="Asset_Category" ></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Asset Title</h5>
-                                <input style="color: gray" style="width: 100%" name="Asset_Title"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Issued From</h5>
-                                <input style="color: gray" style="width: 100%" name="Issued_From" ></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Cancelled ARE/PAR/ICS Number</h5>
-                                <input style="color: gray" style="width: 100%" name="Cancelled_Number" ></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Estimated Useful Life</h5>
-                                <input style="color: gray" style="width: 100%" name="Estimated_Useful_Life" ></input>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-
-                                <h5>Purchase Order/Contract Numbere</h5>
+                                <h5>Purchase Order/Contract Number</h5>
                                 <input style="color: gray" style="width: 100%" name="Purchase_Order_Contract_Number" ></input>
+                            </div>
 
                         </div>
 
-
+                        
                         <div class="row">
+                            <div>
 
-                                <h5>Acquired through</h5>
-                                <input style="color: gray" style="width: 100%" name="Acquired_through" ></input>
+                                
+                            <h5>Acquired through</h5>
+                            <input   input style="color: gray" style="width: 100%" name="Acquired_through" ></input>
+
+                            </div>
 
                         </div>
 
+
+                       
+                    
+
+                                     
 
                         <div class="row">
                             <div>
