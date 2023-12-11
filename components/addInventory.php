@@ -11,6 +11,7 @@
 
 <body>
     <?php
+    
     @include('../Controller/db.php');
     @include('../partials/sidebar.php');
     @include('../partials/topbar.php');

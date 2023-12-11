@@ -1,4 +1,12 @@
 <?php
+session_start(); // Start the session to access session variables
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to the login page or display an error message
+    header("Location: login.php"); // Replace 'login.php' with your actual login page
+    exit();
+}
 @include('Controller/db.php');
 @include('partials/header.php');
 @include('partials/sidebar.php');
