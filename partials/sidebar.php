@@ -71,7 +71,7 @@
                   <span>
                     <ion-icon name="analytics-outline"></ion-icon>
                   </span>
-                  <h1 class="sidebar-header">Dashboard</h1>
+                  <a class="nav-link" href="" aria-current="page">Dashboard</a>
                 </li>
 
                 <li>
