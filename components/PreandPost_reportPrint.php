@@ -65,34 +65,7 @@ include('../Controller/db.php');
    
                         </th>
                     </thead>
-
-
-
-
-
-
-
-
-
-
                     <tbody>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
             <!-- Add your table rows here -->
         </tbody>
     </table>
