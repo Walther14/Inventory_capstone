@@ -33,6 +33,8 @@ if (!isset($_SESSION['user_id'])) {
 
                 </th>
             </thead>
+
+            
             <tbody>
                 <tr>
                     <td colspan="6">
