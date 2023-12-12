@@ -6,60 +6,14 @@ include('../Controller/db.php');
 $Agency = $_POST['agency'] ?? '';
 $Purpose = $_POST['purpose'] ?? '';
 
-
-$qty = $_POST["qty"] ?? '';
-$unit = $_POST["unit"] ?? '';
-$description = $_POST["description"] ?? '';
-$property_no = $_POST["property_no"] ?? '';
-$par_ics = $_POST["par_ics"] ?? '';
-$end_user = $_POST["end_user"] ?? '';
-$unit_value = $_POST["unit_value"] ?? '';
-$total_value = $_POST["total_value"] ?? '';
-
-
-
-
-
-
-
-
-
-
-
-// Retrieve values from the $_POST array
-$place = $_POST['place'] ?? '';
-$agency= $_POST['agency'] ?? '';
-$date = $_POST['date'] ?? '';
-$WMR= $_POST['WMR'] ?? '';
-$item = isset($_POST['item']) ? $_POST['item'] : [];
-$quantity = isset($_POST['quantity']) ? $_POST['quantity'] : [];
-$unit = isset($_POST['unit']) ? $_POST['unit'] : [];
-$description = isset($_POST['description']) ? $_POST['description'] : [];
-$OR = isset($_POST['OR']) ? $_POST['OR'] : [];
-$amount = isset($_POST['amount']) ? $_POST['amount'] : [];
-
-$name = $_POST['name'] ?? '';
-$position = $_POST['position'] ?? '';
-$office= $_POST['office'] ?? '';
-
-$name_disposal = $_POST['name_disposal'] ?? '';
-$by_authority = $_POST['by_authority'] ?? '';
-
-$name_inspected = $_POST['name_inspected'] ?? '';
-$position_inspected = $_POST['position_inspected'] ?? '';
-
-$name_witness = $_POST['name_witness'] ?? '';
-$position_witness = $_POST['position_witness'] ?? '';
-
-
-$total = array_sum($amount);
-
-
-$destroyedCheckbox = isset($_POST['destroyedCheckbox']) ? $_POST['destroyedCheckbox'] : '';
-$privateSaleCheckbox = isset($_POST['privateSaleCheckbox']) ? $_POST['privateSaleCheckbox'] : '';
-$publicAuctionCheckbox = isset($_POST['publicAuctionCheckbox']) ? $_POST['publicAuctionCheckbox'] : '';
-$transferredCheckbox = isset($_POST['transferredCheckbox']) ? $_POST['transferredCheckbox'] : '';
-
+$Qty1 = $_POST['qty1'] ?? '';
+$Unit1 = $_POST['unit1'] ?? '';
+$Description1 = $_POST['description1'] ?? '';
+$Property_no1 = $_POST['property_no1'] ?? '';
+$Par_ics1 = $_POST['par_ics1'] ?? '';
+$End_User1 = $_POST['end_user1'] ?? '';
+$Unit_value1 = $_POST['unit_value1'] ?? '';
+$Total_value1 = $_POST['total_value1'] ?? '';
 
 
 
@@ -258,152 +212,45 @@ th, td {
                 </tr>
         </thead>
 
+
+
         <tr style="width: 100%; text-align: center;">
-                    <td colspan="4">Qty</td>
-                    <td>Unit</td>
-                    <td>Description</td>
-                    <td colspan="7">Property No.</td>
-                    <td colspan="1">PAR/ICS No.</td>
-                    <td>Name of End User</td>
-                    <td>Unit Value</td>
-                    <td>Total Value</td>
-                </tr>
-
-        <?php
-            
-            // Assuming $qty, $unit, $description, $property_no, $par_ics, $end_user, $unit_value, $total_value are defined earlier
-            
-                    echo "<tr>";
-                    echo "<td colspan='4'>$qty</td>";
-                    echo "<td>$unit</td>";
-                    echo "<td>$description</td>";
-                    echo "<td colspan='7'>$property_no</td>";
-                    echo "<td colspan='1'>$par_ics</td>";
-                    echo "<td>$end_user</td>";
-                    echo "<td>$unit_value</td>";
-                    echo "<td>$total_value</td>";
-                    echo "</tr>";
-        
-
-        ?>
-
-
-
-
-
-
-
-
-
-<tr>
-                    <td colspan="9">
-    <div>
-        <label for="certified_correct" class="form-label">Certified Correct:</label>
-<br>
-
-<div class="form-group">
-           <input type="text" class="form-control text-center" id="name" name="name" placeholder="Name" value="<?php echo $name; ?>" readonly><br>
-       </div>
-       <div class="form-group">
-           <input type="text" class="form-control text-center" id="position" name="position" placeholder="Position" value="<?php echo $position; ?>" readonly><br>
-       </div>
-    <div class="form-group">
-           <input type="text" class="form-control text-center" id="office" name="office" placeholder="Office/Department" value="<?php echo $office; ?>" readonly>
-       </div></div>
-
-       </td>
-                    <td colspan="6">
-    <div>
-    <label for="disposal_approved" class="form-label">Disposal Approved</label> <br>
-<br>
-
-<div class="form-group">
-           <input type="text" class="form-control text-center" id="name" name="name" placeholder="Name" value="<?php echo $name_disposal; ?>" readonly><br>
-       </div>
-       <div class="form-group">
-           <input class="form-control text-center" id="position" name="position" placeholder="Position"  value="<?php echo $by_authority; ?>" readonly><br>
-   </div>
-
-   </td>
-                </tr>
-                <tr style="text-align: center;">
-                    <td colspan="15">CERTIFICATE OF INSPECTION</td>
-                </tr>
-
-
-<tr style="text-align: center;">
-    <td colspan="15">
-    <label style="text-align:center;">I hereby certify that the property enumerated above was disposed as follows</label>
-    </td>
+            <td>qty</td>
+            <td>unit</td>
+            <td colspan='7'>decription</td>
+            <td>property no</td>
+            <td >PAR/ICS No.</td>
+            <td >end user</td>
+            <td >unit value</td>
+            <td >total value</td>
 </tr>
-<!-- Indeterminate checkbox -->
-<tr>
-  <td colspan="15" style="padding-left: 20px; text-align: center;">
-  <?php // Display the checked checkboxes
-if ($destroyedCheckbox) {
-    echo "Destroyed<br>";
-}
 
-if ($privateSaleCheckbox) {
-    echo "Sold at private sale<br>";
-}
-
-if ($publicAuctionCheckbox) {
-    echo "Sold at public auction<br>";
-}
-
-if ($transferredCheckbox) {
-    echo "Transferred without cost<br>";
-}?>
-  </td>
+<tr style="width: 100%; text-align: center;">
+            <td><?php echo $Qty1; ?> </td>
+            <td><?php echo $Unit1 ?> </td>
+            <td colspan='7'><?php echo isset($Description1) ?></td>
+            <td><?php echo isset($Property_no1) ?></td>
+            <td ><?php echo isset($Par_ics1) ?></td>
+            <td ><?php echo isset($End_User1) ?></td>
+            <td ><?php echo isset($Unit_value1) ?></td>
+            <td ><?php echo isset($Total_value1) ?></td>
 </tr>
 
 
 
 
-<tr>
-<td colspan="8">
-    <div>
-    <label for="inspected_by" class="form-label">Inspected by</label>
-<br>
 
-<div class="form-group">
-<input type="text" class="form-control text-center" id="name_inspected" name="name_inspected" placeholder="Name" value="<?php echo $name_inspected; ?>" readonly> <br>
-       </div>
-       <div class="form-group">
-       <input type="text" class="form-control text-center" id="position_inspected" name="position_inspected" placeholder="Position" value="<?php echo $position_inspected; ?>" readonly>
-   </div>
 
-</td>
-<td colspan=8">
-    <div>
-    <label for="witness_to" class="form-label">Witness to</label>
-<br>
 
-<div class="form-group">
-<input type="text" class="form-control text-center" id="name_witness" name="name_witness" placeholder="Name" value="<?php echo $name_witness; ?>" readonly>
-       </div>
-       <div class="form-group">
-       <input type="text" class="form-control text-center" id="position_witness" name="position_witness" placeholder="Position" value="<?php echo $position_witness; ?>" readonly>
-   </div>
 
-</td>
-    
-</tr>
 
-<td colspan="15" style="padding: 5px;">
-    <label for="witness_to" class="form-label">Distribution</label>
 
-    <!-- Add disabled checkboxes before each label -->
-    <input type="checkbox" id="supplyPropertyUnitCopy" style="margin-left: 50px;" onclick="handleDistributionCheckboxClick(this)">
-    <label for="supplyPropertyUnitCopy" class="form-label" style="margin-left: 5px;">Supply and Property Unit Copy</label>
 
-    <input type="checkbox" id="accountingCopy" style="margin-left: 15px;" onclick="handleDistributionCheckboxClick(this)">
-    <label for="accountingCopy" class="form-label" style="margin-left: 5px;">Accounting Copy</label>
 
-    <input type="checkbox" id="coaCopy" style="margin-left: 15px;" onclick="handleDistributionCheckboxClick(this)">
-    <label for="coaCopy" class="form-label" style="margin-left: 5px;">COA Copy</label>
-</td>
+
+                
+
+
 
 
             <!-- Add your table rows here -->

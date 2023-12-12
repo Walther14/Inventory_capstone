@@ -264,6 +264,11 @@ th, td {
     <td >Amount</td>
 </tr>
 
+
+
+
+
+
 <?php
 // Loop through the entered data and display each row
 for ($i = 0; $i < count($item); $i++) {
@@ -278,6 +283,9 @@ for ($i = 0; $i < count($item); $i++) {
     echo "</tr>";
 }
 
+
+
+
 // Recalculate total after formatting each amount
 $total = array_sum($amount);
 
@@ -287,6 +295,9 @@ $total = array_sum($amount);
     <td colspan="14">TOTAL</td>
     <td colspan="1"><?php echo number_format($total, 2, '.', ','); ?></td>
 </tr>
+
+
+
 
 <tr>
                     <td colspan="9">
