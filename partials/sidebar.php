@@ -15,44 +15,56 @@
 
       <div class="d-flex">
 
-      <div class="col-4" style="height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; display: flex; justify-content: center;">
+        <div class="col-4" style="height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; display: flex; justify-content: center;">
           <ul id="gyatt">
 
 
-            <li class="icon active" type="button" id="general" style="margin-bottom: 4rem;">
+            <li class="icon" type="button" id="general" style="margin-top: 0rem;">
               <span>
-                <i class="fa-solid  fa-gauge" style="font-size: 40px;" ></i>
+                <i class="fa-solid  fa-cubes" style="font-size: 30px;"></i>
               </span>
             </li>
 
 
 
-            <li class="icon"type="button" id="dropdown" style="margin-bottom: 4rem;"> 
+            <li class="icon" type="button" id="dropdown" style="margin-bottom: 0rem;">
               <span>
-              <i class="fa-solid  fa-layer-group" style="font-size: 40px;" ></i>
-              </span>
-            </li>
-     
-        
-            <li class="icon"type="button" id="something" type="button" style="margin-bottom: 4rem;">
-              <span>
-              <i class="fa-solid  fa-file-export" style="font-size: 40px;" ></i>
-              </span>
-            </li>
-            
-
-            <li class="icon"type="button" id="backup" type="button" style="margin-bottom: 4rem;">
-              <span>
-                <i class="fa-solid  fa-gauge" style="font-size: 40px;" ></i>
+                <i class="fa-solid  fa-sitemap" style="font-size: 30px;"></i>
               </span>
             </li>
 
 
-            <li class="icon"type="button" id="backup" type="button" style="margin-bottom: 4rem;">
+
+            <li class="icon" type="button" id="something" type="button" style="margin-bottom: 0rem;">
+              <span>
+                <i class="fa-solid  fa-file-alt" style="font-size: 30px;"></i>
+              </span>
+            </li>
+
+            <li class="icon" type="button" id="d" style="margin-bottom: 0rem;">
+              <span>
+                <i class="fa-solid  fa-map-marker-alt" style="font-size: 30px;"></i>
+              </span>
+            </li>
+
+            <li class="icon" type="button" id="backup" type="button" style="margin-bottom: 0rem;">
+              <span>
+                <i class="fa-solid  fa-download" style="font-size: 30px;"></i>
+              </span>
+            </li>
+
+            <li class="icon" type="button" id="trans" type="button" style="margin-bottom: 0rem;">
+              <span>
+                <i class="fa-solid  fa-exchange-alt" style="font-size: 30px;"></i>
+              </span>
+            </li>
+
+
+            <li class="icon" type="button" id="backup" type="button" style="margin-bottom: 0rem;">
               <a href="./logout.php" style="color: none;">
-              <span>
-              <i class="fa-solid  fa-right-from-bracket"   style="font-size: 40px;"   data-bs-title="Logout"></i>
-              </span>
+                <span>
+                  <i class="fa-solid  fa-right-from-bracket" style="font-size: 30px;" data-bs-title="Logout"></i>
+                </span>
               </a>
             </li>
 
@@ -169,8 +181,9 @@
                 <li>
                   <hr class="sidebar-divider">
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./physicalcount_property.php" aria-current="page">Property Plant Equipmemt</a>
+                <li class="d-flex">
+
+                  <a type="button" href="./physicalcount_property.php" class="nav-link">Property Plant Equipmemt</a>
                 </li>
 
                 <li>
@@ -196,6 +209,38 @@
                 </li>
               </ul>
         </div>
+
+        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/locator.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/dorm.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; margin-left: 1.5rem; display: none;"'; ?> id="sidenav4">
+          <ul>
+            <li>
+              <ul class="sidebar-nav">
+                <li class="d-flex">
+                  <span>
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </span>
+                  <a type="button" href="./locator.php" class="nav-link">BSC Campus</a>
+                </li>
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+                <li class="nav-item">
+                  <a type="button" href="./dorm.php" class="nav-link">Dorm</a>
+                </li>
+
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+            </li>
+          </ul>
+        </div>
+
+
 
       </div>
     </div>
