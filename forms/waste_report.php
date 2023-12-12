@@ -40,7 +40,7 @@ date_default_timezone_set('Asia/Manila');
 
                     <br>
                     <label for="WMR" class="form-label">WMR Ref. No.</label>
-<input type="text" class="form-control" id="WMR" name="WMR" placeholder="WMR Ref. No." value="<?php echo date('Y-m-d-HisA'); ?>" required>
+<input type="text" class="form-control" id="WMR" name="WMR" placeholder="WMR Ref. No." value="<?php echo date('Y-m-d-His'); ?>" required>
 
             </div>
 

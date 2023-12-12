@@ -32,6 +32,8 @@ if (!isset($_SESSION['user_id'])) {
     <div class="text-center">
     
     <select class="form-select mx-auto asset-dropdown" name="Asset_Title" aria-label="Select example" style="width: 60%;" required>
+    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+
     <?php
     $fund = "SELECT * FROM itemcategory_db";
     $result = $data->query($fund);
@@ -54,6 +56,8 @@ if (!isset($_SESSION['user_id'])) {
                 <input type="date" class="form-control mx-auto" id="date" name="date" placeholder="Place of Storage" style="width: 60%;">
                <label>For which</label>
                <select class="form-select mx-auto" name="staff" aria-label="Select example" style="width: 60%;" required>
+               <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+
     <?php
     $fund = "SELECT * FROM staff_db";
 
@@ -633,8 +637,9 @@ function validateAmount(input) {
                 currentDate.setDate(30);
             }
 
-            // Format the date as 'YYYY-MM-DD'
-            var formattedDate = currentDate.toISOString().slice(0, 10);
+            // Format the date as 'Month day, year'
+            var options = { year: 'numeric', month: 'long', day: 'numeric' };
+            var formattedDate = currentDate.toLocaleDateString('en-US', options);
 
             // Set the value of the input field
             $('#assumed').val(formattedDate);

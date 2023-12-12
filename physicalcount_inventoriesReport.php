@@ -32,6 +32,8 @@ if (!isset($_SESSION['user_id'])) {
     <div class="text-center">
     
     <select class="form-select mx-auto asset-dropdown" name="Asset_Title" aria-label="Select example" style="width: 60%;" required>
+    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+
     <?php
     $fund = "SELECT * FROM itemcategory_db WHERE NOT Account_Title LIKE 'Semi%'";
     $result = $data->query($fund);
@@ -50,6 +52,8 @@ if (!isset($_SESSION['user_id'])) {
                 <input type="date" class="form-control mx-auto" id="date" name="date" placeholder="Place of Storage" style="width: 60%;">
                <label>For which</label>
                <select class="form-select mx-auto" name="staff" aria-label="Select example" style="width: 60%;" required>
+               <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+
     <?php
     $fund = "SELECT * FROM staff_db";
 
@@ -69,13 +73,13 @@ if (!isset($_SESSION['user_id'])) {
 <div>
     <label for="assumed">of Batanes State College is accountable, having assumed such accountability on:</label>
     <div class="input-group">
-        <input type="text" class="form-control" id="assumed" name="assumed" placeholder="Enter a date" style="width: 60%;" required>
-        <select class="form-control" id="assumedSelect" name="assumedSelect" style="width: 40%;">
-            <option value="" disabled selected>Select an option</option>
-            <option value="lastDayDecember">Last day of December</option>
-            <option value="lastDayJune">Last day of June</option>
-        </select>
-    </div>
+    <input type="text" class="form-control" id="assumed" name="assumed" placeholder="Enter a date" style="width: 60%;" required>
+    <select class="form-control" id="assumedSelect" name="assumedSelect" style="width: 40%;" onchange="updateDateFormat()">
+        <option value="" disabled selected>Select an option</option>
+        <option value="lastDayDecember">Last day of December</option>
+        <option value="lastDayJune">Last day of June</option>
+    </select>
+</div>
 </div>
    
             </div>
@@ -646,14 +650,16 @@ function validateAmount(input) {
                 currentDate.setDate(30);
             }
 
-            // Format the date as 'YYYY-MM-DD'
-            var formattedDate = currentDate.toISOString().slice(0, 10);
+            // Format the date as 'Month day, year'
+            var options = { year: 'numeric', month: 'long', day: 'numeric' };
+            var formattedDate = currentDate.toLocaleDateString('en-US', options);
 
             // Set the value of the input field
             $('#assumed').val(formattedDate);
         });
     });
 </script>
+
 </script>
 <?php
 include('partials/footer.php')

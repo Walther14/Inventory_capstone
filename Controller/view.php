@@ -19,7 +19,8 @@ if (isset($_GET['id'])) {
 
         // Return the data as JSON
         header('Content-Type: application/json');
-        echo json_encode($row);
+        $imageData = $row['photo'];
+        echo json_encode([$row, 'photo' => base64_encode($imageData)]);
     } else {
         // Handle the case when the query fails
         echo json_encode(array('error' => 'Query failed'));

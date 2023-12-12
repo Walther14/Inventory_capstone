@@ -1,3 +1,8 @@
+
+<?php
+date_default_timezone_set('Asia/Manila');
+?>
+
 <form class="row g-3" action="./components/inspectionAndAcceptanceReport.php" method="post">
     <div class="p-5 d-flex justify-content-center align-items-center">
         <table class="table table-bordered">
@@ -27,7 +32,7 @@
                     <br>
 
                     <label for="WMR" class="form-label">Ref. No.</label>
-                    <input type="text" class="form-control" id="WMR" name="WMR" placeholder="Ref. No.">
+                    <input type="text" class="form-control" id="WMR" name="WMR" placeholder="WMR Ref. No." value="<?php echo date('Y-m-d-His'); ?>" required>
                 </div>
             </div>
             <tr style="text-align: center;">
@@ -41,7 +46,7 @@
     <td>Stock Nos.</td>
     <td>Item</td>
     <td>Unit</td>
-    <td>Quantity</td>
+    <td>Qty. Issued</td>
     <td colspan="5">Unit Cost</td>
     <td colspan="5">Amount</td>
 </tr>
@@ -212,8 +217,6 @@
 
     <div class="col-sm-12">
         <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
-        <button type="button" class="btn btn-success" style="background-color: #ffa800;" id="addRowButton">Add Row for stocks</button>
-
             <div style="margin-left: 10px;">
                 <button type="submit" class="btn btn-primary" style="background-color: maroon;">Submit for Printing</button>
             </div>
