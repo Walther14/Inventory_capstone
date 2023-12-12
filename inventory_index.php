@@ -189,7 +189,7 @@ if (!isset($_SESSION['user_id'])) {
                 return response.json();
             })
             .then(data => {
-console.log(data[0])
+console.log(data)
              
   // Handle the image
   const photoElement = document.getElementById('photo');

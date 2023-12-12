@@ -27,7 +27,7 @@ if (isset($_GET['adminCode'])) {
         // Debugging: Log a message if no matching record found
         error_log('No matching record found for Account Number: ' . $adminCode);
 
-        echo json_encode(['account_title' => '']); // Return an empty string if no matching record found
+        echo json_encode(['Fund_Admin_Title' => '']); // Return an empty string if no matching record found
     }
 
     $stmt->close();

@@ -314,7 +314,7 @@
                     </div>
                     <div>
                         <h5>Photo</h5>
-                        <input style="color: gray; width: 100%" type="file" name="photo" accept="image/*" onchange="previewImage(this)">
+                        <input style="color: gray; width: 100%" type="file" name="image" accept="image/*" onchange="previewImage(this)">
                         <img id="photoPreview" src="#" alt="Preview" style="max-width: 100%; display: none;">
                     </div>
                 </div>
@@ -914,6 +914,21 @@
     });
 </script>
 
+<script>
+    // Add an event listener to the Account Number input field
+    document.getElementById('ACode').addEventListener('change', function() {
+        // Fetch the corresponding account title from the database using AJAX
+        var adminCode = this.value;
+
+        fetch('./partials/getAdminTitle.php?adminCode=' + encodeURIComponent(adminCode))
+            .then(response => response.json())
+            .then(data => {
+                // Update the Account Title input field with the fetched data
+                document.getElementById('FTitle').value = data.Fund_Admin_Title;
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
 <script defer>
     // console.log('unitValue', document.querySelector('#unitValue').innerHTML)
     // const unitValue = document.getElementById('unitValue').textContent;
