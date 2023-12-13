@@ -189,7 +189,7 @@ if (!isset($_SESSION['user_id'])) {
                 return response.json();
             })
             .then(receivedata => {
-                const data=receivedata[0]
+                const data = receivedata[0]
 
                 // Handle the image
                 const photoElement = document.getElementById('photo');
@@ -296,22 +296,31 @@ if (!isset($_SESSION['user_id'])) {
                 document.getElementById('editremarks').value = data.Remarks;
 
 
+                const unit_val = data.Unit_Value.replace(",", "")
+                const residualValue_mod = data.Unit_Value.replace(",", "") * 0.1
 
-                document.getElementById('residualValue').textContent = data.Unit_Value * 0.1;
+                // document.getElementById('residualValue').textContent = data.Unit_Value * 0.1;
+                document.getElementById('residualValue').textContent = residualValue_mod;
                 // Assuming Estimated_Useful_Life is defined and accessible
                 var Estimated_Useful_Life = parseInt(data.Estimated_Useful_Life);
 
                 // Calculate depreciation using the residualValue and Estimated_Useful_Life
-                var residualValue = data.Unit_Value * 0.1;
+                // var residualValue = data.Unit_Value * 0.1;
+                var residualValue = residualValue_mod;
 
                 // Calculate A (Unit_Value - residualValue)
-                var A = data.Unit_Value - (data.Unit_Value * 0.1); // Assuming 0.1 is the residual value percentage
+                // var A = data.Unit_Value - (data.Unit_Value * 0.1); // Assuming 0.1 is the residual value percentage
+                var A = unit_val - (unit_val * 0.1); // Assuming 0.1 is the residual value percentage
 
                 // Calculate B (Estimated_Useful_Life * 12)
-                var B = Estimated_Useful_Life * 12;
+                // var B = Estimated_Useful_Life * 12;
+                var B = parseInt(data.Estimated_Useful_Life) * 12;
 
                 // Calculate depreciation using the simplified formula A / B
-                var depreciation = (A / B);
+                // var depreciation = (A / B);
+                var depreciation = B > 0 ? (A / B) : 0;
+                console.log(A,B)
+                // console.log("depreceation", data.Estimated_Useful_Life * 12)
 
                 // Set the result in the 'depreciation' element
                 document.getElementById('depreciation').textContent = depreciation;
@@ -336,19 +345,19 @@ if (!isset($_SESSION['user_id'])) {
                 document.getElementById('monthLapse').textContent = monthDifference.toFixed(1) + ' months';
 
                 function roundToDecimal(number, decimalPlaces) {
-    var factor = Math.pow(10, decimalPlaces);
-    return Math.round(number * factor) / factor;
-}
+                    var factor = Math.pow(10, decimalPlaces);
+                    return Math.round(number * factor) / factor;
+                }
                 // Calculate the accumulated depreciation correctly
-                var multipliedResult = roundToDecimal(monthDifference,1) * roundToDecimal(depreciation,2);
+                var multipliedResult = roundToDecimal(monthDifference, 1) * roundToDecimal(depreciation, 1);
                 document.getElementById('accu').textContent = multipliedResult.toFixed(1);
 
                 var AB = parseFloat(data.Unit_Value.replace(',', ''));
                 var AC = parseInt(multipliedResult);
 
-                var AA = parseInt(AB) - parseInt(multipliedResult);
+                var AA = unit_val- (multipliedResult);
 
-                console.log(AA, AB, AC)
+                console.log(residualValue_mod, monthDifference, depreciation)
 
                 document.getElementById('net').textContent = AA;
 
