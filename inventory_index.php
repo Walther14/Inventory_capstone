@@ -202,7 +202,7 @@ if (!isset($_SESSION['user_id'])) {
                     console.log('No photo data available. Using default image.');
 
                     // Set a default image path or hide the image if no photo is available
-                    photoElement.src = './img/back.png'; // Replace with your default image path
+                    photoElement.src = './img/def.png'; // Replace with your default image path
                     // Optional: Set alt attribute for accessibility
                     photoElement.alt = 'Default Image';
                 }
@@ -300,7 +300,7 @@ if (!isset($_SESSION['user_id'])) {
                 const residualValue_mod = data.Unit_Value.replace(",", "") * 0.1
 
                 // document.getElementById('residualValue').textContent = data.Unit_Value * 0.1;
-                document.getElementById('residualValue').textContent = residualValue_mod;
+                document.getElementById('residualValue').textContent = residualValue_mod.toFixed(2);
                 // Assuming Estimated_Useful_Life is defined and accessible
                 var Estimated_Useful_Life = parseInt(data.Estimated_Useful_Life);
 
@@ -319,47 +319,60 @@ if (!isset($_SESSION['user_id'])) {
                 // Calculate depreciation using the simplified formula A / B
                 // var depreciation = (A / B);
                 var depreciation = B > 0 ? (A / B) : 0;
-                console.log(A,B)
+                // console.log(A,B)
                 // console.log("depreceation", data.Estimated_Useful_Life * 12)
 
                 // Set the result in the 'depreciation' element
-                document.getElementById('depreciation').textContent = depreciation;
+                document.getElementById('depreciation').textContent = depreciation.toFixed(2);
 
                 // Get the Date_Acquired from the data array
                 var dateAcquired = new Date(data.Date_Acquired);
-                var currentDate = new Date();
+var currentDate = new Date();
 
-                // Calculate the difference in milliseconds between the two dates
-                var timeDifference = currentDate - dateAcquired;
+// Calculate the difference in years
+var yearDifference = currentDate.getFullYear() - dateAcquired.getFullYear();
 
-                // Calculate the difference in years
-                var yearDifference = timeDifference / (365.25 * 24 * 60 * 60 * 1000);
+// Calculate the difference in months
+var monthDifference = currentDate.getMonth() - dateAcquired.getMonth();
 
-                // Calculate the difference in months
-                var monthDifference = yearDifference * 12;
+// Account for the day of the month
+if (dateAcquired.getDate() > currentDate.getDate()) {
+   monthDifference--;
+}
 
-                // Display the result in the 'yearLapse' element
-                document.getElementById('yearLapse').textContent = yearDifference.toFixed(1) + ' years';
+// Convert the year difference to months and add it to the month difference
+monthDifference += yearDifference * 12;
 
-                // Display the result in the 'monthLapse' element
-                document.getElementById('monthLapse').textContent = monthDifference.toFixed(1) + ' months';
+// Display the result in the 'yearLapse' element
+document.getElementById('yearLapse').textContent = yearDifference + ' years';
+
+// Display the result in the 'monthLapse' element
+document.getElementById('monthLapse').textContent = monthDifference + ' months';
+
 
                 function roundToDecimal(number, decimalPlaces) {
                     var factor = Math.pow(10, decimalPlaces);
                     return Math.round(number * factor) / factor;
                 }
+                function fixRounding(value, precision) {
+                    var power =Math.pow(10, precision || 0);
+                    return Math.round(value * power)/power;
+                }
                 // Calculate the accumulated depreciation correctly
-                var multipliedResult = roundToDecimal(monthDifference, 1) * roundToDecimal(depreciation, 1);
-                document.getElementById('accu').textContent = multipliedResult.toFixed(1);
+                // var multipliedResult = roundToDecimal(monthDifference, 1) * roundToDecimal(depreciation, 2);
+                var multipliedResult = fixRounding(depreciation.toFixed(3) * monthDifference.toFixed(3), 2);
+                // console.log(monthDifference, depreciation, multipliedResult.toFixed(2))
+                document.getElementById('accu').textContent = multipliedResult;
+
 
                 var AB = parseFloat(data.Unit_Value.replace(',', ''));
                 var AC = parseInt(multipliedResult);
 
                 var AA = unit_val- (multipliedResult);
 
-                console.log(residualValue_mod, monthDifference, depreciation)
+                // console.log(residualValue_mod, monthDifference, depreciation)
 
-                document.getElementById('net').textContent = AA;
+                document.getElementById('net').textContent = AA.toFixed(2);
 
 
 

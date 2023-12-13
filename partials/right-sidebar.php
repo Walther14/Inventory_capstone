@@ -342,7 +342,7 @@
     <div class="tab-content" id="js-tabs-content-1">
         <div class="tab-pane fade show active" id="details-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
             <div id="rightSidebar" style="display: none; position: absolute;">
-                <img id="photo" alt="Image descriptions" style="height: 15rem; display: block; margin: 0 auto;">
+                <img id="photo" alt="Image descriptions" style="height: 15rem;">
 
                 <div class="p-3">
 
@@ -844,22 +844,40 @@
                         </div>
 
                         <div class="row">
-                            <div>
+                    <div>
 
-                                <h5>Fund Admin Code</h5>
-                                <input style="color: gray; width: 100%" name="Fund_Admin_Code" id="editfundAdminCode"></input>
-                            </div>
+                        <h5>Fund Admin Code</h5>
+                        <input list="AdminCode" style="color: gray; width: 100%" id="editfundAdminCode" name="Fund_Admin_Code" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
+                        <datalist id="AdminCode">
+                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                            <?php
+                            $fund = "SELECT * FROM fundcode_db";
+                            $result = $data->query($fund);
 
-                        </div>
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                            ?>
+                                    <option value="<?php echo $row['Fund_Admin_Code'] ?>"><?php echo $row['Fund_Admin_Code'] ?></option>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </datalist>
+                    </div>
 
-                        <div class="row">
-                            <div>
+                </div>
 
-                                <h5>Fund Admin Title</h5>
-                                <input style="color: gray; width: 100%" name="Fund_Admin_Title" id="editfundAdmin"></input>
-                            </div>
 
-                        </div>
+                <div class="row">
+                    <div>
+
+                        <h5>Fund Admin Title</h5>
+                        <input style="color: gray; width: 100%"  id="editfundAdmin" name="Fund_Admin_Title" readonly></input>
+                    </div>
+
+                </div>
+
+
 
                         <div class="row">
                             <div>
@@ -989,6 +1007,22 @@
             .then(data => {
                 // Update the Account Title input field with the fetched data
                 document.getElementById('editassetTitle').value = data.account_title;
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
+
+<script>
+    // Add an event listener to the Account Number input field
+    document.getElementById('editfundAdminCode').addEventListener('change', function() {
+        // Fetch the corresponding account title from the database using AJAX
+        var adminCode = this.value;
+
+        fetch('./partials/getAdminTitle.php?adminCode=' + encodeURIComponent(adminCode))
+            .then(response => response.json())
+            .then(data => {
+                // Update the Account Title input field with the fetched data
+                document.getElementById('editfundAdmin').value = data.Fund_Admin_Title;
             })
             .catch(error => console.error('Error:', error));
     });
