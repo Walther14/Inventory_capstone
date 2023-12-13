@@ -83,7 +83,7 @@
                   <span>
                     <ion-icon name="analytics-outline"></ion-icon>
                   </span>
-                  <a class="nav-link" href="" aria-current="page">Dashboard</a>
+                  <a class="nav-link" href="./index.php" aria-current="page">Dashboard</a>
                 </li>
 
                 <li>
