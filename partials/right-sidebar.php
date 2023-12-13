@@ -57,7 +57,7 @@
                     <div>
 
                         <h5>Unit Value</h5>
-                        <input style="color: gray; width: 100%" name="Unit_Value" required></input>
+                        <input type="number" style="color: gray; width: 100%" name="Unit_Value" required></input>
                     </div>
 
                 </div>
@@ -218,7 +218,7 @@
                     <div>
 
                         <h5>Estimated Useful Life</h5>
-                        <input style="color: gray; width: 100%" name="Estimated_Useful_Life" required></input>
+                        <input type="number" style="color: gray; width: 100%" name="Estimated_Useful_Life" required></input>
                     </div>
 
                 </div>
@@ -342,7 +342,7 @@
     <div class="tab-content" id="js-tabs-content-1">
         <div class="tab-pane fade show active" id="details-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
             <div id="rightSidebar" style="display: none; position: absolute;">
-                <img id="photo" alt="Image description">
+<img id="photo" alt="Image descriptions" style="height: 15rem; display: block; margin: 0 auto;">
 
                 <div class="p-3">
 
@@ -351,7 +351,7 @@
                         <div>
 
                             <h5>Property Description</h5>
-                            <p style="color: gray" id="propertyDescription">: 5</p>
+                            <p style="color: gray" id="propertyDescription"></p>
                         </div>
 
                     </div>
@@ -359,7 +359,7 @@
                         <div>
 
                             <h5>Locator</h5>
-                            <p style="color: gray" id="locator">: 5</p>
+                            <p style="color: gray" id="locator"></p>
                         </div>
 
                     </div>
@@ -367,7 +367,7 @@
                         <div>
 
                             <h5>Current Property Number</h5>
-                            <p style="color: gray" id="propertyNumber">: 5</p>
+                            <p style="color: gray" id="propertyNumber"></p>
                         </div>
 
                     </div>
@@ -376,7 +376,7 @@
                         <div>
 
                             <h5>Old Property Number</h5>
-                            <p style="color: gray" id="oldPropertyNumber">: 5</p>
+                            <p style="color: gray" id="oldPropertyNumber"></p>
                         </div>
 
                     </div>
@@ -384,7 +384,7 @@
                         <div>
 
                             <h5>Unit of Measure</h5>
-                            <p style="color: gray" id="unitMeasure">: 5</p>
+                            <p style="color: gray" id="unitMeasure"></p>
                         </div>
 
                     </div>
@@ -402,7 +402,7 @@
                         <div>
 
                             <h5>Quantity</h5>
-                            <p style="color: gray" id="quantity">: 5</p>
+                            <p style="color: gray" id="quantity"></p>
                         </div>
 
                     </div>
@@ -411,7 +411,7 @@
                         <div>
 
                             <h5>Year Acquired</h5>
-                            <p style="color: gray" id="yearAcquired">: 5</p>
+                            <p style="color: gray" id="yearAcquired"></p>
                         </div>
 
                     </div>
@@ -419,7 +419,7 @@
                         <div>
 
                             <h5>Date Acquired</h5>
-                            <p style="color: gray" id="dateAcquired">: 5</p>
+                            <p style="color: gray" id="dateAcquired"></p>
                         </div>
 
                     </div>
@@ -428,7 +428,7 @@
                         <div>
 
                             <h5>Asset Category</h5>
-                            <p style="color: gray" id="assetCategory">: 5</p>
+                            <p style="color: gray" id="assetCategory"></p>
                         </div>
 
                     </div>
@@ -437,7 +437,7 @@
                         <div>
 
                             <h5>Account Number</h5>
-                            <p style="color: gray" id="assetNumber">: 5</p>
+                            <p style="color: gray" id="assetNumber"></p>
                         </div>
 
                     </div>
@@ -446,7 +446,7 @@
                         <div>
 
                             <h5>Account Title</h5>
-                            <p style="color: gray" id="assetTitle">: 5</p>
+                            <p style="color: gray" id="assetTitle"></p>
                         </div>
 
                     </div>
@@ -454,7 +454,7 @@
                         <div>
 
                             <h5>Issued To</h5>
-                            <p style="color: gray" id="issuedTo">: 5</p>
+                            <p style="color: gray" id="issuedTo"></p>
                         </div>
 
                     </div>
@@ -463,7 +463,7 @@
                         <div>
 
                             <h5>Issued From</h5>
-                            <p style="color: gray" id="issuedFrom">: 5</p>
+                            <p style="color: gray" id="issuedFrom"></p>
                         </div>
 
                     </div>
@@ -472,7 +472,7 @@
                         <div>
 
                             <h5>ARE/PAR/ICS Number</h5>
-                            <p style="color: gray" id="apiNumber">: 5</p>
+                            <p style="color: gray" id="apiNumber"></p>
                         </div>
 
                     </div>
@@ -480,7 +480,7 @@
                         <div>
 
                             <h5>Cancelled ARE/PAR/ICS Number</h5>
-                            <p style="color: gray" id="cancelledAPI">: 5</p>
+                            <p style="color: gray" id="cancelledAPI"></p>
                         </div>
 
                     </div>
@@ -489,7 +489,7 @@
                         <div>
 
                             <h5>PRS Number</h5>
-                            <p style="color: gray" id="prsNumber">: 5</p>
+                            <p style="color: gray" id="prsNumber"></p>
                         </div>
 
                     </div>
@@ -499,7 +499,7 @@
                         <div>
 
                             <h5>Estimated Useful Life</h5>
-                            <p style="color: gray" id="estimatedLife">: 5</p>
+                            <p style="color: gray" id="estimatedLife"></p>
                         </div>
 
                     </div>
@@ -508,7 +508,7 @@
                         <div>
 
                             <h5>Fund Cluster</h5>
-                            <p style="color: gray" id="fundCluster">: 5</p>
+                            <p style="color: gray" id="fundCluster"></p>
                         </div>
 
                     </div>
@@ -517,7 +517,7 @@
                         <div>
 
                             <h5>Fund Admin Code</h5>
-                            <p style="color: gray" id="fundAdminCode">: 5</p>
+                            <p style="color: gray" id="fundAdminCode"></p>
                         </div>
 
                     </div>
@@ -526,7 +526,7 @@
                         <div>
 
                             <h5>Fund Admin Title</h5>
-                            <p style="color: gray" id="fundAdmin">: 5</p>
+                            <p style="color: gray" id="fundAdmin"></p>
                         </div>
 
                     </div>
@@ -535,7 +535,7 @@
                         <div>
 
                             <h5>Purchase Order/Contract Numbere</h5>
-                            <p style="color: gray" id="purchaseOrder">: 5</p>
+                            <p style="color: gray" id="purchaseOrder"></p>
                         </div>
 
                     </div>
@@ -544,7 +544,7 @@
                         <div>
 
                             <h5>Supplier</h5>
-                            <p style="color: gray" id="supplier">: 5</p>
+                            <p style="color: gray" id="supplier"></p>
                         </div>
 
                     </div>
@@ -552,48 +552,67 @@
                         <div>
 
                             <h5>Acquired through</h5>
-                            <p style="color: gray" id="acquiredThrough">: 5</p>
+                            <p style="color: gray" id="acquiredThrough"></p>
                         </div>
 
                     </div>
+
+
+
                     <div class="row">
                         <div>
 
-
-                            <div class="row">
-                                <div>
-
-                                    <h5>Remarks</h5>
-                                    <p style="color: gray" id="remarks">: 5</p>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div>
-                                    <h5>Residual Value</h5>
-                                    <p style="color: gray" id="residualValue"></p>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div>
-
-                                    <h5>Depreciation</h5>
-                                    <p style="color: gray" id="Depreciation"></p>
-                                </div>
-
-                            </div>
-
-
-
-
-                            <h5>Years Lapse</h5>
-                            <p style="color: gray" id="yearLapse">: 5</p>
+                            <h5>Remarks</h5>
+                            <p style="color: gray" id="remarks"></p>
                         </div>
 
                     </div>
+
+                    <div class="row">
+                        <div>
+                            <h5>Residual Value</h5>
+                            <p style="color: gray" id="residualValue"></p>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div>
+                            <h5>Depreciation</h5>
+                            <p style="color: gray" id="depreciation"></p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div>
+                            <h5>Years Lapse</h5>
+                            <p style="color: gray" id="yearLapse"></p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <h5>Month Lapse</h5>
+                            <p style="color: gray" id="monthLapse"></p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <h5>Accumulated Depreciation as of today</h5>
+                            <p style="color: gray" id="accu"></p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <h5>Netbook value</h5>
+                            <p style="color: gray" id="net"></p>
+                        </div>
+                    </div>
+
 
 
 
@@ -692,7 +711,7 @@
                             <div>
 
                                 <h5>Date Acquired</h5>
-                                <input style="color: gray; width: 100%" name="Date_Acquired" id="editdateAcquired"></input>
+                                <input type="date" style="color: gray; width: 100%" name="Date_Acquired" id="editdateAcquired"></input>
                             </div>
 
                         </div>
@@ -842,16 +861,14 @@
 
                         </div>
 
-                        <div class="row">
-                            <div>
+                      
 
-                                <h5>Years Lapse</h5>
-                                <input style="color: gray; width: 100%" name="" id="edityearLapse"></input>
-                            </div>
-
-                        </div>
-
-
+                        <div>
+                        <h5>Photo</h5>
+                        <!-- Add this input element to your HTML -->
+                        <input style="color: gray; width: 100%" type="file" id="editImage" accept="image/*" onchange="handleImageChange()">
+                        <img id="photoPreview" src="#" alt="Preview" style="max-width: 100%; display: none;">
+                    </div>
 
                     </div>
                     <button type="submit" class="btn btn-success">Update Item</button>

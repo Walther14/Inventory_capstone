@@ -44,7 +44,21 @@ if (!isset($_SESSION['user_id'])) {
 </script>
 
 
+<script defer>
+    
+    function onChange(event) {
+        console.log(this)
+        var accountNumber = event.target.value;
+        fetch('./forms/getAT.php?accountNumber=' + encodeURIComponent(accountNumber))
+            .then(response => response.json())
+            .then(data => {
 
+                document.getElementById('ATitle').value = data.account_title;
+            })
+            .catch(error => console.error('Error:', error));
+
+    }
+</script>
 
 <?php
 include('partials/footer.php')
