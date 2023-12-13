@@ -223,18 +223,18 @@ th, td {
             <td >end user</td>
             <td >unit value</td>
             <td >total value</td>
-</tr>
+        </tr>
 
-<tr style="width: 100%; text-align: center;">
-            <td><?php echo $Qty1; ?> </td>
-            <td><?php echo $Unit1 ?> </td>
-            <td colspan='7'><?php echo isset($Description1) ?></td>
-            <td><?php echo isset($Property_no1) ?></td>
-            <td ><?php echo isset($Par_ics1) ?></td>
-            <td ><?php echo isset($End_User1) ?></td>
-            <td ><?php echo isset($Unit_value1) ?></td>
-            <td ><?php echo isset($Total_value1) ?></td>
-</tr>
+        <tr style="width: 100%; text-align: center;">
+                    <td><?php echo $Qty1; ?> </td>
+                    <td><?php echo $Unit1 ?> </td>
+                    <td colspan='7'><?php echo isset($Description1) ?></td>
+                    <td><?php echo isset($Property_no1) ?></td>
+                    <td ><?php echo isset($Par_ics1) ?></td>
+                    <td ><?php echo isset($End_User1) ?></td>
+                    <td ><?php echo isset($Unit_value1) ?></td>
+                    <td ><?php echo isset($Total_value1) ?></td>
+        </tr>
 
 
 
