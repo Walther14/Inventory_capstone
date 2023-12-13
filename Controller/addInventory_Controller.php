@@ -1,9 +1,6 @@
 <?php
 include('./db.php');
 
-
-
-
 $property_description = $_POST['Property_Description'];
 $locator = $_POST['Locator'];
 $current_property_Number = $_POST['Current_Property_Number'];
@@ -29,13 +26,26 @@ $purchase_order_contract_number = $_POST['Purchase_Order_Contract_Number'];
 $supplier = $_POST['Supplier'];
 $acquired_through = $_POST['Acquired_through'];
 $remarks = $_POST['Remarks'];
-$photo = $_POST['image'];
 
+// Check if a file was uploaded successfully
+if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+    // Get the temporary file name
+    $tempName = $_FILES['image']['tmp_name'];
+
+    // Read the file contents into a variable
+    $photo = file_get_contents($tempName);
+
+    // Escape the binary data to prevent SQL injection
+    $photo = $data->real_escape_string($photo);
+} else {
+    // Handle file upload error if needed
+    $photo = null; // or set a default value
+}
 
 $insert = "INSERT INTO inventory_db (Property_Description, Locator, Current_Property_Number, Old_Property_Number, Unit_Measure, Unit_Value, Quantity, Year_Acquired, Date_Acquired, Asset_Category, Asset_Number, Asset_Title, Issued_To, Issued_From, ARE_PAR_ICS_Number, Cancelled_Number, PRS_Number, Estimated_Useful_Life, Fund_Cluster, Fund_Admin_Code, Fund_Admin_Title, Purchase_Order_Contract_Number, Supplier, Acquired_through, Remarks, photo) VALUES ('$property_description', '$locator', '$current_property_Number', '$old_property_number', '$unit_measure', '$unit_value', '$quantity', '$year_acquired', '$date_acquired', '$asset_category', '$asset_number', '$asset_title', '$issued_to', '$issued_from', '$aRE_PAR_ICS_number', '$cancelled_number', '$pRS_number', '$estimated_useful_life', '$fund_cluster', '$fund_admin_code', '$fund_admin_title', '$purchase_order_contract_number', '$supplier', '$acquired_through', '$remarks',  '$photo')";
 
 if ($data->query($insert) === TRUE) {
-        header("Location: ../inventory_index.php");
+    header("Location: ../inventory_index.php");
     exit();
 } else {
     echo "Error: " . $insert . "<br>" . $data->error;
