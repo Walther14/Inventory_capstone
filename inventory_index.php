@@ -207,8 +207,6 @@ if (!isset($_SESSION['user_id'])) {
                     photoElement.alt = 'Default Image';
                 }
 
-                
-
 
                 // console.log(data.id)
                 document.getElementById('idInventory').value = data.id;
@@ -345,12 +343,14 @@ if (!isset($_SESSION['user_id'])) {
                 var multipliedResult = roundToDecimal(monthDifference,1) * roundToDecimal(depreciation,2);
                 document.getElementById('accu').textContent = multipliedResult.toFixed(1);
 
-                var AB = data.Unit_Value;
-                var AC = multipliedResult;
+                var AB = parseFloat(data.Unit_Value.replace(',', ''));
+                var AC = parseInt(multipliedResult);
 
-                var AA = AB - AC;
+                var AA = parseInt(AB) - parseInt(multipliedResult);
 
-                document.getElementById('net').textContent = AA .toFixed(2);
+                console.log(AA, AB, AC)
+
+                document.getElementById('net').textContent = AA;
 
 
 

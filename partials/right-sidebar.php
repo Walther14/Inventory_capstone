@@ -342,7 +342,7 @@
     <div class="tab-content" id="js-tabs-content-1">
         <div class="tab-pane fade show active" id="details-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
             <div id="rightSidebar" style="display: none; position: absolute;">
-<img id="photo" alt="Image descriptions" style="height: 15rem; display: block; margin: 0 auto;">
+                <img id="photo" alt="Image descriptions" style="height: 15rem; display: block; margin: 0 auto;">
 
                 <div class="p-3">
 
@@ -716,21 +716,57 @@
 
                         </div>
 
+
                         <div class="row">
                             <div>
 
                                 <h5>Asset Category</h5>
-                                <input style="color: gray; width: 100%" name="Asset_Category" id="editassetCategory"></input>
+
+                                <input list="AssetCateg" style="color: gray; width: 100%" name="Asset_Category" id="editassetCategory" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
+                                <datalist id="AssetCateg">
+                                    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                                    <?php
+                                    $fund = "SELECT * FROM asset_db";
+                                    $result = $data->query($fund);
+
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                            <option value="<?php echo $row['Asset_Title'] ?>"><?php echo $row['Asset_Title'] ?></option>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </datalist>
                             </div>
 
                         </div>
+
+
+                      
 
 
                         <div class="row">
                             <div>
 
                                 <h5>Account Number</h5>
-                                <input style="color: gray; width: 100%" name="Asset_Number" id="editassetNumber"></input>
+
+                                <input list="AssetNumbers" style="color: gray; width: 100%" id="editassetNumber" name="Asset_Number" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
+                                <datalist id="AssetNumbers">
+                                    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                                    <?php
+                                    $fund = "SELECT * FROM itemcategory_db";
+                                    $result = $data->query($fund);
+
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                            <option value="<?php echo $row['Account_Number'] ?>"><?php echo $row['Account_Number'] ?></option>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </datalist>
                             </div>
 
                         </div>
@@ -863,12 +899,7 @@
 
                       
 
-                        <div>
-                        <h5>Photo</h5>
-                        <!-- Add this input element to your HTML -->
-                        <input style="color: gray; width: 100%" type="file" id="editImage" accept="image/*" onchange="handleImageChange()">
-                        <img id="photoPreview" src="#" alt="Preview" style="max-width: 100%; display: none;">
-                    </div>
+
 
                     </div>
                     <button type="submit" class="btn btn-success">Update Item</button>
@@ -942,6 +973,22 @@
             .then(data => {
                 // Update the Account Title input field with the fetched data
                 document.getElementById('FTitle').value = data.Fund_Admin_Title;
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
+
+<script>
+    // Add an event listener to the Account Number input field
+    document.getElementById('editassetNumber').addEventListener('change', function() {
+        // Fetch the corresponding account title from the database using AJAX
+        var accountNumber = this.value;
+
+        fetch('./partials/getAssetTitle.php?accountNumber=' + encodeURIComponent(accountNumber))
+            .then(response => response.json())
+            .then(data => {
+                // Update the Account Title input field with the fetched data
+                document.getElementById('editassetTitle').value = data.account_title;
             })
             .catch(error => console.error('Error:', error));
     });
