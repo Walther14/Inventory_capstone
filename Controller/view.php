@@ -6,11 +6,12 @@
 
 // Assuming you want to fetch data based on the 'id' parameter
 if (isset($_GET['id'])) {
+    // Use prepared statements to prevent SQL injection
     $id = $_GET['id'];
-
-    // Perform your database query here using $id
-    $query = "SELECT * FROM inventory_db WHERE id = $id";
-    $result = $data->query($query);
+    $stmt = $data->prepare("SELECT * FROM inventory_db WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     // Check if the query was successful
     if ($result) {
@@ -19,12 +20,19 @@ if (isset($_GET['id'])) {
 
         // Return the data as JSON
         header('Content-Type: application/json');
-        $imageData = $row['photo'];
-        echo json_encode([$row, 'photo' => base64_encode($imageData)]);
+
+        // Check if 'photo' field exists before encoding
+        if (isset($row['photo'])) {
+            $imageData = $row['photo'];
+            $row['photo'] = base64_encode($imageData);
+        }
+
+        echo json_encode( [$row]);
     } else {
         // Handle the case when the query fails
         echo json_encode(array('error' => 'Query failed'));
     }
+    $stmt->close(); // Close the prepared statement
 } else {
     // Handle the case when 'id' parameter is not provided
     echo json_encode(array('error' => 'Invalid request'));

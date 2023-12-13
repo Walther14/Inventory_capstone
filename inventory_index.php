@@ -188,116 +188,179 @@ if (!isset($_SESSION['user_id'])) {
                 }
                 return response.json();
             })
-            .then(data => {
-console.log(data)
-             
-  // Handle the image
-  const photoElement = document.getElementById('photo');
-    if (data.photo) {
-        // Set the src attribute with the base64-encoded image data
-        photoElement.src = 'data:image/jpeg;base64,' + data.photo;
-        // Ensure the alt attribute is set for accessibility
-        photoElement.alt = 'Image';
-    } else {
-        console.log('No photo data available. Using default image.');
+            .then(receivedata => {
+                const data = receivedata[0]
 
-        // Set a default image path or hide the image if no photo is available
-        photoElement.src = 'path/to/default/image.jpg'; // Replace with your default image path
-        // Optional: Set alt attribute for accessibility
-        photoElement.alt = 'Default Image';
-    }
+                // Handle the image
+                const photoElement = document.getElementById('photo');
+                if (data.photo) {
+                    // Set the src attribute with the base64-encoded image data
+                    photoElement.src = 'data:image/jpeg;base64,' + data.photo;
+                    // Ensure the alt attribute is set for accessibility
+                    photoElement.alt = 'Image';
+                } else {
+                    console.log('No photo data available. Using default image.');
+
+                    // Set a default image path or hide the image if no photo is available
+                    photoElement.src = './img/back.png'; // Replace with your default image path
+                    // Optional: Set alt attribute for accessibility
+                    photoElement.alt = 'Default Image';
+                }
+
 
                 // console.log(data.id)
-                document.getElementById('idInventory').value = data[0].id;
+                document.getElementById('idInventory').value = data.id;
                 // Display the result in the specified container
-                document.getElementById('propertyDescription').innerHTML = data[0].Property_Description;
-                document.getElementById('editPropertyDescription').value = data[0].Property_Description;
+                document.getElementById('propertyDescription').innerHTML = data.Property_Description;
+                document.getElementById('editPropertyDescription').value = data.Property_Description;
 
-                document.getElementById('propertyNumber').innerHTML = data[0].Current_Property_Number;
-                document.getElementById('editpropertyNumber').value = data[0].Current_Property_Number;
+                document.getElementById('propertyNumber').innerHTML = data.Current_Property_Number;
+                document.getElementById('editpropertyNumber').value = data.Current_Property_Number;
 
-                document.getElementById('unitMeasure').innerHTML = data[0].Unit_Measure;
-                document.getElementById('editunitMeasure').value = data[0].Unit_Measure;
+                document.getElementById('unitMeasure').innerHTML = data.Unit_Measure;
+                document.getElementById('editunitMeasure').value = data.Unit_Measure;
 
-                document.getElementById('quantity').innerHTML = data[0].Quantity;
-                document.getElementById('editquantity').value = data[0].Quantity;
+                document.getElementById('quantity').innerHTML = data.Quantity;
+                document.getElementById('editquantity').value = data.Quantity;
 
-                document.getElementById('dateAcquired').innerHTML = data[0].Date_Acquired;
-                document.getElementById('editdateAcquired').value = data[0].Date_Acquired;
+                document.getElementById('dateAcquired').innerHTML = data.Date_Acquired;
+                document.getElementById('editdateAcquired').value = data.Date_Acquired;
 
-                document.getElementById('assetNumber').innerHTML = data[0].Asset_Number;
-                document.getElementById('editassetNumber').value = data[0].Asset_Number;
-
-
-                document.getElementById('issuedTo').innerHTML = data[0].Issued_To;
-                document.getElementById('editissuedTo').value = data[0].Issued_To;
-
-                document.getElementById('apiNumber').innerHTML = data[0].ARE_PAR_ICS_Number;
-                document.getElementById('editapiNumber').value = data[0].ARE_PAR_ICS_Number;
+                document.getElementById('assetNumber').innerHTML = data.Asset_Number;
+                document.getElementById('editassetNumber').value = data.Asset_Number;
 
 
-                document.getElementById('prsNumber').innerHTML = data[0].PRS_Number;
-                document.getElementById('editprsNumber').value = data[0].PRS_Number;
+                document.getElementById('issuedTo').innerHTML = data.Issued_To;
+                document.getElementById('editissuedTo').value = data.Issued_To;
 
-                document.getElementById('fundCluster').innerHTML = data[0].Fund_Cluster;
-                document.getElementById('editfundCluster').value = data[0].Fund_Cluster;
-
-                document.getElementById('fundAdminCode').innerHTML = data[0].Fund_Admin_Code;
-                document.getElementById('editfundAdminCode').value = data[0].Fund_Admin_Code;
-
-                document.getElementById('fundAdmin').innerHTML = data[0].Fund_Admin_Title;
-                document.getElementById('editfundAdmin').value = data[0].Fund_Admin_Title;
-
-                document.getElementById('supplier').innerHTML = data[0].Supplier;
-                document.getElementById('editsupplier').value = data[0].Supplier;
-
-                document.getElementById('yearLapse').innerHTML = data[0].Year_Lapsed;
-                document.getElementById('edityearLapse').value = data[0].Year_Lapsed;
-
-                document.getElementById('locator').innerHTML = data[0].Locator;
-                document.getElementById('editlocator').value = data[0].Locator;
+                document.getElementById('apiNumber').innerHTML = data.ARE_PAR_ICS_Number;
+                document.getElementById('editapiNumber').value = data.ARE_PAR_ICS_Number;
 
 
-                document.getElementById('oldPropertyNumber').innerHTML = data[0].Old_Property_Number;
-                document.getElementById('editoldPropertyNumber').value = data[0].Old_Property_Number;
+                document.getElementById('prsNumber').innerHTML = data.PRS_Number;
+                document.getElementById('editprsNumber').value = data.PRS_Number;
 
-                document.getElementById('unitValue').innerHTML = data[0].Unit_Value;
-                document.getElementById('editunitValue').value = data[0].Unit_Value;
+                document.getElementById('fundCluster').innerHTML = data.Fund_Cluster;
+                document.getElementById('editfundCluster').value = data.Fund_Cluster;
 
-                document.getElementById('yearAcquired').innerHTML = data[0].Year_Acquired;
-                document.getElementById('edityearAcquired').value = data[0].Year_Acquired;
+                document.getElementById('fundAdminCode').innerHTML = data.Fund_Admin_Code;
+                document.getElementById('editfundAdminCode').value = data.Fund_Admin_Code;
 
+                document.getElementById('fundAdmin').innerHTML = data.Fund_Admin_Title;
+                document.getElementById('editfundAdmin').value = data.Fund_Admin_Title;
 
-                document.getElementById('assetCategory').innerHTML = data[0].Asset_Category;
-                document.getElementById('editassetCategory').value = data[0].Asset_Category;
+                document.getElementById('supplier').innerHTML = data.Supplier;
+                document.getElementById('editsupplier').value = data.Supplier;
 
-                document.getElementById('assetTitle').innerHTML = data[0].Asset_Title;
-                document.getElementById('editassetTitle').value = data[0].Asset_Title;
+                document.getElementById('yearLapse').innerHTML = data.Year_Lapsed;
 
-                document.getElementById('issuedFrom').innerHTML = data[0].Issued_From;
-                document.getElementById('editissuedFrom').value = data[0].Issued_From;
-
-
-                document.getElementById('cancelledAPI').innerHTML = data[0].Cancelled_Number;
-                document.getElementById('editcancelledAPI').value = data[0].Cancelled_Number;
+                document.getElementById('locator').innerHTML = data.Locator;
+                document.getElementById('editlocator').value = data.Locator;
 
 
-                document.getElementById('estimatedLife').innerHTML = data[0].Estimated_Useful_Life;
-                document.getElementById('editestimatedLife').value = data[0].Estimated_Useful_Life;
+                document.getElementById('oldPropertyNumber').innerHTML = data.Old_Property_Number;
+                document.getElementById('editoldPropertyNumber').value = data.Old_Property_Number;
 
-                document.getElementById('purchaseOrder').innerHTML = data[0].Purchase_Order_Contract_Number;
-                document.getElementById('editpurchaseOrder').value = data[0].Purchase_Order_Contract_Number;
+                document.getElementById('unitValue').innerHTML = data.Unit_Value;
+                document.getElementById('editunitValue').value = data.Unit_Value;
 
-
-                document.getElementById('acquiredThrough').innerHTML = data[0].Acquired_Through;
-                document.getElementById('editacquiredThrough').value = data[0].Acquired_Through;
-
-                document.getElementById('remarks').innerHTML = data[0].Remarks;
-                document.getElementById('editremarks').value = data[0].Remarks;
+                document.getElementById('yearAcquired').innerHTML = data.Year_Acquired;
+                document.getElementById('edityearAcquired').value = data.Year_Acquired;
 
 
-                document.getElementById('residualValue').textContent = data[0].Unit_Value * 0.1;
-                // document.getElementById('photo').innerHTML = data.Photo;
+                document.getElementById('assetCategory').innerHTML = data.Asset_Category;
+                document.getElementById('editassetCategory').value = data.Asset_Category;
+
+                document.getElementById('assetTitle').innerHTML = data.Asset_Title;
+                document.getElementById('editassetTitle').value = data.Asset_Title;
+
+                document.getElementById('issuedFrom').innerHTML = data.Issued_From;
+                document.getElementById('editissuedFrom').value = data.Issued_From;
+
+
+                document.getElementById('cancelledAPI').innerHTML = data.Cancelled_Number;
+                document.getElementById('editcancelledAPI').value = data.Cancelled_Number;
+
+
+                document.getElementById('estimatedLife').innerHTML = data.Estimated_Useful_Life;
+                document.getElementById('editestimatedLife').value = data.Estimated_Useful_Life;
+
+                document.getElementById('purchaseOrder').innerHTML = data.Purchase_Order_Contract_Number;
+                document.getElementById('editpurchaseOrder').value = data.Purchase_Order_Contract_Number;
+
+
+                document.getElementById('acquiredThrough').innerHTML = data.Acquired_Through;
+                document.getElementById('editacquiredThrough').value = data.Acquired_Through;
+
+                document.getElementById('remarks').innerHTML = data.Remarks;
+                document.getElementById('editremarks').value = data.Remarks;
+
+
+                const unit_val = data.Unit_Value.replace(",", "")
+                const residualValue_mod = data.Unit_Value.replace(",", "") * 0.1
+
+                // document.getElementById('residualValue').textContent = data.Unit_Value * 0.1;
+                document.getElementById('residualValue').textContent = residualValue_mod;
+                // Assuming Estimated_Useful_Life is defined and accessible
+                var Estimated_Useful_Life = parseInt(data.Estimated_Useful_Life);
+
+                // Calculate depreciation using the residualValue and Estimated_Useful_Life
+                // var residualValue = data.Unit_Value * 0.1;
+                var residualValue = residualValue_mod;
+
+                // Calculate A (Unit_Value - residualValue)
+                // var A = data.Unit_Value - (data.Unit_Value * 0.1); // Assuming 0.1 is the residual value percentage
+                var A = unit_val - (unit_val * 0.1); // Assuming 0.1 is the residual value percentage
+
+                // Calculate B (Estimated_Useful_Life * 12)
+                // var B = Estimated_Useful_Life * 12;
+                var B = parseInt(data.Estimated_Useful_Life) * 12;
+
+                // Calculate depreciation using the simplified formula A / B
+                // var depreciation = (A / B);
+                var depreciation = B > 0 ? (A / B) : 0;
+                console.log(A,B)
+                // console.log("depreceation", data.Estimated_Useful_Life * 12)
+
+                // Set the result in the 'depreciation' element
+                document.getElementById('depreciation').textContent = depreciation;
+
+                // Get the Date_Acquired from the data array
+                var dateAcquired = new Date(data.Date_Acquired);
+                var currentDate = new Date();
+
+                // Calculate the difference in milliseconds between the two dates
+                var timeDifference = currentDate - dateAcquired;
+
+                // Calculate the difference in years
+                var yearDifference = timeDifference / (365.25 * 24 * 60 * 60 * 1000);
+
+                // Calculate the difference in months
+                var monthDifference = yearDifference * 12;
+
+                // Display the result in the 'yearLapse' element
+                document.getElementById('yearLapse').textContent = yearDifference.toFixed(1) + ' years';
+
+                // Display the result in the 'monthLapse' element
+                document.getElementById('monthLapse').textContent = monthDifference.toFixed(1) + ' months';
+
+                function roundToDecimal(number, decimalPlaces) {
+                    var factor = Math.pow(10, decimalPlaces);
+                    return Math.round(number * factor) / factor;
+                }
+                // Calculate the accumulated depreciation correctly
+                var multipliedResult = roundToDecimal(monthDifference, 1) * roundToDecimal(depreciation, 1);
+                document.getElementById('accu').textContent = multipliedResult.toFixed(1);
+
+                var AB = parseFloat(data.Unit_Value.replace(',', ''));
+                var AC = parseInt(multipliedResult);
+
+                var AA = unit_val- (multipliedResult);
+
+                console.log(residualValue_mod, monthDifference, depreciation)
+
+                document.getElementById('net').textContent = AA;
+
 
 
             })
