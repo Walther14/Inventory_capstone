@@ -28,28 +28,81 @@ $sqlQuery2 = mysqli_query($data, $sql);
 ?>
 
 <div class="card">
-    <div class="p-5 ">
-        <dropdown></dropdown>
-        <h2>Total No. of Inventories</h2>
-        <?php
+    <div class="p-5 d-flex justify-content-center flex-column">
+        <div class="p-5 d-flex justify-content-center" style="border: solid">
+            <div >
 
-        // Check if the query was successful
-        if ($sqlQuery) {
-            // Get the number of rows in the sqlQuery set
-            $rowCount = mysqli_num_rows($sqlQuery);
+                <dropdown></dropdown>
+                <h2>Total No. of Inventories</h2>
+                <?php
 
-            echo "<h1> " . $rowCount . "</h1>";
+                // Check if the query was successful
+                if ($sqlQuery) {
+                    // Get the number of rows in the sqlQuery set
+                    $rowCount = mysqli_num_rows($sqlQuery);
+
+                    echo "<h1> " . $rowCount . "</h1>";
 
 
-            // Free the sqlQuery set
-            mysqli_free_result($sqlQuery);
-        } else {
-            // Handle the case when the query fails
-            echo "Query failed: " . mysqli_error($conn);
-        }
+                    // Free the sqlQuery set
+                    mysqli_free_result($sqlQuery);
+                } else {
+                    // Handle the case when the query fails
+                    echo "Query failed: " . mysqli_error($conn);
+                }
 
-        // Close the database connection
-        ?>
+                ?>
+
+            </div>
+            <div>
+
+                <dropdown></dropdown>
+                <h2>Total No. of Semi-expendable properties</h2>
+                <?php
+
+                // Check if the query was successful
+                if ($sqlQuery) {
+                    // Get the number of rows in the sqlQuery set
+                    $rowCount = mysqli_num_rows($sqlQuery);
+
+                    echo "<h1> " . $rowCount . "</h1>";
+
+
+                    // Free the sqlQuery set
+                    mysqli_free_result($sqlQuery);
+                } else {
+                    // Handle the case when the query fails
+                    echo "Query failed: " . mysqli_error($conn);
+                }
+
+                ?>
+
+            </div>
+            <div>
+
+                <dropdown></dropdown>
+                <h2>Total No. of Inventories</h2>
+                <?php
+
+                // Check if the query was successful
+                if ($sqlQuery) {
+                    // Get the number of rows in the sqlQuery set
+                    $rowCount = mysqli_num_rows($sqlQuery);
+
+                    echo "<h1> " . $rowCount . "</h1>";
+
+
+                    // Free the sqlQuery set
+                    mysqli_free_result($sqlQuery);
+                } else {
+                    // Handle the case when the query fails
+                    echo "Query failed: " . mysqli_error($conn);
+                }
+
+                ?>
+
+            </div>
+        </div>
         <table class="table">
             <thead>
                 <tr>
