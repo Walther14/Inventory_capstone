@@ -632,7 +632,7 @@
 
 
 
-                <form action="./Controller/editinventory_Controller.php" method="post">
+                <form action="./Controller/editinventory_Controller.php" method="post" enctype="multipart/form-data">
                     <div class="p-3">
                         <div class="row">
                             <div>
@@ -743,7 +743,7 @@
                         </div>
 
 
-                      
+
 
 
                         <div class="row">
@@ -844,38 +844,38 @@
                         </div>
 
                         <div class="row">
-                    <div>
+                            <div>
 
-                        <h5>Fund Admin Code</h5>
-                        <input list="AdminCode" style="color: gray; width: 100%" id="editfundAdminCode" name="Fund_Admin_Code" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
-                        <datalist id="AdminCode">
-                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
-                            <?php
-                            $fund = "SELECT * FROM fundcode_db";
-                            $result = $data->query($fund);
+                                <h5>Fund Admin Code</h5>
+                                <input list="AdminCode" style="color: gray; width: 100%" id="editfundAdminCode" name="Fund_Admin_Code" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
+                                <datalist id="AdminCode">
+                                    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                                    <?php
+                                    $fund = "SELECT * FROM fundcode_db";
+                                    $result = $data->query($fund);
 
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                            ?>
-                                    <option value="<?php echo $row['Fund_Admin_Code'] ?>"><?php echo $row['Fund_Admin_Code'] ?></option>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </datalist>
-                    </div>
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                            <option value="<?php echo $row['Fund_Admin_Code'] ?>"><?php echo $row['Fund_Admin_Code'] ?></option>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </datalist>
+                            </div>
 
-                </div>
+                        </div>
 
 
-                <div class="row">
-                    <div>
+                        <div class="row">
+                            <div>
 
-                        <h5>Fund Admin Title</h5>
-                        <input style="color: gray; width: 100%"  id="editfundAdmin" name="Fund_Admin_Title" readonly></input>
-                    </div>
+                                <h5>Fund Admin Title</h5>
+                                <input style="color: gray; width: 100%" id="editfundAdmin" name="Fund_Admin_Title" readonly></input>
+                            </div>
 
-                </div>
+                        </div>
 
 
 
@@ -915,7 +915,15 @@
 
                         </div>
 
-                      
+                        <div class="row">
+                            <div>
+                                <h5>Photo</h5>
+                                <input style="color: gray; width: 100%" type="file" name="image" accept="image/*" onchange="previewImage(this)">
+                                <img id="photoPreview" src="#" alt="Preview" style="max-width: 100%; display: none;">
+                            </div>
+                        </div>
+
+
 
 
 
