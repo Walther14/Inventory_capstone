@@ -23,7 +23,9 @@ if (!isset($_SESSION['user_id'])) {
         <!-- Top Bar -->
         <nav class="navbar navbar-expand-lg w-100" style="background-image: url('./img/try.png'); background-size: cover; height: .63in; border-bottom: var(--bs-border-width) solid var(--bs-content-border-color); width: 100%;">
             <div class="container-fluid d-flex justify-content-between p-3">
-                <a class="navbar-brand" href="#">
+              
+            
+            <a class="navbar-brand" href="#">
 
                 </a>
                 <div class="d-flex justify-content-between">
@@ -151,6 +153,9 @@ $result = $data->query($inventory);
         ?>
     </div>
 </div>
+
+
+
 
 
 

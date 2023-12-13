@@ -47,11 +47,15 @@
               </span>
             </li>
 
+
+
             <li class="icon" type="button" id="backup" type="button" style="margin-bottom: 0rem;">
               <span>
                 <i class="fa-solid  fa-download" style="font-size: 30px;"></i>
               </span>
             </li>
+
+
 
             <li class="icon" type="button" id="trans" type="button" style="margin-bottom: 0rem;">
               <span>
@@ -164,6 +168,7 @@
         </div>
 
 
+
         <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inspection_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waste_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_inventoriesReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/components/inspectionAndAcceptanceReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/formsContainer.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_property.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/PreAndPost_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_semiReport.php'  ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem;  display: none;"'; ?> id="sidenav3">
           <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
             <li>
@@ -210,7 +215,38 @@
               </ul>
         </div>
 
+
         <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/locator.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/dorm.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none; position: relative"'; ?> id="sidenav4">
+          <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
+            <li>
+              <ul class="sidebar-nav" >
+                <li class="d-flex">
+                  <span>
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </span>
+                  <a type="button" href="./locator.php" class="nav-link">BSC Campus</a>
+                </li>
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+                <li class="nav-item">
+                  <a type="button" href="./dorm.php" class="nav-link">Dorm</a>
+                </li>
+
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+            </li>
+          </ul>
+        </div>
+
+         <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/locator.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/dorm.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none; position: relative"'; ?> id="sidenav4">
           <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
             <li>
               <ul class="sidebar-nav" >
@@ -242,7 +278,13 @@
 
 
 
+      
+
+
+        
+
       </div>
+
     </div>
   </nav>
 

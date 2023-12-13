@@ -52,7 +52,7 @@
                                 <!-- Row 1 -->
                                 <div class="col-1">
                                     <label for="qty" class="form-label">Qty</label>
-                                    <input type="number" class="form-control" id="qty1" name="qty1" placeholder="qty">
+                                    <input type="text" class="form-control" id="qty1" name="qty1" placeholder="Name of Agency">
                                 </div>
 
 
