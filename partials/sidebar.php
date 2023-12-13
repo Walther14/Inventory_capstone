@@ -183,7 +183,7 @@
                 </li>
                 <li class="d-flex">
 
-                  <a type="button" href="./physicalcount_property.php" class="nav-link">Property Plant Equipmemt</a>
+                  <a type="button" href="./physicalcount_property.php" class="nav-link">Property Plant Equipment</a>
                 </li>
 
                 <li>

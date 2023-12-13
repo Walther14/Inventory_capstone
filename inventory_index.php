@@ -14,6 +14,8 @@ if (!isset($_SESSION['user_id'])) {
 @include('partials/sidebar.php');
 
 ?>
+
+
 <div style="position: relative; height: 100%; overflow: hidden">
 
     <div style="position: sticky; top: 0; z-index: 10;">
@@ -24,15 +26,20 @@ if (!isset($_SESSION['user_id'])) {
                 <a class="navbar-brand" href="#">
 
                 </a>
+                <div class="d-flex justify-content-between">
+    <form method="get" action="" style="display: flex; align-items: center; margin-right: 30px;">
+        <input type="text" id="search" name="search" style="width: 130px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;"  placeholder="Enter your search term">
+        <button type="submit" style="width:50px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')"">Search</button>
+    </form>
 
-                <div class="d-flex justify-content-end">
-                    <button id="addInventoryID" style="width: 210px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')">
-                        <span>
-                            <ion-icon name="add-outline"></ion-icon>
-                        </span>
-                        Add Inventory
-                    </button>
-                </div>
+    <button id="addInventoryID" style="width: 210px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')">
+        <span>
+            <ion-icon name="add-outline"></ion-icon>
+        </span>
+        Add Inventory
+    </button>
+</div>
+
 
                 <script>
                     function changeColor(element, color) {
@@ -54,15 +61,32 @@ if (!isset($_SESSION['user_id'])) {
 
 
 
-    <!-- Bordered table -->
 
 
 
-    <?php
-    $inventory = "SELECT * FROM inventory_db";
 
-    $result = $data->query($inventory);
-    ?>
+<?php
+// Include your database connection logic here
+// For example: $data = new mysqli("localhost", "username", "password", "database_name");
+
+// Check if the database connection is successful
+if ($data->connect_error) {
+    die("Connection failed: " . $data->connect_error);
+}
+
+$inventory = "SELECT * FROM inventory_db";
+
+// Check if a search term is provided
+if (isset($_GET['search']) && !empty($_GET['search'])) {
+    $searchTerm = $_GET['search'];
+    // Modify the query to include a search condition
+    $inventory .= " WHERE Property_Description LIKE '%$searchTerm%' OR Asset_Category LIKE '%$searchTerm%' OR Locator LIKE '%$searchTerm%' OR Current_Property_Number LIKE '%$searchTerm%'";
+}
+
+$result = $data->query($inventory);
+?>
+
+   
 
 
     <div class="d-flex" style="position: relative; top: 100;">
@@ -359,20 +383,21 @@ document.getElementById('monthLapse').textContent = monthDifference + ' months';
                     return Math.round(value * power)/power;
                 }
                 // Calculate the accumulated depreciation correctly
-                // var multipliedResult = roundToDecimal(monthDifference, 1) * roundToDecimal(depreciation, 2);
-                var multipliedResult = fixRounding(depreciation.toFixed(3) * monthDifference.toFixed(3), 2);
-                // console.log(monthDifference, depreciation, multipliedResult.toFixed(2))
-                document.getElementById('accu').textContent = multipliedResult;
+               // var multipliedResult = roundToDecimal(monthDifference, 1) * roundToDecimal(depreciation, 2);
+var multipliedResult = fixRounding(depreciation.toFixed(3) * monthDifference.toFixed(3), 2);
+// console.log(monthDifference, depreciation, multipliedResult.toFixed(2))
+document.getElementById('accu').textContent = multipliedResult;
 
+var AB = parseFloat(data.Unit_Value.replace(',', ''));
+var AC = parseInt(multipliedResult);
 
-                var AB = parseFloat(data.Unit_Value.replace(',', ''));
-                var AC = parseInt(multipliedResult);
+// Ensure AA is at least 0
+var AA = Math.max(unit_val - multipliedResult, 0);
 
-                var AA = unit_val- (multipliedResult);
+// console.log(residualValue_mod, monthDifference, depreciation)
 
-                // console.log(residualValue_mod, monthDifference, depreciation)
+document.getElementById('net').textContent = AA.toFixed(2);
 
-                document.getElementById('net').textContent = AA.toFixed(2);
 
 
 
@@ -380,6 +405,8 @@ document.getElementById('monthLapse').textContent = monthDifference + ' months';
             .catch(error => console.error('Error:', error));
     }
 </script>
+
+
 
 <?php
 include('./partials/footer.php')
