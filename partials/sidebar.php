@@ -79,9 +79,9 @@
         <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inventory_index.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/User_Management.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/index.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none;"'; ?> id="sidenav1">
 
           <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
-            <li>
               <ul class="sidebar-nav">
-              <li class="nav-item">
+                
+                <li class="nav-item">
                   <a class="nav-link" href="./index.php" aria-current="page">Dashboard</a>
                 </li>
 
@@ -107,8 +107,7 @@
                 <li>
                   <hr class="sidebar-divider">
                 </li>
-
-            </li>
+              </ul>
           </ul>
         </div>
 
@@ -214,7 +213,7 @@
         <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/locator.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/dorm.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none; position: relative"'; ?> id="sidenav4">
           <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
             <li>
-              <ul class="sidebar-nav" >
+              <ul class="sidebar-nav">
                 <li class="d-flex">
                   <span>
                     <ion-icon name="analytics-outline"></ion-icon>
@@ -241,10 +240,10 @@
           </ul>
         </div>
 
-         <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/locator.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/dorm.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none; position: relative"'; ?> id="sidenav4">
+        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/locator.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/dorm.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none; position: relative"'; ?> id="sidenav4">
           <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
             <li>
-              <ul class="sidebar-nav" >
+              <ul class="sidebar-nav">
                 <li class="d-flex">
                   <span>
                     <ion-icon name="analytics-outline"></ion-icon>
@@ -273,10 +272,10 @@
 
 
 
-      
 
 
-        
+
+
 
       </div>
 
