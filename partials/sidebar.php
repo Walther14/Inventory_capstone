@@ -189,7 +189,7 @@
                   <hr class="sidebar-divider">
                 </li>
                 <br>
-                <br>
+
                 <li>
                   <hr class="sidebar-divider">
                 </li>
@@ -198,9 +198,27 @@
                 <li class="nav-item">
                   <a class="nav-link" href="./formsContainer.php" aria-current="page">FORMS</a>
                 </li>
+
                 <li>
                   <hr class="sidebar-divider">
                 </li>
+
+                <br>
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+                <li class="d-flex">
+
+                  <a type="button" href="./totalinven.php" class="nav-link">Report on Total</a>
+                </li>
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+
                 <li class="nav-item">
 
 
