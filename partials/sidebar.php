@@ -195,7 +195,7 @@
                   <hr class="sidebar-divider">
                 </li>
                 <br>
-                <br>
+
                 <li>
                   <hr class="sidebar-divider">
                 </li>
@@ -204,9 +204,27 @@
                 <li class="nav-item">
                   <a class="nav-link" href="./formsContainer.php" aria-current="page">FORMS</a>
                 </li>
+
                 <li>
                   <hr class="sidebar-divider">
                 </li>
+
+                <br>
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+                <li class="d-flex">
+
+                  <a type="button" href="./totalinven.php" class="nav-link">Report on Total</a>
+                </li>
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+
                 <li class="nav-item">
 
 
@@ -219,7 +237,7 @@
         <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/locator.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/dorm.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none; position: relative"'; ?> id="sidenav4">
           <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
             <li>
-              <ul class="sidebar-nav" >
+              <ul class="sidebar-nav">
                 <li class="d-flex">
                   <span>
                     <ion-icon name="analytics-outline"></ion-icon>
@@ -246,10 +264,10 @@
           </ul>
         </div>
 
-         <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/locator.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/dorm.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none; position: relative"'; ?> id="sidenav4">
+        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/locator.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/dorm.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none; position: relative"'; ?> id="sidenav4">
           <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
             <li>
-              <ul class="sidebar-nav" >
+              <ul class="sidebar-nav">
                 <li class="d-flex">
                   <span>
                     <ion-icon name="analytics-outline"></ion-icon>
@@ -278,10 +296,10 @@
 
 
 
-      
 
 
-        
+
+
 
       </div>
 
