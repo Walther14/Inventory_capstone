@@ -10,11 +10,11 @@ if (!isset($_SESSION['user_id'])) {
 
 
 
-@include('./Controller/db.php');
+include('./Controller/db.php');
 
-@include('partials/header.php');
-@include('partials/sidebar.php');
-@include('partials/topbar.php');
+include('partials/header.php');
+include('partials/sidebar.php');
+include('partials/topbar.php');
 
 
 $sql = "SELECT * FROM inventory_db";
@@ -26,7 +26,7 @@ $sqlQuery2 = mysqli_query($data, $sql);
 <div class="card">
     <div class="p-5 d-flex justify-content-center flex-column">
         <div class="p-5 d-flex justify-content-center" style="border: solid">
-            <div >
+            <div>
 
                 <dropdown></dropdown>
                 <h2>Total No. of Inventories</h2>
@@ -56,6 +56,10 @@ $sqlQuery2 = mysqli_query($data, $sql);
                 <h2>Total No. of Semi-expendable properties</h2>
                 <?php
 
+                $sql = "SELECT * FROM itemcategory_db";
+                $sqlQuery = mysqli_query($data, $sql);
+                
+
                 // Check if the query was successful
                 if ($sqlQuery) {
                     // Get the number of rows in the sqlQuery set
@@ -77,7 +81,7 @@ $sqlQuery2 = mysqli_query($data, $sql);
             <div>
 
                 <dropdown></dropdown>
-                <h2>Total No. of Inventories</h2>
+                <!-- <h2>Total No. of Inventories</h2>
                 <?php
 
                 // Check if the query was successful
@@ -95,7 +99,7 @@ $sqlQuery2 = mysqli_query($data, $sql);
                     echo "Query failed: " . mysqli_error($conn);
                 }
 
-                ?>
+                ?> -->
 
             </div>
         </div>

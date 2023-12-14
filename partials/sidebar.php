@@ -47,13 +47,11 @@
               </span>
             </li>
 
-
-
-            <li class="icon" type="button" id="backup" type="button" style="margin-bottom: 0rem;">
+            <!-- <li class="icon" type="button" id="backup" type="button" style="margin-bottom: 0rem;">
               <span>
                 <i class="fa-solid  fa-download" style="font-size: 30px;"></i>
               </span>
-            </li>
+            </li> -->
 
 
 
@@ -64,13 +62,13 @@
             </li>
 
 
-            <li class="icon" type="button" id="backup" type="button" style="margin-bottom: 0rem;">
+            <!-- <li class="icon" type="button" id="backup" type="button" style="margin-bottom: 0rem;">
               <a href="./logout.php" style="color: none;">
                 <span>
                   <i class="fa-solid  fa-right-from-bracket" style="font-size: 30px;" data-bs-title="Logout"></i>
                 </span>
               </a>
-            </li>
+            </li> -->
 
 
 
@@ -83,10 +81,7 @@
           <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
             <li>
               <ul class="sidebar-nav">
-                <li class="d-flex">
-                  <span>
-                    <ion-icon name="analytics-outline"></ion-icon>
-                  </span>
+              <li class="nav-item">
                   <a class="nav-link" href="./index.php" aria-current="page">Dashboard</a>
                 </li>
 
