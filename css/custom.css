@@ -21,6 +21,7 @@ a{
 
 
 li{
+
   font-weight:500;
   font-size:large;
 }
@@ -36,6 +37,7 @@ padding: 0;
 
 
 .icon {
+ 
   border-radius: 16px;
   margin-top: 2rem;
   padding: 1rem;
@@ -46,12 +48,12 @@ padding: 0;
 }
 
 .icon:hover {
-  background-color: #9a0f0f; /* Change the background color on hover */
+  background-color: #ffffff; /* Change the background color on hover */
 }
 
 .icon.active {
   /* background-color: rgba(128, 0, 0, 0.5); Change the background color on hover */
-  background-color: rgba(128, 0, 0, 0.5); /* Change the background color on hover with transparency */
+  background-color: rgba(255, 255, 255, 0.5); /* Change the background color on hover with transparency */
 
 }
 

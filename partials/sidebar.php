@@ -1,13 +1,48 @@
 <body class="ps-md-sbwidth">
   <!-- Sidebar -->
   <nav class="sidebar offcanvas-start offcanvas-md" tabindex="-1" id="sidebar-example" style="background-color: rgb(255, 255, 255); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 0, 0.19); border-right: none  ;">
-    <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
+  <div class="offcanvas-header border-bottom border-secondary border-opacity-25" style="padding: 4px; background-image:url('./img/red.png')">
+      
+      <li class="nav-item dropdown">
+      <img src="./img/user.png" class="nav-link dropdown-toggle" style="margin: 0; padding: 0; margin-left: 10px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" height="50" width="50">
+
+         
+          <ul class="dropdown-menu dropdown-menu-end mt-md-2 rounded-top-0">
+            <li><a class="dropdown-item" href="#">Backup and Restore</a></li>
+            <li><a class="dropdown-item" href="./logout.php">
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <span>
+              <span>
+                <i class="fa-solid  fa-right-from-bracket" data-bs-title="Logout"></i>
+              </span>
+            </span>
+            Logout
+            </a>
+          </li>
+          <li><a class="dropdown-item" href="manageAccout.php">
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            
+              <span>
+                <i class="fa-solid  fa-user" data-bs-title="Logout"></i>
+              </span>
+            </span>
+            Manage Account
+            </a>
+          </li>
+         
+      </ul>
+      </li>
       <a class="sidebar-brand" href="#">
-        <img src="./img/prime.png" alt="Logo" height="24" class="d-inline-block align-text-top">
+        <img src="./img/prime.png" alt="Logo" height="45" style="margin-right: 0;" >
       </a>
       <button type="button" class="btn-close d-md-none" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#sidebar-example"></button>
     </div>
-    <div class="">
+    
+    <div class="" style="background-color:bisque">
 
 
 
@@ -15,7 +50,7 @@
 
       <div class="d-flex">
 
-        <div class="col-4" style="height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; display: flex; justify-content: center;">
+        <div class="col-4" style=" background-image:url('./img/side.png'); height: 100vh; border-right: solid 1px; width: 75px; margin-top: 0; padding-top: 2rem; display: flex; justify-content: center;">
           <ul id="gyatt">
 
 
@@ -163,7 +198,7 @@
 
 
 
-        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/inspection_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waste_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_inventoriesReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/components/inspectionAndAcceptanceReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/formsContainer.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_property.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/PreAndPost_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_semiReport.php'  ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem;  display: none;"'; ?> id="sidenav3">
+        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/totalinven.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/inspection_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/waste_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_inventoriesReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/components/inspectionAndAcceptanceReport.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/formsContainer.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_property.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/PreAndPost_report.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/physicalcount_semiReport.php'  ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem;  display: none;"'; ?> id="sidenav3">
           <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
             <li>
               <ul class="sidebar-nav">
@@ -211,8 +246,11 @@
 
                 <li class="d-flex">
 
-                  <a type="button" href="./totalinven.php" class="nav-link">Report on Total</a>
+                  <a type="button" href="./totalinven.php" class="nav-link">Report on Count</a>
                 </li>
+
+
+              
                 <li>
                   <hr class="sidebar-divider">
                 </li>
@@ -258,36 +296,7 @@
           </ul>
         </div>
 
-        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/locator.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/dorm.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none; position: relative"'; ?> id="sidenav4">
-          <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
-            <li>
-              <ul class="sidebar-nav">
-                <li class="d-flex">
-                  <span>
-                    <ion-icon name="analytics-outline"></ion-icon>
-                  </span>
-                  <a type="button" href="./locator.php" class="nav-link">BSC Campus</a>
-                </li>
-
-                <li>
-                  <hr class="sidebar-divider">
-                </li>
-
-
-                <li class="nav-item">
-                  <a type="button" href="./dorm.php" class="nav-link">Dorm</a>
-                </li>
-
-
-                <li>
-                  <hr class="sidebar-divider">
-                </li>
-
-
-            </li>
-          </ul>
-        </div>
-
+       
 
 
 

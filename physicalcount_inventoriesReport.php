@@ -539,7 +539,7 @@ document.querySelectorAll('input[name^="description"]').forEach(function (input)
             .then(data => {
                 // Update the Unit of Value input field with the fetched data
                    row.querySelector('input[name^="article"]').value = data.asset_number;
-                row.querySelector('input[name^="val"]').value = data.unit_value;
+                row.querySelector('input[name^="val"]').value = data.unit_value.replace(",","");
                 row.querySelector('input[name^="unit"]').value = data.unit_measure;
              
 
@@ -560,9 +560,10 @@ document.querySelectorAll('input[name^="description"]').forEach(function (input)
       var unitValue = parseFloat(row.querySelector('input[name^="val"]').value) || 0;
       var quantity = parseFloat(this.value) || 0;
 
+
       // Calculate the value and update the "Value" input field
       var calculatedValue = unitValue * quantity;
-      row.querySelector('input[name^="value"]').value = calculatedValue.toFixed(2);
+      row.querySelector('input[name^="value"]').value = calculatedValue;
     });
   });
 </script>

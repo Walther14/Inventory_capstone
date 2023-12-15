@@ -63,15 +63,13 @@
                 </div>
 
 
-
                 <div class="row">
-                    <div>
+    <div>
+        <h5>Quantity</h5>
+        <input type="number" style="color: gray; width: 100%" name="Quantity" value="1" min="1" ></input>
+    </div>
+</div>
 
-                        <h5>Quantity</h5>
-                        <input type="number" style="color: gray; width: 100%" name="Quantity" value="1"></input>
-                    </div>
-
-                </div>
 
                 <div class="row">
                     <div>
@@ -80,15 +78,14 @@
                     </div>
                 </div>
 
-
                 <div class="row">
-                    <div>
+    <div>
+        <h5>Date Acquired</h5>
+        <input type="date" style="color: gray; width: 100%" name="Date_Acquired" required
+               max="<?php echo date('Y-m-d'); ?>">
+    </div>
+</div>
 
-                        <h5>Date Acquired</h5>
-                        <input type="date" style="color: gray; width: 100%" name="Date_Acquired" required></input>
-                    </div>
-
-                </div>
 
                 <div class="row">
                     <div>
@@ -218,7 +215,7 @@
                     <div>
 
                         <h5>Estimated Useful Life</h5>
-                        <input type="number" style="color: gray; width: 100%" name="Estimated_Useful_Life" required></input>
+                        <input type="number" style="color: gray; width: 100%" name="Estimated_Useful_Life" min="1" required></input>
                     </div>
 
                 </div>
@@ -692,7 +689,7 @@
                             <div>
 
                                 <h5>Quantity</h5>
-                                <input style="color: gray; width: 100%" name="Quantity" id="editquantity"></input>
+                                <input style="color: gray; width: 100%" name="Quantity" id="editquantity" min="1"></input>
                             </div>
 
                         </div>
@@ -711,7 +708,9 @@
                             <div>
 
                                 <h5>Date Acquired</h5>
-                                <input type="date" style="color: gray; width: 100%" name="Date_Acquired" id="editdateAcquired"></input>
+                                <input type="date" style="color: gray; width: 100%" name="Date_Acquired" id="editdateAcquired"
+                                max="<?php echo date('Y-m-d'); ?>">
+
                             </div>
 
                         </div>
@@ -829,7 +828,7 @@
                             <div>
 
                                 <h5>Estimated Useful Life</h5>
-                                <input style="color: gray; width: 100%" name="Estimated_Useful_Life" id="editestimatedLife"></input>
+                                <input style="color: gray; width: 100%" name="Estimated_Useful_Life" id="editestimatedLife" min="1"></input>
                             </div>
 
                         </div>

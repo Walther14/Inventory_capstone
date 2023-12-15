@@ -23,24 +23,24 @@ if (!isset($_SESSION['user_id'])) {
         <!-- Top Bar -->
         <nav class="navbar navbar-expand-lg w-100" style="background-image: url('./img/try.png'); background-size: cover; height: .63in; border-bottom: var(--bs-border-width) solid var(--bs-content-border-color); width: 100%;">
             <div class="container-fluid d-flex justify-content-between p-3">
-              
-            
-            <a class="navbar-brand" href="#">
+
+
+                <a class="navbar-brand" href="#">
 
                 </a>
                 <div class="d-flex justify-content-between">
-    <form method="get" action="" style="display: flex; align-items: center; margin-right: 30px;">
-        <input type="text" id="search" name="search" style="width: 130px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;"  placeholder="Enter your search term">
-        <button type="submit" style="width:50px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')"">Search</button>
+                    <form method="get" action="" style="display: flex; align-items: center; margin-right: 30px;">
+                        <input type="text" id="search" name="search" style="width: 130px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" placeholder="Enter your search term">
+                        <button type="submit" style="width:50px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')"">Search</button>
     </form>
 
     <button id="addInventoryID" style="width: 210px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')">
-        <span>
-            <ion-icon name="add-outline"></ion-icon>
-        </span>
-        Add Inventory
-    </button>
-</div>
+                            <span>
+                                <ion-icon name="add-outline"></ion-icon>
+                            </span>
+                            Add Inventory
+                        </button>
+                </div>
 
 
                 <script>
@@ -67,30 +67,30 @@ if (!isset($_SESSION['user_id'])) {
 
 
 
-<?php
-// Include your database connection logic here
-// For example: $data = new mysqli("localhost", "username", "password", "database_name");
+    <?php
+    // Include your database connection logic here
+    // For example: $data = new mysqli("localhost", "username", "password", "database_name");
 
-// Check if the database connection is successful
-if ($data->connect_error) {
-    die("Connection failed: " . $data->connect_error);
-}
+    // Check if the database connection is successful
+    if ($data->connect_error) {
+        die("Connection failed: " . $data->connect_error);
+    }
 
-$inventory = "SELECT * FROM inventory_db";
+    $inventory = "SELECT * FROM inventory_db";
 
-// Check if a search term is provided
-if (isset($_GET['search']) && !empty($_GET['search'])) {
-    $searchTerm = $_GET['search'];
-    // Modify the query to include a search condition
-    $inventory .= " WHERE Property_Description LIKE '%$searchTerm%' OR Asset_Category LIKE '%$searchTerm%' OR Locator LIKE '%$searchTerm%' OR Current_Property_Number LIKE '%$searchTerm%'";
-}
+    // Check if a search term is provided
+    if (isset($_GET['search']) && !empty($_GET['search'])) {
+        $searchTerm = $_GET['search'];
+        // Modify the query to include a search condition
+        $inventory .= " WHERE Property_Description LIKE '%$searchTerm%' OR Asset_Category LIKE '%$searchTerm%' OR Locator LIKE '%$searchTerm%' OR Current_Property_Number LIKE '%$searchTerm%'";
+    }
 
-$result = $data->query($inventory);
-?>
-
-   
+    $result = $data->query($inventory);
+    ?>
 
 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div class="d-flex" style="position: relative; top: 100;">
 
         <div style="position: relative; width: 100rem;">
@@ -100,11 +100,11 @@ $result = $data->query($inventory);
                 <table class="table table-bordered table table-hover">
 
 
-                    <thead>
+                    <thead style="text-align: center;">
                         <th>Property Description</th>
                         <th>Locator</th>
                         <th>Currently Property Number</th>
-                        <th>Action</th>
+                        <th colspan="2">Action</th>
                     </thead>
                     <tbody>
                         <?php
@@ -130,6 +130,9 @@ $result = $data->query($inventory);
                                         <a type="button" class="btn btn-primary" style="background-color: maroon;" data-id="<?php echo $row['id'] ?>">View</a>
                                         <!-- <a type="button" class="btn btn-secondary" data-id="data_edit?id=<?php echo $row['id'] ?>">Edit</a> -->
                                     </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary archive-btn" style="background-color: maroon;" data-id="<?php echo $row['id'] ?>">Archive</a>
+                                    </td>
                                 </tr>
 
 
@@ -142,6 +145,45 @@ $result = $data->query($inventory);
                             echo "0 results";
                         }
                         ?>
+                        <script>
+                            $(document).ready(function() {
+                                $('.archive-btn').on('click', async function(event) {
+                                    event.preventDefault(); // Prevent the default link behavior
+
+                                    var itemId = $(this).data('id'); // Get the item ID from data attribute
+
+                                    // $.ajax({
+                                    //     url: 'archive.php', // URL to the server-side PHP file
+                                    //     type: 'POST',
+                                    //     data: {id: itemId}, // Send the item ID as data
+                                    //     success: function(response) {
+                                    //         // Handle success response if required
+                                    //         console.log(response.json());
+                                    //     },
+                                    //     error: function(xhr) {
+                                    //         // Handle error response if required
+                                    //         console.log('Error archiving item. Please try again.');
+                                    //     }
+                                    // });
+                                    // const result = await fetch('/inventory_capstone/archive.php', {
+                                    //     method: 'POST',
+                                    //     body: JSON.stringify({
+                                    //         id: itemId
+                                    //     }),
+                                    //     headers: {
+                                    //         'Content-Type': 'application/json'
+                                    //     }
+                                    // })
+                                    // if(result.ok){
+                                    //     const json = await result.json()
+                                    //     console.log(json)
+                                    // }
+
+
+                                });
+                            });
+                        </script>
+
                     </tbody>
                 </table>
             </div>
@@ -356,52 +398,53 @@ $result = $data->query($inventory);
 
                 // Get the Date_Acquired from the data array
                 var dateAcquired = new Date(data.Date_Acquired);
-var currentDate = new Date();
+                var currentDate = new Date();
 
-// Calculate the difference in years
-var yearDifference = currentDate.getFullYear() - dateAcquired.getFullYear();
+                // Calculate the difference in years
+                var yearDifference = currentDate.getFullYear() - dateAcquired.getFullYear();
 
-// Calculate the difference in months
-var monthDifference = currentDate.getMonth() - dateAcquired.getMonth();
+                // Calculate the difference in months
+                var monthDifference = currentDate.getMonth() - dateAcquired.getMonth();
 
-// Account for the day of the month
-if (dateAcquired.getDate() > currentDate.getDate()) {
-   monthDifference--;
-}
+                // Account for the day of the month
+                if (dateAcquired.getDate() > currentDate.getDate()) {
+                    monthDifference--;
+                }
 
-// Convert the year difference to months and add it to the month difference
-monthDifference += yearDifference * 12;
+                // Convert the year difference to months and add it to the month difference
+                monthDifference += yearDifference * 12;
 
-// Display the result in the 'yearLapse' element
-document.getElementById('yearLapse').textContent = yearDifference + ' years';
+                // Display the result in the 'yearLapse' element
+                document.getElementById('yearLapse').textContent = yearDifference + ' years';
 
-// Display the result in the 'monthLapse' element
-document.getElementById('monthLapse').textContent = monthDifference + ' months';
+                // Display the result in the 'monthLapse' element
+                document.getElementById('monthLapse').textContent = monthDifference + ' months';
 
 
                 function roundToDecimal(number, decimalPlaces) {
                     var factor = Math.pow(10, decimalPlaces);
                     return Math.round(number * factor) / factor;
                 }
+
                 function fixRounding(value, precision) {
-                    var power =Math.pow(10, precision || 0);
-                    return Math.round(value * power)/power;
+                    var power = Math.pow(10, precision || 0);
+                    return Math.round(value * power) / power;
                 }
                 // Calculate the accumulated depreciation correctly
-               // var multipliedResult = roundToDecimal(monthDifference, 1) * roundToDecimal(depreciation, 2);
-var multipliedResult = fixRounding(depreciation.toFixed(3) * monthDifference.toFixed(3), 2);
-// console.log(monthDifference, depreciation, multipliedResult.toFixed(2))
-document.getElementById('accu').textContent = multipliedResult;
+                // var multipliedResult = roundToDecimal(monthDifference, 1) * roundToDecimal(depreciation, 2);
+                var multipliedResult = fixRounding(depreciation.toFixed(3) * monthDifference.toFixed(3), 2);
+                // console.log(monthDifference, depreciation, multipliedResult.toFixed(2))
+                document.getElementById('accu').textContent = multipliedResult;
 
-var AB = parseFloat(data.Unit_Value.replace(',', ''));
-var AC = parseInt(multipliedResult);
+                var AB = parseFloat(data.Unit_Value.replace(',', ''));
+                var AC = parseInt(multipliedResult);
 
-// Ensure AA is at least 0
-var AA = Math.max(unit_val - multipliedResult, 0);
+                // Ensure AA is at least 0
+                var AA = Math.max(unit_val - multipliedResult, 0);
 
-// console.log(residualValue_mod, monthDifference, depreciation)
+                // console.log(residualValue_mod, monthDifference, depreciation)
 
-document.getElementById('net').textContent = AA.toFixed(2);
+                document.getElementById('net').textContent = AA.toFixed(2);
 
 
 
@@ -410,7 +453,6 @@ document.getElementById('net').textContent = AA.toFixed(2);
             .catch(error => console.error('Error:', error));
     }
 </script>
-
 
 
 <?php

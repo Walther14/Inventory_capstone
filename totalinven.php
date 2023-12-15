@@ -11,7 +11,6 @@ if (!isset($_SESSION['user_id'])) {
 @include('Controller/db.php');
 @include('partials/header.php');
 @include('partials/sidebar.php');
-
 ?>
 
 <div style="position: relative; height: 100%; overflow: hidden">
@@ -75,31 +74,31 @@ if (!isset($_SESSION['user_id'])) {
     $inventory = "SELECT * FROM inventory_db";
 
     // Check if a search term is provided
-if (isset($_GET['search']) && !empty($_GET['search'])) {
-    $searchTerm = $_GET['search'];
-    // Modify the query to include a search condition
-    $inventory .= " WHERE Issued_To LIKE '%$searchTerm%'";
-}
+    if (isset($_GET['search']) && !empty($_GET['search'])) {
+        $searchTerm = $_GET['search'];
+        // Modify the query to include a search condition
+        $inventory .= " WHERE Issued_To LIKE '%$searchTerm%'";
+    }
 
-// Check if an asset category filter is provided
-if (isset($_GET['asset_category']) && !empty($_GET['asset_category'])) {
-    $assetCategoryFilter = $_GET['asset_category'];
+    // Check if an asset category filter is provided
+    if (isset($_GET['asset_category']) && !empty($_GET['asset_category'])) {
+        $assetCategoryFilter = $_GET['asset_category'];
 
-    // Add an additional condition to filter by asset category
-    $inventory .= (strpos($inventory, 'WHERE') !== false) ? " AND " : " WHERE ";
-    $inventory .= "Asset_Category = '" . $data->real_escape_string($assetCategoryFilter) . "'";
-}
+        // Add an additional condition to filter by asset category
+        $inventory .= (strpos($inventory, 'WHERE') !== false) ? " AND " : " WHERE ";
+        $inventory .= "Asset_Category = '" . $data->real_escape_string($assetCategoryFilter) . "'";
+    }
 
-// Check if an asset number filter is provided
-if (isset($_GET['asset_number']) && !empty($_GET['asset_number'])) {
-    $assetNumberFilter = $_GET['asset_number'];
+    // Check if an asset number filter is provided
+    if (isset($_GET['asset_number']) && !empty($_GET['asset_number'])) {
+        $assetNumberFilter = $_GET['asset_number'];
 
-    // Add an additional condition to filter by asset number
-    $inventory .= (strpos($inventory, 'WHERE') !== false) ? " AND " : " WHERE ";
-    $inventory .= "Asset_Number = '" . $data->real_escape_string($assetNumberFilter) . "'";
-}
+        // Add an additional condition to filter by asset number
+        $inventory .= (strpos($inventory, 'WHERE') !== false) ? " AND " : " WHERE ";
+        $inventory .= "Asset_Number = '" . $data->real_escape_string($assetNumberFilter) . "'";
+    }
 
-$result = $data->query($inventory);
+    $result = $data->query($inventory);
     ?>
 
     <div class="d-flex" style="position: relative; top: 100;">
@@ -107,15 +106,7 @@ $result = $data->query($inventory);
         <div style="position: relative; width: 100rem;">
 
             <div class="m-1 w-100" style="width: 100%; position: absolute;  overflow: auto; height: calc(100vh - 85.6px)">
-
                 <table class="table table-bordered table table-hover">
-
-                    <style>
-                        .hidden-column {
-                            display: none;
-                        }
-                    </style>
-
                     <!-- Your existing HTML code -->
                     <tr>
                         <th>Account Number</th>
@@ -167,3 +158,15 @@ $result = $data->query($inventory);
         ?>
     </div>
 </div>
+<div class="col-sm-12">
+        <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
+
+<a href="print_page.php?<?php echo http_build_query($_GET); ?>">
+    <button style="width: 200px;  border-radius: 5px;background-color: maroon; color: white; border: solid .5px; height: 2rem;" style="background-color: maroon; color: white;" onmouseover="this.style.backgroundColor='#ffa800'; this.style.color='maroon'" onmouseout="this.style.backgroundColor='maroon'; this.style.color='white'">Submit for printing</button>
+</a>
+</div>
+    </div>
+
+    <?php
+include('./partials/footer.php')
+?>
