@@ -90,7 +90,6 @@ if (!isset($_SESSION['user_id'])) {
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div class="d-flex" style="position: relative; top: 100;">
 
         <div style="position: relative; width: 100rem;">
@@ -130,9 +129,52 @@ if (!isset($_SESSION['user_id'])) {
                                         <a type="button" class="btn btn-primary" style="background-color: maroon;" data-id="<?php echo $row['id'] ?>">View</a>
                                         <!-- <a type="button" class="btn btn-secondary" data-id="data_edit?id=<?php echo $row['id'] ?>">Edit</a> -->
                                     </td>
+
+                                    <!-- Vertically centered modal -->
+                                    <div class="modal fade" id="archivesModal<?php echo $row['id'] ?>" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="modal-title-1">Move to Archives</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="./Controller/archives.php" method="POST">
+                                                        <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+
+                                                        <div>
+                                                            <h3>
+
+                                                                Are you Sure to move
+                                                            </h3>
+
+                                                        </div>
+                                                        <b>
+
+                                                            <?php echo ($row['Property_Description']) ?>
+                                                        </b>
+                                                        <div>
+                                                            <h3>
+
+                                                                To the Archives section?
+                                                            </h3>
+
+                                                        </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Move to Archives</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Button to trigger the modal -->
                                     <td>
-                                        <a href="#" class="btn btn-primary archive-btn" style="background-color: maroon;" data-id="<?php echo $row['id'] ?>">Archive</a>
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#archivesModal<?php echo $row['id'] ?>" class="btn btn-primary archive-btn" style="background-color: maroon;">Archive</button>
                                     </td>
+
                                 </tr>
 
 
@@ -145,44 +187,7 @@ if (!isset($_SESSION['user_id'])) {
                             echo "0 results";
                         }
                         ?>
-                        <script>
-                            $(document).ready(function() {
-                                $('.archive-btn').on('click', async function(event) {
-                                    event.preventDefault(); // Prevent the default link behavior
 
-                                    var itemId = $(this).data('id'); // Get the item ID from data attribute
-
-                                    // $.ajax({
-                                    //     url: 'archive.php', // URL to the server-side PHP file
-                                    //     type: 'POST',
-                                    //     data: {id: itemId}, // Send the item ID as data
-                                    //     success: function(response) {
-                                    //         // Handle success response if required
-                                    //         console.log(response.json());
-                                    //     },
-                                    //     error: function(xhr) {
-                                    //         // Handle error response if required
-                                    //         console.log('Error archiving item. Please try again.');
-                                    //     }
-                                    // });
-                                    // const result = await fetch('/inventory_capstone/archive.php', {
-                                    //     method: 'POST',
-                                    //     body: JSON.stringify({
-                                    //         id: itemId
-                                    //     }),
-                                    //     headers: {
-                                    //         'Content-Type': 'application/json'
-                                    //     }
-                                    // })
-                                    // if(result.ok){
-                                    //     const json = await result.json()
-                                    //     console.log(json)
-                                    // }
-
-
-                                });
-                            });
-                        </script>
 
                     </tbody>
                 </table>
@@ -227,6 +232,7 @@ if (!isset($_SESSION['user_id'])) {
 
     buttons.forEach(function(button) {
         button.addEventListener("click", function() {
+            
 
             let rightSideBar = document.querySelector("#rightSidebar");
             let rightSideBar2 = document.querySelector("#rightSidebar2");
@@ -252,6 +258,7 @@ if (!isset($_SESSION['user_id'])) {
 
     // Function to make the AJAX call
     function fetchData(id) {
+        
         fetch('./Controller/view.php?id=' + id)
             .then(response => {
                 if (!response.ok) {

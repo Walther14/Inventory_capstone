@@ -97,7 +97,7 @@
             </li>
 
 
-            <li class="icon" type="button" id="sad" type="button" style="margin-bottom: 0rem;">
+            <li class="icon" type="button" id="archives" type="button" style="margin-bottom: 0rem;">
               <span>
                 <i class="fa-solid fa-box-archive" style="font-size: 30px;"></i>
               </span>
@@ -303,6 +303,37 @@
             </li>
           </ul>
         </div>
+
+        <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/locator.php' || $_SERVER['REQUEST_URI'] == '/inventory_capstone/dorm.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none; position: relative"'; ?> id="sidenav5">
+          <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
+            <li>
+              <ul class="sidebar-nav">
+                <li class="d-flex">
+                  <span>
+                    <ion-icon name="analytics-outline"></ion-icon>
+                  </span>
+                  <a type="button" href="./archive.php" class="nav-link">Archives</a>
+                </li>
+
+               
+
+
+                
+
+                <li>
+                  <hr class="sidebar-divider">
+                </li>
+
+
+            </li>
+          </ul>
+        </div>
+
+
+
+
+
+        
 
        
 
