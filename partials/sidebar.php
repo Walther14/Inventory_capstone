@@ -8,7 +8,7 @@
 
          
           <ul class="dropdown-menu dropdown-menu-end mt-md-2 rounded-top-0">
-            <li><a class="dropdown-item" href="#">Backup and Restore</a></li>
+            <li><a class="dropdown-item" href="./backupAndRestore.php">Backup and Restore</a></li>
             <li><a class="dropdown-item" href="./logout.php">
             <li>
               <hr class="dropdown-divider">
@@ -95,6 +95,14 @@
                 <i class="fa-solid  fa-exchange-alt" style="font-size: 30px;"></i>
               </span>
             </li>
+
+
+            <li class="icon" type="button" id="sad" type="button" style="margin-bottom: 0rem;">
+              <span>
+                <i class="fa-solid fa-box-archive" style="font-size: 30px;"></i>
+              </span>
+            </li>
+
 
 
             <!-- <li class="icon" type="button" id="backup" type="button" style="margin-bottom: 0rem;">
