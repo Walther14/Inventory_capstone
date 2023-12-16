@@ -27,7 +27,7 @@
             </li>
             
               <span>
-                <i class="fa-solid  fa-user" data-bs-title="Logout"></i>
+                <i class="fa-solid  fa-user"></i>
               </span>
             </span>
             Manage Account
