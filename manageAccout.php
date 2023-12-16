@@ -14,6 +14,9 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
+// Initialize error messages
+$password_match_error = $password_length_error = $duplicate_username_error = '';
+
 // Retrieve the user's information from the database
 $user_id = $_SESSION['user_id'];
 $query = "SELECT * FROM users WHERE id = $user_id";
@@ -38,12 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check if passwords match
     if ($password !== $confirm_password) {
-        die("Error: Passwords do not match");
+        $password_match_error = "Passwords do not match";
     }
 
     // Check password length and alphanumeric characters
     if (strlen($password) < 8 || !preg_match('/^(?=.*[a-zA-Z])(?=.*\d).+$/', $password)) {
-        die("Error: Password must be at least 8 characters long and contain both letters and numbers");
+        $password_length_error = "Password must be at least 8 characters long and contain both letters and numbers";
     }
 
     // Check for duplicate username
@@ -55,25 +58,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (mysqli_num_rows($duplicate_check_result) > 0) {
-        die("Error: Username already exists. Please choose a different username.");
+        $duplicate_username_error = "Username already exists. Please choose a different username.";
     }
 
-    // Hash the password for security
-    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+    // If there are no errors, proceed with the update
+    if (empty($password_match_error) && empty($password_length_error) && empty($duplicate_username_error)) {
+        // Hash the password for security
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    // Update user information in the database
-    $update_query = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', username = '$username', password = '$hashed_password' WHERE id = $user_id";
-    $update_result = mysqli_query($data, $update_query);
+        // Update user information in the database
+        $update_query = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', username = '$username', password = '$hashed_password' WHERE id = $user_id";
+        $update_result = mysqli_query($data, $update_query);
 
-    if (!$update_result) {
-        die("Error updating user data: " . mysqli_error($data));
+        if (!$update_result) {
+            die("Error updating user data: " . mysqli_error($data));
+        }
     }
+     // If there are no errors, proceed with the update
+     if (empty($password_match_error) && empty($password_length_error) && empty($duplicate_username_error)) {
+        // Hash the password for security
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    // Close the session and redirect to index.php
-    session_write_close();
-    header("Location: index.php");
-    exit();
+        // Update user information in the database
+        $update_query = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', username = '$username', password = '$hashed_password' WHERE id = $user_id";
+        $update_result = mysqli_query($data, $update_query);
+
+        if (!$update_result) {
+            die("Error updating user data: " . mysqli_error($data));
+        }
+
+        // Close the session and redirect to success.php
+        session_write_close();
+        header("Location: success.php");
+        exit();
+    }
 }
+ob_end_flush(); // Flush the output buffer
 ?>
 
 <!DOCTYPE html>
@@ -87,6 +107,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <style>
         body {
+
+
             font-family: Arial, sans-serif;
         }
 
@@ -128,7 +150,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 
 <body>
-    <h2>Update Profile</h2>
+    <h2 style="text-align: center; margin-top: 10vh;">Update Profile</h2>
+
+    <!-- Display error messages -->
+    <?php if (!empty($password_match_error)) : ?>
+        <p style="text-align: center;" class="error-message"><?= $password_match_error ?></p>
+    <?php endif; ?>
+    <?php if (!empty($password_length_error)) : ?>
+        <p  style="text-align: center;" class="error-message"><?= $password_length_error ?></p>
+    <?php endif; ?>
+    <?php if (!empty($duplicate_username_error)) : ?>
+        <p style="text-align: center;" class="error-message"><?= $duplicate_username_error ?></p>
+    <?php endif; ?>
+
     <form method="post" action="">
         <label for="first_name">First Name:</label>
         <input type="text" name="first_name" value="<?= $user['first_name'] ?>" required><br>
@@ -145,11 +179,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="confirm_password">Confirm Password:</label>
         <input type="password" name="confirm_password" required><br>
 
-        <input type="submit" value="Update">
+        <input type="submit" style="background-color: #530000;" value="Update">
     </form>
-    <?php
-    include('./partials/footer.php')
-    ?>
+    <?php include('./partials/footer.php') ?>
 </body>
+
 
 </html>

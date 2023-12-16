@@ -55,7 +55,7 @@ $sqlQuery2 = mysqli_query($data, $sql);
                         <h4 class="card-title text-center">Backup database</h4>
                         <div class="row">
                             <div class="col-lg-3">
-                                <img src="img/database-backup.svg" class="br-icon" alt="Backup icon">
+                                <img style="height: 10vh;" src="./img/backup.png" class="br-icon" alt="Backup icon">
                             </div>
 
                             <div class="col-lg-9">
@@ -108,7 +108,7 @@ $sqlQuery2 = mysqli_query($data, $sql);
                         <h4 class="card-title text-center">Restore database</h4>
                         <div class="row">
                             <div class="col-md-3 justify-content-center">
-                                <img src="img/database-restore.svg" class="br-icon" alt="Restore icon">
+                                <img style="height: 10vh;" src="./img/restore.png" class="br-icon" alt="Restore icon">
                             </div>
                             <div class="col-md-9">
                                 <div class="form-group">
