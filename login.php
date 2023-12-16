@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Check the database for the username and hashed password
-    $query = "SELECT id, username, password FROM users WHERE username = ?";
+    $query = "SELECT user_id, username, password FROM users WHERE username = ?";
     $stmt = mysqli_prepare($data, $query);
     mysqli_stmt_bind_param($stmt, 's', $username);
     mysqli_stmt_execute($stmt);
