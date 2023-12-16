@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Check the database for the username and hashed password
-    $query = "SELECT user_id, username, password FROM users WHERE username = ?";
+    $query = "SELECT user_id, username, role, password FROM users WHERE username = ?";
     $stmt = mysqli_prepare($data, $query);
     mysqli_stmt_bind_param($stmt, 's', $username);
     mysqli_stmt_execute($stmt);
@@ -41,15 +41,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
     if (mysqli_stmt_num_rows($stmt) == 1) {
-      mysqli_stmt_bind_result($stmt, $id, $db_username, $db_password);
+      mysqli_stmt_bind_result($stmt, $id, $db_username, $role, $db_password);
       mysqli_stmt_fetch($stmt);
 
       // Verify the password
       if (password_verify($password, $db_password)) {
         $_SESSION['user_id'] = $id;
         $_SESSION['user_username'] = $db_username;
-        $_SESSION['logged_in'];
-        header("Location: index.php");
+        $_SESSION['logged_in'] = true; 
+        $_SESSION['user_role'] = $role; 
+    
+        if ($_SESSION['user_role'] == 3) {
+            header("Location: index_custodian.php");
+        } else {
+            header("Location: index.php");
+        }
       } else {
         $error_message = "Incorrect password.";
       }

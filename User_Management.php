@@ -103,9 +103,9 @@ if (isset($_SESSION['response'])) {
                             <label for="Role" class="form-label">Role</label>
                             <select name="role" class="form-control" id="role" required>
                                      <option value="">--Please Select--</option>
-                                     <option value="Admin" <?= (isset($_SESSION['entered_values']['role']) && $_SESSION['entered_values']['role'] === 'Admin') ? 'selected' : '' ?>>Admin</option>
-                                     <option value="Supply Office Staff" <?= (isset($_SESSION['entered_values']['role']) && $_SESSION['entered_values']['role'] === 'Supply Office Staff') ? 'selected' : '' ?>>Supply Office Staff</option>
-                                     <option value="Custodian" <?= (isset($_SESSION['entered_values']['role']) && $_SESSION['entered_values']['role'] === 'Custodian') ? 'selected' : '' ?>>Property Custodian</option>
+                                     <option value="0" <?= (isset($_SESSION['entered_values']['role']) && $_SESSION['entered_values']['role'] === 'Admin') ? 'selected' : '' ?>>Admin</option>
+                                     <option value="1" <?= (isset($_SESSION['entered_values']['role']) && $_SESSION['entered_values']['role'] === 'Supply Office Staff') ? 'selected' : '' ?>>Supply Office Staff</option>
+                                     <option value="3" <?= (isset($_SESSION['entered_values']['role']) && $_SESSION['entered_values']['role'] === 'Custodian') ? 'selected' : '' ?>>Property Custodian</option>
                             </select>
                         </div>
 
