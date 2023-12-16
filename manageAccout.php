@@ -1,72 +1,155 @@
 <?php
-session_start();
+ob_start(); // Start output buffering
+session_start(); // Start the session to access session variables
+
+// Include necessary files
+include 'Controller/db.php';
+include 'partials/header.php';
+include 'partials/sidebar.php';
+include 'partials/topbar.php';
 
 // Check if the user is logged in
-if (!isset($_SESSION['id'])) {
-    // Redirect to the login page or display an error message
-    header("Location: login.php");
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php"); // Redirect to the login page if not logged in
     exit();
 }
 
-@include('Controller/db.php');
-@include('partials/header.php');
-@include('partials/sidebar.php');
-@include('partials/topbar.php');
-
-// Fetch current user information from the database
-$user_id = $_SESSION['id'];
+// Retrieve the user's information from the database
+$user_id = $_SESSION['user_id'];
 $query = "SELECT * FROM users WHERE id = $user_id";
-$result = mysqli_query($connection, $query);
+$result = mysqli_query($data, $query);
 
-if ($result) {
-    $user = mysqli_fetch_assoc($result);
-} else {
-    // Handle database error
-    die("Database error: " . mysqli_error($connection));
+if (!$result) {
+    die("Error fetching user data: " . mysqli_error($data));
 }
 
-// Handle form submission
+$user = mysqli_fetch_assoc($result);
+
+// Update user information when the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Update user information in the database
-    $new_first_name = mysqli_real_escape_string($connection, $_POST['first_name']);
-    $new_last_name = mysqli_real_escape_string($connection, $_POST['last_name']);
-    $new_username = mysqli_real_escape_string($connection, $_POST['username']);
-    $new_password = password_hash($_POST['password'], PASSWORD_BCRYPT); // Hash the password
+    // Sanitize input data to prevent SQL injection
+    $first_name = mysqli_real_escape_string($data, $_POST['first_name']);
+    $last_name = mysqli_real_escape_string($data, $_POST['last_name']);
+    $username = mysqli_real_escape_string($data, $_POST['username']);
+    $password = $_POST['password'];
 
-    $update_query = "UPDATE users SET first_name = '$new_first_name', last_name = '$new_last_name', username = '$new_username', password = '$new_password' WHERE id = $user_id";
-    $update_result = mysqli_query($connection, $update_query);
+    // Confirm password
+    $confirm_password = $_POST['confirm_password'];
 
-    if ($update_result) {
-        // Redirect to a success page or display a success message
-        header("Location: inventory_index.php"); // Replace 'profile.php' with the page where you want to redirect after successful update
-        exit();
-    } else {
-        // Handle update error
-        die("Update error: " . mysqli_error($connection));
+    // Check if passwords match
+    if ($password !== $confirm_password) {
+        die("Error: Passwords do not match");
     }
+
+    // Check password length and alphanumeric characters
+    if (strlen($password) < 8 || !preg_match('/^(?=.*[a-zA-Z])(?=.*\d).+$/', $password)) {
+        die("Error: Password must be at least 8 characters long and contain both letters and numbers");
+    }
+
+    // Check for duplicate username
+    $duplicate_check_query = "SELECT id FROM users WHERE username = '$username' AND id != $user_id";
+    $duplicate_check_result = mysqli_query($data, $duplicate_check_query);
+
+    if (!$duplicate_check_result) {
+        die("Error checking duplicate username: " . mysqli_error($data));
+    }
+
+    if (mysqli_num_rows($duplicate_check_result) > 0) {
+        die("Error: Username already exists. Please choose a different username.");
+    }
+
+    // Hash the password for security
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+    // Update user information in the database
+    $update_query = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', username = '$username', password = '$hashed_password' WHERE id = $user_id";
+    $update_result = mysqli_query($data, $update_query);
+
+    if (!$update_result) {
+        die("Error updating user data: " . mysqli_error($data));
+    }
+
+    // Close the session and redirect to index.php
+    session_write_close();
+    header("Location: index.php");
+    exit();
 }
 ?>
 
-<!-- HTML form for updating user information -->
-<div class="container">
-    <h2>Update Your Information</h2>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+</head>
+
+<style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-bottom: 10px;
+        }
+    </style>
+
+<body>
+    <h2>Update Profile</h2>
     <form method="post" action="">
         <label for="first_name">First Name:</label>
-        <input type="text" name="first_name" value="<?php echo $user['first_name']; ?>" required>
+        <input type="text" name="first_name" value="<?= $user['first_name'] ?>" required><br>
 
         <label for="last_name">Last Name:</label>
-        <input type="text" name="last_name" value="<?php echo $user['last_name']; ?>" required>
+        <input type="text" name="last_name" value="<?= $user['last_name'] ?>" required><br>
 
         <label for="username">Username:</label>
-        <input type="text" name="username" value="<?php echo $user['username']; ?>" required>
+        <input type="text" name="username" value="<?= $user['username'] ?>" required><br>
 
         <label for="password">Password:</label>
-        <input type="password" name="password" required>
+        <input type="password" name="password" required><br>
+
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" name="confirm_password" required><br>
 
         <input type="submit" value="Update">
     </form>
-</div>
+    <?php
+    include('./partials/footer.php')
+    ?>
+</body>
 
-<?php
-@include('partials/footer.php');
-?>
+</html>
