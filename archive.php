@@ -34,12 +34,7 @@ if (!isset($_SESSION['user_id'])) {
                         <button type="submit" style="width:50px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')"">Search</button>
     </form>
 
-    <button id=" addarchiveID" style="width: 210px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')">
-                            <span>
-                                <ion-icon name="add-outline"></ion-icon>
-                            </span>
-                            Add archive
-                        </button>
+   
                 </div>
 
 
