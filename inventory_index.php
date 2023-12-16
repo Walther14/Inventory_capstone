@@ -308,8 +308,8 @@ if (!isset($_SESSION['user_id'])) {
                 document.getElementById('editassetNumber').value = data.Asset_Number;
 
 
-                document.getElementById('issuedTo').innerHTML = data.Issued_To;
-                document.getElementById('editissuedTo').value = data.Issued_To;
+                document.getElementById('issuedTo').innerHTML = data.first_name + ' ' + data.last_name;
+                document.getElementById('editissuedTo').value = data.first_name + ' ' + data.last_name;
 
                 document.getElementById('apiNumber').innerHTML = data.ARE_PAR_ICS_Number;
                 document.getElementById('editapiNumber').value = data.ARE_PAR_ICS_Number;

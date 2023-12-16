@@ -8,7 +8,10 @@
 if (isset($_GET['id'])) {
     // Use prepared statements to prevent SQL injection
     $id = $_GET['id'];
-    $stmt = $data->prepare("SELECT * FROM inventory_db WHERE id = ?");
+    $stmt = $data->prepare("SELECT inventory_db.*, users.*
+    FROM inventory_db 
+    LEFT JOIN users ON inventory_db.Issued_To = users.user_id
+    WHERE inventory_db.id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();

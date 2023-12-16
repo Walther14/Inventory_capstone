@@ -157,13 +157,13 @@
                         <datalist id="IssuedTo">
                             <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
                             <?php
-                            $fund = "SELECT * FROM staff_db";
+                            $fund = "SELECT * FROM users";
                             $result = $data->query($fund);
 
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                             ?>
-                                    <option value="<?php echo $row['name'] ?>"><?php echo $row['name'] ?></option>
+                                    <option value="<?php echo $row['user_id'] ?>"><?php echo $row['first_name'] . ' ' . $row['last_name'] ?></option>
                             <?php
                                 }
                             }
