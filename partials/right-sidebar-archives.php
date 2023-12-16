@@ -1,344 +1,13 @@
 <div class="m-3" style="margin-right: 5rem; height: calc(100vh - 118px); background-color: #fbfcf8; width: 60rem; position: relative; overflow: auto">
 
-    <div id="addInventoryIDBLOCK" style="display: none; position: absolute;">
+    
 
-
-
-
-        <form action="./Controller/addInventory_Controller.php" method="post" enctype="multipart/form-data">
-            <div class="p-3">
-
-                <div class="row">
-                    <div>
-
-                        <h5>Property Description</h5>
-                        <input style="color: gray; width: 100%" name="Property_Description" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Locator</h5>
-                        <input style="color: gray; width: 100%" name="Locator" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Current Property Number</h5>
-                        <input style="color: gray; width: 100%" name="Current_Property_Number" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Old Property Number</h5>
-                        <input style="color: gray; width: 100%" name="Old_Property_Number" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Unit of Measure</h5>
-                        <input style="color: gray; width: 100%" name="Unit_Measure" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Unit Value</h5>
-                        <input type="number" style="color: gray; width: 100%" name="Unit_Value" required></input>
-                    </div>
-
-                </div>
-
-
-                <div class="row">
-    <div>
-        <h5>Quantity</h5>
-        <input type="number" style="color: gray; width: 100%" name="Quantity" value="1" min="1" ></input>
-    </div>
-</div>
-
-
-                <div class="row">
-                    <div>
-                        <h5>Year Acquired</h5>
-                        <input type="number" style="color: gray; width: 100%" name="Year_Acquired" placeholder="Enter year" max="<?php echo date('Y'); ?>" value="<?php echo isset($_GET['Year_Acquired']) ? $_GET['Year_Acquired'] : 2000; ?>" required>
-                    </div>
-                </div>
-
-                <div class="row">
-    <div>
-        <h5>Date Acquired</h5>
-        <input type="date" style="color: gray; width: 100%" name="Date_Acquired" required
-               max="<?php echo date('Y-m-d'); ?>">
-    </div>
-</div>
-
-
-                <div class="row">
-                    <div>
-
-                        <h5>Asset Category</h5>
-
-                        <input list="AssetCateg" style="color: gray; width: 100%" name="Asset_Category" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
-                        <datalist id="AssetCateg">
-                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
-                            <?php
-                            $fund = "SELECT * FROM asset_db";
-                            $result = $data->query($fund);
-
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                            ?>
-                                    <option value="<?php echo $row['Asset_Title'] ?>"><?php echo $row['Asset_Title'] ?></option>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </datalist>
-                    </div>
-
-                </div>
-
-
-
-
-
-
-                <div class="row">
-                    <div>
-
-                        <h5>Account Number</h5>
-
-                        <input list="AssetNumbers" style="color: gray; width: 100%" id="ANum" name="Asset_Number" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
-                        <datalist id="AssetNumbers">
-                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
-                            <?php
-                            $fund = "SELECT * FROM itemcategory_db";
-                            $result = $data->query($fund);
-
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                            ?>
-                                    <option value="<?php echo $row['Account_Number'] ?>"><?php echo $row['Account_Number'] ?></option>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </datalist>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-                        <h5>Account Title</h5>
-                        <input style="color: gray; width: 100%" id="ATitle" name="Asset_Title" readonly></input>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Issued To</h5>
-                        <input list="IssuedTo" style="color: gray; width: 100%" id="ANum" name="Issued_To" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
-                        <datalist id="IssuedTo">
-                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
-                            <?php
-                            $fund = "SELECT * FROM staff_db";
-                            $result = $data->query($fund);
-
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                            ?>
-                                    <option value="<?php echo $row['name'] ?>"><?php echo $row['name'] ?></option>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </datalist>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Issued From</h5>
-                        <input style="color: gray; width: 100%" name="Issued_From" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>ARE/PAR/ICS Number</h5>
-                        <input style="color: gray; width: 100%" name="ARE_PAR_ICS_Number" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Cancelled ARE/PAR/ICS Number</h5>
-                        <input style="color: gray; width: 100%" name="Cancelled_Number" required></input>
-                    </div>
-
-                </div>
-
-
-
-                <div class="row">
-                    <div>
-
-                        <h5>PRS Number</h5>
-                        <input style="color: gray; width: 100%" name="PRS_Number" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Estimated Useful Life</h5>
-                        <input type="number" style="color: gray; width: 100%" name="Estimated_Useful_Life" min="1" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Fund Cluster</h5>
-                        <input style="color: gray; width: 100%" name="Fund_Cluster" required></input>
-                    </div>
-
-
-                </div>
-                <div class="row">
-                    <div>
-
-                        <h5>Fund Admin Code</h5>
-                        <input list="AdminCode" style="color: gray; width: 100%" id="ACode" name="Fund_Admin_Code" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
-                        <datalist id="AdminCode">
-                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
-                            <?php
-                            $fund = "SELECT * FROM fundcode_db";
-                            $result = $data->query($fund);
-
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                            ?>
-                                    <option value="<?php echo $row['Fund_Admin_Code'] ?>"><?php echo $row['Fund_Admin_Code'] ?></option>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </datalist>
-                    </div>
-
-                </div>
-
-
-                <div class="row">
-                    <div>
-
-                        <h5>Fund Admin Title</h5>
-                        <input style="color: gray; width: 100%" id="FTitle" name="Fund_Admin_Title" readonly></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Supplier</h5>
-                        <input style="color: gray; width: 100%" name="Supplier" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Purchase Order/Contract Number</h5>
-                        <input style="color: gray; width: 100%" name="Purchase_Order_Contract_Number" required></input>
-                    </div>
-
-                </div>
-
-
-                <div class="row">
-                    <div>
-
-
-                        <h5>Acquired through</h5>
-                        <input input style="color: gray; width: 100%" name="Acquired_through" required></input>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="row">
-
-
-
-
-
-                    <div class="row">
-                        <div>
-
-                            <h5>Remarks</h5>
-                            <input style="color: gray; width: 100%" name="Remarks" required></input>
-                        </div>
-
-                    </div>
-                    <div>
-                        <h5>Photo</h5>
-                        <input style="color: gray; width: 100%" type="file" name="image" accept="image/*" onchange="previewImage(this)">
-                        <img id="photoPreview" src="#" alt="Preview" style="max-width: 100%; display: none;">
-                    </div>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-success" name="submit">Add Item</button>
-        </form>
-
-
-
-    </div>
-
-
-    <!-- Add t
 
     <!-- JavaScript tab plugin -->
-    <ul class="nav nav-tabs" id="js-tabs-1" role="tablist" style="display: none;">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="details-tab" data-bs-toggle="tab" data-bs-target="#details-tab-pane" type="button" role="tab" aria-controls="details-tab-pane" aria-selected="true">Details</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="edit-tab" data-bs-toggle="tab" data-bs-target="#edit-tab-pane" type="button" role="tab" aria-controls="edit-tab-pane" aria-selected="false">Edit</button>
-        </li>
-
-    </ul>
+ 
     <div class="tab-content" id="js-tabs-content-1">
         <div class="tab-pane fade show active" id="details-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-            <div id="rightSidebar" style="display: none; position: absolute;">
+            <div id="rightSidebarArchives" style="display: none; position: absolute;">
                 <img id="photo" alt="Image descriptions" style="height: 15rem;">
 
                 <div class="p-3">
@@ -348,7 +17,7 @@
                         <div>
 
                             <h5>Property Description</h5>
-                            <p style="color: gray" id="propertyDescription"></p>
+                            <p style="color: gray" id="ArchivespropertyDescription"></p>
                         </div>
 
                     </div>
@@ -356,7 +25,7 @@
                         <div>
 
                             <h5>Locator</h5>
-                            <p style="color: gray" id="locator"></p>
+                            <p style="color: gray" id="Archiveslocator"></p>
                         </div>
 
                     </div>
@@ -364,7 +33,7 @@
                         <div>
 
                             <h5>Current Property Number</h5>
-                            <p style="color: gray" id="propertyNumber"></p>
+                            <p style="color: gray" id="ArchivespropertyNumber"></p>
                         </div>
 
                     </div>
@@ -373,7 +42,7 @@
                         <div>
 
                             <h5>Old Property Number</h5>
-                            <p style="color: gray" id="oldPropertyNumber"></p>
+                            <p style="color: gray" id="ArchivesoldPropertyNumber"></p>
                         </div>
 
                     </div>
@@ -381,7 +50,7 @@
                         <div>
 
                             <h5>Unit of Measure</h5>
-                            <p style="color: gray" id="unitMeasure"></p>
+                            <p style="color: gray" id="ArchivesunitMeasure"></p>
                         </div>
 
                     </div>
@@ -390,7 +59,7 @@
                         <div>
 
                             <h5>Unit Value</h5>
-                            <p style="color: gray" name="Unit_Value" id="unitValue" data-unit="unit"></p>
+                            <p style="color: gray" name="Unit_Value" id="ArchivesunitValue" data-unit="unit"></p>
                         </div>
 
                     </div>
@@ -399,7 +68,7 @@
                         <div>
 
                             <h5>Quantity</h5>
-                            <p style="color: gray" id="quantity"></p>
+                            <p style="color: gray" id="Archivesquantity"></p>
                         </div>
 
                     </div>
@@ -408,7 +77,7 @@
                         <div>
 
                             <h5>Year Acquired</h5>
-                            <p style="color: gray" id="yearAcquired"></p>
+                            <p style="color: gray" id="ArchivesyearAcquired"></p>
                         </div>
 
                     </div>
@@ -416,7 +85,7 @@
                         <div>
 
                             <h5>Date Acquired</h5>
-                            <p style="color: gray" id="dateAcquired"></p>
+                            <p style="color: gray" id="ArchivesdateAcquired"></p>
                         </div>
 
                     </div>
@@ -425,7 +94,7 @@
                         <div>
 
                             <h5>Asset Category</h5>
-                            <p style="color: gray" id="assetCategory"></p>
+                            <p style="color: gray" id="ArchivesassetCategory"></p>
                         </div>
 
                     </div>
@@ -434,7 +103,7 @@
                         <div>
 
                             <h5>Account Number</h5>
-                            <p style="color: gray" id="assetNumber"></p>
+                            <p style="color: gray" id="ArchivesassetNumber"></p>
                         </div>
 
                     </div>
@@ -443,7 +112,7 @@
                         <div>
 
                             <h5>Account Title</h5>
-                            <p style="color: gray" id="assetTitle"></p>
+                            <p style="color: gray" id="ArchivesassetTitle"></p>
                         </div>
 
                     </div>
@@ -451,7 +120,7 @@
                         <div>
 
                             <h5>Issued To</h5>
-                            <p style="color: gray" id="issuedTo"></p>
+                            <p style="color: gray" id="ArchivesissuedTo"></p>
                         </div>
 
                     </div>
@@ -460,7 +129,7 @@
                         <div>
 
                             <h5>Issued From</h5>
-                            <p style="color: gray" id="issuedFrom"></p>
+                            <p style="color: gray" id="ArchivesissuedFrom"></p>
                         </div>
 
                     </div>
@@ -469,7 +138,7 @@
                         <div>
 
                             <h5>ARE/PAR/ICS Number</h5>
-                            <p style="color: gray" id="apiNumber"></p>
+                            <p style="color: gray" id="ArchivesapiNumber"></p>
                         </div>
 
                     </div>
@@ -477,7 +146,7 @@
                         <div>
 
                             <h5>Cancelled ARE/PAR/ICS Number</h5>
-                            <p style="color: gray" id="cancelledAPI"></p>
+                            <p style="color: gray" id="ArchivescancelledAPI"></p>
                         </div>
 
                     </div>
@@ -486,7 +155,7 @@
                         <div>
 
                             <h5>PRS Number</h5>
-                            <p style="color: gray" id="prsNumber"></p>
+                            <p style="color: gray" id="ArchivesprsNumber"></p>
                         </div>
 
                     </div>
@@ -496,7 +165,7 @@
                         <div>
 
                             <h5>Estimated Useful Life</h5>
-                            <p style="color: gray" id="estimatedLife"></p>
+                            <p style="color: gray" id="ArchivesestimatedLife"></p>
                         </div>
 
                     </div>
@@ -505,7 +174,7 @@
                         <div>
 
                             <h5>Fund Cluster</h5>
-                            <p style="color: gray" id="fundCluster"></p>
+                            <p style="color: gray" id="ArchivesfundCluster"></p>
                         </div>
 
                     </div>
@@ -514,7 +183,7 @@
                         <div>
 
                             <h5>Fund Admin Code</h5>
-                            <p style="color: gray" id="fundAdminCode"></p>
+                            <p style="color: gray" id="ArchivesfundAdminCode"></p>
                         </div>
 
                     </div>
@@ -523,7 +192,7 @@
                         <div>
 
                             <h5>Fund Admin Title</h5>
-                            <p style="color: gray" id="fundAdmin"></p>
+                            <p style="color: gray" id="ArchivesfundAdmin"></p>
                         </div>
 
                     </div>
@@ -532,7 +201,7 @@
                         <div>
 
                             <h5>Purchase Order/Contract Numbere</h5>
-                            <p style="color: gray" id="purchaseOrder"></p>
+                            <p style="color: gray" id="ArchivespurchaseOrder"></p>
                         </div>
 
                     </div>
@@ -541,7 +210,7 @@
                         <div>
 
                             <h5>Supplier</h5>
-                            <p style="color: gray" id="supplier"></p>
+                            <p style="color: gray" id="Archivessupplier"></p>
                         </div>
 
                     </div>
@@ -549,7 +218,7 @@
                         <div>
 
                             <h5>Acquired through</h5>
-                            <p style="color: gray" id="acquiredThrough"></p>
+                            <p style="color: gray" id="ArchivesacquiredThrough"></p>
                         </div>
 
                     </div>
@@ -560,7 +229,7 @@
                         <div>
 
                             <h5>Remarks</h5>
-                            <p style="color: gray" id="remarks"></p>
+                            <p style="color: gray" id="Archivesremarks"></p>
                         </div>
 
                     </div>
@@ -568,7 +237,7 @@
                     <div class="row">
                         <div>
                             <h5>Residual Value</h5>
-                            <p style="color: gray" id="residualValue"></p>
+                            <p style="color: gray" id="ArchivesresidualValue"></p>
                         </div>
                     </div>
 
@@ -576,7 +245,7 @@
                     <div class="row">
                         <div>
                             <h5>Depreciation</h5>
-                            <p style="color: gray" id="depreciation"></p>
+                            <p style="color: gray" id="Archivesdepreciation"></p>
                         </div>
                     </div>
 
@@ -585,28 +254,28 @@
                     <div class="row">
                         <div>
                             <h5>Years Lapse</h5>
-                            <p style="color: gray" id="yearLapse"></p>
+                            <p style="color: gray" id="ArchivesyearLapse"></p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div>
                             <h5>Month Lapse</h5>
-                            <p style="color: gray" id="monthLapse"></p>
+                            <p style="color: gray" id="ArchivesmonthLapse"></p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div>
                             <h5>Accumulated Depreciation as of today</h5>
-                            <p style="color: gray" id="accu"></p>
+                            <p style="color: gray" id="Archivesaccu"></p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div>
                             <h5>Netbook value</h5>
-                            <p style="color: gray" id="net"></p>
+                            <p style="color: gray" id="Archivesnet"></p>
                         </div>
                     </div>
 
@@ -623,317 +292,7 @@
         </div>
 
 
-        <!-- EDIT right side bar -->
-        <div class="tab-pane fade" id="edit-tab-pane" role="tabpanel" aria-labelledby="account-tab" tabindex="0">
-            <div id="rightSidebar2" style="display: none; position: absolute;">
-
-
-
-                <form action="./Controller/editinventory_Controller.php" method="post" enctype="multipart/form-data">
-                    <div class="p-3">
-                        <div class="row">
-                            <div>
-                                <input type="hidden" id="idInventory" name="id" style="width: 100%"></input>
-
-                                <h5>Property Description</h5>
-                                <input style="color: gray; width: 100%" id="editPropertyDescription" name="Property_Description"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Locator</h5>
-                                <input style="color: gray; width: 100%" name="Locator" id="editlocator"></input>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div>
-
-                                <h5>Current Property Number</h5>
-                                <input style="color: gray; width: 100%" name="Current_Property_Number" id="editpropertyNumber"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Old Property Number</h5>
-                                <input style="color: gray; width: 100%" name="Old_Property_Number" id="editoldPropertyNumber"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Unit of Measure</h5>
-                                <input style="color: gray; width: 100%" name="Unit_Measure" id="editunitMeasure"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Unit Value</h5>
-                                <input style="color: gray; width: 100%" name="Unit_Value" id="editunitValue"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Quantity</h5>
-                                <input style="color: gray; width: 100%" name="Quantity" id="editquantity" min="1"></input>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Year Acquired</h5>
-                                <input style="color: gray; width: 100%" name="Year_Acquired" id="edityearAcquired"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Date Acquired</h5>
-                                <input type="date" style="color: gray; width: 100%" name="Date_Acquired" id="editdateAcquired"
-                                max="<?php echo date('Y-m-d'); ?>">
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Asset Category</h5>
-
-                                <input list="AssetCateg" style="color: gray; width: 100%" name="Asset_Category" id="editassetCategory" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
-                                <datalist id="AssetCateg">
-                                    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
-                                    <?php
-                                    $fund = "SELECT * FROM asset_db";
-                                    $result = $data->query($fund);
-
-                                    if ($result->num_rows > 0) {
-                                        while ($row = $result->fetch_assoc()) {
-                                    ?>
-                                            <option value="<?php echo $row['Asset_Title'] ?>"><?php echo $row['Asset_Title'] ?></option>
-                                    <?php
-                                        }
-                                    }
-                                    ?>
-                                </datalist>
-                            </div>
-
-                        </div>
-
-
-
-
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Account Number</h5>
-
-                                <input list="AssetNumbers" style="color: gray; width: 100%" id="editassetNumber" name="Asset_Number" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
-                                <datalist id="AssetNumbers">
-                                    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
-                                    <?php
-                                    $fund = "SELECT * FROM itemcategory_db";
-                                    $result = $data->query($fund);
-
-                                    if ($result->num_rows > 0) {
-                                        while ($row = $result->fetch_assoc()) {
-                                    ?>
-                                            <option value="<?php echo $row['Account_Number'] ?>"><?php echo $row['Account_Number'] ?></option>
-                                    <?php
-                                        }
-                                    }
-                                    ?>
-                                </datalist>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Account Title</h5>
-                                <input style="color: gray; width: 100%" name="Asset_Title" id="editassetTitle"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Issued To</h5>
-                                <input style="color: gray; width: 100%" name="Issued_To" id="editissuedTo"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Issued From</h5>
-                                <input style="color: gray; width: 100%" name="Issued_From" id="editissuedFrom"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>ARE/PAR/ICS Number</h5>
-                                <input style="color: gray; width: 100%" name="ARE_PAR_ICS_Number" id="editapiNumber"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Cancelled ARE/PAR/ICS Number</h5>
-                                <input style="color: gray; width: 100%" name="Cancelled_Number" id="editcancelledAPI"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>PRS Number</h5>
-                                <input style="color: gray; width: 100%" name="PRS_Number" id="editprsNumber"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Estimated Useful Life</h5>
-                                <input style="color: gray; width: 100%" name="Estimated_Useful_Life" id="editestimatedLife" min="1"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Fund Cluster</h5>
-                                <input style="color: gray; width: 100%" name="Fund_Cluster" id="editfundCluster"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Fund Admin Code</h5>
-                                <input list="AdminCode" style="color: gray; width: 100%" id="editfundAdminCode" name="Fund_Admin_Code" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
-                                <datalist id="AdminCode">
-                                    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
-                                    <?php
-                                    $fund = "SELECT * FROM fundcode_db";
-                                    $result = $data->query($fund);
-
-                                    if ($result->num_rows > 0) {
-                                        while ($row = $result->fetch_assoc()) {
-                                    ?>
-                                            <option value="<?php echo $row['Fund_Admin_Code'] ?>"><?php echo $row['Fund_Admin_Code'] ?></option>
-                                    <?php
-                                        }
-                                    }
-                                    ?>
-                                </datalist>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Fund Admin Title</h5>
-                                <input style="color: gray; width: 100%" id="editfundAdmin" name="Fund_Admin_Title" readonly></input>
-                            </div>
-
-                        </div>
-
-
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Purchase Order/Contract Number</h5>
-                                <input style="color: gray; width: 100%" name="Purchase_Order_Contract_Number" id="editpurchaseOrder"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Supplier</h5>
-                                <input style="color: gray; width: 100%" name="Supplier" id="editsupplier"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Acquired through</h5>
-                                <input style="color: gray; width: 100%" name="Acquired_through" id="editacquiredThrough"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-
-                                <h5>Remarks</h5>
-                                <input style="color: gray; width: 100%" name="Remarks" id="editremarks"></input>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div>
-                                <h5>Photo</h5>
-                                <input style="color: gray; width: 100%" type="file" name="image" accept="image/*" onchange="previewImage(this)">
-                                <img id="photoPreview" src="#" alt="Preview" style="max-width: 100%; display: none;">
-                            </div>
-                        </div>
-
-
-
-
-
-                    </div>
-                    <button type="submit" class="btn btn-success">Update Item</button>
-                </form>
-
-
-
-            </div>
-        </div>
+   
     </div>
 
 
