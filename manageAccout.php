@@ -19,7 +19,7 @@ $password_match_error = $password_length_error = $duplicate_username_error = '';
 
 // Retrieve the user's information from the database
 $user_id = $_SESSION['user_id'];
-$query = "SELECT * FROM users WHERE id = $user_id";
+$query = "SELECT * FROM users WHERE user_id = $user_id";
 $result = mysqli_query($data, $query);
 
 if (!$result) {
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Check for duplicate username
-    $duplicate_check_query = "SELECT id FROM users WHERE username = '$username' AND id != $user_id";
+    $duplicate_check_query = "SELECT user_id FROM users WHERE username = '$username' AND user_id != $user_id";
     $duplicate_check_result = mysqli_query($data, $duplicate_check_query);
 
     if (!$duplicate_check_result) {
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
         // Update user information in the database
-        $update_query = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', username = '$username', password = '$hashed_password' WHERE id = $user_id";
+        $update_query = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', username = '$username', password = '$hashed_password' WHERE user_id = $user_id";
         $update_result = mysqli_query($data, $update_query);
 
         if (!$update_result) {
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
         // Update user information in the database
-        $update_query = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', username = '$username', password = '$hashed_password' WHERE id = $user_id";
+        $update_query = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', username = '$username', password = '$hashed_password' WHERE user_id = $user_id";
         $update_result = mysqli_query($data, $update_query);
 
         if (!$update_result) {

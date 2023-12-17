@@ -68,9 +68,9 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
             background-color: rgba(255, 255, 255, 0.7);
             /* White background with 70% opacity */
             background-image: url('img/abstract-yellow-color-landing-page-design-web-page-background-free-vector.png');
-        background-size: cover;
+            background-size: cover;
             /* Set the background image to cover the entire container */
-          
+
 
         }
 
@@ -80,16 +80,18 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
             border: 1px solid #ccc;
             border-collapse: collapse;
             width: 100%;
-           
+
         }
 
-        .table-up, th, td {
-            text-align:center ;
+        .table-up,
+        th,
+        td {
+            text-align: center;
             padding: 10px;
             border: 1px solid lightgray;
         }
 
-   
+
 
         .table {
             background-color: #fff;
@@ -107,8 +109,9 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
             text-align: left;
         }
 
-        .table th, .table-up th {
-            
+        .table th,
+        .table-up th {
+
             background-color: #f09f03;
             color: #530000;
         }
@@ -146,42 +149,80 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
             color: #333;
         }
 
-     
-        .table{
-    max-height: 34vh;
-    overflow-y: auto;
-    display: block;
-}
-#asset_category {
-    width: 350px;
-    background-color: white;
-    border-radius: 5px;
-    border: solid .5px;
-    height: 2rem;
-    margin-right: 10px; 
-    margin-left: 200px;/* Add space at the right */
-}
+
+        .table {
+            max-height: 34vh;
+            overflow-y: auto;
+            display: block;
+        }
+
+        #asset_category {
+            width: 350px;
+            background-color: white;
+            border-radius: 5px;
+            border: solid .5px;
+            height: 2rem;
+            margin-right: 10px;
+            margin-left: 200px;
+            /* Add space at the right */
+        }
 
 
-#search {
-    width: 350px;
-    background-color: white;
-    border-radius: 5px;
-    border: solid .5px;
-    height: 2rem;
-    margin-right: 10px; /* Add space at the right */
-}
+        #search {
+            width: 350px;
+            background-color: white;
+            border-radius: 5px;
+            border: solid .5px;
+            height: 2rem;
+            margin-right: 10px;
+            /* Add space at the right */
+        }
 
-#submit {
-    width: 50px;
-    background-color: white;
-    border-radius: 5px;
-    border: solid .5px;
-    height: 2rem;
-    margin-right: 10px; /* Add space at the right */
-}
+        #submit {
+            width: 50px;
+            background-color: white;
+            border-radius: 5px;
+            border: solid .5px;
+            height: 2rem;
+            margin-right: 10px;
+            /* Add space at the right */
+        }
 
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Set fixed widths for each column */
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 20%;
+            /* Adjust the width as needed */
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 70%;
+            /* Adjust the width as needed */
+        }
+
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 30%;
+            /* Adjust the width as needed */
+        }
 
 
 
@@ -193,7 +234,8 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
             }
 
             .table th,
-            .table td, .table-up {
+            .table td,
+            .table-up {
                 padding: 8px;
                 font-size: 13px;
             }
@@ -209,29 +251,35 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
             }
 
             .card {
-    height: auto; /* Set a specific height for the card */
-    max-height: auto; /* Set a maximum height for the card */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-    /* Other styles... */
-}
-     
-.table, .table-up{
-    max-height: 34vh;
-    overflow-y: auto;
-    display: block;
-}
-/* style="width:50px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" */
-#asset_category{
-    margin-left: 20px;
-    width: 100px;
-}
+                height: auto;
+                /* Set a specific height for the card */
+                max-height: auto;
+                /* Set a maximum height for the card */
+                overflow-y: auto;
+                /* Enable vertical scrolling if needed */
+                /* Other styles... */
+            }
 
-#search{
-    width: 100px;
-}
-#submit{
-    width: 100px;
-}
+            .table,
+            .table-up {
+                max-height: 34vh;
+                overflow-y: auto;
+                display: block;
+            }
+
+            /* style="width:50px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" */
+            #asset_category {
+                margin-left: 20px;
+                width: 100px;
+            }
+
+            #search {
+                width: 100px;
+            }
+
+            #submit {
+                width: 100px;
+            }
 
 
 
@@ -241,7 +289,7 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
     <div class="p-5 d-flex justify-content-center flex-column">
         <h2 style="text-align: LEFT; color:#fff;">Total number of data stored in the system: <?php echo $totalCount; ?></h2>
         <div class="p-5 d-flex justify-content-center" style="border: solid; font-size: 20px;background-color: #fff;">
-            <table class="table-up" >
+            <table class="table-up">
                 <thead>
                     <tr>
                         <th>Category</th>
@@ -334,99 +382,102 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
             </div>
         </div>
 
-        <table class="table" >
-        <div style="position: sticky; top: 0; z-index: 10;">
+        <table class="table">
+            <div style="position: sticky; top: 0; z-index: 10;">
 
-<!-- Top Bar -->
-<nav class="navbar navbar-expand-lg w-100" style="background-image: url('./img/abstract-yellow-color-landing-page-design-web-page-background-free-vector.png'); background-size: cover; height: .63in; border-bottom: var(--bs-border-width) solid var(--bs-content-border-color); width: 100%;">
-    <div class="d-flex" style="display: flex;">
+                <!-- Top Bar -->
+                <nav class="navbar navbar-expand-lg w-100" style="background-image: url('./img/abstract-yellow-color-landing-page-design-web-page-background-free-vector.png'); background-size: cover; height: .63in; border-bottom: var(--bs-border-width) solid var(--bs-content-border-color); width: 100%;">
+                    <div class="d-flex" style="display: flex;">
 
-        <a class="navbar-brand" href="#"></a>
-        <div class="d-flex justify-content-between">
-            <form method="get" action="" style="display: flex; align-items: center; margin-right: 30px;">
-                <select name="asset_category" id="asset_category" >
-                    <option value="">Select Asset Category</option>
-                    <?php
-                    $categories = $data->query("SELECT DISTINCT Asset_Category FROM inventory_db");
-                    while ($category = $categories->fetch_assoc()) {
-                        $selected = isset($_GET['asset_category']) && $_GET['asset_category'] == $category['Asset_Category'] ? 'selected' : '';
-                        echo "<option value='{$category['Asset_Category']}' $selected>{$category['Asset_Category']}</option>";
-                    }
-                    ?>
-                </select>
-                
-                <input type="text" id="search" name="search"  placeholder="Enter description or name to be searched">
-
-                <button type="submit" id="submit" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')">Search</button>
-            
-        
-            
-            </form>
+                        <a class="navbar-brand" href="#"></a>
+                        <div class="d-flex justify-content-between">
+                            <form method="get" action="" style="display: flex; align-items: center; margin-right: 30px;">
+                                <select name="asset_category" id="asset_category">
+                                    <option value="">Select Asset Category</option>
+                                    <?php
+                                    $categories = $data->query("SELECT DISTINCT Asset_Category FROM inventory_db");
+                                    while ($category = $categories->fetch_assoc()) {
+                                        $selected = isset($_GET['asset_category']) && $_GET['asset_category'] == $category['Asset_Category'] ? 'selected' : '';
+                                        echo "<option value='{$category['Asset_Category']}' $selected>{$category['Asset_Category']}</option>";
+                                    }
+                                    ?>
+                                </select>
+                              
 
 
-        </div>
 
-        <script>
-            function changeColor(element, color) {
-                element.style.backgroundColor = color;
+                                <input type="text" id="search" name="search" placeholder="Enter description to be searched">
+
+                                <button type="submit" id="submit" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')">Search</button>
+
+
+
+                            </form>
+
+
+                        </div>
+
+                        <script>
+                            function changeColor(element, color) {
+                                element.style.backgroundColor = color;
+                            }
+                        </script>
+
+                    </div>
+                </nav>
+            </div>
+            <?php
+            // Include your database connection logic here
+            // For example: $data = new mysqli("localhost", "username", "password", "database_name");
+
+            // Check if the database connection is successful
+            if ($data->connect_error) {
+                die("Connection failed: " . $data->connect_error);
             }
-        </script>
 
-    </div>
-</nav>
-</div>
-<?php
-    // Include your database connection logic here
-    // For example: $data = new mysqli("localhost", "username", "password", "database_name");
+            $inventory = "SELECT * FROM inventory_db";
 
-    // Check if the database connection is successful
-    if ($data->connect_error) {
-        die("Connection failed: " . $data->connect_error);
-    }
+            // Check if a search term is provided
+            if (isset($_GET['search']) && !empty($_GET['search'])) {
+                $searchTerm = $_GET['search'];
+                // Modify the query to include a search condition for Issued_To and Description columns
+                $inventory .= " WHERE Issued_To LIKE '%$searchTerm%' OR property_description LIKE '%$searchTerm%'";
+            }
 
-    $inventory = "SELECT * FROM inventory_db";
+            // Check if an asset category filter is provided
+            if (isset($_GET['asset_category']) && !empty($_GET['asset_category'])) {
+                $assetCategoryFilter = $_GET['asset_category'];
 
-    // Check if a search term is provided
-    if (isset($_GET['search']) && !empty($_GET['search'])) {
-        $searchTerm = $_GET['search'];
-        // Modify the query to include a search condition for Issued_To and Description columns
-        $inventory .= " WHERE Issued_To LIKE '%$searchTerm%' OR property_description LIKE '%$searchTerm%'";
-    }
+                // Add an additional condition to filter by asset category
+                $inventory .= (strpos($inventory, 'WHERE') !== false) ? " AND " : " WHERE ";
+                $inventory .= "Asset_Category = '" . $data->real_escape_string($assetCategoryFilter) . "'";
+            }
 
-    // Check if an asset category filter is provided
-    if (isset($_GET['asset_category']) && !empty($_GET['asset_category'])) {
-        $assetCategoryFilter = $_GET['asset_category'];
+            // Check if an asset number filter is provided
+            if (isset($_GET['asset_number']) && !empty($_GET['asset_number'])) {
+                $assetNumberFilter = $_GET['asset_number'];
 
-        // Add an additional condition to filter by asset category
-        $inventory .= (strpos($inventory, 'WHERE') !== false) ? " AND " : " WHERE ";
-        $inventory .= "Asset_Category = '" . $data->real_escape_string($assetCategoryFilter) . "'";
-    }
+                // Add an additional condition to filter by asset number
+                $inventory .= (strpos($inventory, 'WHERE') !== false) ? " AND " : " WHERE ";
+                $inventory .= "Asset_Number = '" . $data->real_escape_string($assetNumberFilter) . "'";
+            }
 
-    // Check if an asset number filter is provided
-    if (isset($_GET['asset_number']) && !empty($_GET['asset_number'])) {
-        $assetNumberFilter = $_GET['asset_number'];
-
-        // Add an additional condition to filter by asset number
-        $inventory .= (strpos($inventory, 'WHERE') !== false) ? " AND " : " WHERE ";
-        $inventory .= "Asset_Number = '" . $data->real_escape_string($assetNumberFilter) . "'";
-    }
-
-    $result = $data->query($inventory);
-?>
+            $result = $data->query($inventory);
+            ?>
 
 
-    
 
 
- <thead>
-    
-     
-     <label style="color: white; font-size: 18px; width:100%;">
- <?php
-     $totalResults = $result->num_rows;
-     echo "Total Results: $totalResults";
- ?>
-</label>
+
+            <thead>
+
+
+                <label style="color: white; font-size: 18px; width:100%;">
+                    <?php
+                    $totalResults = $result->num_rows;
+                    echo "Total Results: $totalResults";
+                    ?>
+                </label>
                 <tr>
                     <th>Name</th>
                     <th>Item description</th>
@@ -434,31 +485,31 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
 
                 </tr>
 
-                <tbody>
+            <tbody>
 
-                
-                        <?php
-                        if ($result->num_rows > 0) {
-                            // output data of each row
-                            while ($row = $result->fetch_assoc()) {
-                        ?>
-                                <tr>
-                               
-                                    <td><?php echo ($row['Issued_To']) ?></td>
-                                    <td><?php echo ($row['Property_Description']) ?></td>
-                                    <td><?php echo ($row['Asset_Category']) ?></td>
-                                </tr>
-                        <?php
-                            }
-                        } else {
-                            echo "<p style='color: white; font-size: 18px;'>There is no data in the system that has this detail</p>";
-                        }
-                        ?>
-                    </tbody>
+
+                <?php
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                ?>
+                        <tr>
+
+                            <td><?php echo ($row['Issued_To']) ?></td>
+                            <td><?php echo ($row['Property_Description']) ?></td>
+                            <td><?php echo ($row['Asset_Category']) ?></td>
+                        </tr>
+                <?php
+                    }
+                } else {
+                    echo "<p style='color: white; font-size: 18px;'>There is no data in the system that has this detail</p>";
+                }
+                ?>
+            </tbody>
             </thead>
-       
+
         </table>
-       
+
     </div>
 </div>
 <script>
@@ -505,4 +556,4 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
 
 <?php
 include('./partials/footer.php')
-?>     
+?>

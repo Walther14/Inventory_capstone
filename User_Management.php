@@ -81,12 +81,14 @@ if (isset($_SESSION['response'])) {
                         <small class="text-body-secondary fw-normal"></small>
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              
                 </div>
 
 
 
 
                 <div class="modal-body">
+                 
                     <form>
                         <div class="mb-3">
                             <label for="firt_name" class="form-label">First Name</label>
@@ -168,8 +170,11 @@ if (isset($_SESSION['response'])) {
         <div style="background-color: maroon; color: white; font-weight: bold; font-size: 2vh; text-align: right; padding: 5px 10px; margin-bottom: 10px;" role="alert">
             Total Registered Users: <?php echo $totalUsers; ?>
         </div>
-
+        <div style="background-color: maroon; color: white; font-weight: bold; font-size: 2vh; text-align: right; padding: 5px 10px; margin-bottom: 10px;" role="alert">
+           Role: 0-Admin | 1-Supply Staff | 3-Property Custodian
+        </div>
         <table class="table table-bordered align-middle">
+        
             <thead style="background-color: #ffa800;">
                 <th >FIRST NAME</th>
                 <th >LAST NAME</th>

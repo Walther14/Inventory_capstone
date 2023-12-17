@@ -12,9 +12,10 @@
             <option value="#" selected disabled>Select a Form</option>
             <option value="./forms/inspection_report.php">Inspection and Acceptance Report</option>
                 <option value="./forms/PreAndPost_report.php">Pre and Post-Repair Inspection</option>
+                <!-- <option value="./components/PreandPost_reportPrint.php">Pre and Post-Repair Inspection</option> -->
                 <option value="./forms/waste_report.php">Waste Materials Report</option>
                 <option value="./forms/materials_issued.php">Report of Supplies and Material Issued </option>
-                <option value="#">Report of Semi-Expendable Property Issued</option>
+                <option value="./forms/semiIssued.php">Report of Semi-Expendable Property Issued</option>
                 <option value="#">Inventory and Inspection Report of Unserviceable Semi-Expendable Property </option>
                 <option value="#">Inventory and Inspection Report of Unserviceable Property</option>
                 <option value="#">Stock Card</option>

@@ -9,6 +9,18 @@
                 </th>
             </thead>
 
+            <thead>
+                <th colspan="2" class="text-center">
+                <label for="item_number" class="form-label">Item No.</label>
+                <input type="text" class="form-control" id="item_number" name="item_number" placeholder="Item Number">
+                
+                </th>
+                <th colspan="2" class="text-center">
+                <label for="PPR" class="form-label">PPR #</label>
+                <input type="text" class="form-control" id="PPR" name="PPR" placeholder="PPR">
+                
+                </th>
+            </thead>
 
             <tbody>
                 <tr>
@@ -34,7 +46,7 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="property_number" class="form-label">Property Number</label>
-                                    <input type="text" class="form-control" id="property_number" name="property-number" placeholder="Property Number">
+                                    <input type="text" class="form-control" id="property_number" name="property_number" placeholder="Property Number">
                                 </div>
 
 
@@ -52,8 +64,8 @@
 
 
                                 <div class="col-sm-6">
-                                    <label for="latest_repair" class="form-label">Date of Latest Repair</label>
-                                    <input type="text" class="form-control" id="latest_rapair" name="latest_repair" placeholder="Acquisition Date">
+                                    <label for="date_latest_repair" class="form-label">Date of Latest Repair</label>
+                                    <input type="text" class="form-control" id="date_latest_rapair" name="date_latest_repair" placeholder="Acquisition Date">
                                 </div>
                                 <div class="col-6">
                                     <label for="latest_repair" class="form-label">Name of Latest Repair</label>
@@ -71,14 +83,14 @@
 
 
                 <tr style="text-align: center;">
-                    <td colspan="2">Defects/Complains</td>
+                    <td colspan="2">Defects/Complaints</td>
 
                     <td colspan="2">Requested by</td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <div>
-                            <label for="defects_complains" class="form-label">Defects/Complains</label>
+                            <label for="defects_complains" class="form-label">Defects/Complaints</label>
                             <input type="" class="form-control" id="defects_complains" name="defects_complains" placeholder="Defects/Complains">
                         </div>
 
@@ -94,8 +106,8 @@
                             <input type="text" class="form-control" id="position_designation" name="position_designation" placeholder="Position/Designation">
                         </div>
                         <div>
-                            <label for="date1" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date1" name="date1" placeholder="Date" required>
+                            <label for="requested_date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="requested_date" name="requested_date" placeholder="Date" >
                         </div>
                     </td>
                 </tr>
@@ -126,12 +138,12 @@
                             <input type="text" class="form-control" id="pre_inspected" name="pre_inspected" placeholder="Pre-Inspected by">
                         </div>
                         <div>
-                            <label for="position_designation" class="form-label">Position/Designation</label>
-                            <input type="text" class="form-control" id="position_designation" name="position_designation" placeholder="Position/Designation">
+                            <label for="pre_designation" class="form-label">Position/Designation</label>
+                            <input type="text" class="form-control" id="pre_designation" name="pre_designation" placeholder="Position/Designation">
                         </div>
                         <div>
-                            <label for="date1" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date1" name="date1" placeholder="Date" required>
+                            <label for="preDate" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="preDate" name="preDate" placeholder="Date" >
                         </div>
                     </td>
 
@@ -139,16 +151,16 @@
 
                     <td colspan="2">
                         <div>
-                            <label for="requested_by" class="form-label">Noted By</label>
-                            <input type="text" class="form-control" id="requested_by" name="requested_by" placeholder="Noted by">
+                            <label for="noted_by" class="form-label">Noted By</label>
+                            <input type="text" class="form-control" id="noted_by" name="noted_by" placeholder="Noted by">
                         </div>
                         <div>
-                            <label for="position_designation" class="form-label">Position/Designation</label>
-                            <input type="text" class="form-control" id="position_designation" name="position_designation" placeholder="Position/Designation">
+                            <label for="noted_position" class="form-label">Position/Designation</label>
+                            <input type="text" class="form-control" id="noted_position" name="noted_position" placeholder="Position/Designation">
                         </div>
                         <div>
-                            <label for="date1" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date1" name="date1" placeholder="Date" required>
+                            <label for="noted_date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="noted_date" name="noted_date" placeholder="Date" >
                         </div>
                     </td>
                 </tr>
@@ -178,8 +190,8 @@
                                     <input type="text" class="form-control" id="job_order" name="job_order" placeholder="Job Order">
                                 </div>
                                 <div class="col-6">
-                                    <label for="date2" class="form-label">Date</label>
-                                    <input type="date" class="form-control" id="date2" name="date2" placeholder="Date">
+                                    <label for="job_date" class="form-label">Date</label>
+                                    <input type="date" class="form-control" id="job_date" name="job_date" placeholder="Date">
                                 </div>
 
 
@@ -189,15 +201,15 @@
                                     <input type="text" class="form-control" id="invoice_no" name="invoice_no" placeholder="Invoice No ">
                                 </div>
                                 <div class="col-6">
-                                    <label for="date3" class="form-label">Date</label>
-                                    <input type="date" class="form-control" id="date3" name="date3" placeholder="Date">
+                                    <label for="invoice_date" class="form-label">Date</label>
+                                    <input type="date" class="form-control" id="invoice_date" name="invoice_date" placeholder="Date">
                                 </div>
 
 
 
                                 <div class="col-sm-6">
-                                    <label for="job_order" class="form-label">Amount per job order.</label>
-                                    <input type="text" class="form-control" id="job_order" name="job_order" placeholder="Amount per job order">
+                                    <label for="amount" class="form-label">Amount per job order.</label>
+                                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount per job order">
                                 </div>
                                 <div class="col-6">
                                     <label for="payable_amount" class="form-label">Payable Amount</label>
@@ -221,14 +233,14 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <div>
-                            <label for="inspected_by" class="form-label">Inspected By</label>
-                            <input type="text" class="form-control" id="inspected_" byname="inspected_by" placeholder="Inspected by">
+                    <div>
+                            <label for="inspected_dat" class="form-label">Inspected by</label>
+                            <input type="text" class="form-control" id="inspected_dat" name="inspected_dat" placeholder="Date">
                         </div>
 
                         <div>
-                            <label for="date1" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date1" name="date1" placeholder="Date" required>
+                            <label for="inspected_date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="inspected_date" name="inspected_date" placeholder="Date">
                         </div>
                     </td>
 
@@ -236,13 +248,13 @@
 
                     <td colspan="2">
                         <div>
-                            <label for="requested_by" class="form-label">Noted By</label>
-                            <input type="text" class="form-control" id="requested_by" name="requested_by" placeholder="Noted by">
+                            <label for="noted_bylower" class="form-label">Noted By</label>
+                            <input type="text" class="form-control" id="noted_bylower" name="noted_bylower" placeholder="Noted by">
                         </div>
 
                         <div>
-                            <label for="date1" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date1" name="date1" placeholder="Date" required>
+                            <label for="noted_datelower" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="noted_datelower" name="noted_datelower" placeholder="Date" >
                         </div>
                     </td>
                 </tr>

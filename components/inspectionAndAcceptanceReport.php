@@ -46,6 +46,7 @@ $propertyOfficer = $_POST['propertyOfficer'] ?? '';
         flex-direction: column;
         min-height: 100vh;
         margin: 0;
+        orientation: portrait;
         position: relative; /* Added to position the footer relative to the body */
     }
 
@@ -107,7 +108,14 @@ $propertyOfficer = $_POST['propertyOfficer'] ?? '';
 .form-group label {
    text-align: center;
 }
+body, th, td, .form-control, .form-group label {
+    font-family: 'Century Gothic', sans-serif;
+}
 
+@page {
+        size: A4 portrait; /* Set the paper size to A4 with portrait orientation */
+        margin: 1cm; /* Set margins for printing */
+    }
 
     /* Styles for the print media */
     @media print {

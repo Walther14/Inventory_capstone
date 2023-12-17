@@ -162,65 +162,8 @@ date_default_timezone_set('Asia/Manila');
     </td>
     
 </tr>
-<tr style="text-align: center;">
-    <td colspan="6">Recapitulation</td>
-    <td colspan="6">Recapitulation</td>
-</tr>
-          
-<tr style="text-align: center;">
-    <td>RIS No.</td>
-    <td>Stock Nos.</td>
-    <td>Quantity</td>
-    <td>Item</td>
-    <td>Unit</td>
-    <td>Unit Cost</td>
-    <td colspan="5">Total Cost</td>
-    <td colspan="5">Account Code</td>
-</tr>
-<tr>
-    <td>
-        <div style="margin: 0.5rem;">
-            <input type="text" class="form-control" name="RIS_NoL[]" placeholder="RIS No.">
-        </div>
-    </td>
-    <td>
-        <div style="margin: 0.5rem;">
-        <input type="text" class="form-control" name="stock_NosL[]" placeholder="Stock Nos.">
-        </div>
-    </td>
-    <td>
-        <div style="margin: 0.5rem;">
-            <input type="text" class="form-control" name="quantityL[]" placeholder="Quantity">
-        </div>
-    </td>
-    <td>
-        <div style="margin: 0.5rem;">
-            <input type="text" class="form-control" name="itemL[]" placeholder="Item">
-        </div>
-    </td>
-    <td>
-        <div style="margin: 0.5rem;">
-            <input type="text" class="form-control" name="unitL[]" placeholder="Unit">
-        </div>
-    </td>
-    <td>
-        <div style="margin: 0.5rem;">
-        <input type="text" class="form-control" name="unit_costL[]" placeholder="Unit Cost">
-        </div>
-    </td>
-    <td colspan="5">
-        <div style="margin: 0.5rem;">
-            <input type="text" class="form-control" name="total_cost[]" placeholder="Total Cost">
-        </div>
-    </td>
-    <td colspan="5">
-        <div style="margin: 0.5rem;">
-            <input type="text" class="form-control" name="account_code[]" placeholder="Amccount Code">
-        </div>
-    </td>
-</tr>
 
-
+        
 
 <td colspan="6">
                     <div>

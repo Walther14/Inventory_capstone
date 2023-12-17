@@ -179,6 +179,12 @@ th, td {
     padding-left: 5px;
 }
 
+@page {
+            size: A4 portrait;
+            /* Set the paper size to A4 with portrait orientation */
+            margin: 1cm;
+            /* Set margins for printing */
+        }
 /* Styles for the print media */
 @media print {
     /* Reset styles for body and other elements */
@@ -220,7 +226,13 @@ th, td {
       
         <tbody>
         <tr style="text-align: center;">
+        <tr>
+                        <td colspan="12" style="text-align: right; padding-right: 3px;">
+                       Appendix 9-16
+                        </td>
+                    </tr>
     <td colspan="12">
+
     <label style="text-align:center;">REPORT ON THE PHYSICAL COUNT OF INVENTORIES
  <br> <?php echo $assetTitle; ?></label>
  <br>
