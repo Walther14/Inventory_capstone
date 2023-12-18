@@ -8,6 +8,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php"); // Replace 'login.php' with your actual login page
     exit();
 }
+$id =$_SESSION['user_id'];
 
 @include('Controller/db.php');
 @include('partials/header.php');
@@ -70,7 +71,7 @@ if (!isset($_SESSION['user_id'])) {
         die("Connection failed: " . $data->connect_error);
     }
 
-    $archive = "SELECT * FROM archive_db";
+    $archive = "SELECT * FROM inventory_db WHERE issued_To = '$id'";
 
     // Check if a search term is provided
     if (isset($_GET['search']) && !empty($_GET['search'])) {
@@ -84,7 +85,7 @@ if (!isset($_SESSION['user_id'])) {
 
 
 
-    <div class="d-flex" style="position: relative; top: 100;">
+    <div class="d-flex p-5" style="position: relative; top: 100;">
 
         <div style="position: relative; width: 100rem;">
 

@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Check the database for the username and hashed password
-    $query = "SELECT user_id, username, role, password FROM users WHERE username = ?";
+    $query = "SELECT user_id, username, role, password, login_flag FROM users WHERE username = ?";
     $stmt = mysqli_prepare($data, $query);
     mysqli_stmt_bind_param($stmt, 's', $username);
     mysqli_stmt_execute($stmt);
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
     if (mysqli_stmt_num_rows($stmt) == 1) {
-      mysqli_stmt_bind_result($stmt, $id, $db_username, $role, $db_password);
+      mysqli_stmt_bind_result($stmt, $id, $db_username, $role, $db_password, $login_flag);
       mysqli_stmt_fetch($stmt);
 
       // Verify the password
@@ -50,9 +50,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_username'] = $db_username;
         $_SESSION['logged_in'] = true; 
         $_SESSION['user_role'] = $role; 
+        $_SESSION['login_flag'] = $login_flag; 
     
         if ($_SESSION['user_role'] == 3) {
+          if($_SESSION['login_flag'] == null){
+            header("Location: ./components/new_user.php");
+
+          }else{
+
             header("Location: index_custodian.php");
+          }
         } else {
             header("Location: index.php");
         }

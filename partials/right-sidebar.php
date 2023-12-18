@@ -783,7 +783,22 @@
                             <div>
 
                                 <h5>Issued To</h5>
-                                <input style="color: gray; width: 100%" name="Issued_To" id="editissuedTo"></input>
+                                <input list="issuedToList" style="color: gray; width: 100%" name="Issued_To" id="editissuedTo"></input>
+                                <datalist id="issuedToList">
+                                    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                                    <?php
+                                    $fund = "SELECT * FROM users";
+                                    $result = $data->query($fund);
+
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                            <option value="<?php echo $row['user_id'] ?>"><?php echo $row['first_name'] . $row['last_name'] ?></option>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </datalist>
                             </div>
 
                         </div>
