@@ -5,7 +5,9 @@ include('../Controller/db.php');
 
 $Agency = $_POST['agency'] ?? '';
 $Purpose = $_POST['purpose'] ?? '';
+$Other = $_POST ['other'] ?? '';
 
+/* Row 1 */
 $Qty1 = $_POST['qty1'] ?? '';
 $Unit1 = $_POST['unit1'] ?? '';
 $Description1 = $_POST['description1'] ?? '';
@@ -14,6 +16,37 @@ $Par_ics1 = $_POST['par_ics1'] ?? '';
 $End_User1 = $_POST['end_user1'] ?? '';
 $Unit_value1 = $_POST['unit_value1'] ?? '';
 $Total_value1 = $_POST['total_value1'] ?? '';
+
+/* Row 2 */
+$Qty2 = $_POST['qty2'] ?? '';
+$Unit2 = $_POST['unit2'] ?? '';
+$Description2 = $_POST['description2'] ?? '';
+$Property_no2 = $_POST['property_no2'] ?? '';
+$Par_ics2 = $_POST['par_ics2'] ?? '';
+$End_User2 = $_POST['end_user2'] ?? '';
+$Unit_value2 = $_POST['unit_value2'] ?? '';
+$Total_value2 = $_POST['total_value2'] ?? '';
+
+
+
+
+
+
+
+
+$Authority_Reason = $_POST['authority_reason'] ?? '';
+$Status = $_POST['status'] ?? '' ;
+
+$Date1 = $_POST['date1'] ?? '' ;
+$Returned_to = $_POST['returned_to'] ?? '' ;
+$Returned_by = $_POST['returned_by'] ?? '';
+$Position1 = $_POST['position1'] ?? '' ;
+
+
+$Date2 = $_POST['date2'] ?? '' ;
+$Received_From = $_POST['received_from'] ?? '' ;
+$Received_By = $_POST ['received_by'] ?? '' ;
+$Position2 = $_POST ['position2'] ?? '' ;
 
 
 
@@ -205,9 +238,9 @@ th, td {
                             <br>
                         </div>
                     </div>
-
                         <span style="display: block; text-align: left;">Name of Agency: &nbsp; <?php echo isset($Agency) ? $Agency : 'Not available'; ?> </span>
                         <span style="display: block; text-align: left;">Purpose: &nbsp; <?php echo isset($_POST['Purpose']) ? $_POST['Purpose'] : 'Not selected'; ?> </span>
+                        <span style="display: block; text-align: left;">Other: &nbsp; <?php  echo isset($Other) ? $Other : 'Not available'; ?> </span>
                     </th>
                 </tr>
         </thead>
@@ -215,25 +248,38 @@ th, td {
 
 
         <tr style="width: 100%; text-align: center;">
-            <td>qty</td>
-            <td>unit</td>
-            <td colspan='7'>decription</td>
-            <td>property no</td>
+            <td>QTY</td>
+            <td>UNIT</td>
+            <td>DESCRIPTION</td>
+            <td>PROPERTY NO.</td>
             <td >PAR/ICS No.</td>
-            <td >end user</td>
-            <td >unit value</td>
-            <td >total value</td>
+            <td >END USER</td>
+            <td >UNIT VALUE</td>
+            <td >TOTAL VALUE</td>
         </tr>
 
+        <!-- ROW 1 -->
         <tr style="width: 100%; text-align: center;">
-                    <td><?php echo $Qty1; ?> </td>
-                    <td><?php echo $Unit1 ?> </td>
-                    <td colspan='7'><?php echo isset($Description1) ?></td>
-                    <td><?php echo isset($Property_no1) ?></td>
-                    <td ><?php echo isset($Par_ics1) ?></td>
-                    <td ><?php echo isset($End_User1) ?></td>
-                    <td ><?php echo isset($Unit_value1) ?></td>
-                    <td ><?php echo isset($Total_value1) ?></td>
+                    <td><?php echo ($Qty1) ?> </td>
+                    <td><?php echo ($Unit1) ?> </td>
+                    <td><?php echo ($Description1) ?></td>
+                    <td><?php echo ($Property_no1) ?></td>
+                    <td ><?php echo ($Par_ics1) ?></td>
+                    <td ><?php echo ($End_User1) ?></td>
+                    <td ><?php echo ($Unit_value1) ?></td>
+                    <td ><?php echo ($Total_value1) ?></td>
+        </tr>
+
+        <!-- ROW 2 -->
+        <tr style="width: 100%; text-align: center;">
+                    <td><?php echo ($Qty2)  ? $Qty2 : 'Not available'; ?> </td>
+                    <td><?php echo ($Unit2)  ? $Unit2 : 'Not available'; ?> </td>
+                    <td><?php echo ($Description2) ?></td>
+                    <td><?php echo ($Property_no2) ?></td>
+                    <td ><?php echo ($Par_ics2) ?></td>
+                    <td ><?php echo ($End_User2) ?></td>
+                    <td ><?php echo ($Unit_value2) ?></td>
+                    <td ><?php echo ($Total_value2) ?></td>
         </tr>
 
 
@@ -246,19 +292,93 @@ th, td {
 
 
 
-
-
-                
 
 
 
 
             <!-- Add your table rows here -->
-        
+
+            <td colspan="15">
+                <div style="margin: 0.5rem; text-align: left;">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <span style="display: block; text-align: left;">Authority/Reason: &nbsp; <?php echo ($Authority_Reason) ?> </span>
+                        </div>
+                        <br>
+                        <div class="col-sm-6">
+                            <span style="display: block; text-align: left;">Status: &nbsp; <?php echo ($Status)  ?> </span>
+                        </div>
+                    </div>
+                </div>
+            </td>
+                    
+
+        </tr>
+
+
+        <thead>
+            <tr>
+                <th colspan="18" class="" style="font-size: 50px;"> <!-- Adjust the font size as needed -->
+                    <span style="display: block; text-align: center;">C&nbsp;E&nbsp;R&nbsp;T&nbsp;I&nbsp;F&nbsp;I&nbsp;C&nbsp;A&nbsp;T&nbsp;I&nbsp;O&nbsp;N</span>
+                </th>
+            </tr>
+        </thead>
+
+
+
+            
+    
+         <td colspan="4">
+      
+                <div>
+                    <label for="certified_correct" class="form-label">
+                        I HEREBY CERTIFY that i have RETURNED this: &nbsp; <?php echo ($Date1) ?>   to &nbsp; <?php echo ($Returned_to) ?>  
+                        &nbsp; <?php echo ($Position2) ?>  of the Supply and Property unit, the item/Article described above.
+                        <br>
+                        <br>
+                        <br>
+                        <input type="text" class="form-control"  name="position" placeholder=" &nbsp; <?php echo ($Received_From) ?> " required>
+                        <input type="text" class="form-control" name="office" placeholder=" &nbsp; <?php echo ($Position1) ?>  " required>
+                    </label>
+                </div>
+            </td>
+          
+
+                <td colspan="6">
+                    <div>
+                        <label for="certified_correct" class="form-label">
+                            I HEREBY CERTIFY that i have RECEIVED this: &nbsp; <?php echo ($Date2) ?> from &nbsp; <?php echo ($Received_From) ?>  the
+                            &nbsp; <?php echo ($Position1) ?> the item/Article described above.
+                            <br>
+                            <br>
+                            <br>
+                            <input type="text" class="form-control" i name="position" placeholder=" &nbsp; <?php echo ($Received_By) ?> " required>
+                            <input type="text" class="form-control" name="office" placeholder=" &nbsp; <?php echo ($Position2) ?>  " required>
+                        </label>
+                    </div>
+                </td>
+
+                </table>
+
             </tbody>
         </table>
 
+        
+
+
+
+
     </div>
+
+
+
+
+
+
+
+
+
+
 
     <div class="footer">
         <img src="../img/document-footer.png" alt="Logo">
