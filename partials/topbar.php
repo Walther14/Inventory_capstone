@@ -15,13 +15,13 @@
 
 
 <nav class="navbar navbar-expand-md" style="background-image: url('./img/try.png'); background-size: cover; height: .63in; border-bottom: var(--bs-border-width) solid var(--bs-content-border-color); width: 100%;">
-  <div class="container-fluid">
+  <div class="container-fluid  d-flex justify-content-end">
     <!-- <a class="navbar-brand" href="#"> -->
-      <!-- <img alt="Logo" width="24" height="24" class="d-inline-block align-text-top"> -->
+    <!-- <img alt="Logo" width="24" height="24" class="d-inline-block align-text-top"> -->
 
     <!-- </a> -->
     <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-2" aria-controls="navbar-collapse-2" aria-expanded="false" aria-label="Toggle navigation"> -->
-      <!-- <span class="navbar-toggler-icon"></span>
+    <!-- <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbar-collapse-2">
       <ul class="navbar-nav ms-auto">
@@ -30,7 +30,7 @@
           <img src="./img/BSC_LOGO.png" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" height="50" width="60">
 
           </img> -->
-          <!-- <ul class="dropdown-menu dropdown-menu-end mt-md-2 rounded-top-0">
+    <!-- <ul class="dropdown-menu dropdown-menu-end mt-md-2 rounded-top-0">
             <li><a class="dropdown-item" href="#">Backup and Restore</a></li>
             <li><a class="dropdown-item" href="./logout.php">
             <li>
@@ -49,5 +49,35 @@
 
       </ul>
     </div> -->
+    <button type="button" class="btn btn-primary position-relative"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+      <span>
+        <i class="fa-regular fa-bell"></i>
+      </span>
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        <?php
+        $sql = "SELECT COUNT(*) as row_count FROM transfer_db";
+        $result = $data->query($sql);
+
+        // Fetch the row count
+        $row = $result->fetch_assoc();
+        $rowCount = $row['row_count'];
+
+        // Output the row count
+        echo $rowCount;
+        ?>
+
+        <span class="visually-hidden">unread messages</span>
+      </span>
+    </button>
+
+
+
+
+
+
+
+
+
+
   </div>
 </nav>

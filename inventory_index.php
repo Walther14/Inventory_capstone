@@ -170,7 +170,6 @@ if (!isset($_SESSION['user_id'])) {
                                         </div>
                                     </div>
 
-                                    <!-- Button to trigger the modal -->
                                     <td>
                                         <button type="button" data-bs-toggle="modal" data-bs-target="#archivesModal<?php echo $row['id'] ?>" class="btn btn-primary archive-btn" style="background-color: maroon;">Archive</button>
                                     </td>
