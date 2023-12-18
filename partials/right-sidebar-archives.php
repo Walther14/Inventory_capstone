@@ -234,50 +234,6 @@
 
                     </div>
 
-                    <div class="row">
-                        <div>
-                            <h5>Residual Value</h5>
-                            <p style="color: gray" id="ArchivesresidualValue"></p>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div>
-                            <h5>Depreciation</h5>
-                            <p style="color: gray" id="Archivesdepreciation"></p>
-                        </div>
-                    </div>
-
-
-
-                    <div class="row">
-                        <div>
-                            <h5>Years Lapse</h5>
-                            <p style="color: gray" id="ArchivesyearLapse"></p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div>
-                            <h5>Month Lapse</h5>
-                            <p style="color: gray" id="ArchivesmonthLapse"></p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div>
-                            <h5>Accumulated Depreciation as of today</h5>
-                            <p style="color: gray" id="Archivesaccu"></p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div>
-                            <h5>Netbook value</h5>
-                            <p style="color: gray" id="Archivesnet"></p>
-                        </div>
-                    </div>
 
 
 

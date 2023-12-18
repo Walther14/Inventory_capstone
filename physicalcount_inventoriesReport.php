@@ -49,25 +49,23 @@ if (!isset($_SESSION['user_id'])) {
 </select>
 
                 <label>As of</label>
-                <input type="date" class="form-control mx-auto" id="date" name="date" placeholder="Place of Storage" style="width: 60%;">
+                <input type="date"  class="form-control mx-auto" name="Date_Acquired" required max="<?php echo date('Y-m-d'); ?>" style="width: 60%;">
                <label>For which</label>
                <select class="form-select mx-auto" name="staff" aria-label="Select example" style="width: 60%;" required>
                <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
 
-    <?php
-    $fund = "SELECT * FROM staff_db";
+               <?php
+                            $fund = "SELECT * FROM users";
+                            $result = $data->query($fund);
 
-    $result = $data->query($fund);
-
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-            ?>
-            <option value="<?php echo $row['name'] ?>"><?php echo $row['name'] ?></option>
-            <?php
-        }
-    }
-    ?>
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                            ?>
+                                    <option value="<?php echo $row['user_id'] ?>"><?php echo $row['first_name'] . ' ' . $row['last_name'] ?></option>
+                            <?php
+                                }
+                            }
+                            ?>
 </select>
 
 <div>
@@ -105,7 +103,7 @@ if (!isset($_SESSION['user_id'])) {
     <datalist id="descriptions">
     <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
     <?php
-    $fund = "SELECT * FROM inventory_db WHERE NOT Asset_Title LIKE 'Semi%'";
+    $fund = "SELECT * FROM inventory_db WHERE Asset_category LIKE 'I%'";
     $result = $data->query($fund);
 
     if ($result->num_rows > 0) {
@@ -123,7 +121,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <div class="col-sm-2">
 <label for="stock_no" class="form-label">Stock No.</label>
-<input type="number" class="form-control" name="stock_no[]" placeholder="Stock No." required>
+<input type="text" class="form-control" name="stock_no[]" placeholder="Stock No." required>
 </div>
 <div class="col-sm-2">
 <label for="unit" class="form-label">Unit of measure</label>
@@ -139,7 +137,7 @@ if (!isset($_SESSION['user_id'])) {
 </div>
 <div class="col-sm-2">
     <label for="onhand" class="form-label">On hand per count</label>
-    <input type="text" class="form-control" name="onhand[]" placeholder="On hand per count" required>
+    <input type="number" class="form-control" name="onhand[]" placeholder="On hand per count" required>
 </div>
 <div class="col-sm-1">
     <label for="quantity" class="form-label">Quantity</label>
@@ -191,7 +189,7 @@ if (!isset($_SESSION['user_id'])) {
 </div>
 <div class="col-sm-2">
 <label for="stock_no" class="form-label">Stock No.</label>
-<input type="number" class="form-control" name="stock_no[]" placeholder="Stock No.">
+<input type="text" class="form-control" name="stock_no[]" placeholder="Stock No.">
 </div>
 <div class="col-sm-2">
 <label for="unit" class="form-label">Unit of measure</label>

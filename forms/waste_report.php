@@ -36,7 +36,7 @@ date_default_timezone_set('Asia/Manila');
                 </div>
                 <div class="col-6">
                     <label for="date" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="date" name="date" placeholder="IAR Number" required>
+                    <input type="date" class="form-control" id="date" name="date" placeholder="IAR Number"     max="<?php echo date('Y-m-d'); ?>">  required>
 
                     <br>
                     <label for="WMR" class="form-label">WMR Ref. No.</label>

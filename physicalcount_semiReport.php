@@ -53,25 +53,24 @@ if (!isset($_SESSION['user_id'])) {
 
 
                 <label>As of</label>
-                <input type="date" class="form-control mx-auto" id="date" name="date" placeholder="Place of Storage" style="width: 60%;">
+                <input type="date"  class="form-control mx-auto" name="Date_Acquired" required max="<?php echo date('Y-m-d'); ?>" style="width: 60%;">
+
                <label>For which</label>
                <select class="form-select mx-auto" name="staff" aria-label="Select example" style="width: 60%;" required>
                <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
 
-    <?php
-    $fund = "SELECT * FROM staff_db";
+               <?php
+                            $fund = "SELECT * FROM users";
+                            $result = $data->query($fund);
 
-    $result = $data->query($fund);
-
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-            ?>
-            <option value="<?php echo $row['name'] ?>"><?php echo $row['name'] ?></option>
-            <?php
-        }
-    }
-    ?>
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                            ?>
+                                    <option value="<?php echo $row['user_id'] ?>"><?php echo $row['first_name'] . ' ' . $row['last_name'] ?></option>
+                            <?php
+                                }
+                            }
+                            ?>
 </select>
 
 <div>
@@ -110,7 +109,7 @@ if (!isset($_SESSION['user_id'])) {
     <datalist id="descriptions">
     <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
     <?php
-    $fund = "SELECT * FROM inventory_db WHERE Asset_Title LIKE 'Semi%'";
+    $fund = "SELECT * FROM inventory_db WHERE Asset_Category LIKE 'Semi%'";
     $result = $data->query($fund);
 
     if ($result->num_rows > 0) {
@@ -522,7 +521,6 @@ if (!isset($_SESSION['user_id'])) {
 
 <div class="col-sm-12">
     <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
-        <button type="button" class="btn btn-success" style="background-color: #ffa800;" onclick="addRow()">Add Row for items</button>
 
         <div style="margin-left: 10px;">
             <button type="submit" class="btn btn-primary" style="background-color: maroon;">Submit for Printing</button>
@@ -553,7 +551,7 @@ document.querySelectorAll('input[name^="description"]').forEach(function (input)
             .then(data => {
                 // Update the Unit of Value input field with the fetched data
                    row.querySelector('input[name^="article"]').value = data.asset_number;
-                row.querySelector('input[name^="val"]').value = data.unit_value;
+                   row.querySelector('input[name^="val"]').value = data.unit_value.replace(",","");
                 row.querySelector('input[name^="unit"]').value = data.unit_measure;
                 row.querySelector('input[name^="stock_no"]').value = data.current_property_number;
 
