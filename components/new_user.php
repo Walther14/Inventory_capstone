@@ -1,9 +1,10 @@
 <?php
-session_start(); 
+session_start(); // Start the session to access session variables
 
 $id = $_SESSION['user_id'];
 @include('../Controller/db.php');
 
+// Function to generate random security questions
 function getRandomQuestions($count = 3)
 {
     $questions = [
@@ -17,38 +18,55 @@ function getRandomQuestions($count = 3)
         "What is your favorite food?",
         "What is the name of your best friend in high school?",
         "What is your favorite vacation spot?",
+        // Add more questions as needed
     ];
 
     shuffle($questions);
 
+    // Ensure that we have at least $count questions
+    while (count($questions) < $count) {
+        // Add questions back to the array if needed (infinite loop prevention)
+        $questions[] = reset($questions);
+    }
+
     return array_slice($questions, 0, $count);
 }
 
-function insertUser($password, $securityAnswers, $newPassword, $id)
+
+// Get random security questions
+$securityQuestions = getRandomQuestions();
+
+function hashSecurityAnswers($securityAnswers)
 {
-    global $data;
+    // Hash each security answer
+    return array_map('password_hash', $securityAnswers, array_fill(0, count($securityAnswers), PASSWORD_BCRYPT));
+}
+
+function insertUser($password, $hashedSecurityAnswers, $newPassword, $id)
+{
+    global $data, $securityQuestions;
 
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
     // Update user in users table
     $sql = "UPDATE users 
-            SET security_answer_1 = '$securityAnswers[0]', 
-                security_answer_2 = '$securityAnswers[1]', 
-                security_answer_3 = '$securityAnswers[2]', 
+            SET security_question_1 = '" . $securityQuestions[0] . "', 
+                security_question_2 = '" . $securityQuestions[1] . "', 
+                security_question_3 = '" . $securityQuestions[2] . "', 
+                security_answer_1 = '$hashedSecurityAnswers[0]', 
+                security_answer_2 = '$hashedSecurityAnswers[1]', 
+                security_answer_3 = '$hashedSecurityAnswers[2]', 
                 password = '$hashedPassword', 
                 login_flag = 'true' 
             WHERE user_id = '$id'";
     
     if ($data->query($sql) === TRUE) {
-        header("Location: ../login.php");
-
+    header("Location: ../login.php");
+       
     } else {
         echo "<p class='text-danger'>Error: " . $sql . "<br>" . $data->error . "</p>";
     }
 }
-
-// Get random security questions
-$securityQuestions = getRandomQuestions();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Handle form submission
@@ -58,12 +76,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validate that the new password and confirm password match
     if ($password === $confirmPassword) {
-        insertUser($password, $securityAnswers, $password, $id);
+        // Hash security answers before inserting into the database
+        $hashedSecurityAnswers = hashSecurityAnswers($securityAnswers);
+        insertUser($password, $hashedSecurityAnswers, $password, $id);
     } else {
         echo "<p class='text-danger'>Error: New password and confirm password do not match.</p>";
     }
 }
 
+// Close the database connection
 $data->close();
 ?>
 
@@ -81,7 +102,7 @@ $data->close();
     <title>Document</title>
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5 card">
         <h2>Welcome! Please answer the following security questions:</h2>
 
         <form method='post'>
@@ -107,3 +128,5 @@ $data->close();
     </div>
 </body>
 </html>
+
+
