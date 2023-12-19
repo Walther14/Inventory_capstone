@@ -194,30 +194,34 @@ if (isset($_SESSION['response'])) {
                                 <td><?php echo $row['first_name']; ?></td>
                                 <td><?php echo $row['last_name']; ?></td>
                                 <td><?php echo $row['username']; ?></td>
+                                <td>
+
                                 <?php
-                                if ($row['role' == 1]) {
+                                if ($row['role']  == 1) {
                                 ?>
-                                    <td>Staff</td>
+                                Staff
 
                                 <?php
                                 }
                                 ?>
                                   <?php
-                                if ($row['role' == 3]) {
+                                if ($row['role']  == 3) {
                                 ?>
-                                    <td>Custodian</td>
+                                Custodian
 
                                 <?php
                                 }
                                 ?>
                                     <?php
-                                if ($row['role' == 0]) {
+                                if ($row['role']  == 0) {
                                 ?>
-                                    <td>Custodian</td>
+                                Admin
 
                                 <?php
                                 }
                                 ?>
+                                </td>
+
                                 <td><?php echo $row['created_at']; ?></td>
                                 <td><?php echo $row['updated_at']; ?></td>
                             </tr>
