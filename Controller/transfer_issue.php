@@ -19,12 +19,11 @@ session_start();
 
             
             date_default_timezone_set('Asia/Manila');
-            
             $current_time = date('Y-m-d H:i:s');
             
-
-            $query2 = "UPDATE transfer_db SET custodian_notif = 1, dateTime = $current_time, archive = 1 WHERE transfer_id = $transfer_id";
-
+            
+            $query2 = "UPDATE transfer_db SET custodian_notif = 1, dateTime = '$current_time', archive = 1 WHERE transfer_id = $transfer_id";
+            
             if ($data->query($query2) === TRUE) {
 
 

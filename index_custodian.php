@@ -219,7 +219,12 @@ $id = $_SESSION['user_id'];
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-    <?php
+
+
+                <div class="container mt-1">
+
+                    <ul class="list-group list-group-flush">
+                    <?php
         $transfer_db = "SELECT * FROM transfer_db WHERE user_id = $id AND custodian_notif = 1";
         $transfer_db_query = mysqli_query($data, $transfer_db);
 
@@ -227,9 +232,119 @@ $id = $_SESSION['user_id'];
             // output data of each row
             while ($row = $transfer_db_query->fetch_assoc()) {
         ?>
+                                <li class="list-group-item">
+                                    <div class="media d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <span><i class="fa-solid fa-user"></i></span>
+                                            <div class="d-flex flex-column align-items-start" style="margin-left: 2rem; padding: 1rem">
+                                                <h6 class="mt-0"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h6>
 
-                <h1><?php echo $row['user_id'] ?></h1>
-                <p><?php echo $row['message'] ?></p>
+                                                <?php
+                                                echo $row['message'];
+                                                ?>
+                                            </div>
+                                        </div>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="transferModal<?php echo $row['transfer_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                            Approve the following transfer?
+                                                        </h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div>
+
+                                                            <?php
+                                                            echo $row['first_name'] . ' ' . $row['last_name'] . 'requested to tranfer';
+                                                            ?>
+                                                        </div>
+                                                        <div>
+                                                            <?php
+                                                            echo $row['Property_Description'];
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer d-flex justify-content-around">
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#issueTo<?php echo $row['transfer_id'] ?>">Approve</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="modal fade" id="issueTo<?php echo $row['transfer_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                            Choose Who to issue the item to:
+                                                        </h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <div class="dropdown-container" style="text-align: center; margin: 50px;">
+                                                            <form action="./Controller/transfer_issue.php" method="post">
+
+                                                                <input type="hidden" name="item_id" value="<?php echo $row['item_id'] ?>">
+                                                                <input type="hidden" name="transfer_id" value="<?php echo $row['transfer_id'] ?>">
+
+                                                                <select style="padding: 10px; font-size: 16px; border: 2px solid #3498db; border-radius: 5px; cursor: pointer; outline: none; background-color: #ecf0f1; color: #333; transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;" name="user_id">
+                                                                    <?php
+                                                                    $transfer2 = "SELECT * FROM users";
+                                                                    $transfer_query2 = mysqli_query($data, $transfer2);
+
+                                                                    if ($transfer_query2->num_rows > 0) {
+                                                                        // output data of each row
+                                                                        while ($row2 = $transfer_query2->fetch_assoc()) {
+
+                                                                    ?>
+
+                                                                            <option value="<?php echo $row2['user_id'] ?>"><?php echo $row2['first_name'] . ' ' . $row2['last_name'] ?></option>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
+
+
+                                                                </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer d-flex justify-content-around">
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+                                                        <button type="submit" class="btn btn-primary">Approve</button>
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <button class="btn btn-circle ml-auto" style="height: 50%; border-radius: 50px; border: solid" data-bs-toggle="modal" data-bs-target="#transferModal<?php echo $row['transfer_id'] ?>">
+                                            <span><i class="fas fa-ellipsis-h"></i></span>
+                                        </button>
+
+                                    </div>
+                                </li>
+                        <?php
+                            }
+                        }
+                        ?>
+
+                    </ul>
+                    <div class="card-footer text-muted text-center">
+                        <a href="#" class="text-primary">See All</a>
+                    </div>
+                </div>
         <?php
             }
         }
