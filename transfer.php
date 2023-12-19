@@ -130,7 +130,10 @@ if (!isset($_SESSION['user_id'])) {
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer d-flex justify-content-around">
-                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+                                                            <form action="./Controller/reject-transfer.php?id=<?php echo $row['transfer_id'] ?>" method="get">
+                                                            <input type="hidden" name="id" value="<?php echo $row['transfer_id'] ?>">
+                                                                <button type="submit" class="btn btn-danger">Reject</button>
+                                                            </form>
                                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#issueTo<?php echo $row['transfer_id'] ?>">Approve</button>
                                                         </div>
                                                     </div>
@@ -155,8 +158,8 @@ if (!isset($_SESSION['user_id'])) {
                                                             <div class="dropdown-container" style="text-align: center; margin: 50px;">
                                                                 <form action="./Controller/transfer_issue.php" method="post">
 
-                                                                <input type="hidden" name="item_id" value="<?php echo $row['item_id'] ?>">
-                                                                <input type="hidden" name="transfer_id" value="<?php echo $row['transfer_id'] ?>">
+                                                                    <input type="hidden" name="item_id" value="<?php echo $row['item_id'] ?>">
+                                                                    <input type="hidden" name="transfer_id" value="<?php echo $row['transfer_id'] ?>">
 
                                                                     <select style="padding: 10px; font-size: 16px; border: 2px solid #3498db; border-radius: 5px; cursor: pointer; outline: none; background-color: #ecf0f1; color: #333; transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;" name="user_id">
                                                                         <?php
@@ -179,10 +182,8 @@ if (!isset($_SESSION['user_id'])) {
                                                                     </select>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer d-flex justify-content-around"> 
-                                                            <form action="./Controller/reject-transfer.php?id=<?php echo $row['transfer_id'] ?>" method="get">
-                                                                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
-                                                            </form>
+                                                        <div class="modal-footer d-flex justify-content-around">
+                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
                                                             <button type="submit" class="btn btn-primary">Approve</button>
                                                         </div>
                                                         </form>

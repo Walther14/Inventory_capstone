@@ -14,17 +14,17 @@ session_start();
         $current_time = date('Y-m-d H:i:s');
 
        
-        $query2 = "UPDATE transfer_db SET custodian_notif = 0, dateTime = '$current_time', archive = 1 WHERE transfer_id = $transfer_id";
+        $query = "UPDATE transfer_db SET custodian_notif = 0, dateTime = '$current_time', archive = 1 WHERE transfer_id = $id";
         
         if ($data->query($query) === TRUE) {
 
             
         
 
-
+echo 'anta';
     
     
-                header("Location: ../transfer.php");
+                // header("Location: ../transfer.php");
             
         } else {
             echo "Error updating record: " . $data->error;
