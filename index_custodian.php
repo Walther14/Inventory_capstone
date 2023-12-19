@@ -247,7 +247,7 @@ $id = $_SESSION['user_id'];
                                             echo 'transfer has been approved by the supplier at' . $row['dateTime'];
                                         }elseif(($row['custodian_notif'] == 0)){
                                             echo 'transfer has been rejected by the supplier at' . $row['dateTime'];
-                                            echo 'Reason: ' . $row['message'];
+                                            echo 'Reason: ' . $row['reject_message'];
 
                                         }
                                         ?>

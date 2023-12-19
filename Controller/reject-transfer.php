@@ -15,7 +15,7 @@ session_start();
         $current_time = date('Y-m-d H:i:s');
 
        
-        $query = "UPDATE transfer_db SET custodian_notif = 0, dateTime = '$current_time', message= '$message', archive = 1 WHERE transfer_id = $id";
+        $query = "UPDATE transfer_db SET custodian_notif = 0, dateTime = '$current_time', reject_message= '$message', archive = 1 WHERE transfer_id = $id";
         
         if ($data->query($query) === TRUE) {
 

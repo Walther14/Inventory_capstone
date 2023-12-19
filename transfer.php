@@ -57,9 +57,9 @@ if (!isset($_SESSION['user_id'])) {
 
             <div class="card text-center p-10">
                 <div class="card-header">
-                    <ul class="nav nav-tabs card-header-tabs">
+                    <ul class="nav nav-underline">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="true" href="#">Active</a>
+                            <a class="nav-link active" aria-current="true" href="#">Request for transfers</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
@@ -102,7 +102,7 @@ if (!isset($_SESSION['user_id'])) {
                                                     <h6 class="mt-0"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h6>
 
                                                     <?php
-                                                    echo $row['message'];
+                                                    echo $row['request_message'];
                                                     ?>
                                                 </div>
                                             </div>
