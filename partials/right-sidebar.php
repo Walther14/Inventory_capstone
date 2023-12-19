@@ -57,7 +57,7 @@
                     <div>
 
                         <h5>Unit Value</h5>
-                        <input type="number" style="color: gray; width: 100%" name="Unit_Value" required></input>
+                        <input type="text" style="color: gray; width: 100%" name="Unit_Value" required></input>
                     </div>
 
                 </div>
@@ -215,7 +215,7 @@
                     <div>
 
                         <h5>Estimated Useful Life</h5>
-                        <input type="number" style="color: gray; width: 100%" name="Estimated_Useful_Life" min="1" required></input>
+                        <input type="text" style="color: gray; width: 100%" name="Estimated_Useful_Life" min="1" required></input>
                     </div>
 
                 </div>
