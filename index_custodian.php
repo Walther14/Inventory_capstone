@@ -50,7 +50,7 @@ $id = $_SESSION['user_id'];
                             </span>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 <?php
-                                $sql = "SELECT COUNT(*) as row_count FROM transfer_db WHERE transfer_id = $id";
+                                $sql = "SELECT COUNT(*) as row_count FROM transfer_db WHERE user_id = $id AND custodian_notif = 1";
                                 $result = $data->query($sql);
 
                                 // Fetch the row count
