@@ -46,14 +46,48 @@ if (!isset($_SESSION['user_id'])) {
 </div>
 <div style="text-align: center;  font-family: Century Gothic, sans-serif;">
     <img src="./manual/forget_pass.png" style="height: 15rem; margin-top: 50px;">
-    <p>Figure 2</p>
+    <p>Figure 3</p>
     <!-- <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;"></p> -->
-    <h5 style="text-align: justify; padding-left: 10rem;">2.1 Change default password: enter your default password</h5>
-    <h5 style="text-align: justify; padding-left: 10rem;">2.2 Change default password: enter your new password</h5>
-    <h5 style="text-align: justify; padding-left: 10rem;">2.3 Change default password: confirm password</h5>
-    <h5 style="text-align: justify; padding-left: 10rem;">2.4 Change default password: choose a random security question</h5>
-    <h5 style="text-align: justify; padding-left: 10rem;">2.5 Change default password: enter your security answer to be used in forgetting your password</h5>
-    <h5 style="text-align: justify; padding-left: 10rem;">2.6 Change default password: submit your data</h5>
+    <h5 style="text-align: justify; padding-left: 10rem;">3.1 Forget password: Enter your username</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">If you have forgotten your password, initiate the password recovery process by entering your username in the provided field. This is the first step to verify your identity and recover access to your account.</p>
+    <h5 style="text-align: justify; padding-left: 10rem;">3.2 Forget password: Enter your user id from the administrator</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">To further verify your identity, enter the user ID provided to you by the system administrator. This step ensures that the password recovery request is legitimate and authorized.</p>
+    <h5 style="text-align: justify; padding-left: 10rem;">3.3 Forget password: Search for the user</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">After entering your username and user ID, click the "Search" button to locate your account information. This step is crucial in confirming the details associated with your account and proceeding with the password recovery process.</p>
+    <h5 style="text-align: justify; padding-left: 10rem;">3.4 Forget password: Cancel the process</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">If you decide to cancel the password recovery process at any point, you can click the "Cancel" button. This will abort the current operation, and you will remain on the login screen.</p>
+</div>
+<div style="text-align: center;  font-family: Century Gothic, sans-serif;">
+    <img src="./manual/change password in forget.png" style="height: 25rem; margin-top: 50px;">
+    <p>Figure 4</p>
+    <!-- <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;"></p> -->
+    <h5 style="text-align: justify; padding-left: 10rem;">4.1 New password in forget process: enter your new password</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">In the password recovery process, it's time to set a new password. Enter your chosen new password in the field provided. Choose a strong and secure password</p>
+    <h5 style="text-align: justify; padding-left: 10rem;">4.2 New password in forget process: enter the new password for confirmation</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">To ensure accuracy and prevent errors, re-enter your new password in the confirmation field. This step confirms that the new password is correctly typed, helping you avoid any mistakes during the password-setting process.</p>
+    <h5 style="text-align: justify; padding-left: 10rem;">4.3 New password in forget process: Submit</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">After entering and confirming your new password, click the "Submit" button to save the changes. Your password has now been successfully updated, and you can use the new credentials to log in to your account.</p>
+</div>
+<div style="text-align: center;  font-family: Century Gothic, sans-serif;">
+    <img src="./manual/dash.png" style="height: 25rem; margin-top: 50px;">
+    <p>Figure 5</p>
+    <!-- <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;"></p> -->
+    <h5 style="text-align: justify; padding-left: 10rem;">5.1 Inventory: Back up and restore database, Log out, Manage Account to change credentials, usermanual </h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Back Up and Restore Database: Perform essential database operations to ensure data integrity and security.</p>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Log Out: Safely log out of the system to protect your account and data.</p>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Manage Account to Change Credentials: Access account settings to modify login credentials for enhanced security.</p>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">User Manual: Refer to the user manual for detailed instructions and assistance.</p>
+
+    <h5 style="text-align: justify; padding-left: 10rem;">5.2 Inventory: Dashboard, Inventory data, User Management to add users</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;"></p>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;"></p>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;"></p>
+
+    <h5 style="text-align: justify; padding-left: 10rem;">5.3 Inventory: Asset, Item Category, Fund Code</h5>
+    <h5 style="text-align: justify; padding-left: 10rem;">5.4 Inventory: Reports and Forms</h5>
+    <h5 style="text-align: justify; padding-left: 10rem;">5.5 Inventory: Locator, BSC Campus and Dorm</h5>
+    <h5 style="text-align: justify; padding-left: 10rem;">5.6 Inventory: Transfer</h5>
+    <h5 style="text-align: justify; padding-left: 10rem;">5.7 Inventory: Archive</h5>
 </div>
 
 
