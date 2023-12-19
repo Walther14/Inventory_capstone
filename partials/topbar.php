@@ -49,26 +49,26 @@
 
       </ul>
     </div> -->
-    <button type="button" class="btn btn-primary position-relative"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+    <!-- <button type="button" class="btn btn-primary position-relative"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
       <span>
         <i class="fa-regular fa-bell"></i>
       </span>
       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
         <?php
-        $sql = "SELECT COUNT(*) as row_count FROM transfer_db";
-        $result = $data->query($sql);
+        // $sql = "SELECT COUNT(*) as row_count FROM transfer_db";
+        // $result = $data->query($sql);
 
-        // Fetch the row count
-        $row = $result->fetch_assoc();
-        $rowCount = $row['row_count'];
+        // // Fetch the row count
+        // $row = $result->fetch_assoc();
+        // $rowCount = $row['row_count'];
 
-        // Output the row count
-        echo $rowCount;
-        ?>
+        // // Output the row count
+        // echo $rowCount;
+        // ?>
 
         <span class="visually-hidden">unread messages</span>
       </span>
-    </button>
+    </button> -->
 
 
 

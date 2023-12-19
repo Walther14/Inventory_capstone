@@ -1,30 +1,30 @@
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+<!-- <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Transfer Notifications</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <?php
-        $transfer_db = "SELECT * FROM transfer_db";
-        $transfer_db_query = mysqli_query($data, $transfer_db);
+        // $transfer_db = "SELECT * FROM transfer_db";
+        // $transfer_db_query = mysqli_query($data, $transfer_db);
 
-        if ($transfer_db_query->num_rows > 0) {
-            // output data of each row
-            while ($row = $transfer_db_query->fetch_assoc()) {
-        ?>
+        // if ($transfer_db_query->num_rows > 0) {
+        //     // output data of each row
+        //     while ($row = $transfer_db_query->fetch_assoc()) {
+        // ?>
 
-                <h1><?php echo $row['user_id'] ?></h1>
-                <p><?php echo $row['message'] ?></p>
-        <?php
-            }
-        }
+        //         <h1><?php echo $row['user_id'] ?></h1>
+        //         <p><?php echo $row['message'] ?></p>
+        // <?php
+        //     }
+        // }
         ?>
 
 
 
 
     </div>
-</div>
+</div> -->
 
 <script>
     let sidebuttons = document.querySelectorAll("#gyatt")
@@ -102,13 +102,13 @@
     })
 
 
-
-    archives.addEventListener("click", function() {
+    trans.addEventListener("click", function() {
         let sidenav1 = document.querySelector("#sidenav1")
         let sidenav2 = document.querySelector("#sidenav2")
         let sidenav3 = document.querySelector("#sidenav3")
         let sidenav4 = document.querySelector("#sidenav4")
         let sidenav5 = document.querySelector("#sidenav5")
+        let sidenav6 = document.querySelector("#sidenav6")
 
 
 
@@ -117,6 +117,29 @@
         sidenav3.style.display = "none"
         sidenav4.style.display = "none"
         sidenav5.style.display = "block"
+        sidenav6.style.display = "none"
+
+
+    })
+
+
+
+    archives.addEventListener("click", function() {
+        let sidenav1 = document.querySelector("#sidenav1")
+        let sidenav2 = document.querySelector("#sidenav2")
+        let sidenav3 = document.querySelector("#sidenav3")
+        let sidenav4 = document.querySelector("#sidenav4")
+        let sidenav5 = document.querySelector("#sidenav5")
+        let sidenav6 = document.querySelector("#sidenav6")
+
+
+
+        sidenav1.style.display = "none"
+        sidenav2.style.display = "none"
+        sidenav3.style.display = "none"
+        sidenav4.style.display = "none"
+        sidenav5.style.display = "none"
+        sidenav6.style.display = "block"
 
 
     })
