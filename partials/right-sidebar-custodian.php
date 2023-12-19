@@ -16,7 +16,7 @@
                         <div>
 
                             <h5>Property Description</h5>
-                            <p style="color: gray" id="ArchivespropertyDescription"></p>
+                            <p style="color: gray" id="CustodianpropertyDescription"></p>
                         </div>
 
                     </div>
@@ -24,7 +24,7 @@
                         <div>
 
                             <h5>Locator</h5>
-                            <p style="color: gray" id="Archiveslocator"></p>
+                            <p style="color: gray" id="Custodianlocator"></p>
                         </div>
 
                     </div>
@@ -32,7 +32,7 @@
                         <div>
 
                             <h5>Current Property Number</h5>
-                            <p style="color: gray" id="ArchivespropertyNumber"></p>
+                            <p style="color: gray" id="CustodianpropertyNumber"></p>
                         </div>
 
                     </div>
@@ -41,7 +41,7 @@
                         <div>
 
                             <h5>Old Property Number</h5>
-                            <p style="color: gray" id="ArchivesoldPropertyNumber"></p>
+                            <p style="color: gray" id="CustodianoldPropertyNumber"></p>
                         </div>
 
                     </div>
@@ -49,7 +49,7 @@
                         <div>
 
                             <h5>Unit of Measure</h5>
-                            <p style="color: gray" id="ArchivesunitMeasure"></p>
+                            <p style="color: gray" id="CustodianunitMeasure"></p>
                         </div>
 
                     </div>
@@ -58,7 +58,7 @@
                         <div>
 
                             <h5>Unit Value</h5>
-                            <p style="color: gray" name="Unit_Value" id="ArchivesunitValue" data-unit="unit"></p>
+                            <p style="color: gray" name="Unit_Value" id="CustodianunitValue" data-unit="unit"></p>
                         </div>
 
                     </div>
@@ -67,7 +67,7 @@
                         <div>
 
                             <h5>Quantity</h5>
-                            <p style="color: gray" id="Archivesquantity"></p>
+                            <p style="color: gray" id="Custodianquantity"></p>
                         </div>
 
                     </div>
@@ -76,7 +76,7 @@
                         <div>
 
                             <h5>Year Acquired</h5>
-                            <p style="color: gray" id="ArchivesyearAcquired"></p>
+                            <p style="color: gray" id="CustodianyearAcquired"></p>
                         </div>
 
                     </div>
@@ -84,7 +84,7 @@
                         <div>
 
                             <h5>Date Acquired</h5>
-                            <p style="color: gray" id="ArchivesdateAcquired"></p>
+                            <p style="color: gray" id="CustodiandateAcquired"></p>
                         </div>
 
                     </div>
@@ -93,7 +93,7 @@
                         <div>
 
                             <h5>Asset Category</h5>
-                            <p style="color: gray" id="ArchivesassetCategory"></p>
+                            <p style="color: gray" id="CustodianassetCategory"></p>
                         </div>
 
                     </div>
@@ -102,7 +102,7 @@
                         <div>
 
                             <h5>Account Number</h5>
-                            <p style="color: gray" id="ArchivesassetNumber"></p>
+                            <p style="color: gray" id="CustodianassetNumber"></p>
                         </div>
 
                     </div>
@@ -111,7 +111,7 @@
                         <div>
 
                             <h5>Account Title</h5>
-                            <p style="color: gray" id="ArchivesassetTitle"></p>
+                            <p style="color: gray" id="CustodianassetTitle"></p>
                         </div>
 
                     </div>
@@ -119,7 +119,7 @@
                         <div>
 
                             <h5>Issued To</h5>
-                            <p style="color: gray" id="ArchivesissuedTo"></p>
+                            <p style="color: gray" id="CustodianissuedTo"></p>
                         </div>
 
                     </div>
@@ -128,7 +128,7 @@
                         <div>
 
                             <h5>Issued From</h5>
-                            <p style="color: gray" id="ArchivesissuedFrom"></p>
+                            <p style="color: gray" id="CustodianissuedFrom"></p>
                         </div>
 
                     </div>
@@ -137,7 +137,7 @@
                         <div>
 
                             <h5>ARE/PAR/ICS Number</h5>
-                            <p style="color: gray" id="ArchivesapiNumber"></p>
+                            <p style="color: gray" id="CustodianapiNumber"></p>
                         </div>
 
                     </div>
@@ -145,7 +145,7 @@
                         <div>
 
                             <h5>Cancelled ARE/PAR/ICS Number</h5>
-                            <p style="color: gray" id="ArchivescancelledAPI"></p>
+                            <p style="color: gray" id="CustodiancancelledAPI"></p>
                         </div>
 
                     </div>
@@ -154,7 +154,7 @@
                         <div>
 
                             <h5>PRS Number</h5>
-                            <p style="color: gray" id="ArchivesprsNumber"></p>
+                            <p style="color: gray" id="CustodianprsNumber"></p>
                         </div>
 
                     </div>
@@ -164,7 +164,7 @@
                         <div>
 
                             <h5>Estimated Useful Life</h5>
-                            <p style="color: gray" id="ArchivesestimatedLife"></p>
+                            <p style="color: gray" id="CustodianestimatedLife"></p>
                         </div>
 
                     </div>
@@ -173,7 +173,7 @@
                         <div>
 
                             <h5>Fund Cluster</h5>
-                            <p style="color: gray" id="ArchivesfundCluster"></p>
+                            <p style="color: gray" id="CustodianfundCluster"></p>
                         </div>
 
                     </div>
@@ -182,7 +182,7 @@
                         <div>
 
                             <h5>Fund Admin Code</h5>
-                            <p style="color: gray" id="ArchivesfundAdminCode"></p>
+                            <p style="color: gray" id="CustodianfundAdminCode"></p>
                         </div>
 
                     </div>
@@ -191,7 +191,7 @@
                         <div>
 
                             <h5>Fund Admin Title</h5>
-                            <p style="color: gray" id="ArchivesfundAdmin"></p>
+                            <p style="color: gray" id="CustodianfundAdmin"></p>
                         </div>
 
                     </div>
@@ -200,7 +200,7 @@
                         <div>
 
                             <h5>Purchase Order/Contract Numbere</h5>
-                            <p style="color: gray" id="ArchivespurchaseOrder"></p>
+                            <p style="color: gray" id="CustodianpurchaseOrder"></p>
                         </div>
 
                     </div>
@@ -209,7 +209,7 @@
                         <div>
 
                             <h5>Supplier</h5>
-                            <p style="color: gray" id="Archivessupplier"></p>
+                            <p style="color: gray" id="Custodiansupplier"></p>
                         </div>
 
                     </div>
@@ -217,7 +217,7 @@
                         <div>
 
                             <h5>Acquired through</h5>
-                            <p style="color: gray" id="ArchivesacquiredThrough"></p>
+                            <p style="color: gray" id="CustodianacquiredThrough"></p>
                         </div>
 
                     </div>
@@ -228,7 +228,7 @@
                         <div>
 
                             <h5>Remarks</h5>
-                            <p style="color: gray" id="Archivesremarks"></p>
+                            <p style="color: gray" id="Custodianremarks"></p>
                         </div>
 
                     </div>
@@ -236,7 +236,7 @@
                     <div class="row">
                         <div>
                             <h5>Residual Value</h5>
-                            <p style="color: gray" id="ArchivesresidualValue"></p>
+                            <p style="color: gray" id="CustodianresidualValue"></p>
                         </div>
                     </div>
 
@@ -244,7 +244,7 @@
                     <div class="row">
                         <div>
                             <h5>Depreciation</h5>
-                            <p style="color: gray" id="Archivesdepreciation"></p>
+                            <p style="color: gray" id="Custodiandepreciation"></p>
                         </div>
                     </div>
 
@@ -253,28 +253,28 @@
                     <div class="row">
                         <div>
                             <h5>Years Lapse</h5>
-                            <p style="color: gray" id="ArchivesyearLapse"></p>
+                            <p style="color: gray" id="CustodianyearLapse"></p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div>
                             <h5>Month Lapse</h5>
-                            <p style="color: gray" id="ArchivesmonthLapse"></p>
+                            <p style="color: gray" id="CustodianmonthLapse"></p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div>
                             <h5>Accumulated Depreciation as of today</h5>
-                            <p style="color: gray" id="Archivesaccu"></p>
+                            <p style="color: gray" id="Custodianaccu"></p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div>
                             <h5>Netbook value</h5>
-                            <p style="color: gray" id="Archivesnet"></p>
+                            <p style="color: gray" id="Custodiannet"></p>
                         </div>
                     </div>
 

@@ -352,64 +352,64 @@ $id = $_SESSION['user_id'];
                 // console.log(data.id)
                 // document.getElementById('idInventory').value = data.id;
                 // Display the result in the specified container
-                document.getElementById('ArchivespropertyDescription').innerHTML = data.Property_Description;
+                document.getElementById('CustodianpropertyDescription').innerHTML = data.Property_Description;
 
-                document.getElementById('ArchivespropertyNumber').innerHTML = data.Current_Property_Number;
+                document.getElementById('CustodianpropertyNumber').innerHTML = data.Current_Property_Number;
 
-                document.getElementById('ArchivesunitMeasure').innerHTML = data.Unit_Measure;
+                document.getElementById('CustodianunitMeasure').innerHTML = data.Unit_Measure;
 
-                document.getElementById('Archivesquantity').innerHTML = data.Quantity;
+                document.getElementById('Custodianquantity').innerHTML = data.Quantity;
 
-                document.getElementById('ArchivesdateAcquired').innerHTML = data.Date_Acquired;
+                document.getElementById('CustodiandateAcquired').innerHTML = data.Date_Acquired;
 
-                document.getElementById('ArchivesassetNumber').innerHTML = data.Asset_Number;
-
-
-                document.getElementById('ArchivesissuedTo').innerHTML = data.Issued_To;
-
-                document.getElementById('ArchivesapiNumber').innerHTML = data.ARE_PAR_ICS_Number;
+                document.getElementById('CustodianassetNumber').innerHTML = data.Asset_Number;
 
 
-                document.getElementById('ArchivesprsNumber').innerHTML = data.PRS_Number;
+                document.getElementById('CustodianissuedTo').innerHTML = data.Issued_To;
 
-                document.getElementById('ArchivesfundCluster').innerHTML = data.Fund_Cluster;
-
-                document.getElementById('ArchivesfundAdminCode').innerHTML = data.Fund_Admin_Code;
-
-                document.getElementById('ArchivesfundAdmin').innerHTML = data.Fund_Admin_Title;
-
-                document.getElementById('Archivessupplier').innerHTML = data.Supplier;
-
-                document.getElementById('ArchivesyearLapse').innerHTML = data.Year_Lapsed;
-
-                document.getElementById('Archiveslocator').innerHTML = data.Locator;
+                document.getElementById('CustodianapiNumber').innerHTML = data.ARE_PAR_ICS_Number;
 
 
-                document.getElementById('ArchivesoldPropertyNumber').innerHTML = data.Old_Property_Number;
+                document.getElementById('CustodianprsNumber').innerHTML = data.PRS_Number;
 
-                document.getElementById('ArchivesunitValue').innerHTML = data.Unit_Value;
+                document.getElementById('CustodianfundCluster').innerHTML = data.Fund_Cluster;
 
-                document.getElementById('ArchivesyearAcquired').innerHTML = data.Year_Acquired;
+                document.getElementById('CustodianfundAdminCode').innerHTML = data.Fund_Admin_Code;
 
+                document.getElementById('CustodianfundAdmin').innerHTML = data.Fund_Admin_Title;
 
-                document.getElementById('ArchivesassetCategory').innerHTML = data.Asset_Category;
+                document.getElementById('Custodiansupplier').innerHTML = data.Supplier;
 
-                document.getElementById('ArchivesassetTitle').innerHTML = data.Asset_Title;
+                document.getElementById('CustodianyearLapse').innerHTML = data.Year_Lapsed;
 
-                document.getElementById('ArchivesissuedFrom').innerHTML = data.Issued_From;
-
-
-                document.getElementById('ArchivescancelledAPI').innerHTML = data.Cancelled_Number;
+                document.getElementById('Custodianlocator').innerHTML = data.Locator;
 
 
-                document.getElementById('ArchivesestimatedLife').innerHTML = data.Estimated_Useful_Life;
+                document.getElementById('CustodianoldPropertyNumber').innerHTML = data.Old_Property_Number;
 
-                document.getElementById('ArchivespurchaseOrder').innerHTML = data.Purchase_Order_Contract_Number;
+                document.getElementById('CustodianunitValue').innerHTML = data.Unit_Value;
+
+                document.getElementById('CustodianyearAcquired').innerHTML = data.Year_Acquired;
 
 
-                document.getElementById('ArchivesacquiredThrough').innerHTML = data.Acquired_Through;
+                document.getElementById('CustodianassetCategory').innerHTML = data.Asset_Category;
 
-                document.getElementById('Archivesremarks').innerHTML = data.Remarks;
+                document.getElementById('CustodianassetTitle').innerHTML = data.Asset_Title;
+
+                document.getElementById('CustodianissuedFrom').innerHTML = data.Issued_From;
+
+
+                document.getElementById('CustodiancancelledAPI').innerHTML = data.Cancelled_Number;
+
+
+                document.getElementById('CustodianestimatedLife').innerHTML = data.Estimated_Useful_Life;
+
+                document.getElementById('CustodianpurchaseOrder').innerHTML = data.Purchase_Order_Contract_Number;
+
+
+                document.getElementById('CustodianacquiredThrough').innerHTML = data.Acquired_Through;
+
+                document.getElementById('Custodianremarks').innerHTML = data.Remarks;
 
 
                 const unit_val = data.Unit_Value.replace(",", "")
