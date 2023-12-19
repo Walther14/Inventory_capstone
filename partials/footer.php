@@ -1,30 +1,4 @@
-<!-- <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Transfer Notifications</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <?php
-        // $transfer_db = "SELECT * FROM transfer_db";
-        // $transfer_db_query = mysqli_query($data, $transfer_db);
 
-        // if ($transfer_db_query->num_rows > 0) {
-        //     // output data of each row
-        //     while ($row = $transfer_db_query->fetch_assoc()) {
-        // ?>
-
-        //         <h1><?php echo $row['user_id'] ?></h1>
-        //         <p><?php echo $row['message'] ?></p>
-        // <?php
-        //     }
-        // }
-        ?>
-
-
-
-
-    </div>
-</div> -->
 
 <script>
     let sidebuttons = document.querySelectorAll("#gyatt")
