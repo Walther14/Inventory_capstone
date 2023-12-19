@@ -204,7 +204,7 @@ $id = $_SESSION['user_id'];
 
 
         <?php
-        include('./partials/right-sidebar-archives.php')
+        include('./partials/right-sidebar-custodian.php')
         ?>
     </div>
 </div>
@@ -274,9 +274,7 @@ $id = $_SESSION['user_id'];
                 ?>
 
             </ul>
-            <div class="card-footer text-muted text-center">
-                <a href="#" class="text-primary">See All</a>
-            </div>
+     
         </div>
 
 
@@ -290,7 +288,6 @@ $id = $_SESSION['user_id'];
 
 
 <script>
-    // Event listener for buttons with data-id attribute
     let buttons = document.querySelectorAll("[data-id]");
 
 
@@ -322,14 +319,16 @@ $id = $_SESSION['user_id'];
     // Function to make the AJAX call
     function fetchData(id) {
 
-        fetch('./Controller/viewArchivesCustodian.php?id=' + id)
+        fetch('./Controller/viewCustodian.php?id=' + id)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 return response.json();
+                console.log(response)
             })
             .then(receivedata => {
+
                 const data = receivedata[0]
 
                 // Handle the image
@@ -349,9 +348,7 @@ $id = $_SESSION['user_id'];
                 }
 
 
-                // console.log(data.id)
-                // document.getElementById('idInventory').value = data.id;
-                // Display the result in the specified container
+         
                 document.getElementById('CustodianpropertyDescription').innerHTML = data.Property_Description;
 
                 document.getElementById('CustodianpropertyNumber').innerHTML = data.Current_Property_Number;
