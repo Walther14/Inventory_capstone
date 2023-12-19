@@ -242,7 +242,7 @@ $id = $_SESSION['user_id'];
                                         <h6 class="mt-0"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h6>
 
                                         <?php
-                                        if($row['custodian_notif' != 0]){
+                                        if($row['custodian_notif'] !== 0){
 
                                             echo 'transfer has been approved by the supplier at' . $row['dateTime'];
                                         }else{
