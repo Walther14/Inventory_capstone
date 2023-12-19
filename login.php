@@ -4,7 +4,7 @@ session_start();
 // Include necessary files
 include_once('./Controller/db.php');
 include('partials/header.php');
-$db_password ='';
+$db_password = '';
 $db_username = '';
 
 
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    
+
     if (mysqli_stmt_num_rows($stmt) == 1) {
       mysqli_stmt_bind_result($stmt, $id, $db_username, $role, $db_password, $login_flag);
       mysqli_stmt_fetch($stmt);
@@ -48,20 +48,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if (password_verify($password, $db_password)) {
         $_SESSION['user_id'] = $id;
         $_SESSION['user_username'] = $db_username;
-        $_SESSION['logged_in'] = true; 
-        $_SESSION['user_role'] = $role; 
-        $_SESSION['login_flag'] = $login_flag; 
-    
+        $_SESSION['logged_in'] = true;
+        $_SESSION['user_role'] = $role;
+        $_SESSION['login_flag'] = $login_flag;
+
         if ($_SESSION['user_role'] == 3 || $_SESSION['user_role'] == 1 || $_SESSION['user_role'] == 0) {
-          if($_SESSION['login_flag'] == null){
+          if ($_SESSION['login_flag'] == null) {
             header("Location: ./components/new_user.php");
+          } else {
+            if ($_SESSION['user_role'] == 0) {
+                header("Location: index.php");
 
-          }else{
+            } else {
 
+              header("Location: index_custodian.php");
+            }
             header("Location: index_custodian.php");
           }
         } else {
-            header("Location: index.php");
+          header("Location: index.php");
         }
       } else {
         $error_message = "Incorrect password.";
@@ -77,35 +82,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <div class="d-flex justify-content-center align-items-center" style="height: 100vh; background: url('./img/back.jpg'); background-size: cover;">
-    <div class="card" style="width: 30rem; background-color: rgba(255, 255, 255, 0.5);">
-        <img src="./img/prime.png" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">LOGIN</h5>
-            <p class="card-text">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                    <div class="mb-3">
-                        <p>Please fill all fields in the form</p>
-                        <span class="text-danger"><?php if (isset($error_message)) echo $error_message; ?></span>
+  <div class="card" style="width: 30rem; background-color: rgba(255, 255, 255, 0.5);">
+    <img src="./img/prime.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">LOGIN</h5>
+      <p class="card-text">
+      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="mb-3">
+          <p>Please fill all fields in the form</p>
+          <span class="text-danger"><?php if (isset($error_message)) echo $error_message; ?></span>
 
-                        <label class="form-label" for="username">Username</label>
-                        <input type="text" class="form-control" id="username" required placeholder="Username" name="username">
-                        <span class="text-danger"><?php if (isset($username_error)) echo $username_error; ?></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="password">Password</label>
-                        <input type="password" class="form-control" id="password" required placeholder="Password" name="password">
-                        <span class="text-danger"><?php if (isset($password_error)) echo $password_error; ?></span>
-                    </div>
-                    <div class="mb-3 pb-3 border-bottom">
-                        <button type="submit" class="btn btn-primary w-100">Sign in</button>
-                    </div>
-                </form>
-                <div class="text-center text-body-secondary">
-                    <a href="forgot-password.php">Forget Password?</a>
-                </div>
-            </p>
+          <label class="form-label" for="username">Username</label>
+          <input type="text" class="form-control" id="username" required placeholder="Username" name="username">
+          <span class="text-danger"><?php if (isset($username_error)) echo $username_error; ?></span>
         </div>
+        <div class="mb-3">
+          <label class="form-label" for="password">Password</label>
+          <input type="password" class="form-control" id="password" required placeholder="Password" name="password">
+          <span class="text-danger"><?php if (isset($password_error)) echo $password_error; ?></span>
+        </div>
+        <div class="mb-3 pb-3 border-bottom">
+          <button type="submit" class="btn btn-primary w-100">Sign in</button>
+        </div>
+      </form>
+      <div class="text-center text-body-secondary">
+        <a href="forgot-password.php">Forget Password?</a>
+      </div>
+      </p>
     </div>
+  </div>
 </div>
 
 
