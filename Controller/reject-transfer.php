@@ -21,10 +21,9 @@ session_start();
             
         
 
-echo 'anta';
     
     
-                // header("Location: ../transfer.php");
+                header("Location: ../transfer.php");
             
         } else {
             echo "Error updating record: " . $data->error;
