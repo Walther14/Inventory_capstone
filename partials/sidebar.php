@@ -4,7 +4,7 @@
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25" style="padding: 4px; background-image:url('./img/red.png')">
 
       <li class="nav-item dropdown">
-        <img src="./img/user.png" class="nav-link dropdown-toggle" style="margin: 0; padding: 0; margin-left: 10px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" height="50" width="50">
+        <img src="./img/user.png" class="nav-link dropdown-toggle" title="click to access back up and restore, log out and manage account" style="margin: 0; padding: 0; margin-left: 10px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" height="50" width="50">
 
 
         <ul class="dropdown-menu dropdown-menu-end mt-md-2 rounded-top-0">
@@ -56,7 +56,7 @@
 
             <li class="icon" type="button" id="general" style="margin-top: 0rem;">
               <span>
-                <i class="fa-solid  fa-cubes" style="font-size: 30px;"></i>
+                <i class="fa-solid  fa-cubes" style="font-size: 30px;" title="click to view dashboard, inventory and user management"></i>
               </span>
             </li>
 
@@ -64,7 +64,7 @@
 
             <li class="icon" type="button" id="dropdown" style="margin-bottom: 0rem;">
               <span>
-                <i class="fa-solid  fa-sitemap" style="font-size: 30px;"></i>
+                <i class="fa-solid  fa-sitemap" style="font-size: 30px;" title="click to view assets, item category and fund code"></i>
               </span>
             </li>
 
@@ -72,13 +72,13 @@
 
             <li class="icon" type="button" id="something" type="button" style="margin-bottom: 0rem;">
               <span>
-                <i class="fa-solid  fa-file-alt" style="font-size: 30px;"></i>
+                <i class="fa-solid  fa-file-alt" style="font-size: 30px;" title="click to view reports and forms"></i>
               </span>
             </li>
 
             <li class="icon" type="button" id="d" style="margin-bottom: 0rem;">
               <span>
-                <i class="fa-solid  fa-map-marker-alt" style="font-size: 30px;"></i>
+                <i class="fa-solid  fa-map-marker-alt" style="font-size: 30px;" title="click to view locator"></i>
               </span>
             </li>
 
@@ -92,7 +92,7 @@
 
             <li class="icon position-relative" type="button"  class="btn btn-primary" id="trans" style="margin-bottom: 0rem;">
               <span>
-                <i class="fa-solid  fa-exchange-alt" style="font-size: 30px;"></i>
+                <i class="fa-solid  fa-exchange-alt" style="font-size: 30px;" title="click to view requests of transfer"></i>
               </span>
               <span  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 <?php
@@ -112,7 +112,7 @@
 
             <li class="icon" type="button" id="archives" type="button" style="margin-bottom: 0rem;">
               <span>
-                <i class="fa-solid fa-box-archive" style="font-size: 30px;"></i>
+                <i class="fa-solid fa-box-archive" style="font-size: 30px;" title="click to view archive"></i>
               </span>
             </li>
 

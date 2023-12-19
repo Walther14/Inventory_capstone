@@ -438,11 +438,20 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
             $inventory = "SELECT * FROM inventory_db";
 
             // Check if a search term is provided
-            if (isset($_GET['search']) && !empty($_GET['search'])) {
-                $searchTerm = $_GET['search'];
-                // Modify the query to include a search condition for Issued_To and Description columns
-                $inventory .= " WHERE Issued_To LIKE '%$searchTerm%' OR property_description LIKE '%$searchTerm%'";
-            }
+if (isset($_GET['search']) && !empty($_GET['search'])) {
+    $searchTerm = $_GET['search'];
+
+    // Modify the query to include a join with the 'users' table and search conditions for first_name and last_name
+    $inventory .= " 
+        INNER JOIN users ON inventory_db.issued_to = users.user_id
+        WHERE 
+            inventory_db.issued_to LIKE '%$searchTerm%' OR 
+            users.first_name LIKE '%$searchTerm%' OR 
+            users.last_name LIKE '%$searchTerm%' OR 
+            property_description LIKE '%$searchTerm%'
+    ";
+}
+
 
             // Check if an asset category filter is provided
             if (isset($_GET['asset_category']) && !empty($_GET['asset_category'])) {
@@ -488,23 +497,40 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
             <tbody>
 
 
-                <?php
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while ($row = $result->fetch_assoc()) {
-                ?>
-                        <tr>
+            <?php
+if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+        // Fetch user details based on user_id
+        $userId = $row['Issued_To'];
+        // Use prepared statements to prevent SQL injection
+        $userQuery = $data->prepare("SELECT first_name, last_name FROM users WHERE user_id = ?");
+        $userQuery->bind_param("s", $userId);
+        $userQuery->execute();
+        $userResult = $userQuery->get_result();
 
-                            <td><?php echo ($row['Issued_To']) ?></td>
-                            <td><?php echo ($row['Property_Description']) ?></td>
-                            <td><?php echo ($row['Asset_Category']) ?></td>
-                        </tr>
-                <?php
-                    }
-                } else {
-                    echo "<p style='color: white; font-size: 18px;'>There is no data in the system that has this detail</p>";
-                }
-                ?>
+        if ($userResult->num_rows > 0) {
+            $user = $userResult->fetch_assoc();
+            $firstName = $user['first_name'];
+            $lastName = $user['last_name'];
+        } else {
+            $firstName = "User not found";
+            $lastName = "";
+        }
+
+        $userQuery->close();
+?>
+        <tr>
+            <td><?php echo "$firstName $lastName"; ?></td>
+            <td><?php echo htmlspecialchars($row['Property_Description']); ?></td>
+            <td><?php echo htmlspecialchars($row['Asset_Category']); ?></td>
+        </tr>
+<?php
+    }
+} else {
+    echo "<p style='color: white; font-size: 18px;'>There is no data in the system that has this detail</p>";
+}
+?>
             </tbody>
             </thead>
 
