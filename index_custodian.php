@@ -225,7 +225,8 @@ $id = $_SESSION['user_id'];
 
                     <ul class="list-group list-group-flush">
                     <?php
-        $transfer_db = "SELECT * FROM transfer_db WHERE user_id = $id AND custodian_notif = 1";
+        $transfer_db = "SELECT * FROM transfer_db WHERE user_id = $id AND custodian_notif = 1
+        JOIN users ON transfer_db.user_id = users.user_id";
         $transfer_db_query = mysqli_query($data, $transfer_db);
 
         if ($transfer_db_query->num_rows > 0) {
