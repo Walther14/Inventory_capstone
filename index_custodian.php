@@ -50,7 +50,8 @@ $id = $_SESSION['user_id'];
                             </span>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 <?php
-                                $sql = "SELECT COUNT(*) as row_count FROM transfer_db WHERE user_id = $id AND custodian_notif = 1";
+                                // SELECT COUNT(*) FROM transfer_db WHERE user_id = '$id' AND (archive IS NULL OR archive = 1)
+                                $sql = "SELECT COUNT(*) as row_count FROM transfer_db WHERE user_id = $id AND (archive IS NULL OR archive =1)";
                                 $result = $data->query($sql);
 
                                 // Fetch the row count
@@ -221,38 +222,149 @@ $id = $_SESSION['user_id'];
     <div class="offcanvas-body">
 
 
-        <div class="container mt-1">
 
-            <ul class="list-group list-group-flush">
-                <?php
-                $transfer_db = "SELECT * FROM transfer_db 
-        JOIN users ON transfer_db.user_id = users.user_id
-        WHERE transfer_db.user_id = $id";
-                $transfer_db_query = mysqli_query($data, $transfer_db);
 
-                if ($transfer_db_query->num_rows > 0) {
-                    // output data of each row
-                    while ($row = $transfer_db_query->fetch_assoc()) {
-                ?>
-                        <li class="list-group-item">
-                            <div class="media d-flex justify-content-between">
-                                <div class="d-flex align-items-center">
-                                    <span><i class="fa-solid fa-user"></i></span>
-                                    <div class="d-flex flex-column align-items-start" style="margin-left: 2rem; padding: 1rem">
-                                        <h6 class="mt-0"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h6>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Notifications</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Archive</button>
+            </div>
+        </nav>
 
-                                        <?php
-                                        if($row['custodian_notif'] == 1){
 
-                                            echo 'transfer has been approved by the supplier at' . $row['dateTime'];
-                                        }elseif(($row['custodian_notif'] == 0)){
-                                            echo 'transfer has been rejected by the supplier at' . $row['dateTime'];
-                                            echo 'Reason: ' . $row['reject_message'];
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
 
-                                        }
-                                        ?>
+
+
+
+                <div class="container mt-1">
+
+                    <ul class="list-group list-group-flush">
+                        <?php
+                        $transfer_db2 = "SELECT *
+                        FROM transfer_db
+                        JOIN users ON transfer_db.user_id = users.user_id
+                        WHERE transfer_db.user_id = '$id' AND (transfer_db.archive IS NULL OR transfer_db.archive != 2);
+                         ";
+                        $transfer_db_query2 = mysqli_query($data, $transfer_db2);
+
+                        if ($transfer_db_query2->num_rows > 0) {
+                            // output data of each row
+                            while ($row = $transfer_db_query2->fetch_assoc()) {
+                        ?>
+                                <li class="list-group-item">
+                                    <div class="media d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <span><i class="fa-solid fa-user"></i></span>
+                                            <div class="d-flex flex-column align-items-end" style="margin-left: 2rem; padding: 1rem">
+
+                                                <?php
+                                                if ($row['custodian_notif'] == 1) {
+                                                ?>
+                                                    <div style="background-color: rgba(0, 0, 0, 0.2);; padding: 10px; border-radius: 8px">
+                                                        <h6 class="mt-0"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h6>
+                                                        <?php
+                                                        echo 'transfer has been approved by the supplier at' . $row['dateTime'];
+                                                        ?>
+                                                        <form action="./Controller/archive_Custodian.php" method="POST">
+
+                                                            <input type="hidden" name="transfer_id" value="<?php echo $row['transfer_id'] ?>">
+                                                            <button type="submit" class="btn btn-success">Read</button>
+                                                        </form>
+                                                    </div>
+
+                                                <?php
+                                                } elseif (($row['custodian_notif'] == 0)) {
+                                                ?>
+                                                    <div style="background-color: rgba(255, 255, 255, 0.2); padding: 5px">
+                                                        <h6 class="mt-0"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h6>
+                                                        <?php
+                                                        echo 'transfer has been rejected by the supplier at' . $row['dateTime'];
+                                                        echo 'Reason: ' . $row['reject_message'];
+                                                        ?>
+                                                        <form action="./Controller/archive_Custodian.php" method="POST">
+
+                                                            <input type="hidden" name="transfer_id" value="<?php echo $row['transfer_id'] ?>">
+                                                            <button type="submit" class="btn btn-success">Read</button>
+                                                        </form>
+                                                    </div>
+                                                <?php
+
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
                                     </div>
-                                </div>
+                                </li>
+                        <?php
+                            }
+                        }
+                        ?>
+
+                    </ul>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+
+
+
+
+                <div class="container mt-1">
+
+                    <ul class="list-group list-group-flush">
+                        <?php
+                        $transfer_db3 = "SELECT * FROM transfer_db 
+JOIN users ON transfer_db.user_id = users.user_id
+WHERE transfer_db.user_id = $id AND archive = 2";
+                        $transfer_db_query3 = mysqli_query($data, $transfer_db3);
+
+                        if ($transfer_db_query3->num_rows > 0) {
+                            // output data of each row
+                            while ($row = $transfer_db_query3->fetch_assoc()) {
+                        ?>
+                                <li class="list-group-item">
+                                    <div class="media d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <span><i class="fa-solid fa-user"></i></span>
+                                            <div class="d-flex flex-column align-items-end" style="margin-left: 2rem; padding: 1rem">
+
+                                                <?php
+                                                if ($row['custodian_notif'] == 1) {
+                                                ?>
+                                                    <div style="background-color: rgba(0, 0, 0, 0.2);; padding: 10px; border-radius: 8px">
+                                                        <h6 class="mt-0"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h6>
+                                                        <?php
+                                                        echo 'transfer has been approved by the supplier at' . $row['dateTime'];
+                                                        ?>
+                                                    </div>
+
+                                                <?php
+                                                } elseif (($row['custodian_notif'] == 0)) {
+                                                ?>
+                                                    <div style="background-color: rgba(255, 255, 255, 0.2); padding: 5px">
+                                                        <h6 class="mt-0"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h6>
+                                                        <?php
+                                                        echo 'transfer has been rejected by the supplier at' . $row['dateTime'];
+                                                        echo 'Reason: ' . $row['reject_message'];
+                                                        ?>
+
+                                                    </div>
+                                                <?php
+
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
 
 
 
@@ -261,21 +373,31 @@ $id = $_SESSION['user_id'];
 
 
 
+                                    </div>
+                                </li>
+                        <?php
+                            }
+                        }
+                        ?>
 
-                                <button class="btn btn-circle ml-auto" style="height: 50%; border-radius: 50px; border: solid" data-bs-toggle="modal" data-bs-target="#transferModal<?php echo $row['transfer_id'] ?>">
-                                    <span><i class="fas fa-ellipsis-h"></i></span>
-                                </button>
+                    </ul>
 
-                            </div>
-                        </li>
-                <?php
-                    }
-                }
-                ?>
+                </div>
 
-            </ul>
-     
+
+
+
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
+            <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
         </div>
+
+
+
+
+
+
+
 
 
 
@@ -348,7 +470,7 @@ $id = $_SESSION['user_id'];
                 }
 
 
-         
+
                 document.getElementById('CustodianpropertyDescription').innerHTML = data.Property_Description;
 
                 document.getElementById('CustodianpropertyNumber').innerHTML = data.Current_Property_Number;
