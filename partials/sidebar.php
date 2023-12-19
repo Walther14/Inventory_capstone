@@ -8,7 +8,19 @@
 
 
         <ul class="dropdown-menu dropdown-menu-end mt-md-2 rounded-top-0">
-          <li><a class="dropdown-item" href="./backupAndRestore.php">Backup and Restore</a></li>
+
+          <li><a class="dropdown-item" href="./backupAndRestore.php">
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <span>
+            <span>
+              <i class="fa-solid  fa-download"></i>
+            </span>
+          </span>
+          Backup and Restore
+          </a>
+      </li>
           <li><a class="dropdown-item" href="./logout.php">
           <li>
             <hr class="dropdown-divider">
@@ -32,6 +44,18 @@
       </span>
       Manage Account
       </a>
+      </li>
+      <li><a class="dropdown-item" href="./manual.php">
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <span>
+            <span>
+              <i class="fa-solid  fa-book"></i>
+            </span>
+          </span>
+          Manual
+          </a>
       </li>
 
       </ul>
