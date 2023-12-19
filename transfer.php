@@ -130,16 +130,43 @@ if (!isset($_SESSION['user_id'])) {
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer d-flex justify-content-around">
-                                                            <form action="./Controller/reject-transfer.php?id=<?php echo $row['transfer_id'] ?>" method="get">
-                                                            <input type="hidden" name="id" value="<?php echo $row['transfer_id'] ?>">
-                                                                <button type="submit" class="btn btn-danger">Reject</button>
-                                                            </form>
-                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#issueTo<?php echo $row['transfer_id'] ?>">Approve</button>
+                                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#rejectTo<?php echo $row['transfer_id'] ?>">Reject</button>
+                                                            <button type=" button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#issueTo<?php echo $row['transfer_id'] ?>">Approve</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
+
+
+
+                                            <div class="modal fade" id="rejectTo<?php echo $row['transfer_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                Reason of rejection of transfer:
+                                                            </h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+                                                            <div class="dropdown-container" style="text-align: center; margin: 50px;">
+                                                                <form action="./Controller/reject-transfer.php" method="post">
+
+                                                                    <input type="hidden" name="transfer_id" value="<?php echo $row['transfer_id'] ?>">
+
+                                                                    <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3" placeholder="Reason of Rejection of Transfer"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer d-flex justify-content-around">
+                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+                                                            <button type="submit" class="btn btn-primary">Approve</button>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
 
 
 

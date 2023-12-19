@@ -6,15 +6,16 @@ session_start();
 
 // Check if the database connection is successful
     // Handle form submission
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        $id = $_GET['id'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $id = $_POST['transfer_id'];
+        $message = $_POST['message'];
        
         
         date_default_timezone_set('Asia/Manila');
         $current_time = date('Y-m-d H:i:s');
 
        
-        $query = "UPDATE transfer_db SET custodian_notif = 0, dateTime = '$current_time', archive = 1 WHERE transfer_id = $id";
+        $query = "UPDATE transfer_db SET custodian_notif = 0, dateTime = '$current_time', message= '$message' archive = 1 WHERE transfer_id = $id";
         
         if ($data->query($query) === TRUE) {
 
