@@ -202,6 +202,22 @@ if (isset($_SESSION['response'])) {
                                 <?php
                                 }
                                 ?>
+                                  <?php
+                                if ($row['role' == 3]) {
+                                ?>
+                                    <td>Custodian</td>
+
+                                <?php
+                                }
+                                ?>
+                                    <?php
+                                if ($row['role' == 0]) {
+                                ?>
+                                    <td>Custodian</td>
+
+                                <?php
+                                }
+                                ?>
                                 <td><?php echo $row['created_at']; ?></td>
                                 <td><?php echo $row['updated_at']; ?></td>
                             </tr>
