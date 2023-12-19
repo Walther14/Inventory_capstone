@@ -57,13 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ./components/new_user.php");
           } else {
             if ($_SESSION['user_role'] == 0) {
-                header("Location: index.php");
-
+              header("Location: index.php");
             } else {
 
               header("Location: index_custodian.php");
             }
-            header("Location: index_custodian.php");
           }
         } else {
           header("Location: index.php");
