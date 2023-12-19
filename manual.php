@@ -79,15 +79,29 @@ if (!isset($_SESSION['user_id'])) {
     <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">User Manual: Refer to the user manual for detailed instructions and assistance.</p>
 
     <h5 style="text-align: justify; padding-left: 10rem;">5.2 Inventory: Dashboard, Inventory data, User Management to add users</h5>
-    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;"></p>
-    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;"></p>
-    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;"></p>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Dashboard: Gain insights and overview of the inventory system.</p>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Inventory Data: Access and manage detailed information related to inventory items.</p>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">User Management to Add Users: Administer user roles and permissions, including the addition of new users.</p>
 
     <h5 style="text-align: justify; padding-left: 10rem;">5.3 Inventory: Asset, Item Category, Fund Code</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Asset: Manage and track individual assets within the inventory.</p>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Item Category: Organize items based on predefined categories.</p>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Fund Code: Categorize and allocate funds for effective financial tracking.</p>
     <h5 style="text-align: justify; padding-left: 10rem;">5.4 Inventory: Reports and Forms</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Reports: Generate and view detailed reports for informed decision-making.</p>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Forms: Access necessary forms for various inventory-related processes.</p>
+
     <h5 style="text-align: justify; padding-left: 10rem;">5.5 Inventory: Locator, BSC Campus and Dorm</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Locator: Define and track specific locations for inventory items.</p>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">BSC Campus and Dorm: Organize inventory based on campus and dormitory specifications.</p>
+
     <h5 style="text-align: justify; padding-left: 10rem;">5.6 Inventory: Transfer</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Initiate and manage inventory transfers seamlessly within the system.</p>
     <h5 style="text-align: justify; padding-left: 10rem;">5.7 Inventory: Archive</h5>
+    <p style="text-align: justify; padding-left: 15rem;padding-right: 10rem;">Archive historical data and information for reference or compliance purposes.
+
+</p>
+
 </div>
 
 
