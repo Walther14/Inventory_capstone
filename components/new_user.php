@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
 
             $errors[] = "Error updating password and security question/answer: ";
         }
-        if($_SESSION('user_id') !== 3){
+        if($_SESSION('user_id') != 3){
             header('Location: ../login.php');
         }else{
 
