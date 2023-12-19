@@ -86,7 +86,7 @@ if (!isset($_SESSION['user_id'])) {
                                     FROM transfer_db
                                     JOIN users ON transfer_db.user_id = users.user_id
                                     JOIN inventory_db ON transfer_db.item_id = inventory_db.id
-                                    WHERE transfer_db.archive IS NULL OR transfer_db.archive != 1
+                                    WHERE transfer_db.archive IS NULL OR transfer_db.archive = NULL
                                     ";
                                     $transfer_query = mysqli_query($data, $transfer);
 
@@ -234,9 +234,7 @@ if (!isset($_SESSION['user_id'])) {
                                     ?>
 
                                 </ul>
-                                <div class="card-footer text-muted text-center">
-                                    <a href="#" class="text-primary">See All</a>
-                                </div>
+                          
                             </div>
                         </div>
 
@@ -262,6 +260,8 @@ if (!isset($_SESSION['user_id'])) {
 
 
 
+                    <div class="card-body">
+                    <div class="container mt-1">
 
 
 
@@ -314,6 +314,8 @@ if (!isset($_SESSION['user_id'])) {
                             ?>
 
                         </ul>
+                    </div>
+                    </div>
 
 
 
