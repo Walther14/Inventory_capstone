@@ -21,17 +21,17 @@
           Backup and Restore
           </a>
       </li>
-          <li><a class="dropdown-item" href="./logout.php">
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <span>
-            <span>
-              <i class="fa-solid  fa-right-from-bracket" data-bs-title="Logout"></i>
-            </span>
-          </span>
-          Logout
-          </a>
+      <li><a class="dropdown-item" href="./logout.php">
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <span>
+        <span>
+          <i class="fa-solid  fa-right-from-bracket" data-bs-title="Logout"></i>
+        </span>
+      </span>
+      Logout
+      </a>
       </li>
       <li><a class="dropdown-item" href="manageAccout.php">
       <li>
@@ -46,16 +46,16 @@
       </a>
       </li>
       <li><a class="dropdown-item" href="./manual.php">
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <span>
-            <span>
-              <i class="fa-solid  fa-book"></i>
-            </span>
-          </span>
-          Manual
-          </a>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <span>
+        <span>
+          <i class="fa-solid  fa-book"></i>
+        </span>
+      </span>
+      Manual
+      </a>
       </li>
 
       </ul>
@@ -114,13 +114,14 @@
 
 
 
-            <li class="icon position-relative" type="button"  class="btn btn-primary" id="trans" style="margin-bottom: 0rem;">
+            <li class="icon position-relative" type="button" class="btn btn-primary" id="trans" style="margin-bottom: 0rem;">
               <span>
                 <i class="fa-solid  fa-exchange-alt" style="font-size: 30px;" title="click to view requests of transfer"></i>
               </span>
-              <span  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 <?php
-                $sql = "SELECT COUNT(*) as row_count FROM transfer_db";
+                $sql = "SELECT COUNT(*) as row_count FROM transfer_db
+                                                    WHERE transfer_db.archive IS NULL OR transfer_db.archive != 1";
                 $result = $data->query($sql);
 
                 // Fetch the row count
@@ -342,7 +343,7 @@
         </div>
 
 
-        
+
         <div class="col-6" <?php echo $_SERVER['REQUEST_URI'] == '/inventory_capstone/transfer.php' ? 'style="margin-top: 10rem;"' : 'style="margin-top: 10rem; display: none; position: relative"'; ?> id="sidenav5">
           <ul style="width: 150%; position: relative; overflow:hidden; display: flex; align-items:center; justify-content:center">
             <li>
