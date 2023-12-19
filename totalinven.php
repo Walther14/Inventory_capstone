@@ -78,7 +78,7 @@ if (!isset($_SESSION['user_id'])) {
     if (isset($_GET['search']) && !empty($_GET['search'])) {
         $searchTerm = $_GET['search'];
         // Modify the query to include a search condition
-        $inventory .= " WHERE Issued_To LIKE '%$searchTerm%'";
+        $inventory .= " WHERE CONCAT(first_name, ' ', last_name) LIKE '%$searchTerm%'";
     }
 
     // Check if an asset category filter is provided

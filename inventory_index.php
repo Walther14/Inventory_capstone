@@ -76,15 +76,18 @@ if (!isset($_SESSION['user_id'])) {
         die("Connection failed: " . $data->connect_error);
     }
 
-    $inventory = "SELECT * FROM inventory_db";
+    $inventory = "SELECT * FROM inventory_db
+    JOIN users ON inventory_db.Issued_to = users.user_id";
 
-    // Check if a search term is provided
-    if (isset($_GET['search']) && !empty($_GET['search'])) {
-        $searchTerm = $_GET['search'];
-        // Modify the query to include a search condition
-        $inventory .= " WHERE Property_Description LIKE '%$searchTerm%' OR Asset_Category LIKE '%$searchTerm%' OR Locator LIKE '%$searchTerm%' OR Current_Property_Number LIKE '%$searchTerm%'";
-    }
+  // Check if a search term is provided
+if (isset($_GET['search']) && !empty($_GET['search'])) {
+    $searchTerm = $_GET['search'];
+    // Modify the query to include a search condition for first name, last name, and property description
+    $inventory .= " WHERE CONCAT(first_name, ' ', last_name, ' ', property_description) LIKE '%$searchTerm%'";
+}
 
+
+  
     $result = $data->query($inventory);
     ?>
 
