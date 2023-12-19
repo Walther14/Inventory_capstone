@@ -215,63 +215,68 @@ $id = $_SESSION['user_id'];
 
 <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Transfer Notifications</h5>
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Custodian Notifications</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
 
 
-                <div class="container mt-1">
+        <div class="container mt-1">
 
-                    <ul class="list-group list-group-flush">
-                    <?php
-        $transfer_db = "SELECT * FROM transfer_db 
+            <ul class="list-group list-group-flush">
+                <?php
+                $transfer_db = "SELECT * FROM transfer_db 
         JOIN users ON transfer_db.user_id = users.user_id
-        WHERE transfer_db.user_id = $id AND custodian_notif = 1";
-        $transfer_db_query = mysqli_query($data, $transfer_db);
+        WHERE transfer_db.user_id = $id";
+                $transfer_db_query = mysqli_query($data, $transfer_db);
 
-        if ($transfer_db_query->num_rows > 0) {
-            // output data of each row
-            while ($row = $transfer_db_query->fetch_assoc()) {
-        ?>
-                                <li class="list-group-item">
-                                    <div class="media d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <span><i class="fa-solid fa-user"></i></span>
-                                            <div class="d-flex flex-column align-items-start" style="margin-left: 2rem; padding: 1rem">
-                                                <h6 class="mt-0"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h6>
+                if ($transfer_db_query->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $transfer_db_query->fetch_assoc()) {
+                ?>
+                        <li class="list-group-item">
+                            <div class="media d-flex justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <span><i class="fa-solid fa-user"></i></span>
+                                    <div class="d-flex flex-column align-items-start" style="margin-left: 2rem; padding: 1rem">
+                                        <h6 class="mt-0"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h6>
 
-                                                <?php
-                                                echo $row['message'];
-                                                ?>
-                                            </div>
-                                        </div>
-                                
+                                        <?php
+                                        if($row['custodian_notif' != 0]){
 
-
-
-
-                                      
-
-
-
-                                        <button class="btn btn-circle ml-auto" style="height: 50%; border-radius: 50px; border: solid" data-bs-toggle="modal" data-bs-target="#transferModal<?php echo $row['transfer_id'] ?>">
-                                            <span><i class="fas fa-ellipsis-h"></i></span>
-                                        </button>
-
+                                            echo 'transfer has been approved by the supplier at' . $row['dateTime'];
+                                        }else{
+                                            echo 'transfer has been rejected by the supplier at' . $row['dateTime'];
+                                        }
+                                        ?>
                                     </div>
-                                </li>
-                        <?php
-                            }
-                        }
-                        ?>
+                                </div>
 
-                    </ul>
-                    <div class="card-footer text-muted text-center">
-                        <a href="#" class="text-primary">See All</a>
-                    </div>
-                </div>
-      
+
+
+
+
+
+
+
+
+                                <button class="btn btn-circle ml-auto" style="height: 50%; border-radius: 50px; border: solid" data-bs-toggle="modal" data-bs-target="#transferModal<?php echo $row['transfer_id'] ?>">
+                                    <span><i class="fas fa-ellipsis-h"></i></span>
+                                </button>
+
+                            </div>
+                        </li>
+                <?php
+                    }
+                }
+                ?>
+
+            </ul>
+            <div class="card-footer text-muted text-center">
+                <a href="#" class="text-primary">See All</a>
+            </div>
+        </div>
+
 
 
 

@@ -179,8 +179,10 @@ if (!isset($_SESSION['user_id'])) {
                                                                     </select>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer d-flex justify-content-around">
-                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+                                                        <div class="modal-footer d-flex justify-content-around"> 
+                                                            <form action="./Controller/reject-transfer.php?id=<?php echo $row['transfer_id'] ?>" method="get">
+                                                                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+                                                            </form>
                                                             <button type="submit" class="btn btn-primary">Approve</button>
                                                         </div>
                                                         </form>
