@@ -58,7 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           } else {
             if ($_SESSION['user_role'] == 0) {
               header("Location: index.php");
-            } else {
+            } elseif($_SESSION['user_role'] == 1){
+              header("Location: index_staff.php");
+
+            } else{
 
               header("Location: index_custodian.php");
             }
