@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
         mysqli_stmt_execute($query);
 
 
-
+        echo $_SESSION['user_role'];
 
 
         if (!empty(mysqli_error($data))) {
