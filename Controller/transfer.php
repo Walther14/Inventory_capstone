@@ -9,7 +9,7 @@ echo $id;
 echo $issued_to;
 echo $message;
 
-$insert = "INSERT INTO transfer_db (message, item_id, user_id) VALUES ('$message', '$id', '$issued_to')";
+$insert = "INSERT INTO transfer_db (request_message, item_id, user_id) VALUES ('$message', '$id', '$issued_to')";
 
 if ($data->query($insert) === TRUE) {
 
