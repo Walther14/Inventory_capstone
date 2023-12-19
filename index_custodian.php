@@ -322,7 +322,7 @@ $id = $_SESSION['user_id'];
     // Function to make the AJAX call
     function fetchData(id) {
 
-        fetch('./Controller/viewArchives.php?id=' + id)
+        fetch('./Controller/viewArchivesCustodian.php?id=' + id)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
