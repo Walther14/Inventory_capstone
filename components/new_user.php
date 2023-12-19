@@ -61,8 +61,12 @@ if (isset($_POST['submit'])) {
 
             $errors[] = "Error updating password and security question/answer: ";
         }
+        if($_SESSION('user_id') !== 3){
+            header('Location: ../login.php');
+        }else{
 
-        header("Location: ../index_custodian.php?id=" . $id);
+            header("Location: ../index_custodian.php?id=" . $id);
+        }
     } else { // Report the errors. 
         $errorstring = "Error! The following error(s) occurred:<br>";
         $errorstring .= "Please try again.<br>";
