@@ -62,20 +62,9 @@ if (!isset($_SESSION['user_id'])) {
                             <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Request for transfers</button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Link</a>
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Archives</button>
                         </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link disabled">Disabled</a>
-                        </li>
+                       
                     </ul>
                 </div>
 
@@ -259,7 +248,73 @@ if (!isset($_SESSION['user_id'])) {
 
 
                     </div>
-                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <ul class="list-group list-group-flush">
+                            <?php
+                            $transfer = "SELECT * FROM transfer_db
+        JOIN users ON transfer_db.user_id = users.user_id
+        JOIN inventory_db ON transfer_db.item_id = inventory_db.id
+        WHERE transfer_db.archive = 1";
+                            $transfer_query = mysqli_query($data, $transfer);
+
+
+                            if ($transfer_query->num_rows > 0) {
+                                // output data of each row
+                                while ($row = $transfer_query->fetch_assoc()) {
+                            ?>
+                                    <li class="list-group-item">
+                                        <div class="media d-flex justify-content-between">
+                                            <div class="d-flex align-items-center">
+                                                <span><i class="fa-solid fa-user"></i></span>
+                                                <div class="d-flex flex-column align-items-start" style="margin-left: 2rem; padding: 1rem">
+                                                    <h6 class="mt-0"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h6>
+
+                                                    <?php
+                                                    echo $row['request_message'];
+                                                    ?>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        </div>
+                                    </li>
+                            <?php
+                                }
+                            }
+                            ?>
+
+                        </ul>
+
+
+
+                    </div>
                     <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
                     <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
                 </div>
