@@ -54,14 +54,14 @@ if (isset($_POST['submit'])) {
         mysqli_stmt_execute($query);
 
 
-        echo $_SESSION['user_role'];
+        $role = $_SESSION['user_role'];    
 
 
         if (!empty(mysqli_error($data))) {
 
             $errors[] = "Error updating password and security question/answer: ";
         }
-        if($_SESSION('user_role') != 3){
+        if($role != 3){
             header('Location: ../login.php');
         }else{
 
