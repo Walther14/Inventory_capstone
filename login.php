@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_role'] = $role; 
         $_SESSION['login_flag'] = $login_flag; 
     
-        if ($_SESSION['user_role'] == 3) {
+        if ($_SESSION['user_role'] == 3 || $_SESSION['user_role'] == 1 || $_SESSION['user_role'] == 0) {
           if($_SESSION['login_flag'] == null){
             header("Location: ./components/new_user.php");
 
