@@ -27,9 +27,36 @@ $End_User2 = $_POST['end_user2'] ?? '';
 $Unit_value2 = $_POST['unit_value2'] ?? '';
 $Total_value2 = $_POST['total_value2'] ?? '';
 
+/* Row 3 */
+$Qty3 = $_POST['qty3'] ?? '';
+$Unit3 = $_POST['unit3'] ?? '';
+$Description3 = $_POST['description3'] ?? '';
+$Property_no3 = $_POST['property_no3'] ?? '';
+$Par_ics3 = $_POST['par_ics3'] ?? '';
+$End_User3 = $_POST['end_user3'] ?? '';
+$Unit_value3 = $_POST['unit_value3'] ?? '';
+$Total_value3 = $_POST['total_value3'] ?? '';
+
+/* Row 4 */
+$Qty4 = $_POST['qty4'] ?? '';
+$Unit4 = $_POST['unit4'] ?? '';
+$Description4 = $_POST['description4'] ?? '';
+$Property_no4 = $_POST['property_no4'] ?? '';
+$Par_ics4 = $_POST['par_ics4'] ?? '';
+$End_User4 = $_POST['end_user4'] ?? '';
+$Unit_value4 = $_POST['unit_value4'] ?? '';
+$Total_value4 = $_POST['total_value4'] ?? '';
 
 
-
+/* Row 5 */
+$Qty5 = $_POST['qty5'] ?? '';
+$Unit5 = $_POST['unit5'] ?? '';
+$Description5 = $_POST['description5'] ?? '';
+$Property_no5 = $_POST['property_no5'] ?? '';
+$Par_ics5 = $_POST['par_ics5'] ?? '';
+$End_User5 = $_POST['end_user5'] ?? '';
+$Unit_value5 = $_POST['unit_value5'] ?? '';
+$Total_value5 = $_POST['total_value5'] ?? '';
 
 
 
@@ -272,15 +299,52 @@ th, td {
 
         <!-- ROW 2 -->
         <tr style="width: 100%; text-align: center;">
-                    <td><?php echo ($Qty2)  ? $Qty2 : 'Not available'; ?> </td>
-                    <td><?php echo ($Unit2)  ? $Unit2 : 'Not available'; ?> </td>
-                    <td><?php echo ($Description2) ?></td>
-                    <td><?php echo ($Property_no2) ?></td>
-                    <td ><?php echo ($Par_ics2) ?></td>
-                    <td ><?php echo ($End_User2) ?></td>
-                    <td ><?php echo ($Unit_value2) ?></td>
-                    <td ><?php echo ($Total_value2) ?></td>
+                    <td><?php echo ($Qty2)  ? $Qty2 : ''; ?> </td>
+                    <td><?php echo ($Unit2)  ? $Unit2 : ''; ?> </td>
+                    <td><?php echo ($Description2) ? $Description2 : '';  ?></td>
+                    <td><?php echo ($Property_no2) ? $Property_no2 : '';  ?></td>
+                    <td ><?php echo ($Par_ics2) ? $Par_ics2 : ''; ?></td>
+                    <td ><?php echo ($End_User3) ? $End_user2 : '';  ?></td>
+                    <td ><?php echo ($Unit_value2) ? $Unit_value2 : ''; ?></td>
+                    <td ><?php echo ($Total_value2) ? $Total_value2 : ''; ?></td>
         </tr>
+
+        <!-- Row 3 -->
+        <tr style="width: 100%; text-align: center;">
+                    <td><?php echo ($Qty3)  ? $Qty3 : ''; ?> </td>
+                    <td><?php echo ($Unit3)  ? $Unit3 : ''; ?> </td>
+                    <td><?php echo ($Description3) ? $Description3 : '';  ?></td>
+                    <td><?php echo ($Property_no3) ? $Property_no3 : '';  ?></td>
+                    <td ><?php echo ($Par_ics3) ? $Par_ics3 : ''; ?></td>
+                    <td ><?php echo ($End_User3) ? $End_user3 : '';  ?></td>
+                    <td ><?php echo ($Unit_value3) ? $Unit_value3 : ''; ?></td>
+                    <td ><?php echo ($Total_value3) ? $Total_value3 : ''; ?></td>
+        </tr>
+
+          <!-- Row 4 -->
+          <tr style="width: 100%; text-align: center;">
+                    <td><?php echo ($Qty4)  ? $Qty4 : ''; ?> </td>
+                    <td><?php echo ($Unit4)  ? $Unit4 : ''; ?> </td>
+                    <td><?php echo ($Description4) ? $Description4 : '';  ?></td>
+                    <td><?php echo ($Property_no4) ? $Property_no3 : '';  ?></td>
+                    <td ><?php echo ($Par_ics4) ? $Par_ics4 : ''; ?></td>
+                    <td ><?php echo ($End_User4) ? $End_user4 : '';  ?></td>
+                    <td ><?php echo ($Unit_value4) ? $Unit_value4 : ''; ?></td>
+                    <td ><?php echo ($Total_value4) ? $Total_value4 : ''; ?></td>
+        </tr>
+
+        <!-- Row 5 -->
+        <tr style="width: 100%; text-align: center;">
+                    <td><?php echo ($Qty5)  ? $Qty5 : ''; ?> </td>
+                    <td><?php echo ($Unit5)  ? $Unit5 : ''; ?> </td>
+                    <td><?php echo ($Description5) ? $Description5 : '';  ?></td>
+                    <td><?php echo ($Property_no5) ? $Property_no5 : '';  ?></td>
+                    <td ><?php echo ($Par_ics5) ? $Par_ics5 : ''; ?></td>
+                    <td ><?php echo ($End_User5) ? $End_user5 : '';  ?></td>
+                    <td ><?php echo ($Unit_value5) ? $Unit_value5 : ''; ?></td>
+                    <td ><?php echo ($Total_value5) ? $Total_value5 : ''; ?></td>
+        </tr>
+
 
 
 

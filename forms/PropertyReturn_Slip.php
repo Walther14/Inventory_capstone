@@ -50,33 +50,33 @@
                                 <!-- Row 1 -->
                                 <div class="col-1">
                                     <label for="qty" class="form-label">Qty</label>
-                                    <input type="text" class="form-control" name="qty1" placeholder="Name of Agency">
+                                    <input type="text" class="form-control" name="qty1" placeholder="">
                                 </div>
 
 
                                 <div class="col-sm-1">
                                     <label for="unit" class="form-label">Unit</label>
-                                    <input type="text" class="form-control" name="unit1" placeholder="unit">
+                                    <input type="text" class="form-control" name="unit1" placeholder="">
                                 </div>
                                 
                                 <div class="col-sm-2">
                                     <label for="description" class="form-label">Description</label>
-                                    <input type="text" class="form-control" name="description1" placeholder="description">
+                                    <input type="text" class="form-control" name="description1" placeholder="">
                                 </div>
 
                                 <div class="col-sm-2">
                                     <label for="Property No." class="form-label">Property No.</label>
-                                    <input type="text" class="form-control" name="property_no1" placeholder="Property No.">
+                                    <input type="text" class="form-control" name="property_no1" placeholder="">
                                 </div>
 
                                 <div class="col-sm-2">
                                     <label for="par_ics" class="form-label">PAR/ICS No.</label>
-                                    <input type="text" class="form-control" name="par_ics1" placeholder="par/ics no">
+                                    <input type="text" class="form-control" name="par_ics1" placeholder="">
                                 </div>
                                 
                                 <div class="col-sm-2">
                                     <label for="end_user" class="form-label">End User</label>
-                                    <input type="text" class="form-control" name="end_user1" placeholder="Name">
+                                    <input type="text" class="form-control" name="end_user1" placeholder="">
                                 </div>
                                 
 
@@ -97,33 +97,33 @@
 
                                 <div class="col-1">
                                     <label for="qty" class="form-label">Qty</label>
-                                    <input type="text" class="form-control" name="qty2" placeholder="Name of Agency">
+                                    <input type="text" class="form-control" name="qty2" placeholder="">
                                 </div>
 
 
                                 <div class="col-sm-1">
                                     <label for="unit" class="form-label">Unit</label>
-                                    <input type="text" class="form-control" name="unit2" placeholder="unit">
+                                    <input type="text" class="form-control" name="unit2" placeholder="">
                                 </div>
                                 
                                 <div class="col-sm-2">
                                     <label for="description" class="form-label">Description</label>
-                                    <input type="text" class="form-control" name="description2" placeholder="description">
+                                    <input type="text" class="form-control" name="description2" placeholder="">
                                 </div>
 
                                 <div class="col-sm-2">
                                     <label for="Property No." class="form-label">Property No.</label>
-                                    <input type="text" class="form-control" name="property_no2" placeholder="Property No.">
+                                    <input type="text" class="form-control" name="property_no2" placeholder="">
                                 </div>
 
                                 <div class="col-sm-2">
                                     <label for="par_ics" class="form-label">PAR/ICS No.</label>
-                                    <input type="text" class="form-control" name="par_ics2" placeholder="par/ics no">
+                                    <input type="text" class="form-control" name="par_ics2" placeholder="">
                                 </div>
                                 
                                 <div class="col-sm-2">
                                     <label for="end_user" class="form-label">End User</label>
-                                    <input type="text" class="form-control" name="end_user2" placeholder="Name">
+                                    <input type="text" class="form-control" name="end_user2" placeholder="">
                                 </div>
                                 
 
@@ -139,7 +139,143 @@
                                 </div>
                                 
 
-                              
+                                <!-- Row 3 -->
+
+                                <div class="col-1">
+                                    <label for="qty" class="form-label">Qty</label>
+                                    <input type="text" class="form-control" name="qty3" placeholder="">
+                                </div>
+
+
+                                <div class="col-sm-1">
+                                    <label for="unit" class="form-label">Unit</label>
+                                    <input type="text" class="form-control" name="unit3" placeholder="">
+                                </div>
+                                
+                                <div class="col-sm-2">
+                                    <label for="description" class="form-label">Description</label>
+                                    <input type="text" class="form-control" name="description3" placeholder="">
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <label for="Property No." class="form-label">Property No.</label>
+                                    <input type="text" class="form-control" name="property_no3" placeholder="">
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <label for="par_ics" class="form-label">PAR/ICS No.</label>
+                                    <input type="text" class="form-control" name="par_ics3" placeholder="">
+                                </div>
+                                
+                                <div class="col-sm-2">
+                                    <label for="end_user" class="form-label">End User</label>
+                                    <input type="text" class="form-control" name="end_user3" placeholder="">
+                                </div>
+                                
+
+                                <div class="col-sm-1">
+                                    <label for="unit_va;ue" class="form-label">Unit Value</label>
+                                    <input type="number" class="form-control" name="unit_value3" placeholder="">
+                                </div>
+                                
+
+                                <div class="col-sm-1">
+                                    <label for="total_value" class="form-label">Total Value</label>
+                                    <input type="number" class="form-control" name="total_value3" placeholder="">
+                                </div>
+
+
+                                       <!-- Row 4 -->
+
+                                       <div class="col-1">
+                                    <label for="qty" class="form-label">Qty</label>
+                                    <input type="text" class="form-control" name="qty4" placeholder="">
+                                </div>
+
+
+                                <div class="col-sm-1">
+                                    <label for="unit" class="form-label">Unit</label>
+                                    <input type="text" class="form-control" name="unit4" placeholder="">
+                                </div>
+                                
+                                <div class="col-sm-2">
+                                    <label for="description" class="form-label">Description</label>
+                                    <input type="text" class="form-control" name="description4" placeholder="">
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <label for="Property No." class="form-label">Property No.</label>
+                                    <input type="text" class="form-control" name="property_no4" placeholder="">
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <label for="par_ics" class="form-label">PAR/ICS No.</label>
+                                    <input type="text" class="form-control" name="par_ics4" placeholder="">
+                                </div>
+                                
+                                <div class="col-sm-2">
+                                    <label for="end_user" class="form-label">End User</label>
+                                    <input type="text" class="form-control" name="end_user4" placeholder="">
+                                </div>
+                                
+
+                                <div class="col-sm-1">
+                                    <label for="unit_va;ue" class="form-label">Unit Value</label>
+                                    <input type="number" class="form-control" name="unit_value4" placeholder="">
+                                </div>
+                                
+
+                                <div class="col-sm-1">
+                                    <label for="total_value" class="form-label">Total Value</label>
+                                    <input type="number" class="form-control" name="total_value4" placeholder="">
+                                </div>
+
+                                       <!-- Row 5 -->
+
+                                       <div class="col-1">
+                                    <label for="qty" class="form-label">Qty</label>
+                                    <input type="text" class="form-control" name="qty5" placeholder="">
+                                </div>
+
+
+                                <div class="col-sm-1">
+                                    <label for="unit" class="form-label">Unit</label>
+                                    <input type="text" class="form-control" name="unit5" placeholder="">
+                                </div>
+                                
+                                <div class="col-sm-2">
+                                    <label for="description" class="form-label">Description</label>
+                                    <input type="text" class="form-control" name="description5" placeholder="">
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <label for="Property No." class="form-label">Property No.</label>
+                                    <input type="text" class="form-control" name="property_no5" placeholder="">
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <label for="par_ics" class="form-label">PAR/ICS No.</label>
+                                    <input type="text" class="form-control" name="par_ics5" placeholder="">
+                                </div>
+                                
+                                <div class="col-sm-2">
+                                    <label for="end_user" class="form-label">End User</label>
+                                    <input type="text" class="form-control" name="end_user5" placeholder="">
+                                </div>
+                                
+
+                                <div class="col-sm-1">
+                                    <label for="unit_va;ue" class="form-label">Unit Value</label>
+                                    <input type="number" class="form-control" name="unit_value5" placeholder="">
+                                </div>
+                                
+
+                                <div class="col-sm-1">
+                                    <label for="total_value" class="form-label">Total Value</label>
+                                    <input type="number" class="form-control" name="total_value5" placeholder="">
+                                </div>
+                                
+
                             </div>
                         </div>
                     </td>
