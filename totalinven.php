@@ -71,7 +71,8 @@ if (!isset($_SESSION['user_id'])) {
         die("Connection failed: " . $data->connect_error);
     }
 
-    $inventory = "SELECT * FROM inventory_db";
+    $inventory = "SELECT * FROM inventory_db
+    JOIN users ON inventory_db.Issued_to = users.user_id";
 
     // Check if a search term is provided
     if (isset($_GET['search']) && !empty($_GET['search'])) {
@@ -139,7 +140,7 @@ if (!isset($_SESSION['user_id'])) {
                                     <td><?php echo ($row['Quantity']) ?></td>
                                     <td><?php echo ($row['Locator']) ?></td>
                                     <td><?php echo ($row['Remarks']) ?></td>
-                                    <td><?php echo ($row['Issued_To']) ?></td>
+                                    <td><?php echo ($row['first_name']) . ' ' . $row['last_name'] ?></td>
                                     <td><?php echo ($row['Asset_Category']) ?></td>
                                 </tr>
                         <?php
@@ -159,14 +160,14 @@ if (!isset($_SESSION['user_id'])) {
     </div>
 </div>
 <div class="col-sm-12">
-        <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
+    <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
 
-<a href="print_page.php?<?php echo http_build_query($_GET); ?>">
-    <button style="width: 200px;  border-radius: 5px;background-color: maroon; color: white; border: solid .5px; height: 2rem;" style="background-color: maroon; color: white;" onmouseover="this.style.backgroundColor='#ffa800'; this.style.color='maroon'" onmouseout="this.style.backgroundColor='maroon'; this.style.color='white'">Submit for printing</button>
-</a>
-</div>
+        <a href="print_page.php?<?php echo http_build_query($_GET); ?>">
+            <button style="width: 200px;  border-radius: 5px;background-color: maroon; color: white; border: solid .5px; height: 2rem;" style="background-color: maroon; color: white;" onmouseover="this.style.backgroundColor='#ffa800'; this.style.color='maroon'" onmouseout="this.style.backgroundColor='maroon'; this.style.color='white'">Submit for printing</button>
+        </a>
     </div>
+</div>
 
-    <?php
+<?php
 include('./partials/footer.php')
 ?>

@@ -327,7 +327,7 @@
                   <span>
                     <ion-icon name="analytics-outline"></ion-icon>
                   </span>
-                  <a type="button" href="./transfer.php" class="nav-link">Transfer</a>
+                  <a type="button" href="./transfer.php" class="nav-link">Transfer Requests</a>
                 </li>
 
 

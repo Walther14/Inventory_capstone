@@ -15,7 +15,8 @@ if ($data->connect_error) {
     die("Connection failed: " . $data->connect_error);
 }
 
-$baseQuery = "SELECT * FROM inventory_db";
+$baseQuery = "SELECT * FROM inventory_db
+            JOIN users ON inventory_db.Issued_to = users.user_id";
 $conditions = [];
 
 // Check if filter parameters are provided
@@ -164,7 +165,7 @@ $result = $data->query($baseQuery);
                             <td><?php echo ($row['Quantity']) ?></td>
                             <td><?php echo ($row['Locator']) ?></td>
                             <td><input style="border:none;" value="<?php echo ($row['Remarks']) ?>"></input></td>
-                            <td class="hidden-column"><?php echo ($row['Issued_To']) ?></td>
+                            <td class="hidden-column"><?php echo ($row['first_name']) . ' ' . $row['last_name'] ?></td>
                             <td class="hidden-column"><?php echo ($row['Asset_Category']) ?></td>
                         </tr>
                 <?php
