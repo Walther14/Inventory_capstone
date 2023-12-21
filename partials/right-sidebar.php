@@ -51,53 +51,53 @@
                 <div class="row">
                     <div>
 
-                    <div class="row">
-                    <div>
+                        <div class="row">
+                            <div>
 
-                        <label style="margin-top: 10px;">Account Number</label>
+                                <label style="margin-top: 10px;">Account Number</label>
 
-                        <input class="form-control" list="AssetNumbers" style="color: gray; width: 100%" id="ANum" name="Asset_Number" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
-                        <datalist id="AssetNumbers">
-                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
-                            <?php
-                            $fund = "SELECT * FROM itemcategory_db";
-                            $result = $data->query($fund);
+                                <input class="form-control" list="AssetNumbers" style="color: gray; width: 100%" id="ANum" name="Asset_Number" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
+                                <datalist id="AssetNumbers">
+                                    <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                                    <?php
+                                    $fund = "SELECT * FROM itemcategory_db";
+                                    $result = $data->query($fund);
 
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                            ?>
-                                    <option value="<?php echo $row['Account_Number'] ?>"><?php echo $row['Account_Number'] ?></option>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </datalist>
-                    </div>
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                            <option value="<?php echo $row['Account_Number'] ?>"><?php echo $row['Account_Number'] ?></option>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </datalist>
+                            </div>
 
-                </div>
+                        </div>
 
-                <div class="row">
-                    <div>
-                        <label style="margin-top: 10px;">Account Title</label>
-                        <input class="form-control" style="color: gray; width: 100%" id="ATitle" name="Asset_Title" readonly></input>
-                    </div>
-                </div>
+                        <div class="row">
+                            <div>
+                                <label style="margin-top: 10px;">Account Title</label>
+                                <input class="form-control" style="color: gray; width: 100%" id="ATitle" name="Asset_Title" readonly></input>
+                            </div>
+                        </div>
 
-                <div class="row">
-                    <div>
+                        <div class="row">
+                            <div>
 
-                        <label style="margin-top: 10px;">Estimated Useful Life</label>
-                        <input class="form-control" type="text" id="Estimated_Useful_Life" style="color: gray; width: 100%" name="Estimated_Useful_Life" min="1" required></input>
-                    </div>
+                                <label style="margin-top: 10px;">Estimated Useful Life</label>
+                                <input class="form-control" type="text" id="Estimated_Useful_Life" style="color: gray; width: 100%" name="Estimated_Useful_Life" min="1" required></input>
+                            </div>
 
-                </div>
+                        </div>
 
                         <label style="margin-top: 10px;">Current Property Number</label>
                         <input class="form-control" style="color: gray; width: 100%" value="" name="Current_Property_Number" required></input>
                     </div>
 
                 </div>
-<!-- 
+                <!-- 
                 <div class="row">
                     <div>
 
@@ -136,17 +136,19 @@
 
                 <div class="row">
                     <div>
-                        <label style="margin-top: 10px;">Year Acquired</label>
-                        <input class="form-control" type="number" style="color: gray; width: 100%" name="Year_Acquired" placeholder="Enter year" max="<?php echo date('Y'); ?>" value="<?php echo isset($_GET['Year_Acquired']) ? $_GET['Year_Acquired'] : 2000; ?>" required>
+                        <label style="margin-top: 10px;">Date Acquired</label>
+                        <input class="form-control" type="date" style="color: gray; width: 100%" name="Date_Acquired" id="Date_Acquired" required max="<?php echo date('Y-m-d'); ?>" onchange="updateYear()">
                     </div>
                 </div>
 
                 <div class="row">
                     <div>
-                        <label style="margin-top: 10px;">Date Acquired</label>
-                        <input class="form-control" type="date" style="color: gray; width: 100%" name="Date_Acquired" required max="<?php echo date('Y-m-d'); ?>">
+                        <label style="margin-top: 10px;">Year Acquired</label>
+                        <input class="form-control" type="number" style="color: gray; width: 100%" name="Year_Acquired" id="Year_Acquired" placeholder="Enter year" max="<?php echo date('Y'); ?>" value="<?php echo isset($_GET['Year_Acquired']) ? $_GET['Year_Acquired'] : date('Y'); ?>" required>
                     </div>
                 </div>
+
+                
 
 
                 <div class="row">
@@ -179,7 +181,7 @@
 
 
 
-                
+
 
                 <div class="row">
                     <div>
@@ -243,7 +245,7 @@
 
                 </div> -->
 
-            
+
                 <div class="row">
                     <div>
 
@@ -325,17 +327,17 @@
 
                 </div>
 
-                
 
 
 
 
-                    <div >
-                        <label style="margin-top: 10px;">Photo</label>
-                        <input class="form-control" style="color: gray; width: 100%" type="file" name="image" accept="image/*" onchange="previewImage(this)">
-                        <img id="photoPreview" src="#" alt="Preview" style="max-width: 100%; display: none;">
-                    </div>
-               
+
+                <div>
+                    <label style="margin-top: 10px;">Photo</label>
+                    <input class="form-control" style="color: gray; width: 100%" type="file" name="image" accept="image/*" onchange="previewImage(this)">
+                    <img id="photoPreview" src="#" alt="Preview" style="max-width: 100%; display: none;">
+                </div>
+
             </div>
             <button type="submit" class="btn btn-success" name="submit">Add Item</button>
         </form>
@@ -1077,6 +1079,20 @@
             .catch(error => console.error('Error:', error));
     });
 </script>
+
+<script>
+                    function updateYear() {
+                        var dateAcquired = document.getElementById('Date_Acquired').value;
+                        var yearAcquired = dateAcquired.substring(0, 4); // Extract the year from the date
+                        document.getElementById('Year_Acquired').value = yearAcquired;
+                    }
+
+                    // Initialize the Year Acquired value on page load
+                    window.onload = function() {
+                        updateYear();
+                    };
+                </script>
+
 <script defer>
     // console.log('unitValue', document.querySelector('#unitValue').innerHTML)
     // const unitValue = document.getElementById('unitValue').textContent;

@@ -403,23 +403,20 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                 // document.getElementById('residualValue').textContent = data.Unit_Value * 0.1;
                 document.getElementById('residualValue').textContent = residualValue_mod.toFixed(2);
                 // Assuming Estimated_Useful_Life is defined and accessible
-                var Estimated_Useful_Life = parseInt(data.Estimated_Useful_Life);
+            var Estimated_Useful_Life = parseFloat(data.Estimated_Useful_Life); // Parse as a float instead of an integer
 
-                // Calculate depreciation using the residualValue and Estimated_Useful_Life
-                // var residualValue = data.Unit_Value * 0.1;
-                var residualValue = residualValue_mod;
+// Calculate depreciation using the residualValue and Estimated_Useful_Life
+var residualValue = residualValue_mod;
 
-                // Calculate A (Unit_Value - residualValue)
-                // var A = data.Unit_Value - (data.Unit_Value * 0.1); // Assuming 0.1 is the residual value percentage
-                var A = unit_val - (unit_val * 0.1); // Assuming 0.1 is the residual value percentage
+// Calculate A (Unit_Value - residualValue)
+var A = unit_val - (unit_val * 0.1); // Assuming 0.1 is the residual value percentage
 
-                // Calculate B (Estimated_Useful_Life * 12)
-                // var B = Estimated_Useful_Life * 12;
-                var B = parseInt(data.Estimated_Useful_Life) * 12;
+// Calculate B (Estimated_Useful_Life * 12)
+var B = Estimated_Useful_Life * 12; // Parse as a float, not an integer
 
-                // Calculate depreciation using the simplified formula A / B
-                // var depreciation = (A / B);
-                var depreciation = B > 0 ? (A / B) : 0;
+// Calculate depreciation using the simplified formula A / B
+var depreciation = B > 0 ? (A / B) : 0;
+
                 // console.log(A,B)
                 // console.log("depreceation", data.Estimated_Useful_Life * 12)
 
