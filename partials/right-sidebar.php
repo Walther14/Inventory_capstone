@@ -7,12 +7,25 @@
 
         <form action="./Controller/addInventory_Controller.php" method="post" enctype="multipart/form-data">
             <div class="p-3">
-
                 <div class="row">
                     <div>
 
-                        <h5>Property Description</h5>
-                        <input style="color: gray; width: 100%" name="Property_Description" required></input>
+                        <h5>Choose Category:</h5>
+                        <select name="category" class="form-control" id="category">
+                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                            <?php
+                            $fund = "SELECT * FROM asset_db";
+                            $result = $data->query($fund);
+
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                            ?>
+                                    <option value="<?php echo $row['Asset_Code'] ?>"><?php echo $row['Asset_Title'] ?></option>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </select>
                     </div>
 
                 </div>
@@ -20,8 +33,8 @@
                 <div class="row">
                     <div>
 
-                        <h5>Locator</h5>
-                        <input style="color: gray; width: 100%" name="Locator" required></input>
+                        <label style="margin-top: 10px;">Property Description</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="Property_Description" required></input>
                     </div>
 
                 </div>
@@ -29,8 +42,8 @@
                 <div class="row">
                     <div>
 
-                        <h5>Current Property Number</h5>
-                        <input style="color: gray; width: 100%" name="Current_Property_Number" required></input>
+                        <label style="margin-top: 10px;">Locator</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="Locator" required></input>
                     </div>
 
                 </div>
@@ -38,8 +51,67 @@
                 <div class="row">
                     <div>
 
-                        <h5>Old Property Number</h5>
-                        <input style="color: gray; width: 100%" name="Old_Property_Number" required></input>
+                    <div class="row">
+                    <div>
+
+                        <label style="margin-top: 10px;">Account Number</label>
+
+                        <input class="form-control" list="AssetNumbers" style="color: gray; width: 100%" id="ANum" name="Asset_Number" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
+                        <datalist id="AssetNumbers">
+                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                            <?php
+                            $fund = "SELECT * FROM itemcategory_db";
+                            $result = $data->query($fund);
+
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                            ?>
+                                    <option value="<?php echo $row['Account_Number'] ?>"><?php echo $row['Account_Number'] ?></option>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </datalist>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div>
+                        <label style="margin-top: 10px;">Account Title</label>
+                        <input class="form-control" style="color: gray; width: 100%" id="ATitle" name="Asset_Title" readonly></input>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div>
+
+                        <label style="margin-top: 10px;">Estimated Useful Life</label>
+                        <input class="form-control" type="text" id="Estimated_Useful_Life" style="color: gray; width: 100%" name="Estimated_Useful_Life" min="1" required></input>
+                    </div>
+
+                </div>
+
+                        <label style="margin-top: 10px;">Current Property Number</label>
+                        <input class="form-control" style="color: gray; width: 100%" value="" name="Current_Property_Number" required></input>
+                    </div>
+
+                </div>
+<!-- 
+                <div class="row">
+                    <div>
+
+                        <label>Old Property Number</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="Old_Property_Number" required></input>
+                    </div>
+
+                </div> -->
+
+                <div class="row">
+                    <div>
+
+                        <label style="margin-top: 10px;">Unit of Measure</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="Unit_Measure" required></input>
                     </div>
 
                 </div>
@@ -47,52 +119,42 @@
                 <div class="row">
                     <div>
 
-                        <h5>Unit of Measure</h5>
-                        <input style="color: gray; width: 100%" name="Unit_Measure" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Unit Value</h5>
-                        <input type="text" style="color: gray; width: 100%" name="Unit_Value" required></input>
+                        <label style="margin-top: 10px;">Unit Value</label>
+                        <input class="form-control" type="text" style="color: gray; width: 100%" name="Unit_Value" required></input>
                     </div>
 
                 </div>
 
 
                 <div class="row">
-    <div>
-        <h5>Quantity</h5>
-        <input type="number" style="color: gray; width: 100%" name="Quantity" value="1" min="1" ></input>
-    </div>
-</div>
+                    <div>
+                        <label style="margin-top: 10px;">Quantity</label>
+                        <input class="form-control" type="number" style="color: gray; width: 100%" name="Quantity" value="1" min="1"></input>
+                    </div>
+                </div>
 
 
                 <div class="row">
                     <div>
-                        <h5>Year Acquired</h5>
-                        <input type="number" style="color: gray; width: 100%" name="Year_Acquired" placeholder="Enter year" max="<?php echo date('Y'); ?>" value="<?php echo isset($_GET['Year_Acquired']) ? $_GET['Year_Acquired'] : 2000; ?>" required>
+                        <label style="margin-top: 10px;">Year Acquired</label>
+                        <input class="form-control" type="number" style="color: gray; width: 100%" name="Year_Acquired" placeholder="Enter year" max="<?php echo date('Y'); ?>" value="<?php echo isset($_GET['Year_Acquired']) ? $_GET['Year_Acquired'] : 2000; ?>" required>
                     </div>
                 </div>
 
                 <div class="row">
-    <div>
-        <h5>Date Acquired</h5>
-        <input type="date" style="color: gray; width: 100%" name="Date_Acquired" required
-               max="<?php echo date('Y-m-d'); ?>">
-    </div>
-</div>
+                    <div>
+                        <label style="margin-top: 10px;">Date Acquired</label>
+                        <input class="form-control" type="date" style="color: gray; width: 100%" name="Date_Acquired" required max="<?php echo date('Y-m-d'); ?>">
+                    </div>
+                </div>
 
 
                 <div class="row">
                     <div>
 
-                        <h5>Asset Category</h5>
+                        <label style="margin-top: 10px;">Asset Category</label>
 
-                        <input list="AssetCateg" style="color: gray; width: 100%" name="Asset_Category" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
+                        <input class="form-control" list="AssetCateg" style="color: gray; width: 100%" name="Asset_Category" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
                         <datalist id="AssetCateg">
                             <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
                             <?php
@@ -117,43 +179,13 @@
 
 
 
-                <div class="row">
-                    <div>
-
-                        <h5>Account Number</h5>
-
-                        <input list="AssetNumbers" style="color: gray; width: 100%" id="ANum" name="Asset_Number" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
-                        <datalist id="AssetNumbers">
-                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
-                            <?php
-                            $fund = "SELECT * FROM itemcategory_db";
-                            $result = $data->query($fund);
-
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                            ?>
-                                    <option value="<?php echo $row['Account_Number'] ?>"><?php echo $row['Account_Number'] ?></option>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </datalist>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-                        <h5>Account Title</h5>
-                        <input style="color: gray; width: 100%" id="ATitle" name="Asset_Title" readonly></input>
-                    </div>
-                </div>
+                
 
                 <div class="row">
                     <div>
 
-                        <h5>Issued To</h5>
-                        <input list="IssuedTo" style="color: gray; width: 100%" id="ANum" name="Issued_To" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
+                        <label style="margin-top: 10px;">Issued To</label>
+                        <input class="form-control" list="IssuedTo" style="color: gray; width: 100%" id="ANum" name="Issued_To" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
                         <datalist id="IssuedTo">
                             <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
                             <?php
@@ -173,58 +205,50 @@
 
                 </div>
 
+                <!-- <div class="row">
+                    <div>
+
+                        <label>Issued From</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="Issued_From" required></input>
+                    </div>
+
+                </div> -->
+
                 <div class="row">
                     <div>
 
-                        <h5>Issued From</h5>
-                        <input style="color: gray; width: 100%" name="Issued_From" required></input>
+                        <label style="margin-top: 10px;">ARE/PAR/ICS Number</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="ARE_PAR_ICS_Number" required></input>
                     </div>
 
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
                     <div>
 
-                        <h5>ARE/PAR/ICS Number</h5>
-                        <input style="color: gray; width: 100%" name="ARE_PAR_ICS_Number" required></input>
+                        <label>Cancelled ARE/PAR/ICS Number</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="Cancelled_Number" required></input>
                     </div>
 
-                </div>
+                </div> -->
 
-                <div class="row">
+
+
+                <!-- <div class="row">
                     <div>
 
-                        <h5>Cancelled ARE/PAR/ICS Number</h5>
-                        <input style="color: gray; width: 100%" name="Cancelled_Number" required></input>
+                        <label>PRS Number</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="PRS_Number" required></input>
                     </div>
 
-                </div>
+                </div> -->
 
-
-
+            
                 <div class="row">
                     <div>
 
-                        <h5>PRS Number</h5>
-                        <input style="color: gray; width: 100%" name="PRS_Number" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Estimated Useful Life</h5>
-                        <input type="text" style="color: gray; width: 100%" name="Estimated_Useful_Life" min="1" required></input>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div>
-
-                        <h5>Fund Cluster</h5>
-                        <input style="color: gray; width: 100%" name="Fund_Cluster" required></input>
+                        <label style="margin-top: 10px;">Fund Cluster</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="Fund_Cluster" required></input>
                     </div>
 
 
@@ -232,8 +256,8 @@
                 <div class="row">
                     <div>
 
-                        <h5>Fund Admin Code</h5>
-                        <input list="AdminCode" style="color: gray; width: 100%" id="ACode" name="Fund_Admin_Code" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
+                        <label style="margin-top: 10px;">Fund Admin Code</label>
+                        <input class="form-control" list="AdminCode" style="color: gray; width: 100%" id="ACode" name="Fund_Admin_Code" placeholder="Enter or select Account Number" required onchange="fetchAssetTitle(this.value)">
                         <datalist id="AdminCode">
                             <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
                             <?php
@@ -257,8 +281,8 @@
                 <div class="row">
                     <div>
 
-                        <h5>Fund Admin Title</h5>
-                        <input style="color: gray; width: 100%" id="FTitle" name="Fund_Admin_Title" readonly></input>
+                        <label style="margin-top: 10px;">Fund Admin Title</label>
+                        <input class="form-control" style="color: gray; width: 100%" id="FTitle" name="Fund_Admin_Title" readonly></input>
                     </div>
 
                 </div>
@@ -266,8 +290,8 @@
                 <div class="row">
                     <div>
 
-                        <h5>Supplier</h5>
-                        <input style="color: gray; width: 100%" name="Supplier" required></input>
+                        <label style="margin-top: 10px;">Supplier</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="Supplier" required></input>
                     </div>
 
                 </div>
@@ -275,46 +299,43 @@
                 <div class="row">
                     <div>
 
-                        <h5>Purchase Order/Contract Number</h5>
-                        <input style="color: gray; width: 100%" name="Purchase_Order_Contract_Number" required></input>
+                        <label style="margin-top: 10px;">Purchase Order/Contract Number</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="Purchase_Order_Contract_Number" required></input>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div>
+
+                        <label style="margin-top: 10px;">Acquired through</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="Acquired_through" required></input>
                     </div>
 
                 </div>
 
 
+
                 <div class="row">
                     <div>
 
-
-                        <h5>Acquired through</h5>
-                        <input input style="color: gray; width: 100%" name="Acquired_through" required></input>
-
+                        <label style="margin-top: 10px;">Remarks</label>
+                        <input class="form-control" style="color: gray; width: 100%" name="Remarks" required></input>
                     </div>
 
                 </div>
 
-
-
-                <div class="row">
-
+                
 
 
 
 
-                    <div class="row">
-                        <div>
-
-                            <h5>Remarks</h5>
-                            <input style="color: gray; width: 100%" name="Remarks" required></input>
-                        </div>
-
-                    </div>
-                    <div>
-                        <h5>Photo</h5>
-                        <input style="color: gray; width: 100%" type="file" name="image" accept="image/*" onchange="previewImage(this)">
+                    <div >
+                        <label style="margin-top: 10px;">Photo</label>
+                        <input class="form-control" style="color: gray; width: 100%" type="file" name="image" accept="image/*" onchange="previewImage(this)">
                         <img id="photoPreview" src="#" alt="Preview" style="max-width: 100%; display: none;">
                     </div>
-                </div>
+               
             </div>
             <button type="submit" class="btn btn-success" name="submit">Add Item</button>
         </form>
@@ -708,8 +729,7 @@
                             <div>
 
                                 <h5>Date Acquired</h5>
-                                <input type="date" style="color: gray; width: 100%" name="Date_Acquired" id="editdateAcquired"
-                                max="<?php echo date('Y-m-d'); ?>">
+                                <input type="date" style="color: gray; width: 100%" name="Date_Acquired" id="editdateAcquired" max="<?php echo date('Y-m-d'); ?>">
 
                             </div>
 
@@ -941,6 +961,7 @@
 
 
 
+
                     </div>
                     <button type="submit" class="btn btn-success">Update Item</button>
                 </form>
@@ -994,18 +1015,20 @@
 <script>
     // Add an event listener to the Account Number input field
     document.getElementById('ANum').addEventListener('change', function() {
-        // Fetch the corresponding account title from the database using AJAX
+        // Fetch the corresponding account title and estimated life from the database using AJAX
         var accountNumber = this.value;
 
         fetch('./partials/getAssetTitle.php?accountNumber=' + encodeURIComponent(accountNumber))
             .then(response => response.json())
             .then(data => {
-                // Update the Account Title input field with the fetched data
+                // Update the Account Title and Estimated Life input fields with the fetched data
                 document.getElementById('ATitle').value = data.account_title;
+                document.getElementById('Estimated_Useful_Life').value = data.estimated_life;
             })
             .catch(error => console.error('Error:', error));
     });
 </script>
+
 
 <script>
     // Add an event listener to the Account Number input field

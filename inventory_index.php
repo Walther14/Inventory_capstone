@@ -30,7 +30,7 @@ if (!isset($_SESSION['user_id'])) {
                 </a>
                 <div class="d-flex justify-content-between">
                     <form method="get" action="" style="display: flex; align-items: center; margin-right: 30px;">
-                    <input type="text" id="search" name="search" style="width: 130px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" placeholder="Enter your search term" title="place the description or asset category here">
+                    <input type="text" id="search" name="search" style="width: 130px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" placeholder="Enter your search term" title="place the description or custodian here">
                         <button type="submit" style="width:50px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" title="press to search the entered text" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')"">Search</button>
     </form>
 
@@ -76,14 +76,13 @@ if (!isset($_SESSION['user_id'])) {
         die("Connection failed: " . $data->connect_error);
     }
 
-    $inventory = "SELECT * FROM inventory_db
-    JOIN users ON inventory_db.Issued_to = users.user_id";
+    $inventory = "SELECT * FROM inventory_db";
 
   // Check if a search term is provided
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $searchTerm = $_GET['search'];
     // Modify the query to include a search condition for first name, last name, and property description
-    $inventory .= " WHERE CONCAT(first_name, ' ', last_name, ' ', property_description) LIKE '%$searchTerm%'";
+    $inventory .= " WHERE property_description LIKE '%$searchTerm%'";
 }
 
 
@@ -257,6 +256,28 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
             fetchData(id);
         });
     });
+
+    $(document).ready(function () {
+        $("#category").change(function () {
+            var selectedCategory = $(this).val();
+            
+            // Make an AJAX request to fetch data from the server
+            $.ajax({
+                type: "POST",
+                url: "./Controller/assetCategory.php", // Replace with the actual server script URL
+                data: { category: selectedCategory },
+                success: function (response) {
+            console.log(selectedCategory)
+
+                    // Update the content with the response from the server
+                    $("#result").html(response);
+                }
+            });
+        });
+    });
+
+
+
 
     // Function to make the AJAX call
     function fetchData(id) {

@@ -83,6 +83,12 @@ if (isset($_SESSION['response'])) {
                             <input type="text" class="form-control" id="Account_Title" name="Account_Title" placeholder="Account Title" value="<?= isset($_SESSION['entered_values']['Account_Title']) ? htmlspecialchars($_SESSION['entered_values']['Account_Title']) : '' ?>" required>
                         </div>
 
+                        
+                        <div class="mb-3">
+                            <label for="Account_Title" class="form-label">Estimated useful life</label>
+                            <input type="text" class="form-control" id="estimated_lif" name="estimated_life" placeholder="Estimated useful life" value="<?= isset($_SESSION['entered_values']['estimated_life']) ? htmlspecialchars($_SESSION['entered_values']['estimated_life']) : '' ?>" required>
+                        </div>
+
                         <div class="mb-3 pb-3 border-bottom">
                             <button type="submit" class="btn btn-primary w-100" style="background-color: maroon; color: white;" onmouseover="this.style.backgroundColor= '#ffa800' ; this.style.color='maroon'" onmouseout="this.style.backgroundColor='maroon'; this.style.color='white'">Save</button>
                         </div>
@@ -128,6 +134,7 @@ if (isset($_SESSION['response'])) {
         <thead style="background-color: #ffa800;">
                 <th>Item Account Number</th>
                 <th>Item Account Title</th>
+                <th>Estimated Useful Life</th>
 
             </thead>
             <tbody>
@@ -143,6 +150,9 @@ if (isset($_SESSION['response'])) {
 
                             <td>
                                 <?php echo ($row['Account_Title']) ?>
+                            </td>
+                            <td>
+                                <?php echo ($row['estimated_life']) ?>
                             </td>
                         </tr>
 

@@ -12,6 +12,7 @@
         let sidenav3 = document.querySelector("#sidenav3")
         let sidenav4 = document.querySelector("#sidenav4")
         let sidenav5 = document.querySelector("#sidenav5")
+        let sidenav6 = document.querySelector("#sidenav6")
 
 
 
@@ -20,6 +21,8 @@
         sidenav3.style.display = "none"
         sidenav4.style.display = "none"
         sidenav5.style.display = "none"
+        sidenav6.style.display = "none"
+
 
     })
 
@@ -29,6 +32,7 @@
         let sidenav3 = document.querySelector("#sidenav3")
         let sidenav4 = document.querySelector("#sidenav4")
         let sidenav5 = document.querySelector("#sidenav5")
+        let sidenav6 = document.querySelector("#sidenav6")
 
 
 
@@ -37,6 +41,8 @@
         sidenav3.style.display = "none"
         sidenav4.style.display = "none"
         sidenav5.style.display = "none"
+        sidenav6.style.display = "none"
+
 
 
     })
@@ -47,6 +53,7 @@
         let sidenav3 = document.querySelector("#sidenav3")
         let sidenav4 = document.querySelector("#sidenav4")
         let sidenav5 = document.querySelector("#sidenav5")
+        let sidenav6 = document.querySelector("#sidenav6")
 
 
 
@@ -55,6 +62,8 @@
         sidenav3.style.display = "block"
         sidenav4.style.display = "none"
         sidenav5.style.display = "none"
+        sidenav6.style.display = "none"
+
     })
 
     d.addEventListener("click", function() {
@@ -63,6 +72,7 @@
         let sidenav3 = document.querySelector("#sidenav3")
         let sidenav4 = document.querySelector("#sidenav4")
         let sidenav5 = document.querySelector("#sidenav5")
+        let sidenav6 = document.querySelector("#sidenav6")
 
 
 
@@ -71,6 +81,7 @@
         sidenav3.style.display = "none"
         sidenav4.style.display = "block"
         sidenav5.style.display = "none"
+        sidenav6.style.display = "none"
 
 
     })

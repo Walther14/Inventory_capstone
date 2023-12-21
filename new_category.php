@@ -16,11 +16,13 @@ if ($data) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Account_Number = $_POST['Account_Number'];
         $Account_Title = $_POST['Account_Title'];
+        $estimated_life = $_POST['estimated_life'];
 
         // Initialize entered values array
         $entered_values = [
             'Account_Number' => $Account_Number,
             'Account_Title' => $Account_Title,
+            'estiamted_life' => $estimated_life
         ];
 
             // Check if the username already exists
@@ -36,11 +38,11 @@ if ($data) {
                 ];
             } else {
                 // Insert the user if the username is not found
-                $insertQuery = 'INSERT INTO itemcategory_db (Account_Number, Account_Title) 
-                                VALUES (?, ?)';
+                $insertQuery = 'INSERT INTO itemcategory_db (Account_Number, Account_Title, estimated_life) 
+                                VALUES (?, ?, ?)';
 
                 $insertStmt = $data->prepare($insertQuery);
-                $insertStmt->bind_param('ss', $Account_Number, $Account_Title);
+                $insertStmt->bind_param('sss', $Account_Number, $Account_Title, $estimated_life);
 
                 if ($insertStmt->execute()) {
                     $response = [

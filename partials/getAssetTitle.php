@@ -4,30 +4,31 @@
 // Include your database connection file
 @include('../Controller/db.php');
 
-// Fetch Account Title based on the provided Account Number
+// Fetch Account Title and Estimated Life based on the provided Account Number
 if (isset($_GET['accountNumber'])) {
     $accountNumber = $_GET['accountNumber'];
 
     // Debugging: Log the received account number
     error_log('Received Account Number: ' . $accountNumber);
 
-    $query = "SELECT Account_Title FROM itemcategory_db WHERE Account_Number = ?";
+    $query = "SELECT Account_Title, estimated_life FROM itemcategory_db WHERE Account_Number = ?";
     
     $stmt = $data->prepare($query);
     $stmt->bind_param('s', $accountNumber);
     $stmt->execute();
-    $stmt->bind_result($accountTitle);
+    $stmt->bind_result($accountTitle, $estimatedLife);
     
     if ($stmt->fetch()) {
-        // Debugging: Log the retrieved account title
+        // Debugging: Log the retrieved account title and estimated life
         error_log('Retrieved Account Title: ' . $accountTitle);
+        error_log('Retrieved Estimated Life: ' . $estimatedLife);
 
-        echo json_encode(['account_title' => $accountTitle]);
+        echo json_encode(['account_title' => $accountTitle, 'estimated_life' => $estimatedLife]);
     } else {
         // Debugging: Log a message if no matching record found
         error_log('No matching record found for Account Number: ' . $accountNumber);
 
-        echo json_encode(['account_title' => '']); // Return an empty string if no matching record found
+        echo json_encode(['account_title' => '', 'estimated_life' => '']); // Return an empty string if no matching record found
     }
 
     $stmt->close();
@@ -35,6 +36,6 @@ if (isset($_GET['accountNumber'])) {
     // Debugging: Log a message if no account number provided
     error_log('No Account Number provided');
 
-    echo json_encode(['account_title' => '']); // Return an empty string if no account number provided
+    echo json_encode(['account_title' => '', 'estimated_life' => '']); // Return an empty string if no account number provided
 }
 ?>

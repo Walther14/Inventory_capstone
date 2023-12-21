@@ -20,6 +20,8 @@
         <div class="row g-3 p-5 d-flex justify-content-around">
 
 
+        
+
             <div class="col-sm-6">
                 <label for="first-name" class="form-label">Property Description</label>
                 <input type="text" class="form-control" name="Property_Description" placeholder="Property Description" required>

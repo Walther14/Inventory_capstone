@@ -134,7 +134,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                                     </td>
 
                                     <!-- Vertically centered modal -->
-                                    <div class="modal fade" id="archivesModal<?php echo $row['id'] ?>" tabindex="-1" aria-hidden="true">
+                                    <!-- <div class="modal fade" id="archivesModal<?php echo $row['id'] ?>" tabindex="-1" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -171,11 +171,11 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                                                 </form>
                                             </div>
                                         </div>
-                                    </div>
-
+                                    </div> -->
+<!-- 
                                     <td>
                                         <button type="button" data-bs-toggle="modal" data-bs-target="#archivesModal<?php echo $row['id'] ?>" class="btn btn-primary archive-btn" style="background-color: maroon;">Archive</button>
-                                    </td>
+                                    </td> -->
 
                                 </tr>
 

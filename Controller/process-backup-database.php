@@ -1,5 +1,5 @@
 <?php
-// // Database credentials
+// Database credentials
 // include('./db.php');
 
 // $date = $_POST['date'];

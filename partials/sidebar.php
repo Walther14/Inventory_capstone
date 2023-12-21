@@ -121,7 +121,7 @@
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 <?php
                 $sql = "SELECT COUNT(*) as row_count FROM transfer_db
-                                                    WHERE transfer_db.archive IS NULL OR transfer_db.archive != 1";
+                                                    WHERE transfer_db.archive IS NULL";
                 $result = $data->query($sql);
 
                 // Fetch the row count
@@ -228,14 +228,14 @@
                 <li>
                   <hr class="sidebar-divider">
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link" href="./staff.php" aria-current="page">College Personnel</a>
-                </li>
+                </li> -->
 
-
+<!-- 
                 <li>
                   <hr class="sidebar-divider">
-                </li>
+                </li> -->
 
 
             </li>

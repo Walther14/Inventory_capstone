@@ -54,10 +54,10 @@ if (!isset($_SESSION['user_id'])) {
         border-radius: 5px;
         cursor: pointer;">Logout</a>
     </div>
-
+<!-- 
     <div class="image-container">
-        <img style="margin-top: 30vh;" src="./img/prime.png" alt="prime">
-    </div>
+        <img style="margin-top: 10vh;" src="./img/prime.png" alt="prime">
+    </div> -->
 
     <?php include 'partials/footer.php'; ?>
 </body>

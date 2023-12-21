@@ -109,7 +109,7 @@ $propertyOfficer = $_POST['propertyOfficer'] ?? '';
    text-align: center;
 }
 body, th, td, .form-control, .form-group label {
-    font-family: 'Century Gothic', sans-serif;
+    font-family: 'Century Gothic', sans-serif; font-size: 12px;
 }
 
 @page {

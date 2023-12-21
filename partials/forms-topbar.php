@@ -18,14 +18,14 @@
                 <option value="./forms/semiIssued.php">Report of Semi-Expendable Property Issued</option>
                 <option value="./forms/unserviceableSemi.php">Inventory and Inspection Report of Unserviceable Semi-Expendable Property </option>
                 <option value="./forms/unserviceableProperty.php">Inventory and Inspection Report of Unserviceable Property</option>
-                <option value="#">Stock Card</option>
+                <!-- <option value="#">Stock Card</option>
                 <option value="#">Inventory Custodian Slip</option>
                 <option value="./forms/returned_semi-expendable_property_receipt.php">Receipt of Returned Semi-Expendable Property </option>
                 <option value="./forms/property_card.php">Semi-Expendable Property Card </option>
                 <option value="./forms/acknwoledgement_receipt.php">Property Acknowledgement Receipt </option>
                 <option value="./forms/acknowledgement_receipt_equipment.php">Acknowledgement Receipt for Equipment</option>
                 <option value="./forms/PropertyReturn_Slip.php">Property Return Slip</option>
-                <option value="#">Property Card</option>
+                <option value="#">Property Card</option> -->
             </select>
         </div>
 

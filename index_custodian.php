@@ -29,10 +29,10 @@ $id = $_SESSION['user_id'];
 
                 </a>
                 <div class="d-flex justify-content-between">
-                    <form method="get" action="" style="display: flex; align-items: center; margin-right: 30px;">
+                    <!-- <form method="get" action="" style="display: flex; align-items: center; margin-right: 30px;">
                         <input type="text" id="search" name="search" style="width: 130px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" placeholder="Enter your search term">
                         <button type="submit" style="width:50px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')"">Search</button>
-    </form>
+    </form> -->
 
    
                 </div>
@@ -51,7 +51,7 @@ $id = $_SESSION['user_id'];
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 <?php
                                 // SELECT COUNT(*) FROM transfer_db WHERE user_id = '$id' AND (archive IS NULL OR archive = 1)
-                                $sql = "SELECT COUNT(*) as row_count FROM transfer_db WHERE user_id = $id AND (archive IS NULL OR archive =1)";
+                                $sql = "SELECT COUNT(*) as row_count FROM transfer_db WHERE user_id = $id AND (archive =1)";
                                 $result = $data->query($sql);
 
                                 // Fetch the row count
@@ -69,6 +69,40 @@ $id = $_SESSION['user_id'];
 
 
                 </div>
+                <li class="nav-item dropdown">
+        <img src="./img/user.png" class="nav-link dropdown-toggle" title="click to access back up and restore, log out and manage account" style="margin: 0; padding: 0; margin-left: 10px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" height="50" width="50">
+
+
+        <ul class="dropdown-menu dropdown-menu-end mt-md-2 rounded-top-0">
+
+\
+      <li><a class="dropdown-item" href="./logout.php">
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <span>
+        <span>
+          <i class="fa-solid  fa-right-from-bracket" data-bs-title="Logout"></i>
+        </span>
+      </span>
+      Logout
+      </a>
+      </li>
+      <li><a class="dropdown-item" href="manageAccountCustodian.php">
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+
+      <span>
+        <i class="fa-solid  fa-user"></i>
+      </span>
+      </span>
+      Manage Account
+      </a>
+      </li>
+ 
+      </ul>
+      </li>
         </nav>
     </div>
 

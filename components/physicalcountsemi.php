@@ -336,6 +336,7 @@ for ($i = 0; $i < count($article); $i++) {
 <td colspan="6" for="inspected_by" style="text-align: left;">Witnessed by:</td>    
 
 <tr style="width: 100%; text-align: center; margin-bottom: 10px;">
+
 <td colspan="6" style="margin-bottom: 10px;">
         <div style="margin-top: 7px;"><?php echo $name5; ?> <br> <?php echo $position5; ?></div>
     </td>

@@ -170,12 +170,13 @@ if (isset($_SESSION['response'])) {
             <div style="background-color: maroon; color: white; font-weight: bold; font-size: 2vh; text-align: right; padding: 5px 10px; margin-bottom: 10px;" role="alert">
                 Total Registered Users: <?php echo $totalUsers; ?>
             </div>
-            <div style="background-color: maroon; color: white; font-weight: bold; font-size: 2vh; text-align: right; padding: 5px 10px; margin-bottom: 10px;" role="alert">
+            <!-- <div style="background-color: maroon; color: white; font-weight: bold; font-size: 2vh; text-align: right; padding: 5px 10px; margin-bottom: 10px;" role="alert">
                 Role: 0-Admin | 1-Supply Staff | 3-Property Custodian
-            </div>
+            </div> -->
             <table class="table table-bordered align-middle">
 
                 <thead style="background-color: #ffa800;">
+                    <th>USER ID</th>
                     <th>FIRST NAME</th>
                     <th>LAST NAME</th>
                     <th>USERNAME</th>
@@ -191,35 +192,36 @@ if (isset($_SESSION['response'])) {
                         while ($row = $result->fetch_assoc()) {
                     ?>
                             <tr>
+                                <td><?php echo $row['user_id']; ?></td>
                                 <td><?php echo $row['first_name']; ?></td>
                                 <td><?php echo $row['last_name']; ?></td>
                                 <td><?php echo $row['username']; ?></td>
                                 <td>
 
-                                <?php
-                                if ($row['role']  == 1) {
-                                ?>
-                                Staff
-
-                                <?php
-                                }
-                                ?>
-                                  <?php
-                                if ($row['role']  == 3) {
-                                ?>
-                                Custodian
-
-                                <?php
-                                }
-                                ?>
                                     <?php
-                                if ($row['role']  == 0) {
-                                ?>
-                                Admin
+                                    if ($row['role']  == 1) {
+                                    ?>
+                                        Staff
 
-                                <?php
-                                }
-                                ?>
+                                    <?php
+                                    }
+                                    ?>
+                                    <?php
+                                    if ($row['role']  == 3) {
+                                    ?>
+                                        Custodian
+
+                                    <?php
+                                    }
+                                    ?>
+                                    <?php
+                                    if ($row['role']  == 0) {
+                                    ?>
+                                        Admin
+
+                                    <?php
+                                    }
+                                    ?>
                                 </td>
 
                                 <td><?php echo $row['created_at']; ?></td>
