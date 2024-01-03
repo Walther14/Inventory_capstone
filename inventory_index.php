@@ -30,8 +30,8 @@ if (!isset($_SESSION['user_id'])) {
                 </a>
                 <div class="d-flex justify-content-between">
                     <form method="get" action="" style="display: flex; align-items: center; margin-right: 30px;">
-                    <input type="text" id="search" name="search" style="width: 130px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" placeholder="Enter your search term" title="place the description or custodian here">
-                        <button type="submit" style="width:50px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" title="press to search the entered text" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')"">Search</button>
+                        <input type="text" id="search" name="search" style="width: 190px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" placeholder="Enter your description" title="place the description here">
+                        <button type="submit" style="width:100px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" title="press to search the entered text" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')"">Search</button>
     </form>
 
     <button id="addInventoryID" style="width: 210px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')">
@@ -78,16 +78,18 @@ if (!isset($_SESSION['user_id'])) {
 
     $inventory = "SELECT * FROM inventory_db";
 
-  // Check if a search term is provided
-if (isset($_GET['search']) && !empty($_GET['search'])) {
-    $searchTerm = $_GET['search'];
-    // Modify the query to include a search condition for first name, last name, and property description
-    $inventory .= " WHERE property_description LIKE '%$searchTerm%'";
-}
+    // Check if a search term is provided
+    if (isset($_GET['search']) && !empty($_GET['search'])) {
+        $searchTerm = $_GET['search'];
+        // Modify the query to include a search condition for first name, last name, and property description
+        $inventory .= " WHERE property_description LIKE '%$searchTerm%'";
+    }
 
 
-  
+
     $result = $data->query($inventory);
+
+
     ?>
 
 
@@ -102,6 +104,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
 
                     <thead style="text-align: center;">
+                        <th>No.</th>
                         <th>Property Description</th>
                         <th>Locator</th>
                         <th>Currently Property Number</th>
@@ -111,11 +114,17 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                         <?php
                         if ($result->num_rows > 0) {
                             // output data of each row
+                            $row_number = 0; // Initialize the row number
                             while ($row = $result->fetch_assoc()) {
-
-
+                                $row_number++; // Increment the row number for each row
                         ?>
+
+
+
                                 <tr>
+                                    <td>
+                                        <?php echo $row_number; ?>
+                                    </td>
 
                                     <td>
                                         <?php echo ($row['Property_Description']) ?>
@@ -128,7 +137,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                                         <?php echo ($row['Current_Property_Number']) ?>
                                     </td>
                                     <td>
-                                        <a type="button" class="btn btn-primary" style="background-color: maroon;" data-id="<?php echo $row['id'] ?>">View</a>
+                                        <a type="button" class="btn btn-primary" style="background-color: maroon; width:60px;" data-id="<?php echo $row['id'] ?>">View</a>
                                         <!-- <a type="button" class="btn btn-secondary" data-id="data_edit?id=<?php echo $row['id'] ?>">Edit</a> -->
                                     </td>
 
@@ -233,7 +242,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
     buttons.forEach(function(button) {
         button.addEventListener("click", function() {
-            
+
 
             let rightSideBar = document.querySelector("#rightSidebar");
             let rightSideBar2 = document.querySelector("#rightSidebar2");
@@ -257,17 +266,19 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
         });
     });
 
-    $(document).ready(function () {
-        $("#category").change(function () {
+    $(document).ready(function() {
+        $("#category").change(function() {
             var selectedCategory = $(this).val();
-            
+
             // Make an AJAX request to fetch data from the server
             $.ajax({
                 type: "POST",
                 url: "./Controller/assetCategory.php", // Replace with the actual server script URL
-                data: { category: selectedCategory },
-                success: function (response) {
-            console.log(selectedCategory)
+                data: {
+                    category: selectedCategory
+                },
+                success: function(response) {
+                    console.log(selectedCategory)
 
                     // Update the content with the response from the server
                     $("#result").html(response);
@@ -281,7 +292,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
     // Function to make the AJAX call
     function fetchData(id) {
-        
+
         fetch('./Controller/view.php?id=' + id)
             .then(response => {
                 if (!response.ok) {
@@ -403,19 +414,19 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                 // document.getElementById('residualValue').textContent = data.Unit_Value * 0.1;
                 document.getElementById('residualValue').textContent = residualValue_mod.toFixed(2);
                 // Assuming Estimated_Useful_Life is defined and accessible
-            var Estimated_Useful_Life = parseFloat(data.Estimated_Useful_Life); // Parse as a float instead of an integer
+                var Estimated_Useful_Life = parseFloat(data.Estimated_Useful_Life); // Parse as a float instead of an integer
 
-// Calculate depreciation using the residualValue and Estimated_Useful_Life
-var residualValue = residualValue_mod;
+                // Calculate depreciation using the residualValue and Estimated_Useful_Life
+                var residualValue = residualValue_mod;
 
-// Calculate A (Unit_Value - residualValue)
-var A = unit_val - (unit_val * 0.1); // Assuming 0.1 is the residual value percentage
+                // Calculate A (Unit_Value - residualValue)
+                var A = unit_val - (unit_val * 0.1); // Assuming 0.1 is the residual value percentage
 
-// Calculate B (Estimated_Useful_Life * 12)
-var B = Estimated_Useful_Life * 12; // Parse as a float, not an integer
+                // Calculate B (Estimated_Useful_Life * 12)
+                var B = Estimated_Useful_Life * 12; // Parse as a float, not an integer
 
-// Calculate depreciation using the simplified formula A / B
-var depreciation = B > 0 ? (A / B) : 0;
+                // Calculate depreciation using the simplified formula A / B
+                var depreciation = B > 0 ? (A / B) : 0;
 
                 // console.log(A,B)
                 // console.log("depreceation", data.Estimated_Useful_Life * 12)
