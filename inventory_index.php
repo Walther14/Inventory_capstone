@@ -69,7 +69,6 @@ if (!isset($_SESSION['user_id'])) {
 
     <?php
     // Include your database connection logic here
-    // For example: $data = new mysqli("localhost", "username", "password", "database_name");
 
     // Check if the database connection is successful
     if ($data->connect_error) {
