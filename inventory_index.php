@@ -75,7 +75,7 @@ if (!isset($_SESSION['user_id'])) {
         die("Connection failed: " . $data->connect_error);
     }
 
-    $inventory = "SELECT * FROM inventory_db";
+    $inventory = "SELECT * FROM `inventory_db` ORDER BY `inventory_db`.`id` DESC";
 
     // Check if a search term is provided
     if (isset($_GET['search']) && !empty($_GET['search'])) {
