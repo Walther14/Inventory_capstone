@@ -93,7 +93,7 @@
                         </div>
 
                         <label style="margin-top: 10px; font-weight: bold;">Current Property Number</label>
-                        <input class="form-control" style="color: gray; width: 100%" value="" name="Current_Property_Number" required></input>
+                        <input class="form-control" style="color: gray; width: 100%" value="" name="Current_Property_Number" id="categoryProperty" required></input>
                     </div>
 
                 </div>

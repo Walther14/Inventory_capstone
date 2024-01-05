@@ -221,6 +221,8 @@ if (!isset($_SESSION['user_id'])) {
     let button1 = document.querySelector('#addInventoryID');
 
 
+
+
     button1.addEventListener("click", function() {
         let rightSideBar = document.querySelector("#rightSidebar");
         let rightSideBar2 = document.querySelector("#rightSidebar2");
@@ -265,27 +267,31 @@ if (!isset($_SESSION['user_id'])) {
         });
     });
 
-    $(document).ready(function() {
-        $("#category").change(function() {
-            var selectedCategory = $(this).val();
 
-            // Make an AJAX request to fetch data from the server
-            $.ajax({
-                type: "POST",
-                url: "./Controller/assetCategory.php", // Replace with the actual server script URL
-                data: {
-                    category: selectedCategory
-                },
-                success: function(response) {
-                    console.log(selectedCategory)
 
-                    // Update the content with the response from the server
-                    $("#result").html(response);
+    let categoryPropertyButt = document.querySelector("#category")
+
+    categoryPropertyButt.addEventListener("change", function(){
+        loadData(categoryPropertyButt.value)
+    })
+
+
+    function loadData(hello) {
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', '/Controller/propertyNumber.php', true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    
+                    console.log(data);
                 }
-            });
-        });
-    });
+            };
 
+            xhr.send();
+        }
 
 
 
