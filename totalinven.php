@@ -44,7 +44,20 @@ if (!isset($_SESSION['user_id'])) {
                             }
                             ?>
                         </select>
-                        <input type="text" id="search" name="search" style="width: 130px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" placeholder="Enter your search term">
+                        <select type="text" id="search" name="search" style="width: 130px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;">
+                  
+                            <?php
+                            $users = $data->query("SELECT * FROM users");
+                            while ($user = $users->fetch_assoc()) {
+                              
+                              ?>
+                                <option value='<?php echo $user['user_id'] ?>' $selected><?php echo $user['first_name']?></option>
+                                
+                                <?php
+                            
+                            }
+                            ?>
+                        </select>
 
                         <button type="submit" style="width:50px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')">Search</button>
                     </form>
@@ -78,7 +91,7 @@ if (!isset($_SESSION['user_id'])) {
     if (isset($_GET['search']) && !empty($_GET['search'])) {
         $searchTerm = $_GET['search'];
         // Modify the query to include a search condition
-        $inventory .= " WHERE CONCAT(first_name, ' ', last_name) LIKE '%$searchTerm%'";
+        $inventory .= " WHERE CONCAT(user_id) LIKE '%$searchTerm%'";
     }
 
     // Check if an asset category filter is provided

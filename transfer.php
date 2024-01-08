@@ -191,7 +191,7 @@ if (!isset($_SESSION['user_id'])) {
 
                                                                             <select style="padding: 10px; font-size: 16px; border: 2px solid #3498db; border-radius: 5px; cursor: pointer; outline: none; background-color: #ecf0f1; color: #333; transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;" name="user_id">
                                                                                 <?php
-                                                                                $transfer2 = "SELECT * FROM users";
+                                                                                $transfer2 = "SELECT * FROM users WHERE user_id = '254'";
                                                                                 $transfer_query2 = mysqli_query($data, $transfer2);
 
                                                                                 if ($transfer_query2->num_rows > 0) {

@@ -80,7 +80,7 @@ if (!isset($_SESSION['user_id'])) {
         <select class="form-control" id="assumedSelect" name="assumedSelect" style="width: 40%;">
             <option value="" disabled selected>Select an option</option>
             <option value="lastDayDecember">Last day of December</option>
-            <option value="lastDayJune">Last day of June</option>
+            <option value="lastDayJune">Last day of July</option>
         </select>
     </div>
 </div>
@@ -517,7 +517,7 @@ function validateAmount(input) {
                 currentDate.setDate(31);
             } else if (selectedOption === 'lastDayJune') {
                 // Set the date to the last day of June
-                currentDate.setMonth(5); // June is 5 in JavaScript (0-indexed)
+                currentDate.setMonth(6); // June is 5 in JavaScript (0-indexed)
                 currentDate.setDate(30);
             }
 
