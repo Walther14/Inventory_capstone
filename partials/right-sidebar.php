@@ -20,7 +20,7 @@
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                             ?>
-                                    <option value="<?php echo $row['Asset_Code'] ?>"><?php echo $row['Asset_Title'] ?></option>
+                                    <option value="<?php echo $row['Asset_Title'] ?>"><?php echo $row['Asset_Title'] ?></option>
                             <?php
                                 }
                             }

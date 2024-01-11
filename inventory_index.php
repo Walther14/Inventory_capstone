@@ -280,18 +280,23 @@ if (!isset($_SESSION['user_id'])) {
         loadData(categoryPropertyButt.value)
     })
 
-
+    
     function loadData(hello) {
+        console.log(hello);
 
             var xhr = new XMLHttpRequest();
 
-            xhr.open('GET', '/Controller/propertyNumber.php', true);
+            xhr.open('GET', `./Controller/propertyNumber.php?id=${hello}`, true);
 
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var data = JSON.parse(xhr.responseText);
                     
-                    console.log(data);
+                    let categoryProperty = document.querySelector("#categoryProperty")
+
+                    categoryProperty.placeholder = data && data.Current_Property_Number ? data.Current_Property_Number : null;
+
+                    currentId = hello
                 }
             };
 
