@@ -61,7 +61,7 @@ if (!isset($_SESSION['user_id'])) {
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
                                 ?>
-                                        <option value="<?php echo $row['user_id'] ?>"><?php echo $row['first_name'] . ' ' . $row['last_name'] ?></option>
+                                        <option value="<?php echo $row['first_name'] . ' ' . $row['last_name'] ?>"><?php echo $row['first_name'] . ' ' . $row['last_name'] ?></option>
                                 <?php
                                     }
                                 }
@@ -241,7 +241,74 @@ if (!isset($_SESSION['user_id'])) {
 
         <div class="col-sm-12">
             <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
-            <button type="button" id="addRowButton" class="btn btn-primary" style="background-color: maroon;">Additional row</button>
+            <button type="button" id="addRowButtonWasteReport" class="btn btn-primary" style="background-color: maroon;">
+    Additional row
+</button>
+
+<script>
+document.getElementById('addRowButtonWasteReport').addEventListener('click', function () {
+    // Create new row
+    var tableBody = document.getElementById('tableBody');
+
+    if (!(tableBody.childElementCount >= 5)) {
+        var newRow = tableBody.querySelector('tr').cloneNode(true);
+        var inputFields = newRow.querySelectorAll('input');
+
+        // Increment the index of each input field in the cloned row to ensure unique names
+        var index = tableBody.children.length; // Get the number of existing rows
+        inputFields.forEach(function (input) {
+            // Update the name attribute by replacing the last set of square brackets and their content
+            input.name = input.name.replace(/\[\d+\]$/, '[' + index + ']');
+        });
+
+        // Clear the input values in the cloned row
+        inputFields.forEach(function (input) {
+            input.value = '';
+        });
+
+        // Append the cloned row to the table body
+        tableBody.appendChild(newRow);
+
+        // Add event listener to the description input fields in the new row
+        newRow.querySelectorAll('input[name^="description"]').forEach(function (input) {
+            input.addEventListener('change', function () {
+                // Fetch the corresponding unit value and unit measure from the database using AJAX
+                var description = this.value;
+                var row = this.parentElement.parentElement;
+
+                fetch('getUnitValue.php?description=' + encodeURIComponent(description))
+                    .then(response => response.json())
+                    .then(data => {
+                        // Update the Unit of Value input field with the fetched data
+                        row.querySelector('input[name^="article"]').value = data.asset_number;
+                        row.querySelector('input[name^="val"]').value = data.unit_value.replace(",", "");
+                        row.querySelector('input[name^="unit"]').value = data.unit_measure;
+                        // row.querySelector('input[name^="stock_no"]').value = data.current_property_number;
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+
+        // Add event listener to the quantity input fields in the new row
+        newRow.querySelectorAll('input[name^="quantity"]').forEach(function (input) {
+            input.addEventListener('input', function () {
+                // Get the corresponding row
+                var row = this.parentElement.parentElement;
+
+                // Fetch values from "Unit of Value" and "Quantity"
+                var unitValue = parseFloat(row.querySelector('input[name^="val"]').value) || 0;
+                var quantity = parseFloat(this.value) || 0;
+
+                // Calculate the value and update the "Value" input field
+                var calculatedValue = unitValue * quantity;
+                row.querySelector('input[name^="value"]').value = calculatedValue.toFixed(2);
+            });
+        });
+    } else {
+        alert('Maximum Rows Created');
+    }
+});
+</script>
 
                 <div style="margin-left: 10px;">
                 <button type="submit" class="btn btn-primary" style="background-color: maroon;">Submit for Printing</button>                </div>
@@ -250,154 +317,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </form>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-    $(document).ready(function () {
-        // Initialize the counter
-        var clickCount = 0;
 
-        // Function to add a new row
-        function addNewRow() {
-            var newRowHtml = `
-            <tr id="insertRowTarget
-    ">
-                        <td colspan="12">
-
-                            <div style="margin: 0.5rem;">
-                                <div class="row g-3">
-
-                                    <div class="col-4">
-                                        <label for="article" class="form-label">Article</label>
-                                        <input type="text" class="form-control" name="article[]" placeholder="Article" required>
-                                    </div>
-
-                                    <div class="col-sm-4">
-                                        <label for="description" class="form-label">Description</label>
-                                        <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%">
-                                        <datalist id="descriptions">
-                                            <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
-                                            <?php
-                                            $fund = "SELECT * FROM inventory_db WHERE Asset_category LIKE 'I%'";
-                                            $result = $data->query($fund);
-
-                                            if ($result->num_rows > 0) {
-                                                // output data of each row
-                                                while ($row = $result->fetch_assoc()) {
-                                            ?>
-                                                    <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
-                                            <?php
-                                                }
-                                            }
-                                            ?>
-                                        </datalist>
-
-                                    </div>
-
-                                    <div class="col-sm-2">
-                                        <label for="stock_no" class="form-label">Stock No.</label>
-                                        <input type="text" class="form-control" name="stock_no[]" placeholder="Stock No." required>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <label for="unit" class="form-label">Unit of measure</label>
-                                        <input type="text" class="form-control" name="unit[]" placeholder="Unit of measure" required>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <label for="val" class="form-label">Unit of Value</label>
-                                        <input type="text" class="form-control" name="val[]" id="unitValue" placeholder="Unit of measure" required readonly>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label for="balance" class="form-label">Balance per card (Quantity)</label>
-                                        <input type="number" class="form-control" name="balance[]" placeholder="Balance per card (Quantity)" required>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <label for="onhand" class="form-label">On hand per count</label>
-                                        <input type="number" class="form-control" name="onhand[]" placeholder="On hand per count" required>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="quantity" class="form-label">Quantity</label>
-                                        <input type="number" class="form-control" name="quantity[]" id="quantity" placeholder="Quantity" required>
-                                    </div>
-
-                                    <div class="col-sm-1">
-                                        <label for="value" class="form-label">Value</label>
-                                        <input type="text" class="form-control" name="value[]" id="value" placeholder="Value" required>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label for="remarks" class="form-label">Remarks</label>
-                                        <input type="text" class="form-control" name="remarks[]" id="remarks" placeholder="Remarks" required>
-                                    </div>
-
-
-                                </div>
-                        </td>
-                    </tr>
-            `;
-
-       // Append the new row to the table body
-       $('#tableBody').append(newRowHtml);
-
-// Increment the click count
-clickCount++;
-
-// Disable the button after 3 clicks
-if (clickCount >= 3) {
-    $('#addRowButton').prop('disabled', true);
-}
-
-// Add an event listener to the description input fields in the newly added row
-$('input[name^="description"]').last().on('change', function () {
-    // Fetch the corresponding unit value and unit measure from the database using AJAX
-    var description = $(this).val();
-    var row = $(this).closest('tr');
-
-    $.ajax({
-        url: 'getUnitValue.php',
-        type: 'GET',
-        data: { description: description },
-        dataType: 'json',
-        success: function (data) {
-            // Update the Unit of Value input field with the fetched data
-            row.find('input[name^="article"]').val(data.asset_number);
-            row.find('input[name^="val"]').val(data.unit_value.replace(",", ""));
-            row.find('input[name^="unit"]').val(data.unit_measure);
-        },
-        error: function (error) {
-            console.error('Error:', error);
-        }
-    });
-});
-}
-
-// Event handler for the "Additional row" button
-$('#addRowButton').click(function (e) {
-e.preventDefault();
-addNewRow();
-});
-
-// Event handler for the "Submit for Printing" button
-$('#submitPrintingButton').click(function (e) {
-e.preventDefault();
-// Implement your logic for submitting the form here
-});
-});
-
-// Add an event listener to the quantity input fields (Pure JavaScript)
-document.addEventListener('input', function(e) {
-var target = e.target;
-if (target.tagName.toLowerCase() === 'input' && target.name.startsWith('quantity')) {
-// Get the corresponding row
-var row = target.closest('tr');
-
-// Fetch values from "Unit of Value" and "Quantity"
-var unitValue = parseFloat(row.querySelector('input[name^="val"]').value) || 0;
-var quantity = parseFloat(target.value) || 0;
-
-// Calculate the value and update the "Value" input field only if the quantity is valid
-var calculatedValue = isNaN(quantity) ? '' : unitValue * quantity;
-row.querySelector('input[name^="value"]').value = calculatedValue;
-}
-});
-</script>
 
 
 

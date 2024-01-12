@@ -1,125 +1,39 @@
 <?php
 include('../Controller/db.php');
 
+$inspectionOfficer = $_POST['inspectionOfficer'] ?? '';
+$inspectionOffice = $_POST['inspectionOffice'] ?? '';
+$propertyOfficer = $_POST['propertyOfficer'] ?? '';
+$inspectionOffic = $_POST['inspectionOffic'] ?? '';
+$pre_designation = $_POST['pre_designation'] ?? '';
+$preDate = $_POST['preDate'] ?? '';
+$noted_by = $_POST['noted_by'] ?? '';
+$noted_position = $_POST['noted_position'] ?? '';
+$noted_date = $_POST['noted_date'] ?? '';
+$supplier = $_POST['supplier'] ?? '';
+
 
 // Retrieve values from the $_POST array
 $date1 = $_POST['date1'] ?? '';
 $serial = $_POST['serial'] ?? '';
 $fund = $_POST['fund'] ?? '';
 
+// Initialize arrays for other corresponding values
 
-$RIS_No= $_POST['RIS_No'] ?? '';
-$description= $_POST['description'] ?? '';
-$RCC= $_POST['RCC'] ?? '';
-$Asset_Number = $_POST['Asset_Number'] ?? '';
-$Asset_Title = $_POST['Asset_Title'] ?? '';
-$unit = $_POST['unit'] ?? '';
-$quantity = $_POST['quantity'] ?? '';
-$unit_cost = $_POST['unit_cost'] ?? '';
+$RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
+$RCC = isset($_POST['RCC']) ? $_POST['RCC'] : [];
+$description = isset($_POST['description']) ? $_POST['description'] : [];
+$Asset_Title = isset($_POST['Asset_Title']) ? $_POST['Asset_Title'] : [];
+$unit = isset($_POST['unit']) ? $_POST['unit'] : [];
+$quantity = isset($_POST['quantity']) ? $_POST['quantity'] : [];
+$unit_cost = isset($_POST['unit_cost']) ? $_POST['unit_cost'] : [];
+$RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
 
-// Ensure that $quantity and $unit_cost are numeric values before proceeding
-if (is_numeric($quantity) && is_numeric($unit_cost)) {
-    // Calculate the amount by multiplying quantity and unit_cost
-    $amount = $quantity * $unit_cost;
-} else {
-    // Handle the case where either $quantity or $unit_cost is not a valid number
-    $amount = 0; // or any default value you prefer
-}
-
-$RIS_NoI= $_POST['RIS_NoI'] ?? '';
-$descriptionI= $_POST['descriptionI'] ?? '';
-$RCCI= $_POST['RCCI'] ?? '';
-$Asset_NumberI = $_POST['Asset_NumberI'] ?? '';
-$Asset_TitleI = $_POST['Asset_TitleI'] ?? '';
-$unitI = $_POST['unitI'] ?? '';
-$quantityI = $_POST['quantityI'] ?? '';
-$unit_costI = $_POST['unit_costI'] ?? '';
-
-// Ensure that $quantity and $unit_cost are numeric values before proceeding
-if (is_numeric($quantityI) && is_numeric($unit_costI)) {
-    // Calculate the amount by multiplying quantity and unit_cost
-    $amountI = $quantityI * $unit_costI;
-} else {
-    // Handle the case where either $quantity or $unit_cost is not a valid number
-    $amountI = 0; // or any default value you prefer
-}
-
-$RIS_NoII= $_POST['RIS_NoII'] ?? '';
-$descriptionII= $_POST['descriptionII'] ?? '';
-$RCCII= $_POST['RCCII'] ?? '';
-$Asset_NumberII = $_POST['Asset_NumberII'] ?? '';
-$Asset_TitleII = $_POST['Asset_TitleII'] ?? '';
-$unitII = $_POST['unitII'] ?? '';
-$quantityII = $_POST['quantityII'] ?? '';
-$unit_costII= $_POST['unit_costII'] ?? '';
-
-// Ensure that $quantity and $unit_cost are numeric values before proceeding
-if (is_numeric($quantityII) && is_numeric($unit_costII)) {
-    // Calculate the amount by multiplying quantity and unit_cost
-    $amountII = $quantityII * $unit_costII;
-} else {
-    // Handle the case where either $quantity or $unit_cost is not a valid number
-    $amountII = 0; // or any default value you prefer
-}
-
-$RIS_NoIII= $_POST['RIS_NoIII'] ?? '';
-$descriptionIII= $_POST['descriptionIII'] ?? '';
-$RCCIII= $_POST['RCCIII'] ?? '';
-$Asset_NumberIII = $_POST['Asset_NumberIII'] ?? '';
-$Asset_TitleIII = $_POST['Asset_TitleIII'] ?? '';
-$unitIII = $_POST['unitIII'] ?? '';
-$quantityIII = $_POST['quantityIII'] ?? '';
-$unit_costIII= $_POST['unit_costIII'] ?? '';
-
-// Ensure that $quantity and $unit_cost are numeric values before proceeding
-if (is_numeric($quantityIII) && is_numeric($unit_costIII)) {
-    // Calculate the amount by multiplying quantity and unit_cost
-    $amountIII = $quantityIII * $unit_costIII;
-} else {
-    // Handle the case where either $quantity or $unit_cost is not a valid number
-    $amountIII = 0; // or any default value you prefer
-}
-
-$RIS_NoIIII= $_POST['RIS_NoIIII'] ?? '';
-$descriptionIIII= $_POST['descriptionIIII'] ?? '';
-$RCCIIII= $_POST['RCCIIII'] ?? '';
-$Asset_NumberIIII = $_POST['Asset_NumberIIII'] ?? '';
-$Asset_TitleIIII = $_POST['Asset_TitleIIII'] ?? '';
-$unitIIII = $_POST['unitIIII'] ?? '';
-$quantityIIII = $_POST['quantityIIII'] ?? '';
-$unit_costIIII= $_POST['unit_costIIII'] ?? '';
-
-// Ensure that $quantity and $unit_cost are numeric values before proceeding
-if (is_numeric($quantityIIII) && is_numeric($unit_costIIII)) {
-    // Calculate the amount by multiplying quantity and unit_cost
-    $amountIIII = $quantityIIII * $unit_costIIII;
-} else {
-    // Handle the case where either $quantity or $unit_cost is not a valid number
-    $amountIIII = 0; // or any default value you prefer
-}
-
-
-
-
-
-
-
-
-
-$inspectionOfficer = $_POST['inspectionOfficer'] ?? '';
-$inspectionOffice = $_POST['inspectionOffice'] ?? '';
-$propertyOfficer= $_POST['propertyOfficer'] ?? '';
-$inspectionOffic= $_POST['inspectionOffic'] ?? '';
-$pre_designation = $_POST['pre_designation'] ?? '';
-$preDate = $_POST['preDate'] ?? '';
-$noted_by = $_POST['noted_by'] ?? '';
-$noted_position = $_POST['noted_position'] ?? '';
-$noted_date = $_POST['noted_date'] ?? '';
-$supplier= $_POST['supplier'] ?? '';
 
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -219,20 +133,21 @@ $supplier= $_POST['supplier'] ?? '';
         .form-group label {
             text-align: center;
         }
-        .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    margin-top: auto;
-}
 
-.footer img {
-    width: 50rem;
-}
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer img {
+            width: 50rem;
+        }
 
         @page {
             size: A4 portrait;
@@ -331,7 +246,7 @@ $supplier= $_POST['supplier'] ?? '';
                 <thead>
                     <tr>
                         <th colspan="12" style="text-align: right;">
-                        Annex A-7
+                            Annex A-7
                         </th>
                     </tr>
                     <th colspan="12" class="text-center">
@@ -340,82 +255,100 @@ $supplier= $_POST['supplier'] ?? '';
                         Batanes State College
                     </th>
                 </thead>
-        
+
                 <tr>
                     <td colspan="3"> Serial No.:<?php echo $type = $_POST['serial'] ?? ''; ?></td>
                     <td colspan="3"> Fund Cluster:<?php echo $type = $_POST['fund'] ?? ''; ?></td>
-                <td colspan="3">Date: <?php echo date('F j, Y', strtotime($_POST['date1'] ?? '')); ?></td>
+                    <td colspan="3">Date: <?php echo date('F j, Y', strtotime($_POST['date1'] ?? '')); ?></td>
 
 
                 </tr>
                 <tr>
-                    <td colspan="6">  To be filled up in the Supply and Property Unit</td>
-                    <td colspan="4">  To be filled up by Accounting Unit</td>
+                    <td colspan="6"> To be filled up in the Supply and Property Unit</td>
+                    <td colspan="4"> To be filled up by Accounting Unit</td>
                 </tr>
 
                 <tbody>
-               
-                <tr style="text-align: center;">
-    <td>ICS No.</td>
-    <td>Responsibility Center Code</td>
-    <td>Semi-Expendable Property No.</td>
-    <td>Item Description</td>
-    <td>Unit</td>
-    <td>Qty. Issued</td>
-    <td>Unit Cost</td>
-    <td>Amount</td>
-</tr>
-  <tr>
-        <td><?php echo $RIS_No; ?></td>
-        <td><?php echo $RCC; ?></td>
-        <td><?php echo implode(', ', $description); ?></td>
-        <td><?php echo $Asset_Title; ?></td>
-        <td><?php echo $unit; ?></td>
-        <td><?php echo $quantity; ?></td>
-        <td><?php echo $unit_cost; ?></td>
-        <td><?php echo $amount; ?></td>
-    </tr>
-    <tr>
-        <td><?php echo $RIS_NoI; ?></td>
-        <td><?php echo $RCCI; ?></td>
-        <td><?php echo implode(', ', $descriptionI); ?></td>
-        <td><?php echo $Asset_TitleI; ?></td>
-        <td><?php echo $unitI; ?></td>
-        <td><?php echo $quantityI; ?></td>
-        <td><?php echo $unit_costI; ?></td>
-        <td><?php echo $amountI; ?></td>
-    </tr>
-    <tr>
-        <td><?php echo $RIS_NoII; ?></td>
-        <td><?php echo $RCCII; ?></td>
-        <td><?php echo implode(', ', $descriptionII); ?></td>
-        <td><?php echo $Asset_TitleII; ?></td>
-        <td><?php echo $unitII; ?></td>
-        <td><?php echo $quantityII; ?></td>
-        <td><?php echo $unit_costII; ?></td>
-        <td><?php echo $amountII; ?></td>
-    </tr>
-    <tr>
-        <td><?php echo $RIS_NoIII; ?></td>
-        <td><?php echo $RCCIII; ?></td>
-        <td><?php echo implode(', ', $descriptionIII); ?></td>
-        <td><?php echo $Asset_TitleIII; ?></td>
-        <td><?php echo $unitIII; ?></td>
-        <td><?php echo $quantityIII; ?></td>
-        <td><?php echo $unit_costIII; ?></td>
-        <td><?php echo $amountIII; ?></td>
-    </tr>
-    <tr>
-        <td><?php echo $RIS_NoIIII; ?></td>
-        <td><?php echo $RCCIIII; ?></td>
-        <td><?php echo implode(', ', $descriptionIIII); ?></td>
-        <td><?php echo $Asset_TitleIIII; ?></td>
-        <td><?php echo $unitIIII; ?></td>
-        <td><?php echo $quantityIIII; ?></td>
-        <td><?php echo $unit_costIIII; ?></td>
-        <td><?php echo $amountIIII; ?></td>
-    </tr>
 
+                    <tr style="text-align: center;">
+                        <td>ICS No.</td>
+                        <td>Responsibility Center Code</td>
+                        <td>Semi-Expendable Property No.</td>
+                        <td>Item Description</td>
+                        <td>Unit</td>
+                        <td>Qty. Issued</td>
+                        <td>Unit Cost</td>
+                        <td>Amount</td>
+                    </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- HERE -->
+<?php
+
+for($i = 0; $i < count($RIS_No); $i++){
+?>
+                    <tr>
+                        <td><?php echo $RIS_No[$i]; ?></td>
+                        <td><?php echo $RCC[$i]; ?></td>
+                        <td><?php echo $description[$i]; ?></td>
+                        <td><?php echo $Asset_Title[$i]; ?></td>
+                        <td><?php echo $unit[$i]; ?></td>
+                        <td><?php echo $quantity[$i]; ?></td>
+                        <td><?php echo $unit_cost[$i]; ?></td>
+                        <td><?php echo $quantity[$i] * $unit_cost[$i]; ?></td>
+                    </tr>
+<?php
+}
+?>
                     <td colspan="4" style="text-align: center;"> I hereby certify to the correctness of the above information
                         <br>
                         <br>
@@ -423,15 +356,15 @@ $supplier= $_POST['supplier'] ?? '';
                         <br>
                         <?php echo $inspectionOffice; ?>
                     </td>
-                    <td colspan="5"style="text-align: center;"> Posted by: 
-                    <br>
+                    <td colspan="5" style="text-align: center;"> Posted by:
+                        <br>
                         <br>
                         <?php echo $propertyOfficer; ?>
                         <br>
                         <?php echo $inspectionOffic; ?>
-                </td>
-                </tr>
-    
+                    </td>
+                    </tr>
+
                 </tbody>
             </table>
 

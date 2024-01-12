@@ -554,7 +554,7 @@ if ($result->num_rows > 0) {
         data: {
             labels: categories,
             datasets: [{
-                label: 'show count',
+                label: '',
                 data: counts,
                 backgroundColor: [
                     'rgba(255, 102, 128, 0.8)',

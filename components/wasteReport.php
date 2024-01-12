@@ -2,16 +2,12 @@
 
 include('../Controller/db.php');
 
-
-
-
-
 // Retrieve values from the $_POST array
 $place = $_POST['place'] ?? '';
 $agency= $_POST['agency'] ?? '';
 $date = $_POST['date'] ?? '';
 $WMR= $_POST['WMR'] ?? '';
-$item = isset($_POST['item']) ? $_POST['item'] : [];
+
 $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : [];
 $unit = isset($_POST['unit']) ? $_POST['unit'] : [];
 $description = isset($_POST['description']) ? $_POST['description'] : [];

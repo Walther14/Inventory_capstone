@@ -45,6 +45,7 @@ if (!isset($_SESSION['user_id'])) {
                             ?>
                         </select>
                         <select type="text" id="search" name="search" style="width: 130px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;">
+                            <option value="">Select Name</option>
                   
                             <?php
                             $users = $data->query("SELECT * FROM users");

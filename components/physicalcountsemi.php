@@ -4,10 +4,10 @@ include('../Controller/db.php');
 
 // Retrieve values from the $_POST array
 $assetTitle = $_POST['Asset_Title'] ?? '';
-$selectedStaff = $_POST['staff'] ?? '';
+$staff = $_POST['staff'] ?? '';
 $place = $_POST['place'] ?? '';
 $assumed = $_POST['assumed'] ?? '';
-$date = $_POST['date'] ?? '';
+$Date_Acquired = $_POST['Date_Acquired'] ?? '';
 $WMR= $_POST['WMR'] ?? '';
 $article = isset($_POST['article']) ? $_POST['article'] : [];
 $description = isset($_POST['description']) ? $_POST['description'] : [];
@@ -225,9 +225,9 @@ th, td {
     <label style="text-align:center;">REPORT ON THE PHYSICAL COUNT OF SEMI-EXPENDABLE PROPERTIES
  <br> <?php echo $assetTitle; ?></label>
  <br>
- <label style="text-align:center;">As of <?php echo htmlspecialchars(date('F j, Y', strtotime($date))); ?></label>
+ <label style="text-align:center;">As of <?php echo htmlspecialchars(date('F j, Y', strtotime($Date_Acquired))); ?></label>
  <br>
- <label style="text-align:center;">For which <?php echo $selectedStaff;?> is accountable, having assumed such accountability on <?php echo $assumed;?></label>
+ <label style="text-align:center;">For which <?php echo $staff;?> is accountable, having assumed such accountability on <?php echo $assumed;?></label>
 </tr>
 </tr>
 <tr style="width: 100%; text-align: center; font-size: 12px;">

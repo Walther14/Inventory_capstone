@@ -131,7 +131,7 @@ if (!isset($_SESSION['user_id'])) {
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer d-flex justify-content-around">
-                                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#rejectTo<?php echo $row['transfer_id'] ?>">Reject</button>
+                                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#rejectTo<?php echo $row['transfer_id'] ?>">Decline</button>
                                                                     <button type=" button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#issueTo<?php echo $row['transfer_id'] ?>">Approve</button>
                                                                 </div>
                                                             </div>
@@ -161,7 +161,7 @@ if (!isset($_SESSION['user_id'])) {
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer d-flex justify-content-around">
-                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                                                                     <button type="submit" class="btn btn-primary">Approve</button>
                                                                 </div>
                                                                 </form>
@@ -211,7 +211,7 @@ if (!isset($_SESSION['user_id'])) {
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer d-flex justify-content-around">
-                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                                                                     <button type="submit" class="btn btn-primary">Approve</button>
                                                                 </div>
                                                                 </form>

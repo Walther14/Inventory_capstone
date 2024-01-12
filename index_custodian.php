@@ -75,7 +75,7 @@ $id = $_SESSION['user_id'];
 
         <ul class="dropdown-menu dropdown-menu-end mt-md-2 rounded-top-0">
 
-\
+
       <li><a class="dropdown-item" href="./logout.php">
       <li>
         <hr class="dropdown-divider">
@@ -178,20 +178,20 @@ $id = $_SESSION['user_id'];
                                         <?php echo ($row['Current_Property_Number']) ?>
                                     </td>
                                     <td>
-                                        <a type="button" class="btn btn-primary" style="background-color: maroon;" data-id="<?php echo $row['id'] ?>">View</a>
+                                        <a type="button" class="btn btn-primary" style="background-color: maroon; width: 90px;" data-id="<?php echo $row['id'] ?>">View</a>
                                         <!-- <a type="button" class="btn btn-secondary" data-id="data_edit?id=<?php echo $row['id'] ?>">Edit</a> -->
+                                        </td>
 
 
 
 
-
-
+<td>
                                         <!-- Vertically centered modal -->
                                         <div class="modal fade" id="archivesModal<?php echo $row['id'] ?>" tabindex="-1" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="modal-title-1">Transfer</h1>
+                                                        <h1 class="modal-title fs-5" id="modal-title-1" >Transfer</h1>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
@@ -215,7 +215,7 @@ $id = $_SESSION['user_id'];
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#archivesModal<?php echo $row['id'] ?>" class="btn btn-primary archive-btn" style="background-color: maroon;">Transfer</button>
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#archivesModal<?php echo $row['id'] ?>" class="btn btn-primary archive-btn" style="background-color: maroon; width: 90px;">Transfer</button>
 
                                     </td>
 
