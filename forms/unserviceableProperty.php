@@ -22,7 +22,7 @@ date_default_timezone_set('Asia/Manila');
 </head>
 
 <body>
-    <form name="unproperty" class="row g-3" action="./components/unProperty.php" method="POST">
+    <form name="unprop" class="row g-3" action="./components/unProperty.php" method="POST">
         <div class="p-5 d-flex justify-content-center align-items-center">
             <table class="table table-bordered">
                 <thead>
@@ -39,7 +39,7 @@ date_default_timezone_set('Asia/Manila');
                     <tr>
                         <th colspan="12" style="text-align: center;">
                             <label for="place" class="form-label">As of</label>
-                            <input type="date" style="color: gray; width: 100%" name="Date" required max="<?php echo date('Y-m-d'); ?>">
+                            <input type="date" style="color: gray; width: 100%" name="unprop[Date]" required max="<?php echo date('Y-m-d'); ?>">
                         </th>
                     </tr>
                     <tr>
@@ -48,7 +48,7 @@ date_default_timezone_set('Asia/Manila');
                                 <div class="row g-3">
                                     <div class="col-6">
                                         <label for="place" class="form-label">Name of Accountable Officer</label>
-                                        <input list="IssuedTo" class="form-control" id="name" name="name" placeholder="Name of Accountable Officer" required>
+                                        <input list="IssuedTo" class="form-control" id="name" name="unprop[name]" placeholder="Name of Accountable Officer" required>
                                         <datalist id="IssuedTo">
                                             <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
                                             <?php
@@ -67,15 +67,15 @@ date_default_timezone_set('Asia/Manila');
                                     </div>
                                     <div class="col-6">
                                         <label for="place" class="form-label">Designation</label>
-                                        <input type="text" class="form-control" id="designation" name="designation" placeholder="Designation" required>
+                                        <input type="text" class="form-control" id="designation" name="unprop[designation]" placeholder="Designation" required>
                                     </div>
                                     <div class="col-6">
                                         <label for="place" class="form-label">Station</label>
-                                        <input type="text" class="form-control" id="station" name="station" placeholder="Station" required>
+                                        <input type="text" class="form-control" id="station" name="unprop[station]" placeholder="Station" required>
                                     </div>
                                     <div class="col-6">
                                         <label>Fund Cluster</label>
-                                        <input type="text" class="form-control" id="fund" name="fund" placeholder="Fund Cluster" required>
+                                        <input type="text" class="form-control" id="fund" name="unprop[fund]" placeholder="Fund Cluster" required>
                                     </div>
                                 </div>
                     <tr style="text-align: center; background-color: dimgrey;">
@@ -93,30 +93,30 @@ date_default_timezone_set('Asia/Manila');
 
                                     <div class="col-2">
                                         <label for="article" class="form-label">Particulars/Articles</label>
-                                        <input type="text" class="form-control" name="description[]" placeholder="Particulars" id="particularsUnserviceable" disabled>
+                                        <input type="text" class="form-control" name="unprop[description]" placeholder="Particulars" id="particularsUnserviceable" readonly value="">
                                     </div>
 
                                     <div class="col-sm-4">
                                         <label for="description" class="form-label">Qty.</label>
-                                        <input type="text" class="form-control" name="quantity[]" id="quantity" placeholder="Quantity">
+                                        <input type="text" class="form-control" name="unprop[quantity]" id="quantity" placeholder="Quantity">
 
                                     </div>
 
                                     <div class="col-sm-4">
                                         <label for="stock_no" class="form-label">Unit Cost</label>
-                                        <input type="text" class="form-control" name="unit_cost[]" id="unitValueUnserviceable" placeholder="Unit Cost" disabled>
+                                        <input type="text" class="form-control" name="unprop[unit_cost]" id="unitValueUnserviceable" placeholder="Unit Cost" readonly>
                                     </div>
                                     <div class="col-sm-2">
                                         <label for="unit" class="form-label">Total Cost</label>
-                                        <input type="text" class="form-control" name="total_cost[]" placeholder="Total Cost" id="totalCostUnserviceable" disabled>
+                                        <input type="text" class="form-control" name="unprop[total_cost]" placeholder="Total Cost" id="totalCostUnserviceable" readonly>
                                     </div>
                                     <div class="col-sm-2">
                                         <label for="val" class="form-label">Classification</label>
-                                        <input type="text" class="form-control mx-auto" name="classification[]" placeholder="Classification" id="classificationUnserviceable" disabled>
+                                        <input type="text" class="form-control mx-auto" name="unprop[classification]" placeholder="Classification" id="classificationUnserviceable" readonly>
                                     </div>
                                     <div class="col-sm-4">
                                         <label for="val" class="form-label">Property No.</label>
-                                        <select list="descriptions" class="form-control mx-auto" name="property_no[]" placeholder="Property No." style="width: 100%" id="propertyUnservice">
+                                        <select list="descriptions" class="form-control mx-auto" name="unprop[property_no]" placeholder="Property No." style="width: 100%" id="propertyUnservice">
                                             <option value="" disabled selected>Select an option</option>
                                             <?php
                                             $fund = "SELECT * FROM inventory_db";
@@ -134,11 +134,11 @@ date_default_timezone_set('Asia/Manila');
                                     </div>
                                     <div class="col-sm-2">
                                         <label for="balance" class="form-label">Date acquired</label>
-                                        <input type="text" class="form-control" name="date_acquired[]" placeholder="date Acquired" id="dateAcquiredUnservice" disabled>
+                                        <input type="text" class="form-control" name="unprop[date_acquired]" placeholder="date Acquired" id="dateAcquiredUnservice" readonly>
                                     </div>
                                     <div class="col-sm-4">
                                         <label for="onhand" class="form-label">How rendered unserviceable</label>
-                                        <input type="text" class="form-control" name="how[]" placeholder="How rendered unsericeable" required>
+                                        <input type="text" class="form-control" name="unprop[how]" placeholder="How rendered unsericeable" required>
                                     </div>
 
                                 </div>
@@ -166,38 +166,38 @@ date_default_timezone_set('Asia/Manila');
 
                 <div class="col-2">
                     <label for="article" class="form-label">Destroyed</label>
-                    <input type="text" class="form-control" name="destroyed[]">
+                    <input type="text" class="form-control" name="unprop[destroyed]">
                 </div>
 
                 <div class="col-2">
                     <label for="description" class="form-label">Sold</label>
-                    <input type="text" class="form-control" name="sold[]">
+                    <input type="text" class="form-control" name="unprop[sold]">
 
                 </div>
 
                 <div class="col-2">
                     <label for="stock_no" class="form-label">Continued in service</label>
-                    <input type="text" class="form-control" name="continued[]">
+                    <input type="text" class="form-control" name="unprop[continued]">
                 </div>
                 <div class="col-2">
                     <label for="unit" class="form-label">To be salvaged</label>
-                    <input type="text" class="form-control" name="salvaged[]">
+                    <input type="text" class="form-control" name="unprop[salvaged]">
                 </div>
                 <div class="col-2">
                     <label for="val" class="form-label">Total</label>
-                    <input type="text" class="form-control mx-auto" name="total[]">
+                    <input type="text" class="form-control mx-auto" name="unprop[total]">
                 </div>
                 <div class="col-2">
                     <label for="val" class="form-label">Appraised Valuation</label>
-                    <input type="text" class="form-control mx-auto" name="appraised[]" placeholder="Appraised Valuation">
+                    <input type="text" class="form-control mx-auto" name="unprop[appraised]" placeholder="Appraised Valuation">
                 </div>
                 <div class="col-sm-6">
                     <label for="balance" class="form-label">OR No. (Record of Sales)</label>
-                    <input type="text" class="form-control" name="or[]" placeholder="date Acquired" required>
+                    <input type="text" class="form-control" name="unprop[or]" placeholder="date Acquired" required>
                 </div>
                 <div class="col-sm-6">
                     <label for="onhand" class="form-label">Amount (Record of Sales)</label>
-                    <input type="text" class="form-control" name="amount[]" placeholder="How rendered unsericeable" required>
+                    <input type="text" class="form-control" name="unprop[amount]" placeholder="How rendered unsericeable" required>
                 </div>
 
             </div>
@@ -213,8 +213,8 @@ date_default_timezone_set('Asia/Manila');
                     <div>
                         <label for="inspectionOffice" class="form-label">Requested by:</label>
                         <br>
-                        <input type="text" class="form-control" id="requested_name" name="requested_name" placeholder="Name" required>
-                        <input type="text" class="form-control" id="requested_position" name="requested_position" placeholder="Position" required>
+                        <input type="text" class="form-control" id="requested_name" name="unprop[requested_name]" placeholder="Name" required>
+                        <input type="text" class="form-control" id="requested_position" name="unprop[requested_position]" placeholder="Position" required>
 
                     </div>
                 </td>
@@ -222,8 +222,8 @@ date_default_timezone_set('Asia/Manila');
                     <div>
                         <label for="propertyOfficer" class="form-label">Approved by:</label>
                         <br>
-                        <input type="text" class="form-control" id="approved_name" name="approved_name" placeholder="Name" required>
-                        <input type="text" class="form-control" id="approved_position" name="approved_position" placeholder="Position" required>
+                        <input type="text" class="form-control" id="approved_name" name="unprop[approved_name]" placeholder="Name" required>
+                        <input type="text" class="form-control" id="approved_position" name="unprop[approved_position]" placeholder="Position" required>
 
                     </div>
                 </td>
@@ -231,15 +231,15 @@ date_default_timezone_set('Asia/Manila');
                     <div>
                         <label for="propertyOfficer" class="form-label">Inspection Officer</label>
                         <br>
-                        <input type="text" class="form-control" id="inspection_name" name="inspection_name" placeholder="Name" required>
-                        <input type="text" class="form-control" id="inspection_position" position="inspection_name" placeholder="Name" value="College Authorized Inspector" required>
+                        <input type="text" class="form-control" id="inspection_name" name="unprop[inspection_name]" placeholder="Name" required>
+                        <input type="text" class="form-control" id="inspection_position" position="unprop[inspection_name]" placeholder="Name" value="College Authorized Inspector" required>
                     </div>
                 </td>
                 <td colspan="3">
                     <div>
                         <label for="propertyOfficer" class="form-label">Witnessed by:</label>
                         <br>
-                        <input type="text" class="form-control" id="witness_name" name="witness_name" placeholder="Name" required>
+                        <input type="text" class="form-control" id="witness_name" name="unprop[witness_name]" placeholder="Name" required>
 
                     </div>
                 </td>
@@ -267,14 +267,14 @@ date_default_timezone_set('Asia/Manila');
         // Function to calculate the amount and update the corresponding input field
         function calculateAmount() {
             // Get the quantity and unit_cost values
-            var quantity = parseFloat(document.getElementsByName('quantity')[0].value) || 0;
-            var unitCost = parseFloat(document.getElementsByName('unit_cost')[0].value) || 0;
+            var quantity = parseFloat(document.getElementsByName('unprop[quantity]')[0].value) || 0;
+            var unitCost = parseFloat(document.getElementsByName('unprop[unit_cost]')[0].value) || 0;
 
             // Calculate the amount (quantity * unit_cost)
             var amount = quantity * unitCost;
 
             // Update the amount input field with the calculated value
-            document.getElementsByName('amount')[0].value = amount.toFixed(2); // Assuming you want to display the amount with 2 decimal places
+            document.getElementsByName('unprop[amount]')[0].value = amount.toFixed(2); // Assuming you want to display the amount with 2 decimal places
         }
     </script>
 </body>

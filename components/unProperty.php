@@ -6,6 +6,11 @@ include('../Controller/db.php');
 
 
 // Retrieve values from the $_POST array
+
+if (isset($_POST['unprop'])) {
+    $formdata = $_POST['unprop'];
+ }
+ 
 $Date = $_POST['Date'] ?? '';
 
 $name = $_POST['name'] ?? '';
@@ -308,30 +313,29 @@ $requested_name = $_POST['requested_name'] ?? '';
                     </tr>
 
                     <?php
-var_dump($_POST['description']);
+var_dump($formdata['description']);
                     ?>
      
                     <?php
                 // for($i = 0; $i < count($description); $i++){
                     ?>
                         <tr>
-                            <td><?php echo $description[$i]; ?></td>
-                            <td colspan="2"><?php echo $quantity[$i]; ?></td>
-                            <td><?php echo $unit_cost[$i]; ?></td>
-                            <td><?php echo $Ucost[$i]; ?></td>
-                            <td><?php echo $total_cost[$i]; ?></td>
-                            <td><?php echo $classification[$i]; ?></td>
-                            <td><?php echo $property_no[$i]; ?></td>
-                            <td><?php echo $date_acquired[$i]; ?></td>
-                            <td><?php echo $how[$i]; ?></td>
-                            <td><?php echo  $destroyed[$i]; ?></td>
-                            <td><?php echo $sold[$i] ; ?></td>
-                            <td><?php echo $continued[$i]; ?></td>
-                            <td><?php echo $salvaged[$i]; ?></td>
-                            <td><?php echo $total[$i]; ?></td>
-                            <td><?php echo $appraised[$i]; ?></td>
-                            <td><?php echo $or[$i]; ?></td>
-                            <td><?php echo $amount[$i]; ?></td>
+                            <td colspan="4"><?php echo $formdata['description']; ?></td>
+                            <td><?php echo $formdata['quantity']; ?></td>
+                            <td><?php echo $formdata['unit_cost']; ?></td>
+                            <td><?php echo $formdata['total_cost']; ?></td>
+                            <td colspan="2"><?php echo $formdata['classification']; ?></td>
+                            <td><?php echo $formdata['property_no'] ?></td>
+                            <td><?php echo $formdata['date_acquired']; ?></td>
+                            <td><?php echo $formdata['how']; ?></td>
+                            <td><?php echo $formdata['destroyed']; ?></td>
+                            <td><?php echo $formdata['sold'] ; ?></td>
+                            <td><?php echo $formdata['continued']; ?></td>
+                            <td><?php echo $formdata['salvaged']; ?></td>
+                            <td><?php echo $formdata['total']; ?></td>
+                            <td><?php echo $formdata['appraised']; ?></td>
+                            <td><?php echo $formdata['or']; ?></td>
+                            <td><?php echo $formdata['amount']; ?></td>
                         </tr>
                     <?php
                 // }
