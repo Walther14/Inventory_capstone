@@ -277,10 +277,10 @@ $requested_name = $_POST['requested_name'] ?? '';
                 </thead>
 
                 <tr>
-                    <td colspan="7"> Accountable Officer:<br><?php echo $type = $_POST['name'] ?? ''; ?></td>
-                    <td colspan="5"> Designation:<br><?php echo $type = $_POST['designation'] ?? ''; ?></td>
-                    <td colspan="5"> Designation:<br><?php echo $type = $_POST['station'] ?? ''; ?></td>
-                    <td colspan="5"> Fund Cluster:<br><?php echo $type = $_POST['fund'] ?? ''; ?></td>
+                    <td colspan="7"> Accountable Officer:<br><?php echo $type = $formdata['name'] ?? ''; ?></td>
+                    <td colspan="5"> Designation:<br><?php echo $type = $formdata['designation'] ?? ''; ?></td>
+                    <td colspan="5"> Designation:<br><?php echo $type = $formdata['station'] ?? ''; ?></td>
+                    <td colspan="5"> Fund Cluster:<br><?php echo $type = $formdata['fund'] ?? ''; ?></td>
 
 
                 </tr>
@@ -312,9 +312,7 @@ $requested_name = $_POST['requested_name'] ?? '';
                         <td>Amount</td>
                     </tr>
 
-                    <?php
-var_dump($formdata['description']);
-                    ?>
+                 
      
                     <?php
                 // for($i = 0; $i < count($description); $i++){
