@@ -50,7 +50,7 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
 }
 
 ?>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./node_modules/chart.js/dist/chart.umd.js"></script>
 <div class="card">
     <style>
         body {

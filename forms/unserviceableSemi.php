@@ -82,8 +82,75 @@ date_default_timezone_set('Asia/Manila');
                         <td colspan="12" style="color: white;">To be filled up in the Supply and Property Unit</td>
 
                     </tr>
+                    <tbody id="tableBody">
 
-                    <tr style="text-align: center;">
+<tr id="insertRowTarget">
+    <td colspan="12">
+
+        <div style="margin: 0.5rem;">
+            <div class="row g-3">
+
+                <div class="col-2">
+                    <label for="article" class="form-label">Date Acquired</label>
+                    <input type="text" class="form-control" name="date[]" placeholder="Date Acquired" required>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="description" class="form-label">Particulars/Articles</label>
+                    <input list="descriptions" class="form-control" name="particulars[]" placeholder="Particulars">
+                    <datalist id="descriptions">
+                        <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
+                        <?php
+                        $fund = "SELECT * FROM inventory_db WHERE Asset_category LIKE 'I%'";
+                        $result = $data->query($fund);
+
+                        if ($result->num_rows > 0) {
+                            // output data of each row
+                            while ($row = $result->fetch_assoc()) {
+                        ?>
+                                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                        <?php
+                            }
+                        }
+                        ?>
+                    </datalist>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="stock_no" class="form-label">Semi-Expendable Property No.</label>
+                    <input type="text" class="form-control" name="property_number[]" placeholder="Property Number" required>
+                </div>
+                <div class="col-sm-2">
+                    <label for="unit" class="form-label">Qty.</label>
+                    <input type="text" class="form-control" name="quantity[]" placeholder="Quantity" required>
+                </div>
+                <div class="col-sm-2">
+                    <label for="val" class="form-label">Total Cost</label>
+                    <input type="text" class="form-control mx-auto" name="cost[]" placeholder="Enter or select description" required>
+                </div>
+                <div class="col-sm-3">
+                    <label for="balance" class="form-label">Accumulated Imapirment Losses</label>
+                    <input type="text" class="form-control" name="accumulated" placeholder="Accumulated Impairment Losses" required>
+                </div>
+                <div class="col-sm-2">
+                    <label for="onhand" class="form-label">Carrying Ammount</label>
+                    <input type="text" class="form-control" name="carrying_amount" placeholder="Carrying Amount" required>
+                </div>
+                <div class="col-sm-5">
+                    <label for="quantity" class="form-label">Remarks</label>
+                    <input type="text" class="form-control" name="remarks" placeholder="Remarks" required>
+                </div>
+                
+            </div>
+    </td>
+</tr>
+
+
+
+<!-- Add your table rows here -->
+</tbody>
+                    <!-- <tr style="text-align: center;">
                         <td>Date Acquired</td>
                         <td colspan="3">Particulars/Articles</td>
                         <td colspan="2">Semi-Expendable Property No.</td>
@@ -142,22 +209,74 @@ date_default_timezone_set('Asia/Manila');
                         </td>
                         <td>
                             <div style="margin: 0.5rem;">
-                                <input type="text" class="form-control" name="remarks" placeholder="Remarks">
                             </div>
                         </td>
 
 
-                    </tr>
+                    </tr> -->
                     <tr style="text-align: center;  background-color: darkgrey ;">
                         <td colspan="12">To be filled up by Accounting Unit</td>
 
                     </tr>
-                    <tr style="text-align: center;">
+
+
+                 
+                    <!-- <tr style="text-align: center;">
                         <td colspan="9">Disposal</td>
                         <td colspan="1"></td>
                         <td colspan="2">Record of Sales</td>
-                    </tr>
-                    <tr style="text-align: center;">
+                    </tr> -->
+                    <tbody id="tableBody">
+
+<tr id="insertRowTarget">
+    <td colspan="12">
+
+        <div style="margin: 0.5rem;">
+            <div class="row g-3">
+
+                <div class="col-2">
+                    <label for="article" class="form-label">Sale</label>
+                    <input type="text" class="form-control" name="sale" placeholder="Sale" required>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="description" class="form-label">Transfer</label>
+                    <input type="text" class="form-control" name="transfer" placeholder="Transfer">
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="stock_no" class="form-label">Destruction</label>
+                    <input type="text" class="form-control" name="destruction" placeholder="Destruction" required>
+                </div>
+                <div class="col-sm-2">
+                    <label for="unit" class="form-label">Others (Specify)</label>
+                    <input type="text" class="form-control mx-auto" name="others[]" placeholder="Specify" required>
+                </div>
+                <div class="col-sm-2">
+                    <label for="val" class="form-label">Total</label>
+                    <input type="text" class="form-control" name="total" placeholder="Total" required>
+                </div>
+                <div class="col-sm-3">
+                    <label for="balance" class="form-label">Apraised Value</label>
+                    <input type="text" class="form-control" name="appraised" placeholder="Appraised Value" required>
+                </div>
+                <div class="col-sm-4">
+                    <label for="onhand" class="form-label">OR No. (Record of Sales)</label>
+                    <input type="text" class="form-control" name="or" placeholder="OR No." required>
+                </div>
+                <div class="col-sm-3">
+                    <label for="quantity" class="form-label">Amount (Record of Sales)</label>
+                    <input type="text" class="form-control" name="amount" placeholder="Amount" required>
+                </div>
+                
+            </div>
+    </td>
+</tr>
+
+
+<!-- Add your table rows here -->
+</tbody>
+                    <!-- <tr style="text-align: center;">
                         <td>Sale</td>
                         <td colspan="3">Transfer</td>
                         <td colspan="3">Destruction</td>
@@ -203,21 +322,20 @@ date_default_timezone_set('Asia/Manila');
 
                         <td>
                             <div style="margin: 0.5rem;">
-                                <input type="text" class="form-control" name="appraised" placeholder="Appraised Value">
                             </div>
                         </td>
                         <td>
                             <div style="margin: 0.5rem;">
-                                <input type="text" class="form-control" name="or" placeholder="OR No.">
                             </div>
                         </td>
                         <td>
                             <div style="margin: 0.5rem;">
-                                <input type="text" class="form-control" name="amount" placeholder="Amount">
                             </div>
                         </td>
-                    </tr>
+                    </tr> -->
 
+
+                    <tbody id="tableBody">
 
 
 

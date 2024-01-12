@@ -281,57 +281,7 @@ $RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
                         <td>Amount</td>
                     </tr>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <!-- HERE -->
+                   <!-- HERE -->
 <?php
 
 for($i = 0; $i < count($RIS_No); $i++){

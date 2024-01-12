@@ -87,8 +87,7 @@ if (!isset($_SESSION['user_id'])) {
                 </thead>
                 <tbody id="tableBody">
 
-                    <tr id="insertRowTarget
-    ">
+                    <tr id="insertRowTarget">
                         <td colspan="12">
 
                             <div style="margin: 0.5rem;">
@@ -241,77 +240,78 @@ if (!isset($_SESSION['user_id'])) {
 
         <div class="col-sm-12">
             <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
-            <button type="button" id="addRowButtonWasteReport" class="btn btn-primary" style="background-color: maroon;">
-    Additional row
-</button>
+                <button type="button" id="addRowButtonWasteReport" class="btn btn-primary" style="background-color: maroon;">
+                    Additional row
+                </button>
 
-<script>
-document.getElementById('addRowButtonWasteReport').addEventListener('click', function () {
-    // Create new row
-    var tableBody = document.getElementById('tableBody');
+                <script>
+                    document.getElementById('addRowButtonWasteReport').addEventListener('click', function() {
+                        // Create new row
+                        var tableBody = document.getElementById('tableBody');
 
-    if (!(tableBody.childElementCount >= 5)) {
-        var newRow = tableBody.querySelector('tr').cloneNode(true);
-        var inputFields = newRow.querySelectorAll('input');
+                        if (!(tableBody.childElementCount >= 5)) {
+                            var newRow = tableBody.querySelector('tr').cloneNode(true);
+                            var inputFields = newRow.querySelectorAll('input');
 
-        // Increment the index of each input field in the cloned row to ensure unique names
-        var index = tableBody.children.length; // Get the number of existing rows
-        inputFields.forEach(function (input) {
-            // Update the name attribute by replacing the last set of square brackets and their content
-            input.name = input.name.replace(/\[\d+\]$/, '[' + index + ']');
-        });
+                            // Increment the index of each input field in the cloned row to ensure unique names
+                            var index = tableBody.children.length; // Get the number of existing rows
+                            inputFields.forEach(function(input) {
+                                // Update the name attribute by replacing the last set of square brackets and their content
+                                input.name = input.name.replace(/\[\d+\]$/, '[' + index + ']');
+                            });
 
-        // Clear the input values in the cloned row
-        inputFields.forEach(function (input) {
-            input.value = '';
-        });
+                            // Clear the input values in the cloned row
+                            inputFields.forEach(function(input) {
+                                input.value = '';
+                            });
 
-        // Append the cloned row to the table body
-        tableBody.appendChild(newRow);
+                            // Append the cloned row to the table body
+                            tableBody.appendChild(newRow);
 
-        // Add event listener to the description input fields in the new row
-        newRow.querySelectorAll('input[name^="description"]').forEach(function (input) {
-            input.addEventListener('change', function () {
-                // Fetch the corresponding unit value and unit measure from the database using AJAX
-                var description = this.value;
-                var row = this.parentElement.parentElement;
+                            // Add event listener to the description input fields in the new row
+                            newRow.querySelectorAll('input[name^="description"]').forEach(function(input) {
+                                input.addEventListener('change', function() {
+                                    // Fetch the corresponding unit value and unit measure from the database using AJAX
+                                    var description = this.value;
+                                    var row = this.parentElement.parentElement;
 
-                fetch('getUnitValue.php?description=' + encodeURIComponent(description))
-                    .then(response => response.json())
-                    .then(data => {
-                        // Update the Unit of Value input field with the fetched data
-                        row.querySelector('input[name^="article"]').value = data.asset_number;
-                        row.querySelector('input[name^="val"]').value = data.unit_value.replace(",", "");
-                        row.querySelector('input[name^="unit"]').value = data.unit_measure;
-                        // row.querySelector('input[name^="stock_no"]').value = data.current_property_number;
-                    })
-                    .catch(error => console.error('Error:', error));
-            });
-        });
+                                    fetch('getUnitValue.php?description=' + encodeURIComponent(description))
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            // Update the Unit of Value input field with the fetched data
+                                            row.querySelector('input[name^="article"]').value = data.asset_number;
+                                            row.querySelector('input[name^="val"]').value = data.unit_value.replace(",", "");
+                                            row.querySelector('input[name^="unit"]').value = data.unit_measure;
+                                            // row.querySelector('input[name^="stock_no"]').value = data.current_property_number;
+                                        })
+                                        .catch(error => console.error('Error:', error));
+                                });
+                            });
 
-        // Add event listener to the quantity input fields in the new row
-        newRow.querySelectorAll('input[name^="quantity"]').forEach(function (input) {
-            input.addEventListener('input', function () {
-                // Get the corresponding row
-                var row = this.parentElement.parentElement;
+                            // Add event listener to the quantity input fields in the new row
+                            newRow.querySelectorAll('input[name^="quantity"]').forEach(function(input) {
+                                input.addEventListener('input', function() {
+                                    // Get the corresponding row
+                                    var row = this.parentElement.parentElement;
 
-                // Fetch values from "Unit of Value" and "Quantity"
-                var unitValue = parseFloat(row.querySelector('input[name^="val"]').value) || 0;
-                var quantity = parseFloat(this.value) || 0;
+                                    // Fetch values from "Unit of Value" and "Quantity"
+                                    var unitValue = parseFloat(row.querySelector('input[name^="val"]').value) || 0;
+                                    var quantity = parseFloat(this.value) || 0;
 
-                // Calculate the value and update the "Value" input field
-                var calculatedValue = unitValue * quantity;
-                row.querySelector('input[name^="value"]').value = calculatedValue.toFixed(2);
-            });
-        });
-    } else {
-        alert('Maximum Rows Created');
-    }
-});
-</script>
+                                    // Calculate the value and update the "Value" input field
+                                    var calculatedValue = unitValue * quantity;
+                                    row.querySelector('input[name^="value"]').value = calculatedValue.toFixed(2);
+                                });
+                            });
+                        } else {
+                            alert('Maximum Rows Created');
+                        }
+                    });
+                </script>
 
                 <div style="margin-left: 10px;">
-                <button type="submit" class="btn btn-primary" style="background-color: maroon;">Submit for Printing</button>                </div>
+                    <button type="submit" class="btn btn-primary" style="background-color: maroon;">Submit for Printing</button>
+                </div>
 
             </div>
         </div>

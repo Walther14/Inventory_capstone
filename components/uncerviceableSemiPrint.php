@@ -301,28 +301,33 @@ $requested_name = $_POST['requested_name'] ?? '';
                         <td>OR No.</td>
                         <td>Amount</td>
                     </tr>
+                    <?php
 
+for($i = 0; $i < count($date); $i++){
+?>
                     <tr>
-
-                        <td><?php echo $date; ?></td>
-                        <td colspan="3"><?php echo $particulars; ?></td>
-                        <td colspan="2"><?php echo $property_number; ?></td>
-                        <td><?php echo $quantity; ?></td>
-                        <td><?php echo implode(', ', $cost); ?></td>
-                        <td><?php echo $total; ?></td>
-                        <td><?php echo $accumulated; ?></td>
-                        <td><?php echo $carrying_amount; ?></td>
-                        <td><?php echo $remarks; ?></td>
-                        <td><?php echo $sale; ?></td>
-                        <td><?php echo $transfer; ?></td>
-                        <td><?php echo $destruction; ?></td>
-                        <td><?php echo implode(', ', $others); ?></td>
-                        <td><?php echo $total; ?></td>
-                        <td><?php echo $appraised; ?></td>
-                        <td><?php echo $or; ?></td>
-                        <td><?php echo $amount; ?></td>
-
+                        <td><?php echo $date[$i]; ?></td>
+                        <td  colspan="3"><?php echo $particulars[$i]; ?></td>
+                        <td  colspan="2"><?php echo $property_number[$i]; ?></td>
+                        <td><?php echo $quantity[$i]; ?></td>
+                        <td><?php echo $cost[$i]; ?></td>
+                        <td><?php echo $total[$i]; ?></td>
+                        <td><?php echo $accumulated[$i]; ?></td>
+                        <td><?php echo $carrying_amount[$i]; ?></td>
+                        <td><?php echo $remarks[$i]; ?></td>
+                        <td><?php echo $sale[$i]; ?></td>
+                        <td><?php echo $transfer[$i]; ?></td>
+                        <td><?php echo $destruction[$i]; ?></td>
+                        <td><?php echo $others[$i]; ?></td>
+                        <td><?php echo $total[$i]; ?></td>
+                        <td><?php echo $appraised[$i]; ?></td>
+                        <td><?php echo $or[$i]; ?></td>
+                        <td><?php echo $amount[$i]; ?></td>
                     </tr>
+<?php
+}
+?>
+                   
 
                     <td colspan="5" style="text-align:justify;"> I hereby request inspection and disposition, pursuant to Section 79 of P.D. No. 1445, of the property enumerated above
                         <br>
