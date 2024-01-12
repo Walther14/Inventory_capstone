@@ -268,7 +268,7 @@ $requested_name = $_POST['requested_name'] ?? '';
                 </thead>
 
                 <tr>
-                    <td colspan="5"> Accountable Officer:<?php echo $type = $_POST['name'] ?? ''; ?></td>
+                    <td colspan="5"> Accountable Officer:<br><?php echo $type = $_POST['name'] ?? ''; ?></td>
                     <td colspan="5"> Designation:<?php echo $type = $_POST['designation'] ?? ''; ?></td>
                     <td colspan="5"> Designation:<?php echo $type = $_POST['station'] ?? ''; ?></td>
                     <td colspan="5"> Fund Cluster:<?php echo $type = $_POST['fund'] ?? ''; ?></td>

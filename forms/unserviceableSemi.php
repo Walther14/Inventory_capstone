@@ -82,7 +82,7 @@ date_default_timezone_set('Asia/Manila');
                         <td colspan="12" style="color: white;">To be filled up in the Supply and Property Unit</td>
 
                     </tr>
-                    <tbody id="tableBody">
+                    <tbody id="tableBodyWasteReport">
 
 <tr id="insertRowTarget">
     <td colspan="12">
@@ -226,7 +226,7 @@ date_default_timezone_set('Asia/Manila');
                         <td colspan="1"></td>
                         <td colspan="2">Record of Sales</td>
                     </tr> -->
-                    <tbody id="tableBody">
+                    <tbody id="tableBodyWasteReports">
 
 <tr id="insertRowTarget">
     <td colspan="12">
@@ -385,6 +385,56 @@ date_default_timezone_set('Asia/Manila');
 
         <div class="col-sm-12">
             <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
+            <button type="button" id="addRowButtonWasteReport" class="btn btn-primary" style="background-color: maroon;" onclick="(function createRow(){
+                
+                //create new row
+                var tableBodyWasteReport = document.getElementById('tableBodyWasteReport');
+                
+                if(!(tableBodyWasteReport.childElementCount >=3)){
+                    var newRow = tableBodyWasteReport.querySelector('tr').cloneNode(true);
+                    var inputFields = newRow.querySelectorAll('input');
+                    inputFields.forEach(function(input) {
+                        input.value = '';
+                    });
+            
+                    // Increment the index of each input field in the cloned row to ensure unique names
+                    var index = tableBodyWasteReport.children.length; // Get the number of existing rows
+                    inputFields.forEach(function(input) {
+                        // Update the name attribute by replacing the last set of square brackets and their content
+                        input.name = input.name.replace(/\[\d+\]$/, '[' + index + ']');
+                    });
+            
+                    // Append the cloned row to the table body
+                    tableBodyWasteReport.appendChild(newRow);
+                }else{
+                    alert(`Maximum Rows Created`);
+                }
+                var tableBodyWasteReports = document.getElementById('tableBodyWasteReports');
+                
+                if(!(tableBodyWasteReports.childElementCount >=3)){
+                    var newRow = tableBodyWasteReports.querySelector('tr').cloneNode(true);
+                    var inputFields = newRow.querySelectorAll('input');
+                    inputFields.forEach(function(input) {
+                        input.value = '';
+                    });
+            
+                    // Increment the index of each input field in the cloned row to ensure unique names
+                    var index = tableBodyWasteReports.children.length; // Get the number of existing rows
+                    inputFields.forEach(function(input) {
+                        // Update the name attribute by replacing the last set of square brackets and their content
+                        input.name = input.name.replace(/\[\d+\]$/, '[' + index + ']');
+                    });
+            
+                    // Append the cloned row to the table body
+                    tableBodyWasteReports.appendChild(newRow);
+                }else{
+                    alert(`Maximum Rows Created`);
+                }
+        // Clear the input values in the cloned row
+                //create new row
+            })()
+            
+            ">Additional row</button>
                 <div style="margin-left: 10px;">
                     <button type="submit" class="btn btn-primary" style="background-color: maroon;">Submit for Printing</button>
                 </div>
