@@ -97,49 +97,53 @@ date_default_timezone_set('Asia/Manila');
 
                 <div class="col-sm-4">
                     <label for="description" class="form-label">Particulars/Articles</label>
-                    <input list="descriptions" class="form-control" name="particulars[]" placeholder="Particulars">
+                    <input type="text" class="form-control" name="particulars[]" placeholder="Particulars">
+
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="stock_no" class="form-label">Semi-Expendable Property No.</label>
+                    <input list="descriptions" class="form-control" name="property_number[]"  placeholder="Particulars">
                     <datalist id="descriptions">
                         <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
                         <?php
-                        $fund = "SELECT * FROM inventory_db WHERE Asset_category LIKE 'I%'";
+                        $fund = "SELECT * FROM inventory_db";
                         $result = $data->query($fund);
 
                         if ($result->num_rows > 0) {
                             // output data of each row
                             while ($row = $result->fetch_assoc()) {
                         ?>
-                                <option value="<?php echo $row['Property_Description'] ?>"><?php echo $row['Property_Description'] ?></option>
+                                <option value="<?php echo $row['Current_Property_Number'] ?>"></option>
                         <?php
                             }
                         }
                         ?>
                     </datalist>
-
-                </div>
-
-                <div class="col-sm-4">
-                    <label for="stock_no" class="form-label">Semi-Expendable Property No.</label>
-                    <input type="text" class="form-control" name="property_number[]" placeholder="Property Number" required>
                 </div>
                 <div class="col-sm-2">
                     <label for="unit" class="form-label">Qty.</label>
                     <input type="text" class="form-control" name="quantity[]" placeholder="Quantity" required>
                 </div>
                 <div class="col-sm-2">
+                    <label for="val" class="form-label">Unit Cost</label>
+                    <input type="number" class="form-control mx-auto" name="Ucost[]" placeholder="Enter or select description" required>
+                </div>
+                <div class="col-sm-2">
                     <label for="val" class="form-label">Total Cost</label>
-                    <input type="text" class="form-control mx-auto" name="cost[]" placeholder="Enter or select description" required>
+                    <input type="number" class="form-control mx-auto" name="cost[]" placeholder="Enter or select description" required>
                 </div>
                 <div class="col-sm-3">
                     <label for="balance" class="form-label">Accumulated Imapirment Losses</label>
-                    <input type="text" class="form-control" name="accumulated" placeholder="Accumulated Impairment Losses" required>
+                    <input type="text" class="form-control" name="accumulated[]" placeholder="Accumulated Impairment Losses" required>
                 </div>
                 <div class="col-sm-2">
                     <label for="onhand" class="form-label">Carrying Ammount</label>
-                    <input type="text" class="form-control" name="carrying_amount" placeholder="Carrying Amount" required>
+                    <input type="text" class="form-control" name="carrying_amount[]" placeholder="Carrying Amount" required>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-3">
                     <label for="quantity" class="form-label">Remarks</label>
-                    <input type="text" class="form-control" name="remarks" placeholder="Remarks" required>
+                    <input type="text" class="form-control" name="remarks[]" placeholder="Remarks" required>
                 </div>
                 
             </div>
@@ -236,17 +240,17 @@ date_default_timezone_set('Asia/Manila');
 
                 <div class="col-2">
                     <label for="article" class="form-label">Sale</label>
-                    <input type="text" class="form-control" name="sale" placeholder="Sale" required>
+                    <input type="text" class="form-control" name="sale[]" placeholder="Sale" required>
                 </div>
 
                 <div class="col-sm-4">
                     <label for="description" class="form-label">Transfer</label>
-                    <input type="text" class="form-control" name="transfer" placeholder="Transfer">
+                    <input type="text" class="form-control" name="transfer[]" placeholder="Transfer">
                 </div>
 
                 <div class="col-sm-4">
                     <label for="stock_no" class="form-label">Destruction</label>
-                    <input type="text" class="form-control" name="destruction" placeholder="Destruction" required>
+                    <input type="text" class="form-control" name="destruction[]" placeholder="Destruction" required>
                 </div>
                 <div class="col-sm-2">
                     <label for="unit" class="form-label">Others (Specify)</label>
@@ -254,19 +258,19 @@ date_default_timezone_set('Asia/Manila');
                 </div>
                 <div class="col-sm-2">
                     <label for="val" class="form-label">Total</label>
-                    <input type="text" class="form-control" name="total" placeholder="Total" required>
+                    <input type="text" class="form-control" name="total[]" placeholder="Total" required>
                 </div>
                 <div class="col-sm-3">
                     <label for="balance" class="form-label">Apraised Value</label>
-                    <input type="text" class="form-control" name="appraised" placeholder="Appraised Value" required>
+                    <input type="text" class="form-control" name="appraised[]" placeholder="Appraised Value" required>
                 </div>
                 <div class="col-sm-4">
                     <label for="onhand" class="form-label">OR No. (Record of Sales)</label>
-                    <input type="text" class="form-control" name="or" placeholder="OR No." required>
+                    <input type="text" class="form-control" name="or[]" placeholder="OR No." required>
                 </div>
                 <div class="col-sm-3">
                     <label for="quantity" class="form-label">Amount (Record of Sales)</label>
-                    <input type="text" class="form-control" name="amount" placeholder="Amount" required>
+                    <input type="text" class="form-control" name="amount[]" placeholder="Amount" required>
                 </div>
                 
             </div>

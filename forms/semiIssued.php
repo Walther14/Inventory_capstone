@@ -73,8 +73,7 @@ date_default_timezone_set('Asia/Manila');
                         <td>
                             <div style="margin: 0.5rem;">
                                 <label for="item" class="form-label">Property No.</label>
-                                <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%">
-                                <datalist id="descriptions">
+                                <select list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%" id="semiIssuedProperty">
                                     <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
                                     <?php
                                     $fund = "SELECT * FROM inventory_db WHERE  Asset_Category LIKE 'Semi%'";
@@ -84,19 +83,19 @@ date_default_timezone_set('Asia/Manila');
                                         // output data of each row
                                         while ($row = $result->fetch_assoc()) {
                                     ?>
-                                            <option value="<?php echo $row['Current_Property_Number'] ?>"></option>
+                                            <option value="<?php echo $row['Current_Property_Number'] ?>"><?php echo $row['Current_Property_Number'] ?></option>
                                     <?php
                                         }
                                     }
                                     ?>
-                                </datalist>
+                                </select>
 
                             </div>
                         </td>
                         <td>
                             <div style="margin: 0.5rem;">
                                 <label for="item" class="form-label">Item Description</label>
-                                <input type="text" class="form-control" id="ATitle" name="Asset_Title[]" placeholder="">
+                                <input type="text" class="form-control" id="ATitle" name="Asset_Title[]" placeholder="Insert Description" required>
                             </div>
 
 
@@ -196,6 +195,8 @@ date_default_timezone_set('Asia/Manila');
     </form>
 
     <script>
+
+        
         // Function to calculate the amount and update the corresponding input field
         function calculateAmount() {
             // Get the quantity and unit_cost values

@@ -31,7 +31,6 @@ $RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
 
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -285,6 +284,7 @@ $RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
 <?php
 
 for($i = 0; $i < count($RIS_No); $i++){
+    var_dump($Asset_Title)
 ?>
                     <tr>
                         <td><?php echo $RIS_No[$i]; ?></td>

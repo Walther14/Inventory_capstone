@@ -6,7 +6,7 @@ include('../Controller/db.php');
 
 
 // Retrieve values from the $_POST array
-$As = $_POST['As'] ?? '';
+$Date = $_POST['Date'] ?? '';
 
 $name = $_POST['name'] ?? '';
 $designation = $_POST['designation'] ?? '';
@@ -14,20 +14,20 @@ $station = $_POST['station'] ?? '';
 $fund = $_POST['fund'] ?? '';
 
 $date = $_POST['date'] ?? '';
-$particulars = $_POST['particulars'] ?? '';
-$property_number = $_POST['property_number'] ?? '';
+$description = $_POST['description'] ?? '';
 $quantity = $_POST['quantity'] ?? '';
-$Ucost = $_POST['Ucost'] ?? '';
-$cost = $_POST['cost'] ?? '';
-$total = $_POST['total'] ?? '';
-$accumulated = $_POST['accumulated'] ?? '';
+$unit_cost = $_POST['unit_cost'] ?? '';
+$total_cost = $_POST['total_cost'] ?? '';
+$classification = $_POST['classification'] ?? '';
+$property_no = $_POST['property_no'] ?? '';
+$date_acquired = $_POST['date_acquired'] ?? '';
 $carrying_amount = $_POST['carrying_amount'] ?? '';
-$remarks = $_POST['remarks'] ?? '';
+$how = $_POST['how'] ?? '';
 
-$sale = $_POST['sale'] ?? '';
-$transfer = $_POST['transfer'] ?? '';
-$destruction = $_POST['destruction'] ?? '';
-$others = $_POST['others'] ?? '';
+$destroyed = $_POST['destroyed'] ?? '';
+$sold = $_POST['sold'] ?? '';
+$continued = $_POST['continued'] ?? '';
+$salvaged = $_POST['salvaged'] ?? '';
 $total = $_POST['total'] ?? '';
 $appraised = $_POST['appraised'] ?? '';
 $or = $_POST['or'] ?? '';
@@ -263,74 +263,78 @@ $requested_name = $_POST['requested_name'] ?? '';
                         </th>
                     </tr>
                     <th colspan="20" class="text-center">
-                        INVENTORY AND INSPECTION REPORT OF UNSERVICEABLE SEMI-EXPENDABLE PROPERTY
+                        INVENTORY AND INSPECTION REPORT OF UNSERVICEABLE PROPERTY
                         <br>
-                        As at <?php echo $type = $_POST['As'] ?? ''; ?>
+                        As of <?php echo date("F j, Y", strtotime($Date)); ?>
                         <br>
                         Batanes State College
                     </th>
                 </thead>
 
                 <tr>
-                    <td colspan="5"> Accountable Officer:<br><?php echo $type = $_POST['name'] ?? ''; ?></td>
-                    <td colspan="5"> Designation:<?php echo $type = $_POST['designation'] ?? ''; ?></td>
-                    <td colspan="5"> Designation:<?php echo $type = $_POST['station'] ?? ''; ?></td>
-                    <td colspan="5"> Fund Cluster:<?php echo $type = $_POST['fund'] ?? ''; ?></td>
+                    <td colspan="7"> Accountable Officer:<br><?php echo $type = $_POST['name'] ?? ''; ?></td>
+                    <td colspan="5"> Designation:<br><?php echo $type = $_POST['designation'] ?? ''; ?></td>
+                    <td colspan="5"> Designation:<br><?php echo $type = $_POST['station'] ?? ''; ?></td>
+                    <td colspan="5"> Fund Cluster:<br><?php echo $type = $_POST['fund'] ?? ''; ?></td>
 
 
                 </tr>
                 <tr>
-                    <td colspan="12"> To be filled up in the Supply and Property Unit</td>
-                    <td colspan="8"> To be filled up by Accounting Unit</td>
+                    <td colspan="12">INVENTORY</td>
+                    <td colspan="6"> INSPECTION REPORT</td>
+                    <td colspan="3"> RECORD OF SALES</td>
+
                 </tr>
 
                 <tbody>
 
                     <tr style="text-align: center;">
-                        <td>Date Acquired</td>
-                        <td colspan="3">Particulars/Articles</td>
-                        <td colspan="2">Property No.</td>
-                        <td>Qty.</td>
+                        <td colspan="4">Articles</td>
+                        <td>qty.</td>
                         <td>Unit Cost</td>
                         <td>Total Cost</td>
-                        <td>Accumulated Imapirment Losses</td>
-                        <td>Carrying Ammount</td>
-                        <td>Remarks</td>
-                        <td>Sale</td>
-                        <td>Transfer</td>
-                        <td>Destruction</td>
-                        <td>Others (Specify)</td>
+                        <td colspan="2">Classification</td>
+                        <td>Property No.</td>
+                        <td>Date Acquired</td>
+                        <td>How rendered uncerviceable</td>
+                        <td>Destroyed</td>
+                        <td>Sold</td>
+                        <td>Continued in service</td>
+                        <td>To be salvaged</td>
                         <td>Total</td>
-                        <td>Apraised Value</td>
+                        <td>Appraised Valuation</td>
                         <td>OR No.</td>
                         <td>Amount</td>
                     </tr>
-                    <?php
 
-                    for ($i = 0; $i < count($date); $i++) {
-                
+                    <?php
+var_dump($_POST['description']);
+                    ?>
+     
+                    <?php
+                // for($i = 0; $i < count($description); $i++){
                     ?>
                         <tr>
-                            <td><?php echo $date[$i]; ?></td>
-                            <td colspan="3"><?php echo $particulars[$i]; ?></td>
-                            <td colspan="2"><?php echo $property_number[$i]; ?></td>
-                            <td><?php echo $quantity[$i]; ?></td>
+                            <td><?php echo $description[$i]; ?></td>
+                            <td colspan="2"><?php echo $quantity[$i]; ?></td>
+                            <td><?php echo $unit_cost[$i]; ?></td>
                             <td><?php echo $Ucost[$i]; ?></td>
-                            <td><?php echo $cost[$i]; ?></td>
-                            <td><?php echo $accumulated[$i]; ?></td>
-                            <td><?php echo $carrying_amount[$i]; ?></td>
-                            <td><?php echo $remarks[$i]; ?></td>
-                            <td><?php echo $sale[$i]; ?></td>
-                            <td><?php echo $transfer[$i]; ?></td>
-                            <td><?php echo $destruction[$i]; ?></td>
-                            <td><?php echo $others[$i]; ?></td>
+                            <td><?php echo $total_cost[$i]; ?></td>
+                            <td><?php echo $classification[$i]; ?></td>
+                            <td><?php echo $property_no[$i]; ?></td>
+                            <td><?php echo $date_acquired[$i]; ?></td>
+                            <td><?php echo $how[$i]; ?></td>
+                            <td><?php echo  $destroyed[$i]; ?></td>
+                            <td><?php echo $sold[$i] ; ?></td>
+                            <td><?php echo $continued[$i]; ?></td>
+                            <td><?php echo $salvaged[$i]; ?></td>
                             <td><?php echo $total[$i]; ?></td>
                             <td><?php echo $appraised[$i]; ?></td>
                             <td><?php echo $or[$i]; ?></td>
                             <td><?php echo $amount[$i]; ?></td>
                         </tr>
                     <?php
-                    }
+                // }
                     ?>
 
 
