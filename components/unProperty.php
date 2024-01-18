@@ -5,12 +5,6 @@ use function PHPSTORM_META\type;
 include('../Controller/db.php');
 
 
-// Retrieve values from the $_POST array
-
-if (isset($_POST['unprop'])) {
-    $formdata = $_POST['unprop'];
- }
- 
 $Date = $_POST['Date'] ?? '';
 
 $name = $_POST['name'] ?? '';
@@ -19,13 +13,13 @@ $station = $_POST['station'] ?? '';
 $fund = $_POST['fund'] ?? '';
 
 $date = $_POST['date'] ?? '';
-$description = $_POST['description'] ?? '';
+$particulars = $_POST['descript'] ?? '';
 $quantity = $_POST['quantity'] ?? '';
-$unit_cost = $_POST['unit_cost'] ?? '';
-$total_cost = $_POST['total_cost'] ?? '';
-$classification = $_POST['classification'] ?? '';
-$property_no = $_POST['property_no'] ?? '';
-$date_acquired = $_POST['date_acquired'] ?? '';
+$unit_cost = $_POST['val'] ?? '';
+$total_cost = $_POST['amount'] ?? '';
+$classification = $_POST['class'] ?? '';
+$property_no = $_POST['Current_Property_Number'] ?? '';
+$dates = $_POST['date'] ?? '';
 $carrying_amount = $_POST['carrying_amount'] ?? '';
 $how = $_POST['how'] ?? '';
 
@@ -36,7 +30,7 @@ $salvaged = $_POST['salvaged'] ?? '';
 $total = $_POST['total'] ?? '';
 $appraised = $_POST['appraised'] ?? '';
 $or = $_POST['or'] ?? '';
-$amount = $_POST['amount'] ?? '';
+$amount = $_POST['amt'] ?? '';
 
 $witness_name = $_POST['witness_name'] ?? '';
 $inspection_name = $_POST['inspection_name'] ?? '';
@@ -277,10 +271,9 @@ $requested_name = $_POST['requested_name'] ?? '';
                 </thead>
 
                 <tr>
-                    <td colspan="7"> Accountable Officer:<br><?php echo $type = $formdata['name'] ?? ''; ?></td>
-                    <td colspan="5"> Designation:<br><?php echo $type = $formdata['designation'] ?? ''; ?></td>
-                    <td colspan="5"> Designation:<br><?php echo $type = $formdata['station'] ?? ''; ?></td>
-                    <td colspan="5"> Fund Cluster:<br><?php echo $type = $formdata['fund'] ?? ''; ?></td>
+                    <td colspan="8"> Accountable Officer:<br><?php echo  $type = $_POST['name'] ?? ''; ?></td>
+                    <td colspan="7"> Designation:<br><?php echo $designation; ?></td>
+                    <td colspan="7"> Designation:<br><?php echo $station; ?></td>
 
 
                 </tr>
@@ -312,35 +305,62 @@ $requested_name = $_POST['requested_name'] ?? '';
                         <td>Amount</td>
                     </tr>
 
-                 
-     
+
                     <?php
-                // for($i = 0; $i < count($description); $i++){
+
+
+                    for ($i = 0; $i < count($particulars); $i++) {
+
                     ?>
-                        <tr>
-                            <td colspan="4"><?php echo $formdata['description']; ?></td>
-                            <td><?php echo $formdata['quantity']; ?></td>
-                            <td><?php echo $formdata['unit_cost']; ?></td>
-                            <td><?php echo $formdata['total_cost']; ?></td>
-                            <td colspan="2"><?php echo $formdata['classification']; ?></td>
-                            <td><?php echo $formdata['property_no'] ?></td>
-                            <td><?php echo $formdata['date_acquired']; ?></td>
-                            <td><?php echo $formdata['how']; ?></td>
-                            <td><?php echo $formdata['destroyed']; ?></td>
-                            <td><?php echo $formdata['sold'] ; ?></td>
-                            <td><?php echo $formdata['continued']; ?></td>
-                            <td><?php echo $formdata['salvaged']; ?></td>
-                            <td><?php echo $formdata['total']; ?></td>
-                            <td><?php echo $formdata['appraised']; ?></td>
-                            <td><?php echo $formdata['or']; ?></td>
-                            <td><?php echo $formdata['amount']; ?></td>
+
+                        <tr style="text-align:center;">
+                            <td colspan="4"><?php echo $particulars[$i]; ?></td>
+                            <td><?php echo $quantity[$i]; ?></td>
+                            <td><?php echo $unit_cost[$i]; ?></td>
+                            <td><?php echo $total_cost[$i]; ?></td>
+                            <td><?php echo $classification[$i]; ?></td>
+                            <td colspan="2"><?php echo $property_no[$i]; ?></td>
+                            <td><?php echo date("F j, Y", strtotime($dates[$i])); ?></td>
+
+                            <td><?php echo $how[$i]; ?></td>
+                            <td><?php echo $destroyed[$i]; ?></td>
+                            <td><?php echo $sold[$i]; ?></td>
+                            <td><?php echo $continued[$i]; ?></td>
+                            <td><?php echo $salvaged[$i]; ?></td>
+                            <td><?php echo '₱' . number_format($total[$i], 2); ?></td>
+                            <td><?php echo '₱' . number_format ($appraised[$i],2); ?></td>
+                            <td><?php echo $or[$i]; ?></td>
+                            <td><?php echo '₱' . number_format ($amount[$i], 2); ?></td>
+
                         </tr>
                     <?php
-                // }
+                    }
                     ?>
 
+<tr style="text-align: left;">
+    <td colspan="6">TOTAL</td>
+    <td colspan="1">
+        <?php 
+            $amount = isset($_POST['amount']) ? $_POST['amount'] : [];
+            $amount = array_map(function($value) {
+                return floatval(str_replace(['₱', ','], '', $value));
+            }, $amount);
 
-                    <td colspan="5" style="text-align:justify;"> I hereby request inspection and disposition, pursuant to Section 79 of P.D. No. 1445, of the property enumerated above
+            $total = array_sum($amount);
+
+            // Output the formatted total using Intl.NumberFormat in JavaScript
+            echo '<script>';
+            echo 'document.write(new Intl.NumberFormat("en", {
+                style: "currency",
+                currency: "PHP"
+            }).format(' . json_encode($total) . '));';
+            echo '</script>';
+        ?>
+    </td>
+    <td colspan="13">
+</tr>
+
+                    <td colspan="7" style="text-align:justify;"> I hereby request inspection and disposition, pursuant to Section 79 of P.D. No. 1445, of the property enumerated above
                         <br>
                         <br>
                         Requested by:
@@ -350,9 +370,8 @@ $requested_name = $_POST['requested_name'] ?? '';
                     </td>
 
 
-                    <td colspan="5">
+                    <td colspan="4">
                         <p style="margin-top: 100px;"></p>
-
 
 
                         Approved by:
@@ -389,17 +408,16 @@ $requested_name = $_POST['requested_name'] ?? '';
         <div style="margin-left: 10px;">
 
             <img src="../img/back.png" style="height: 60px;" onclick="goBack()">
-
+            <br>
+            <img src="../img/save.png" style="height: 70px;" onclick="saveImage()">
+            <br>
+            <img src="../img/print.png" style="height: 70px; display:flex" onclick="printReport()">
         </div>
     </div>
 
 
     <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px; position: fixed; right: 10px; bottom: 10px;">
         <div style="margin-left: 10px;">
-
-            <img src="../img/save.png" style="height: 70px;" onclick="saveImage()">
-
-            <img src="../img/print.png" style="height: 70px; display:flex" onclick="printReport()">
         </div>
     </div>
 </body>

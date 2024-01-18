@@ -30,7 +30,7 @@ if (!isset($_SESSION['user_id'])) {
                 </a>
                 <div class="d-flex justify-content-between">
                     <form method="get" action="" style="display: flex; align-items: center; margin-right: 30px;">
-                        <input type="text" id="search" name="search" style="width: 130px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" placeholder="Enter your search term">
+                        <input type="text" id="search" name="search" style="width: 500px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" placeholder="Enter your search term(description, property number or user ID)">
                         <button type="submit" style="width:50px; background-color: white; border-radius: 5px; border: solid .5px; height: 2rem;" onmouseenter="changeColor(this, '#ffa800')" onmouseleave="changeColor(this, 'white')" onclick="changeColor(this, 'maroon')"">Search</button>
     </form>
 
@@ -48,12 +48,6 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </nav>
     </div>
-
-
-    <!-- End of Topbar -->
-
-
-
 
 
 
@@ -82,6 +76,7 @@ if (!isset($_SESSION['user_id'])) {
 
     $result = $data->query($archive);
     ?>
+
 
 
 

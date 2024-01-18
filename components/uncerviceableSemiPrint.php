@@ -14,11 +14,11 @@ $station = $_POST['station'] ?? '';
 $fund = $_POST['fund'] ?? '';
 
 $date = $_POST['date'] ?? '';
-$particulars = $_POST['particulars'] ?? '';
-$property_number = $_POST['property_number'] ?? '';
+$particulars = $_POST['descript'] ?? '';
+$property_number = $_POST['Current_Property_Number'] ?? '';
 $quantity = $_POST['quantity'] ?? '';
-$Ucost = $_POST['Ucost'] ?? '';
-$cost = $_POST['cost'] ?? '';
+$Ucost = $_POST['val'] ?? '';
+$cost = $_POST['amount'] ?? '';
 $total = $_POST['total'] ?? '';
 $accumulated = $_POST['accumulated'] ?? '';
 $carrying_amount = $_POST['carrying_amount'] ?? '';
@@ -31,7 +31,7 @@ $others = $_POST['others'] ?? '';
 $total = $_POST['total'] ?? '';
 $appraised = $_POST['appraised'] ?? '';
 $or = $_POST['or'] ?? '';
-$amount = $_POST['amount'] ?? '';
+$amounts = $_POST['amt'] ?? '';
 
 $witness_name = $_POST['witness_name'] ?? '';
 $inspection_name = $_POST['inspection_name'] ?? '';
@@ -273,17 +273,22 @@ $requested_name = $_POST['requested_name'] ?? '';
 
                 <tr>
                     <td colspan="5"> Accountable Officer:<br><?php echo $type = $_POST['name'] ?? ''; ?></td>
-                    <td colspan="5"> Designation:<?php echo $type = $_POST['designation'] ?? ''; ?></td>
-                    <td colspan="5"> Designation:<?php echo $type = $_POST['station'] ?? ''; ?></td>
-                    <td colspan="5"> Fund Cluster:<?php echo $type = $_POST['fund'] ?? ''; ?></td>
+                    <td colspan="5"> Designation: <br><?php echo $type = $_POST['designation'] ?? ''; ?></td>
+                    <td colspan="5"> Station: <br><?php echo $type = $_POST['station'] ?? ''; ?></td>
+                    <td colspan="5"> Fund Cluster: <br><?php echo $type = $_POST['fund'] ?? ''; ?></td>
 
 
                 </tr>
-                <tr>
-                    <td colspan="12"> To be filled up in the Supply and Property Unit</td>
-                    <td colspan="8"> To be filled up by Accounting Unit</td>
+                <tr style="text-align: center;">
+                    <td colspan="12">INVENTORY</td>
+                    <td colspan="8">INSPECTION AND DISPLOSAL</td>
                 </tr>
-
+                <tr style="text-align: center;">
+                    <td colspan="12"></td>
+                    <td colspan="5">DISPOSAL</td>
+                    <td></td>
+                    <td colspan="2">RECORD OF SALES</td>
+                </tr>
                 <tbody>
 
                     <tr style="text-align: center;">
@@ -294,40 +299,135 @@ $requested_name = $_POST['requested_name'] ?? '';
                         <td>Unit Cost</td>
                         <td>Total Cost</td>
                         <td>Accumulated Imapirment Losses</td>
-                        <td>Carrying Ammount</td>
+                        <td>Carrying Amount</td>
                         <td>Remarks</td>
                         <td>Sale</td>
                         <td>Transfer</td>
                         <td>Destruction</td>
                         <td>Others (Specify)</td>
                         <td>Total</td>
-                        <td>Apraised Value</td>
+                        <td>Appraised Value</td>
                         <td>OR No.</td>
                         <td>Amount</td>
                     </tr>
+
+
+
+
                     <?php
 
                     for ($i = 0; $i < count($date); $i++) {
-                
+
                     ?>
-                        <tr>
+                        <tr style="text-align:center;">
                             <td><?php echo $date[$i]; ?></td>
                             <td colspan="3"><?php echo $particulars[$i]; ?></td>
                             <td colspan="2"><?php echo $property_number[$i]; ?></td>
                             <td><?php echo $quantity[$i]; ?></td>
                             <td><?php echo $Ucost[$i]; ?></td>
                             <td><?php echo $cost[$i]; ?></td>
-                            <td><?php echo $accumulated[$i]; ?></td>
-                            <td><?php echo $carrying_amount[$i]; ?></td>
+                            <td>
+                                <?php
+                                $accumulatedValue = isset($accumulated[$i]) ? $accumulated[$i] : 0;
+                                $formattedAccumulatedValue = number_format(
+                                    floatval(str_replace(['₱', ','], '', $accumulatedValue)),
+                                    2,
+                                    '.',
+                                    ''
+                                );
+                                ?>
+
+                                <script>
+                                    document.write(new Intl.NumberFormat("en", {
+                                        style: "currency",
+                                        currency: "PHP"
+                                    }).format(<?php echo json_encode($formattedAccumulatedValue); ?>));
+                                </script>
+                            </td>
+
+                            <td>
+                                <?php
+                                $carryingAmountValue = isset($carrying_amount[$i]) ? $carrying_amount[$i] : 0;
+                                $formattedCarryingAmountValue = number_format(
+                                    floatval(str_replace(['₱', ','], '', $carryingAmountValue)),
+                                    2,
+                                    '.',
+                                    ''
+                                );
+                                ?>
+
+                                <script>
+                                    document.write(new Intl.NumberFormat("en", {
+                                        style: "currency",
+                                        currency: "PHP"
+                                    }).format(<?php echo json_encode($formattedCarryingAmountValue); ?>));
+                                </script>
+                            </td>
+
                             <td><?php echo $remarks[$i]; ?></td>
                             <td><?php echo $sale[$i]; ?></td>
                             <td><?php echo $transfer[$i]; ?></td>
                             <td><?php echo $destruction[$i]; ?></td>
-                            <td><?php echo $others[$i]; ?></td>
-                            <td><?php echo $total[$i]; ?></td>
-                            <td><?php echo $appraised[$i]; ?></td>
+                            <td><?php echo wordwrap($others[$i], 15, '<br>', true); ?></td>
+
+                            <td>
+                                <?php
+                                $totalValue = isset($total[$i]) ? $total[$i] : 0;
+                                $formattedTotalValue = number_format(
+                                    floatval(str_replace(['₱', ','], '', $totalValue)),
+                                    2,
+                                    '.',
+                                    ''
+                                );
+                                ?>
+
+                                <script>
+                                    document.write(new Intl.NumberFormat("en", {
+                                        style: "currency",
+                                        currency: "PHP"
+                                    }).format(<?php echo json_encode($formattedTotalValue); ?>));
+                                </script>
+                            </td>
+
+                            <td>
+                                <?php
+                                $appraisedValue = isset($appraised[$i]) ? $appraised[$i] : 0;
+                                $formattedAppraisedValue = number_format(
+                                    floatval(str_replace(['₱', ','], '', $appraisedValue)),
+                                    2,
+                                    '.',
+                                    ''
+                                );
+                                ?>
+
+                                <script>
+                                    document.write(new Intl.NumberFormat("en", {
+                                        style: "currency",
+                                        currency: "PHP"
+                                    }).format(<?php echo json_encode($formattedAppraisedValue); ?>));
+                                </script>
+                            </td>
+
                             <td><?php echo $or[$i]; ?></td>
-                            <td><?php echo $amount[$i]; ?></td>
+                            <td>
+                                <?php
+                                $amountValue = isset($amounts[$i]) ? $amounts[$i] : 0;
+                                $formattedAmountValue = number_format(
+                                    floatval(str_replace(['₱', ','], '', $amountValue)),
+                                    2,
+                                    '.',
+                                    ''
+                                );
+                                ?>
+
+                                <script>
+                                    document.write(new Intl.NumberFormat("en", {
+                                        style: "currency",
+                                        currency: "PHP"
+                                    }).format(<?php echo json_encode($formattedAmountValue); ?>));
+                                </script>
+                            </td>
+
                         </tr>
                     <?php
                     }
@@ -383,19 +483,22 @@ $requested_name = $_POST['requested_name'] ?? '';
         <div style="margin-left: 10px;">
 
             <img src="../img/back.png" style="height: 60px;" onclick="goBack()">
-
+            <br>
+            <img src="../img/save.png" style="height: 70px;" onclick="saveImage()">
+            <br>
+            <img src="../img/print.png" style="height: 70px; display:flex" onclick="printReport()">
         </div>
     </div>
 
 
-    <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px; position: fixed; right: 10px; bottom: 10px;">
+    <!-- <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px; position: fixed; right: 10px; bottom: 10px;">
         <div style="margin-left: 10px;">
 
             <img src="../img/save.png" style="height: 70px;" onclick="saveImage()">
 
             <img src="../img/print.png" style="height: 70px; display:flex" onclick="printReport()">
         </div>
-    </div>
+    </div> -->
 </body>
 
 </html>

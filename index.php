@@ -377,7 +377,9 @@ if ($sqlQueryInventory && $sqlQuerySemiExpendable && $sqlQueryEquipment) {
                     </tr>
                 </tbody>
             </table>
-            <div style="width: 60%; margin: auto;">
+            <div style="width: 5
+            
+            0%; height: auto; margin: auto;">
                 <canvas id="assetCategoryChart"></canvas>
             </div>
         </div>
@@ -550,7 +552,7 @@ if ($result->num_rows > 0) {
     // Create a horizontal bar chart
     var ctx = document.getElementById('assetCategoryChart').getContext('2d');
     var assetCategoryChart = new Chart(ctx, {
-        type: 'bar', // Change the chart type to 'horizontalBar'
+        type: 'pie', // Change the chart type to 'horizontalBar'
         data: {
             labels: categories,
             datasets: [{

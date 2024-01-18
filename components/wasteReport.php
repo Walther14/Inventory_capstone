@@ -7,6 +7,7 @@ $place = $_POST['place'] ?? '';
 $agency= $_POST['agency'] ?? '';
 $date = $_POST['date'] ?? '';
 $WMR= $_POST['WMR'] ?? '';
+$item= $_POST['item'] ?? '';
 
 $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : [];
 $unit = isset($_POST['unit']) ? $_POST['unit'] : [];
@@ -424,6 +425,10 @@ if ($transferredCheckbox) {
     <div style="margin-left: 10px;">
 
         <img src="../img/back.png" style="height: 60px;"  onclick="goBack()" >
+        
+           <img src="../img/save.png" style="height: 70px;" onclick="saveImage()" >
+        
+           <img src="../img/print.png" style="height: 70px;" onclick="printReport()">
 
     </div>
 </div>
@@ -431,10 +436,6 @@ if ($transferredCheckbox) {
 
     <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px; position: fixed; right: 10px; bottom: 10px;">
         <div style="margin-left: 10px;">
-     
-        <img src="../img/save.png" style="height: 70px;" onclick="saveImage()" >
-
-        <img src="../img/print.png" style="height: 70px;" onclick="printReport()">
         </div>
     </div>
 </body>

@@ -93,6 +93,7 @@ $result = $data->query($baseQuery);
                 page-break-inside: avoid;
             }
 
+  
             .note,
             .form-section {
                 page-break-inside: avoid;
@@ -101,11 +102,15 @@ $result = $data->query($baseQuery);
 
         }
     </style>
-
-<script>
-       
-
- 
+<style>
+    .breakable-input {
+        width: 200px;
+        border: none;
+        white-space: pre-line;
+        font-family: inherit;
+    }
+</style>
+    <script>
         // Function to print the report
         function printReport() {
             // Add page numbers to the content
@@ -120,8 +125,6 @@ $result = $data->query($baseQuery);
             console.log('Going back...');
             window.history.back();
         }
-
-
     </script>
 </head>
 
@@ -134,15 +137,17 @@ $result = $data->query($baseQuery);
         <table id="tbl" class="table table-bordered table table-hover">
             <thead>
                 <tr style="text-align: center;">
-                    <th>Account Group</th>
+                    <th class="hidden-column">Account Group</th>
                     <th>Article/Item</th>
                     <th>Description</th>
                     <th>Old Property No.</th>
                     <th>Property No.</th>
                     <th>Unit of Measure</th>
                     <th>Unit Value</th>
-                    <th>Qty</th>
+                    <th>Qty balance card</th>
+                    <th>Qty physical count</th>
                     <th>Location</th>
+                    <th>Condition</th>
                     <th>Remarks</th>
                     <th class="hidden-column">Issued to</th>
                     <th class="hidden-column">Category</th>
@@ -154,8 +159,8 @@ $result = $data->query($baseQuery);
                     // output data of each row
                     while ($row = $result->fetch_assoc()) {
                 ?>
-                        <tr>
-                            <td><?php echo ($row['Asset_Number']) ?></td>
+                        <tr style="text-align: center;">
+                            <td class="hidden-column"><?php echo ($row['Asset_Number']) ?></td>
                             <td><?php echo ($row['Asset_Title']) ?></td>
                             <td><?php echo ($row['Property_Description']) ?></td>
                             <td><?php echo ($row['Old_Property_Number']) ?></td>
@@ -163,8 +168,10 @@ $result = $data->query($baseQuery);
                             <td><?php echo ($row['Unit_Measure']) ?></td>
                             <td><?php echo ($row['Unit_Value']) ?></td>
                             <td><?php echo ($row['Quantity']) ?></td>
+                            <td><input type="text" name="quantity" style="width: 20px; border:none;"></td>
                             <td><?php echo ($row['Locator']) ?></td>
-                            <td><input style="border:none;" value="<?php echo ($row['Remarks']) ?>"></input></td>
+                            <td><div class="breakable-input" contenteditable="true" oninput="insertLineBreaks(this, 10)" role="textbox"></div></td>
+                            <td><?php echo ($row['Remarks']) ?></td>
                             <td class="hidden-column"><?php echo ($row['first_name']) . ' ' . $row['last_name'] ?></td>
                             <td class="hidden-column"><?php echo ($row['Asset_Category']) ?></td>
                         </tr>
@@ -222,14 +229,16 @@ $result = $data->query($baseQuery);
 
             </div>
         </div>
-        
+
     </div>
 
     <div class="d-flex justify-content-end mt-3 fixed-top fixed-right" style="margin-top: 10px; margin-right: 10px; position: fixed; right: 10px; top: 10px;">
         <div style="margin-left: 10px;">
 
             <img src="./img/back.png" style="height: 60px;" onclick="goBack()">
-
+            <a href="javascript:window.print()">
+                <img src="./img/print.png" style="height: 60px;"></img>
+            </a>
         </div>
     </div>
 
@@ -237,9 +246,7 @@ $result = $data->query($baseQuery);
         <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px;">
 
             <div style="margin-left: 10px;">
-                <a href="javascript:window.print()">
-                    <img src="./img/print.png" style="height: 60px;"></img>
-                </a>
+
             </div>
         </div>
     </div>

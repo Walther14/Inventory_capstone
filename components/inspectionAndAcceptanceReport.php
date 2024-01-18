@@ -12,7 +12,8 @@ $invoice = $_POST['invoice'] ?? '';
 $date2 = $_POST['date2'] ?? '';
 $requisitioningOffice = $_POST['requisitioning_office'] ?? '';
 $stockNumbers = isset($_POST['stock_No']) ? $_POST['stock_No'] : [];
-$units = isset($_POST['unit']) ? $_POST['unit'] : [];
+// $units = isset($_POST['unit']) ? $_POST['unit'] : [];
+$units = $_POST['unit'] ?? '';
 $descriptions = isset($_POST['description']) ? $_POST['description'] : [];
 $quantities = isset($_POST['quantity']) ? $_POST['quantity'] : [];
 
@@ -230,7 +231,7 @@ th, td {
                             <div class="col-3" style="display: inline-block; width: 17%; margin-top: 10px;">
     <label for="date" class="form-label">Date</label>
     <?php
-        $formattedDate = date_create($date2)->format('F j, Y');
+        $formattedDate = date_create($date)->format('F j, Y');
     ?>
     <input type="text" class="form-control" id="date" name="date" placeholder="date" value="<?php echo htmlspecialchars($formattedDate); ?>" readonly>
 </div>
@@ -265,21 +266,22 @@ th, td {
 for ($i = 0; $i < count($stockNumbers); $i++) {
     echo "<tr>";
 
-    // Centering the content in the first two cells (colspan='2')
-    echo "<td colspan='2' style='text-align: center;'>{$stockNumbers[$i]}</td>";
+    // Centering the content in the first two cells (colspan='2') with padding set to 0
+    echo "<td colspan='2' style='text-align: center; padding: 0;'>{$stockNumbers[$i]}</td>";
 
-    // Centering the content in the 'Units' cell
-    echo "<td style='text-align: center;'>{$units[$i]}</td>";
+    // Centering the content in the 'Units' cell with padding set to 0
+    echo "<td style='text-align: center; padding: 0;'>{$units[$i]}</td>";
 
-    // Centering the content in the next three cells (colspan='3')
-    echo "<td colspan='3' style='text-align: center;'>{$descriptions[$i]}</td>";
+    // Centering the content in the next three cells (colspan='3') with padding set to 0
+    echo "<td colspan='3' style='text-align: center; padding: 0;'>{$descriptions[$i]}</td>";
 
-    // Centering the content in the 'Quantities' cell
-    echo "<td style='text-align: center;'>{$quantities[$i]}</td>";
+    // Centering the content in the 'Quantities' cell with padding set to 0
+    echo "<td style='text-align: center; padding: 0;'>{$quantities[$i]}</td>";
 
     echo "</tr>";
 }
 ?>
+
 
         <tr style="text-align: center;">
             <td colspan="4">INSPECTION</td>
@@ -341,22 +343,24 @@ for ($i = 0; $i < count($stockNumbers); $i++) {
     </div>
 </div>
   
-<!-- Cancel button -->
 <div class="d-flex justify-content-end mt-3 fixed-top fixed-right" style="margin-top: 10px; margin-right: 10px; position: fixed; right: 10px; top: 10px;">
     <div style="margin-left: 10px;">
 
         <img src="../img/back.png" style="height: 60px;"  onclick="goBack()" >
+        
+           <img src="../img/save.png" style="height: 70px;" onclick="saveImage()" >
+        
+           <img src="../img/print.png" style="height: 70px;" onclick="printReport()">
 
     </div>
 </div>
 
-
     <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px; position: fixed; right: 10px; bottom: 10px;">
         <div style="margin-left: 10px;">
      
-        <img src="../img/save.png" style="height: 70px;" onclick="saveImage()" >
+        <!-- <img src="../img/save.png" style="height: 70px;" onclick="saveImage()" >
 
-        <img src="../img/print.png" style="height: 70px;" onclick="printReport()">
+        <img src="../img/print.png" style="height: 70px;" onclick="printReport()"> -->
         </div>
     </div>
 </body>

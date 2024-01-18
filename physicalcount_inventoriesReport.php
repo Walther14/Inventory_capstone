@@ -99,7 +99,7 @@ if (!isset($_SESSION['user_id'])) {
                                     </div>
 
                                     <div class="col-sm-4">
-                                        <label for="description" class="form-label">Description</label>
+                                        <label for="description" class="form-label" style="color: maroon; font-weight: bold;">Description</label>
                                         <input list="descriptions" class="form-control mx-auto" name="description[]" placeholder="Enter or select description" style="width: 100%">
                                         <datalist id="descriptions">
                                             <option value="" disabled selected>Select an option</option> <!-- Empty option as a placeholder -->
@@ -122,7 +122,7 @@ if (!isset($_SESSION['user_id'])) {
 
                                     <div class="col-sm-2">
                                         <label for="stock_no" class="form-label">Stock No.</label>
-                                        <input type="text" class="form-control" name="stock_no[]" placeholder="Stock No." required>
+                                        <input type="text" class="form-control" name="stock_no[]" placeholder="Stock No.">
                                     </div>
                                     <div class="col-sm-2">
                                         <label for="unit" class="form-label">Unit of measure</label>
@@ -279,9 +279,12 @@ if (!isset($_SESSION['user_id'])) {
                                         .then(response => response.json())
                                         .then(data => {
                                             // Update the Unit of Value input field with the fetched data
-                                            row.querySelector('input[name^="article"]').value = data.asset_number;
+                                            row.querySelector('input[name^="article"]').value = data.asset_title;
                                             row.querySelector('input[name^="val"]').value = data.unit_value.replace(",", "");
                                             row.querySelector('input[name^="unit"]').value = data.unit_measure;
+                                            row.querySelector('input[name^="balance"]').value = data.quantity;
+
+                                            // row.querySelector('input[name^="stock_no"]').value = data.current_property_number;
                                             // row.querySelector('input[name^="stock_no"]').value = data.current_property_number;
                                         })
                                         .catch(error => console.error('Error:', error));
@@ -339,9 +342,11 @@ if (!isset($_SESSION['user_id'])) {
                     .then(response => response.json())
                     .then(data => {
                         // Update the Unit of Value input field with the fetched data
-                        row.querySelector('input[name^="article"]').value = data.asset_number;
+                        row.querySelector('input[name^="article"]').value = data.asset_title;
                         row.querySelector('input[name^="val"]').value = data.unit_value.replace(",", "");
                         row.querySelector('input[name^="unit"]').value = data.unit_measure;
+                        row.querySelector('input[name^="balance"]').value = data.quantity;
+                        // row.querySelector('input[name^="stock_no"]').value = data.current_property_number;
 
 
                     })

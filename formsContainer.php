@@ -78,12 +78,6 @@ if (!isset($_SESSION['user_id'])) {
                     }
 
 
-
-
-
-
-
-
                     const loadData = (id) => {
                         var xhr3 = new XMLHttpRequest();
 

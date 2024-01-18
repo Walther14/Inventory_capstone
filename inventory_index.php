@@ -64,32 +64,38 @@ if (!isset($_SESSION['user_id'])) {
 
 
 
-
-
-
     <?php
-    // Include your database connection logic here
+// Include your database connection logic here
+// For example: $data = new mysqli("localhost", "username", "password", "database_name");
 
-    // Check if the database connection is successful
-    if ($data->connect_error) {
-        die("Connection failed: " . $data->connect_error);
-    }
+// Check if the database connection is successful
+if ($data->connect_error) {
+    die("Connection failed: " . $data->connect_error);
+}
 
-    $inventory = "SELECT * FROM `inventory_db` ORDER BY `inventory_db`.`id` DESC";
+$inventory = "SELECT * FROM `inventory_db`";
 
-    // Check if a search term is provided
-    if (isset($_GET['search']) && !empty($_GET['search'])) {
-        $searchTerm = $_GET['search'];
-        // Modify the query to include a search condition for first name, last name, and property description
-        $inventory .= " WHERE property_description LIKE '%$searchTerm%'";
-    }
+// Check if a search term is provided
+if (isset($_GET['search']) && !empty($_GET['search'])) {
+    $searchTerm = $_GET['search'];
+    // Modify the query to include a search condition for property description, current property number, and issued_to
+    $inventory .= " 
+        LEFT JOIN `users` ON `inventory_db`.`issued_to` = `users`.`user_id`
+        WHERE 
+            `inventory_db`.`property_description` LIKE '%$searchTerm%' OR 
+            `inventory_db`.`current_property_number` LIKE '%$searchTerm%' OR 
+            `users`.`first_name` LIKE '%$searchTerm%' OR 
+            `users`.`last_name` LIKE '%$searchTerm%' OR 
+            `inventory_db`.`issued_to` LIKE '%$searchTerm%'
+    ";
+}
+
+$inventory .= " ORDER BY `inventory_db`.`id` DESC";
+
+$result = $data->query($inventory);
+?>
 
 
-
-    $result = $data->query($inventory);
-
-
-    ?>
 
 
 
@@ -148,32 +154,32 @@ if (!isset($_SESSION['user_id'])) {
                                                     <h1 class="modal-title fs-5" id="modal-title-1">Move to Archives</h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body">
+                                                <div class="modal-body" >
                                                     <form action="./Controller/archives.php" method="POST">
                                                         <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
 
                                                         <div>
-                                                            <h3>
+                                                            <p style="font-size: 15px;">
 
                                                                 Are you Sure to move
-                                                            </h3>
+                                                            </p>
 
                                                         </div>
-                                                        <b>
+                                                        <b style="font-size: 15px; color:maroon;">
 
                                                             <?php echo ($row['Property_Description']) ?>
                                                         </b>
                                                         <div>
-                                                            <h3>
+                                                        <p style="font-size: 15px;">
 
                                                                 To the Archives section?
-                                                            </h3>
+                                                            </p>
 
                                                         </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Move to Archives</button>
+                                                    <button type="submit" class="btn btn-primary" style="background-color: maroon; color: white;" onmouseover="this.style.backgroundColor= '#ffa800' ; this.style.color='maroon'" onmouseout="this.style.backgroundColor='maroon'; this.style.color='white'">Move to Archives</button>
                                                 </div>
                                                 </form>
                                             </div>

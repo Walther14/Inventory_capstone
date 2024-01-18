@@ -1,36 +1,26 @@
 <?php
+
 include('../Controller/db.php');
 
-$inspectionOfficer = $_POST['inspectionOfficer'] ?? '';
-$inspectionOffice = $_POST['inspectionOffice'] ?? '';
-$propertyOfficer = $_POST['propertyOfficer'] ?? '';
-$inspectionOffic = $_POST['inspectionOffic'] ?? '';
-$pre_designation = $_POST['pre_designation'] ?? '';
-$preDate = $_POST['preDate'] ?? '';
-$noted_by = $_POST['noted_by'] ?? '';
-$noted_position = $_POST['noted_position'] ?? '';
-$noted_date = $_POST['noted_date'] ?? '';
-$supplier = $_POST['supplier'] ?? '';
-
-
 // Retrieve values from the $_POST array
-$date1 = $_POST['date1'] ?? '';
-$serial = $_POST['serial'] ?? '';
-$fund = $_POST['fund'] ?? '';
+$place = $_POST['place'] ?? '';
+$agency = $_POST['agency'] ?? '';
+$date = $_POST['date'] ?? '';
+$WMR = $_POST['WMR'] ?? '';
+$item = $_POST['item'] ?? '';
 
-// Initialize arrays for other corresponding values
-
-$RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
-$RCC = isset($_POST['RCC']) ? $_POST['RCC'] : [];
-$description = isset($_POST['Current_Property_Number']) ? $_POST['Current_Property_Number'] : [];
-$Asset_Title = isset($_POST['descript']) ? $_POST['descript'] : [];
-$unit = isset($_POST['unit']) ? $_POST['unit'] : [];
+$property_number = isset($_POST['Current_Property_Number']) ? $_POST['Current_Property_Number'] : [];
 $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : [];
-$unit_cost = isset($_POST['val']) ? $_POST['val'] : [];
+$unit = isset($_POST['unit']) ? $_POST['unit'] : [];
+$description = isset($_POST['descript']) ? $_POST['descript'] : [];
+$OR = isset($_POST['OR']) ? $_POST['OR'] : [];
 $amount = isset($_POST['amount']) ? $_POST['amount'] : [];
-$RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
+$remarks = isset($_POST['remarks']) ? $_POST['remarks'] : [];
 
-
+$name = $_POST['name'] ?? '';
+$date2 = $_POST['date2'] ?? '';
+$name3 = $_POST['name_disposal'] ?? '';
+$date3 = $_POST['date3'] ?? '';
 ?>
 
 <!DOCTYPE html>
@@ -41,19 +31,26 @@ $RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSP</title>
-    <!-- Bordered table -->
+    <title>Your Waste Report</title>
     <style>
         /* Your existing styles for the document go here */
 
         body {
+            font-family: 'Century Gothic', sans-serif;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
-            orientation: portrait;
             position: relative;
             /* Added to position the footer relative to the body */
+        }
+
+        body,
+        th,
+        td,
+        input,
+        label {
+            font-size: 12px !important;
         }
 
         .main-content {
@@ -69,7 +66,7 @@ $RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
 
         th,
         td {
-
+            text-align: center;
             border: 1px solid #ced4da;
             padding: 8px;
         }
@@ -115,46 +112,18 @@ $RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
         }
 
         .form-control {
+            text-align: center;
+            font-family: 'Century Gothic', sans-serif;
             border: none !important;
             border-bottom: 1px solid #ced4da !important;
             text-align: center !important;
             width: 100%;
         }
 
-        body,
-        th,
-        td,
-        .form-control,
-        .form-group label {
-            text-align: center !important;
-            font-family: 'Century Gothic', sans-serif;
-        }
-
         .form-group label {
             text-align: center;
         }
 
-        .footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .footer img {
-            width: 50rem;
-        }
-
-        @page {
-            size: A4 portrait;
-            /* Set the paper size to A4 with portrait orientation */
-            margin: 1cm;
-            /* Set margins for printing */
-        }
 
         /* Styles for the print media */
         @media print {
@@ -188,8 +157,8 @@ $RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
         /* Adjust the margin and width of the table for normal view */
         table {
             border-collapse: collapse;
-            width: 50%;
-            margin: 30px auto 200px;
+            width: 45%;
+            margin: 20px auto 200px;
             /* Center the table with top and bottom margins */
         }
 
@@ -221,9 +190,7 @@ $RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
 
             th,
             td {
-
-                padding: 0px;
-                padding-left: 3px;
+                padding: 4px;
                 /* Reset padding for printing if needed */
             }
 
@@ -231,143 +198,180 @@ $RIS_No = isset($_POST['RIS_No']) ? $_POST['RIS_No'] : [];
         }
     </style>
 
+
 </head>
 
 <body>
 
+    <!-- Bordered table -->
     <div class="print-only">
         <div class="header">
             <!-- Your header content goes here -->
             <img src="../img/document-header.png" alt="Logo" style="width: 50rem; align-items: center;">
         </div>
-        <div class="p-5 d-flex justify-content-center align-items-center">
+        <div class="p-5 d-flex justify-content-center align-items-center remove-print-padding">
 
             <table class="table table-bordered">
                 <thead>
-                    <tr style="text-align: right;">
+                <tr style="text-align: right;">
                         <th colspan="12" style="text-align: right;">
                             Annex A-7
                         </th>
                     </tr>
-                    <th colspan="12" class="text-center">
-                        REPORT OF SEMI-EXPENDABLE PROPERTY ISSUED
-                        <br>
-                        Batanes State College
-                    </th>
-                </thead>
+                    <tr>
 
-                <tr>
-                    <td colspan="3"> Serial No.:<?php echo $type = $_POST['serial'] ?? ''; ?></td>
-                    <td colspan="3"> Fund Cluster:<?php echo $type = $_POST['fund'] ?? ''; ?></td>
-                    <td colspan="3">Date: <?php echo date('F j, Y', strtotime($_POST['date1'] ?? '')); ?></td>
+                        <th colspan="15" class="text-center">
+                            
+                            <div style="display: flex; align-items: center; justify-content: center;">
+
+                                <div style="text-align: center;">
+                                    <label style="font-size: 1.5rem;"> RECEIPT OF RETURNED SEMI-EXPENDABLE PROPERTY
+                                    </label>
+                                 
+                                </div>
+                            </div>
+
+                        </th>
 
 
-                </tr>
-                <tr>
-                    <td colspan="6"> To be filled up in the Supply and Property Unit</td>
-                    <td colspan="4"> To be filled up by Accounting Unit</td>
-                </tr>
-
-                <tbody>
-
-                    <tr style="text-align: center;">
-                        <td>ICS No.</td>
-                        <td>Responsibility Center Code</td>
-                        <td>Semi-Expendable Property No.</td>
-                        <td>Item Description</td>
-                        <td>Unit</td>
-                        <td>Qty. Issued</td>
-                        <td>Unit Cost</td>
-                        <td>Amount</td>
                     </tr>
 
-                   <!-- HERE -->
-<?php
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="10">
+                            <div style="margin: 0.5rem;">
+                                <div class="row g-3">
+                                    <div colspan="4">
+                                        <label for="place" class="form-label">Entity Name:</label>
+                                        <input type="text" class="form-control" id="place" name="place" placeholder="Place of Storage" value="<?php echo $place; ?>" readonly>
+                                    </div>
+                                    <div colspan="4">
+
+                        <td colspan="6">Date:&nbsp; <?php echo htmlspecialchars(date('F j, Y', strtotime($date))); ?>
+                            <br>
+                            <br>
+                            RRSP No. &nbsp; <?php echo $WMR; ?>
+                        </td>
+
+        </div>
+    </div>
+    </td>
+
+    </tr>
+    <tr style="text-align: center;">
+        <td colspan="15">This is to acknowledge receipt of the returned Semi-Expendable Property</td>
+
+    </tr>
+    </div>
 
 
-for($i = 0; $i < count($RIS_No); $i++){
+    <tr style="width: 100%; text-align: center;">
+        <td colspan="4">Item Description</td>
+        <td>Quantity</td>
+        <td>ICS No.</td>
+        <td colspan="4">End User</td>
+        <td colspan="3">Remarks</td>
+ 
+    </tr>
+
+
+
+
+
+    <?php
+;
+
+for($i = 0; $i < count($description); $i++){
     ?>
                     <tr>
-                        <td><?php echo $RIS_No[$i]; ?></td>
-                        <td><?php echo $RCC[$i]; ?></td>
-                        <td><?php echo $description[$i]; ?></td>
-                        <td><?php echo $Asset_Title[$i]; ?></td>
-                        <td><?php echo $unit[$i]; ?></td>
+                        <td colspan="4"><?php echo $description[$i]; ?></td>
                         <td><?php echo $quantity[$i]; ?></td>
-                        <td><?php echo $unit_cost[$i]; ?></td>
-                        <td><?php echo $amount[$i]; ?></td>
+                        <td><?php echo $OR [$i]; ?></td>
+                        <td colspan="4"><?php echo $amount[$i]; ?></td>
+                        <td colspan="3"><?php echo $remarks[$i]; ?></td>
+              
+                       
                     </tr>
                     <?php
 }
 ?>
 
-<tr style="text-align: left;">
-    <td colspan="7">TOTAL</td>
-    <td colspan="1">
-        <?php 
-            $amount = isset($_POST['amount']) ? $_POST['amount'] : [];
-            $amount = array_map(function($value) {
-                return floatval(str_replace(['₱', ','], '', $value));
-            }, $amount);
 
-            $total = array_sum($amount);
+    <tr>
+        <td colspan="9">
+            <div>
+                <label for="certified_correct" class="form-label">Returned By:</label>
+                <br>
+                <br>
+                <div class="form-group">
+                    <input type="text" class="form-control text-center" id="name" name="name" placeholder="Name" value="<?php echo $name; ?>" readonly><br>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control text-center" id="position" name="position" placeholder="Position" value="<?php echo htmlspecialchars(date('F j, Y', strtotime($date2)));?>" readonly><br>
+                </div>
+               
+            </div>
 
-            // Output the formatted total using Intl.NumberFormat in JavaScript
-            echo '<script>';
-            echo 'document.write(new Intl.NumberFormat("en", {
-                style: "currency",
-                currency: "PHP"
-            }).format(' . json_encode($total) . '));';
-            echo '</script>';
-        ?>
-    </td>
-</tr>
+        </td>
+        <td colspan="6">
+            <div>
+                <label for="disposal_approved" class="form-label">Disposal Approved</label> <br>
+                <br>
+
+                <div class="form-group">
+                    <input type="text" class="form-control text-center" id="name" name="name" placeholder="Name" value="<?php echo $name3; ?>" readonly><br>
+                </div>
+                <div class="form-group">
+                    <input class="form-control text-center" id="position" name="position" placeholder="Position" value="<?php echo htmlspecialchars(date('F j, Y', strtotime($date3))); ?>" readonly><br>
+                </div>
+
+        </td>
+    </tr>
+    
+    <!-- <td colspan="15" style="padding: 5px;">
+        <label for="witness_to" class="form-label">Distribution</label>
+
+        <input type="checkbox" id="supplyPropertyUnitCopy" style="margin-left: 50px;" onclick="handleDistributionCheckboxClick(this)">
+        <label for="supplyPropertyUnitCopy" class="form-label" style="margin-left: 5px;">Supply and Property Unit Copy</label>
+
+        <input type="checkbox" id="accountingCopy" style="margin-left: 15px;" onclick="handleDistributionCheckboxClick(this)">
+        <label for="accountingCopy" class="form-label" style="margin-left: 5px;">Accounting Copy</label>
+
+        <input type="checkbox" id="coaCopy" style="margin-left: 15px;" onclick="handleDistributionCheckboxClick(this)">
+        <label for="coaCopy" class="form-label" style="margin-left: 5px;">COA Copy</label>
+    </td> -->
 
 
+    <!-- Add your table rows here -->
 
+    </tbody>
+    </table>
 
-
-                    <td colspan="4" style="text-align: center;"> I hereby certify to the correctness of the above information
-                        <br>
-                        <br>
-                        <?php echo $inspectionOfficer; ?>
-                        <br>
-                        <?php echo $inspectionOffice; ?>
-                    </td>
-                    <td colspan="5" style="text-align: center;"> Posted by:
-                        <br>
-                        <br>
-                        <?php echo $propertyOfficer; ?>
-                        <br>
-                        <?php echo $inspectionOffic; ?>
-                    </td>
-                   
-
-                </tbody>
-            </table>
-
-        </div>
-
-        <div class="footer">
-            <img src="../img/document-footer.png" alt="Logo">
-        </div>
     </div>
 
+    <div class="footer">
+        <img src="../img/document-footer.png" alt="Logo">
+    </div>
+
+    </div>
+
+    <!-- Cancel button -->
     <div class="d-flex justify-content-end mt-3 fixed-top fixed-right" style="margin-top: 10px; margin-right: 10px; position: fixed; right: 10px; top: 10px;">
-    <div style="margin-left: 10px;">
+        <div style="margin-left: 10px;">
 
-        <img src="../img/back.png" style="height: 60px;"  onclick="goBack()" >
-        
-           <img src="../img/save.png" style="height: 70px;" onclick="saveImage()" >
-        
-           <img src="../img/print.png" style="height: 70px;" onclick="printReport()">
+            <img src="../img/back.png" style="height: 60px;" onclick="goBack()">
 
+            <img src="../img/save.png" style="height: 70px;" onclick="saveImage()">
+
+            <img src="../img/print.png" style="height: 70px;" onclick="printReport()">
+
+        </div>
     </div>
-</div>
+
 
     <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px; position: fixed; right: 10px; bottom: 10px;">
         <div style="margin-left: 10px;">
-
         </div>
     </div>
 </body>
@@ -381,6 +385,7 @@ for($i = 0; $i < count($RIS_No); $i++){
         /* Adding a bottom border for separation */
     }
 </style>
+
 <script>
     function saveImage() {
         // Specify the element to capture (in this case, the element with class "print-only")
@@ -398,7 +403,7 @@ for($i = 0; $i < count($RIS_No); $i++){
             link.href = dataUrl;
 
             // Set the download attribute with a filename (you can change "waste_report.jpg" to your desired filename)
-            link.download = "Report of Semi-Expendable Property Issued.jpg";
+            link.download = "waste_report.jpg";
 
             // Append the link to the document
             document.body.appendChild(link);
@@ -427,9 +432,8 @@ for($i = 0; $i < count($RIS_No); $i++){
     // Function to navigate back to the previous page
     function goBack() {
         console.log('Going back...');
-        history.back();
+        window.history.back();
     }
-
 
     // Function to print the report
     function printReport() {
@@ -437,3 +441,16 @@ for($i = 0; $i < count($RIS_No); $i++){
         window.print();
     }
 </script>
+
+
+<script>
+    function printReport() {
+        // Use window.print() to open the browser's print dialog
+        window.print();
+    }
+</script>
+
+
+<?php
+include('../partials/footer.php')
+?>

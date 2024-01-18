@@ -621,7 +621,7 @@
 
                     <div class="row">
                         <div>
-                            <label style="margin-top: 10px; font-weight: bold;">Accumulated Depreciation as of today</label>
+                            <label style="margin-top: 10px; font-weight: bold;">Accumulated Depreciation (Depcreciation x month lapse)</label>
                             <p style="color: black" id="accu"></p>
                         </div>
                     </div>

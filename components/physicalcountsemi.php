@@ -11,7 +11,7 @@ $Date_Acquired = $_POST['Date_Acquired'] ?? '';
 $WMR= $_POST['WMR'] ?? '';
 $article = isset($_POST['article']) ? $_POST['article'] : [];
 $description = isset($_POST['description']) ? $_POST['description'] : [];
-$stock_no = isset($_POST['stock_no']) ? $_POST['stock_no'] : [];
+$stock_no = isset($_POST['Current_Property_Number']) ? $_POST['Current_Property_Number'] : [];
 $unit = isset($_POST['unit']) ? $_POST['unit'] : [];
 $val = isset($_POST['val']) ? $_POST['val'] : [];
 $balance = isset($_POST['balance']) ? $_POST['balance'] : [];
@@ -221,6 +221,11 @@ th, td {
       
         <tbody>
         <tr style="text-align: center;">
+        <tr>
+                        <td colspan="12" style="text-align: right; padding-right: 3px;">
+                            Annex A.8
+                        </td>
+                    </tr>
     <td colspan="12">
     <label style="text-align:center;">REPORT ON THE PHYSICAL COUNT OF SEMI-EXPENDABLE PROPERTIES
  <br> <?php echo $assetTitle; ?></label>
@@ -285,11 +290,11 @@ for ($i = 0; $i < count($article); $i++) {
 
     echo "<td>" . wordwrap($stock_no[$i], 20, "<br/>", true) . "</td>";
     echo "<td>" . wordwrap($unit[$i], 5, "<br/>", true) . "</td>";
-    echo "<td>" . wordwrap($val[$i], 15, "<br/>", true) . "</td>";
+    echo "<td>₱" . number_format($val[$i], 2, '.', ',') . "</td>";
     echo "<td>" . wordwrap($balance[$i], 20, "<br/>", true) . "</td>";
     echo "<td>" . wordwrap($onhand[$i], 10, "<br/>", true) . "</td>";
     echo "<td>" . wordwrap($quantity[$i], 10, "<br/>", true) . "</td>";
-    echo "<td>" . wordwrap($value[$i], 10, "<br/>", true) . "</td>";
+    echo "<td>₱" . number_format($value[$i], 2, '.', ',') . "</td>";
     echo "<td>" . wordwrap($remarks[$i], 50, "<br/>", true) . "</td>";
 
     echo "</tr>";
@@ -300,7 +305,7 @@ for ($i = 0; $i < count($article); $i++) {
 
 <tr style="text-align: left;">
     <td colspan="10" style="text-align: left;">  TOTAL</td>
-    <td colspan="1"><?php echo number_format($total, 2, '.', ','); ?></td>
+    <td colspan="1">₱<?php echo number_format($total, 2, '.', ','); ?></td>
     <td colspan="1"></td>
 </tr>
 
@@ -383,6 +388,10 @@ for ($i = 0; $i < count($article); $i++) {
     <div style="margin-left: 10px;">
 
         <img src="../img/back.png" style="height: 60px;"  onclick="goBack()" >
+        
+           <img src="../img/save.png" style="height: 70px;" onclick="saveImage()" >
+        
+           <img src="../img/print.png" style="height: 70px;" onclick="printReport()">
 
     </div>
 </div>
@@ -390,9 +399,9 @@ for ($i = 0; $i < count($article); $i++) {
 <div class="d-flex justify-content-end mb-3 fixed-bottom fixed-right" style="margin-bottom: 10px; margin-right: 10px; position: fixed; right: 10px; bottom: 10px;">
         <div style="margin-left: 10px;">
      
-        <img src="../img/save.png" style="height: 70px;" onclick="saveImage()" >
+        <!-- <img src="../img/save.png" style="height: 70px;" onclick="saveImage()" >
 
-        <img src="../img/print.png" style="height: 70px;" onclick="printReport()">
+        <img src="../img/print.png" style="height: 70px;" onclick="printReport()"> -->
         </div>
     </div>
 </body>
